@@ -7,7 +7,7 @@ Status: implementation-ready draft. Do not submit until the Relay production rel
 - Submission type: With MCP, including bundled skills
 - Name: Relay Skills
 - Developer identity: Rose Digital
-- Legal operator: E.M. Rose Group LLC d.b.a. Rose Digital
+- Legal operator: JJR Technical Services LLC
 - Category: Developer Tools
 - Short description: Governed skills from Relay
 - Long description: Use Relay's OAuth-protected MCP server to match work to an authorized, version-pinned skill, activate approved matches, and read the exact package files needed for execution.
@@ -68,7 +68,7 @@ Status: implementation-ready draft. Do not submit until the Relay production rel
 ## Final submission gates
 
 - OpenAI organization has Apps Management write access.
-- Rose Digital business identity is verified in the submitting organization.
+- JJR Technical Services LLC business identity is verified in the submitting organization.
 - Production MCP, OAuth metadata, PKCE, refresh, revocation, and cross-organization negative tests pass.
 - A reviewer account works without MFA, SMS, email confirmation, or private-network access.
 - `OPENAI_APPS_CHALLENGE_TOKEN` is set to the portal-issued token and the endpoint returns only that value.

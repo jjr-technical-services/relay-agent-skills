@@ -2,7 +2,7 @@
 
 Portable Agent Skills for Codex and Claude Code, plus an OAuth-protected Relay MCP connection for governed, organization-scoped skills.
 
-Relay is operated by E.M. Rose Group LLC d.b.a. Rose Digital. The tooling in this repository is MIT-licensed; each bundled skill carries its own license file.
+Relay is operated by JJR Technical Services LLC. The tooling in this repository is MIT-licensed; each bundled skill carries its own license file.
 
 ## Install from the marketplace
 

@@ -24,6 +24,12 @@ jobs:
           node-version: 22
           registry-url: https://registry.npmjs.org
 
+      - name: Install npm with trusted publishing support
+        run: npm install --global npm@11.17.0
+
+      - name: Report npm version
+        run: npm --version
+
       - name: Install dependencies
         run: npm ci
 

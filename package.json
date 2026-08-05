@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "relay-agent-skills": "./bin/relay-agent-skills.mjs"
+    "relay-agent-skills": "bin/relay-agent-skills.mjs"
   },
   "files": [
     ".agents/",
@@ -33,5 +33,11 @@
   "bugs": {
     "url": "https://github.com/rose-digital/relay-agent-skills/issues"
   },
-  "keywords": ["agent-skills", "codex", "claude-code", "mcp", "relay"]
+  "keywords": [
+    "agent-skills",
+    "codex",
+    "claude-code",
+    "mcp",
+    "relay"
+  ]
 }
