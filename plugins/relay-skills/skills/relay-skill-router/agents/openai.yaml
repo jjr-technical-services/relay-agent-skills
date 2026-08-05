@@ -1,0 +1,13 @@
+interface:
+  display_name: "Relay Skill Router"
+  short_description: "Match and activate governed Relay skills"
+  default_prompt: "Use $relay-skill-router to find and activate the best governed Relay skill for this task."
+policy:
+  allow_implicit_invocation: true
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "relay-skills"
+      description: "Relay's OAuth-protected skill matching and activation tools"
+      transport: "streamable_http"
+      url: "https://relay.builtbyrose.co/mcp"

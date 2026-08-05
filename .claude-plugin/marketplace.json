@@ -1,0 +1,56 @@
+{
+  "name": "relay",
+  "owner": {
+    "name": "Rose Digital",
+    "url": "https://builtbyrose.co"
+  },
+  "description": "Open Agent Skills and governed Relay MCP tools for Claude Code.",
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "relay-skills",
+      "displayName": "Relay Skills",
+      "source": "./plugins/relay-skills",
+      "description": "Match and activate governed Relay skills through OAuth-protected MCP.",
+      "version": "0.1.0",
+      "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
+      "homepage": "https://relay.builtbyrose.co",
+      "repository": "https://github.com/rose-digital/relay-agent-skills",
+      "license": "MIT",
+      "keywords": ["relay", "agent-skills", "mcp"],
+      "category": "developer-tools",
+      "tags": ["oauth", "governance"],
+      "strict": true
+    },
+    {
+      "name": "relay-product-skills",
+      "displayName": "Relay Product Skills",
+      "source": "./plugins/relay-product-skills",
+      "description": "Product strategy and measurement workflows from Relay.",
+      "version": "0.1.0",
+      "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
+      "homepage": "https://relay.builtbyrose.co",
+      "repository": "https://github.com/rose-digital/relay-agent-skills",
+      "license": "MIT",
+      "keywords": ["relay", "product", "kpi"],
+      "category": "productivity",
+      "tags": ["metrics", "strategy"],
+      "strict": true
+    },
+    {
+      "name": "relay-growth-skills",
+      "displayName": "Relay Growth Skills",
+      "source": "./plugins/relay-growth-skills",
+      "description": "Growth experiment and decision workflows from Relay.",
+      "version": "0.1.0",
+      "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
+      "homepage": "https://relay.builtbyrose.co",
+      "repository": "https://github.com/rose-digital/relay-agent-skills",
+      "license": "MIT",
+      "keywords": ["relay", "growth", "experimentation"],
+      "category": "productivity",
+      "tags": ["ab-testing", "measurement"],
+      "strict": true
+    }
+  ]
+}

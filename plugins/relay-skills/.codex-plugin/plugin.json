@@ -1,0 +1,28 @@
+{
+  "name": "relay-skills",
+  "version": "0.1.0",
+  "description": "Match, activate, and read governed Relay skills through an OAuth-protected MCP server.",
+  "author": {
+    "name": "Rose Digital",
+    "url": "https://builtbyrose.co"
+  },
+  "homepage": "https://relay.builtbyrose.co",
+  "repository": "https://github.com/rose-digital/relay-agent-skills",
+  "license": "MIT",
+  "keywords": ["relay", "agent-skills", "mcp", "governance"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Relay Skills",
+    "shortDescription": "Governed skills from Relay",
+    "longDescription": "Use Relay's OAuth-protected MCP server to match work to an authorized, version-pinned skill, activate approved matches, and read the exact package files needed for execution.",
+    "developerName": "Rose Digital",
+    "category": "Developer Tools",
+    "capabilities": ["Match governed skills", "Activate version-pinned skills", "Read authorized skill files"],
+    "websiteURL": "https://relay.builtbyrose.co",
+    "privacyPolicyURL": "https://relay.builtbyrose.co/privacy",
+    "termsOfServiceURL": "https://relay.builtbyrose.co/terms",
+    "defaultPrompt": "Use Relay to find and activate the best governed skill for this task.",
+    "brandColor": "#020617"
+  }
+}

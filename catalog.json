@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "relay.agent-skills.catalog.v1",
+  "skills": [
+    {
+      "name": "relay-skill-router",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/relay-skill-router",
+      "description": "Match and activate governed, version-pinned Relay skills."
+    },
+    {
+      "name": "kpi-tree",
+      "plugin": "relay-product-skills",
+      "path": "plugins/relay-product-skills/skills/kpi-tree",
+      "description": "Connect strategic outcomes to controllable metrics and instrumentation."
+    },
+    {
+      "name": "ab-test-setup",
+      "plugin": "relay-growth-skills",
+      "path": "plugins/relay-growth-skills/skills/ab-test-setup",
+      "description": "Design a decision-ready controlled experiment."
+    }
+  ]
+}

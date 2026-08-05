@@ -1,0 +1,44 @@
+{
+  "name": "relay",
+  "interface": {
+    "displayName": "Relay"
+  },
+  "plugins": [
+    {
+      "name": "relay-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/relay-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "relay-product-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/relay-product-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Business & Operations"
+    },
+    {
+      "name": "relay-growth-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/relay-growth-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Business & Operations"
+    }
+  ]
+}

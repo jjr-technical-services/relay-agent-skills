@@ -1,0 +1,37 @@
+{
+  "name": "relay-agent-skills",
+  "version": "0.1.0",
+  "description": "Install and validate Relay Agent Skills for Codex and Claude Code.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "relay-agent-skills": "./bin/relay-agent-skills.mjs"
+  },
+  "files": [
+    ".agents/",
+    ".claude-plugin/",
+    "bin/",
+    "plugins/",
+    "submissions/",
+    "catalog.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "verify": "node ./bin/relay-agent-skills.mjs verify",
+    "pack:dry-run": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rose-digital/relay-agent-skills.git"
+  },
+  "homepage": "https://relay.builtbyrose.co",
+  "bugs": {
+    "url": "https://github.com/rose-digital/relay-agent-skills/issues"
+  },
+  "keywords": ["agent-skills", "codex", "claude-code", "mcp", "relay"]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "relay-growth-skills",
+  "displayName": "Relay Growth Skills",
+  "version": "0.1.0",
+  "description": "Growth experiment and decision workflows from Relay.",
+  "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
+  "homepage": "https://relay.builtbyrose.co",
+  "repository": "https://github.com/rose-digital/relay-agent-skills",
+  "license": "MIT",
+  "keywords": ["relay", "growth", "experimentation"],
+  "skills": "./skills/"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "relay-product-skills",
+  "version": "0.1.0",
+  "description": "Open Agent Skills for product strategy and measurement workflows.",
+  "author": {
+    "name": "Rose Digital",
+    "url": "https://builtbyrose.co"
+  },
+  "homepage": "https://relay.builtbyrose.co",
+  "repository": "https://github.com/rose-digital/relay-agent-skills",
+  "license": "MIT",
+  "keywords": ["relay", "product", "metrics", "kpi"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Relay Product Skills",
+    "shortDescription": "Product planning workflows",
+    "longDescription": "Reusable product strategy workflows from Relay, beginning with a KPI tree that connects strategic outcomes to measurable input metrics and instrumentation.",
+    "developerName": "Rose Digital",
+    "category": "Business & Operations",
+    "capabilities": ["Build KPI trees", "Define measurement plans"],
+    "websiteURL": "https://relay.builtbyrose.co",
+    "privacyPolicyURL": "https://relay.builtbyrose.co/privacy",
+    "termsOfServiceURL": "https://relay.builtbyrose.co/terms",
+    "defaultPrompt": "Turn this product goal into a measurable KPI tree.",
+    "brandColor": "#020617"
+  }
+}

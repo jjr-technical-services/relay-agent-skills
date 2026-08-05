@@ -1,0 +1,27 @@
+{
+  "name": "relay-growth-skills",
+  "version": "0.1.0",
+  "description": "Open Agent Skills for growth experiments and decision-ready measurement.",
+  "author": {
+    "name": "Rose Digital",
+    "url": "https://builtbyrose.co"
+  },
+  "homepage": "https://relay.builtbyrose.co",
+  "repository": "https://github.com/rose-digital/relay-agent-skills",
+  "license": "MIT",
+  "keywords": ["relay", "growth", "experimentation", "ab-testing"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Relay Growth Skills",
+    "shortDescription": "Growth experiment workflows",
+    "longDescription": "Reusable growth workflows from Relay, beginning with a rigorous A/B test setup that makes hypotheses, assignment, metrics, guardrails, and decision rules explicit.",
+    "developerName": "Rose Digital",
+    "category": "Business & Operations",
+    "capabilities": ["Design A/B tests", "Define experiment decisions"],
+    "websiteURL": "https://relay.builtbyrose.co",
+    "privacyPolicyURL": "https://relay.builtbyrose.co/privacy",
+    "termsOfServiceURL": "https://relay.builtbyrose.co/terms",
+    "defaultPrompt": "Design a decision-ready experiment for this hypothesis.",
+    "brandColor": "#020617"
+  }
+}

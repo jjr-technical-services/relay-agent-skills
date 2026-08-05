@@ -1,0 +1,12 @@
+{
+  "name": "relay-product-skills",
+  "displayName": "Relay Product Skills",
+  "version": "0.1.0",
+  "description": "Product strategy and measurement workflows from Relay.",
+  "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
+  "homepage": "https://relay.builtbyrose.co",
+  "repository": "https://github.com/rose-digital/relay-agent-skills",
+  "license": "MIT",
+  "keywords": ["relay", "product", "kpi"],
+  "skills": "./skills/"
+}

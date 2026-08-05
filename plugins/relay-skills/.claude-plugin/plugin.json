@@ -1,0 +1,13 @@
+{
+  "name": "relay-skills",
+  "displayName": "Relay Skills",
+  "version": "0.1.0",
+  "description": "Match, activate, and read governed Relay skills through OAuth-protected MCP.",
+  "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
+  "homepage": "https://relay.builtbyrose.co",
+  "repository": "https://github.com/rose-digital/relay-agent-skills",
+  "license": "MIT",
+  "keywords": ["relay", "agent-skills", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./.claude-mcp.json"
+}
