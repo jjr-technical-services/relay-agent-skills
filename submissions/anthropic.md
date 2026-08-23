@@ -1,6 +1,6 @@
 # Claude Code marketplace release dossier
 
-Status: gated v0.2.0 draft. GitHub publication and official-marketplace submission remain blocked on the Relay production release, production lock, dual-host OAuth UAT, and submission receipt.
+Status: gated v0.2.0 draft. Relay v0.1.49 is deployed; GitHub publication and official-marketplace submission remain blocked on the production lock, dual-host OAuth UAT, and separately authorized submission with a retained receipt.
 
 Claude Code marketplaces are Git repositories containing `.claude-plugin/marketplace.json`; publishing this repository makes the marketplace installable without a separate central marketplace-review claim.
 
