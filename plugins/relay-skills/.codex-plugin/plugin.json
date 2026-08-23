@@ -1,7 +1,7 @@
 {
   "name": "relay-skills",
-  "version": "0.1.0",
-  "description": "Match, activate, and read governed Relay skills through an OAuth-protected MCP server.",
+  "version": "0.2.0",
+  "description": "Four native Relay workflows plus OAuth-protected access to the governed skill catalog.",
   "author": {
     "name": "Rose Digital",
     "url": "https://builtbyrose.co"
@@ -9,20 +9,27 @@
   "homepage": "https://relay.builtbyrose.co",
   "repository": "https://github.com/rose-digital/relay-agent-skills",
   "license": "MIT",
-  "keywords": ["relay", "agent-skills", "mcp", "governance"],
+  "keywords": ["relay", "agent-skills", "mcp", "governance", "product", "experimentation", "negotiation"],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Relay Skills",
     "shortDescription": "Governed skills from Relay",
-    "longDescription": "Use Relay's OAuth-protected MCP server to match work to an authorized, version-pinned skill, activate approved matches, and read the exact package files needed for execution.",
+    "longDescription": "Use four bundled, version-locked Relay workflows natively and connect through OAuth to match, activate, and read authorized governed skills.",
     "developerName": "Rose Digital",
     "category": "Developer Tools",
-    "capabilities": ["Match governed skills", "Activate version-pinned skills", "Read authorized skill files"],
+    "capabilities": ["Route governed skills", "Build KPI trees", "Design A/B tests", "Plan negotiations"],
     "websiteURL": "https://relay.builtbyrose.co",
     "privacyPolicyURL": "https://relay.builtbyrose.co/privacy",
     "termsOfServiceURL": "https://relay.builtbyrose.co/terms",
-    "defaultPrompt": "Use Relay to find and activate the best governed skill for this task.",
-    "brandColor": "#020617"
+    "defaultPrompt": [
+      "Find the best Relay workflow for this task.",
+      "Turn this goal into a measurable KPI tree.",
+      "Help me prepare this negotiation."
+    ],
+    "brandColor": "#020617",
+    "composerIcon": "./assets/relay-mark.svg",
+    "logo": "./assets/relay-mark.svg",
+    "logoDark": "./assets/relay-mark-white.svg"
   }
 }

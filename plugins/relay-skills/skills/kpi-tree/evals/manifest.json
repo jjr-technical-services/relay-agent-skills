@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "build-kpi-tree",
+        "query": "Build a KPI tree for this product outcome."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "single-metric-definition",
+        "query": "Define monthly recurring revenue in one sentence."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "measurement-system",
+        "query": "Connect our north-star outcome to leading indicators, guardrails, and instrumentation."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "product-outcome-tree",
+      "task": "Create a KPI tree for increasing successful self-serve onboarding while protecting support load and retention.",
+      "baselineFailure": "The baseline lists disconnected metrics without causal links, guardrails, definitions, owners, or instrumentation.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "outcome",
+          "kind": "text_contains",
+          "value": "Outcome"
+        },
+        {
+          "id": "drivers",
+          "kind": "text_contains",
+          "value": "drivers"
+        },
+        {
+          "id": "guardrails",
+          "kind": "text_contains",
+          "value": "Guardrails"
+        },
+        {
+          "id": "instrumentation",
+          "kind": "text_contains",
+          "value": "Instrumentation"
+        }
+      ]
+    }
+  ]
+}

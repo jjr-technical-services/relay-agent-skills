@@ -9,15 +9,21 @@
     },
     {
       "name": "kpi-tree",
-      "plugin": "relay-product-skills",
-      "path": "plugins/relay-product-skills/skills/kpi-tree",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/kpi-tree",
       "description": "Connect strategic outcomes to controllable metrics and instrumentation."
     },
     {
       "name": "ab-test-setup",
-      "plugin": "relay-growth-skills",
-      "path": "plugins/relay-growth-skills/skills/ab-test-setup",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/ab-test-setup",
       "description": "Design a decision-ready controlled experiment."
+    },
+    {
+      "name": "negotiate-tactically",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/negotiate-tactically",
+      "description": "Prepare ethical, high-leverage negotiation plans and messages."
     }
   ]
 }

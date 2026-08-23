@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "route-governed-work",
+        "query": "Find and activate the governed Relay skill for this task."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "use-known-native-skill",
+        "query": "Use the already selected KPI tree skill."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "discover-authorized-workflow",
+        "query": "Search my authorized Relay catalog and pin the best workflow before execution."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "route-and-activate",
+      "task": "Find, activate, and read the exact governed Relay skill for a KPI planning request.",
+      "baselineFailure": "The baseline guesses a workflow without a persisted match, approval state, or immutable package version.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "match-tool",
+          "kind": "text_contains",
+          "value": "relay_match_skills"
+        },
+        {
+          "id": "activation-tool",
+          "kind": "text_contains",
+          "value": "relay_activate_skill"
+        },
+        {
+          "id": "read-tool",
+          "kind": "text_contains",
+          "value": "relay_skill_read"
+        },
+        {
+          "id": "version-pin",
+          "kind": "text_contains",
+          "value": "assetVersionId"
+        }
+      ]
+    }
+  ]
+}

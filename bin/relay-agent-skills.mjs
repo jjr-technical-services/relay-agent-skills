@@ -1,13 +1,19 @@
 #!/usr/bin/env node
-import { createHash } from 'node:crypto';
-import { cp, lstat, mkdir, mkdtemp, readFile, readdir, rename, rm } from 'node:fs/promises';
+import { cp, lstat, mkdir, mkdtemp, readFile, rename, rm } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
+import {
+  validateBundledSkill,
+  validateProductionLock,
+  verifyLiveLock,
+} from '../lib/package-verification.mjs';
+
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const catalog = JSON.parse(await readFile(path.join(packageRoot, 'catalog.json'), 'utf8'));
+const relayLock = JSON.parse(await readFile(path.join(packageRoot, 'relay-lock.json'), 'utf8'));
 const hostRoots = {
   codex: { user: path.join(homedir(), '.agents', 'skills'), project: '.agents/skills' },
   claude: { user: path.join(homedir(), '.claude', 'skills'), project: '.claude/skills' },
@@ -18,7 +24,8 @@ function usage() {
 
 Commands:
   list [--json]                         List bundled skills.
-  verify [skill...] [--json]            Validate bundled skill packages and print digests.
+  verify [skill...] [--release] [--json] Validate bundled skills against relay-lock.json.
+  verify-live [--json]                  Compare relay-lock.json with production discovery.
   install <skill...> [options]           Install skills into Codex, Claude Code, or both.
   mcp [--host codex|claude]              Print the Relay MCP configuration for a host.
 
@@ -41,7 +48,7 @@ function parseArguments(argv) {
       continue;
     }
     const [rawKey, inlineValue] = value.slice(2).split('=', 2);
-    if (['json', 'force', 'help'].includes(rawKey)) {
+    if (['json', 'force', 'help', 'release'].includes(rawKey)) {
       options[rawKey] = true;
       continue;
     }
@@ -59,52 +66,12 @@ function skillByName(name) {
   return catalog.skills.find((skill) => skill.name === name);
 }
 
-async function collectFiles(root, relative = '') {
-  const entries = await readdir(path.join(root, relative), { withFileTypes: true });
-  const files = [];
-  for (const entry of entries.sort((left, right) => left.name.localeCompare(right.name))) {
-    const child = path.posix.join(relative, entry.name);
-    const absolute = path.join(root, child);
-    const stats = await lstat(absolute);
-    if (stats.isSymbolicLink()) throw new Error(`${child}: symbolic links are not allowed.`);
-    if (stats.isDirectory()) files.push(...await collectFiles(root, child));
-    else if (stats.isFile()) files.push(child);
-    else throw new Error(`${child}: unsupported package entry.`);
-  }
-  return files;
-}
-
-function parseFrontmatter(markdown) {
-  const match = markdown.match(/^---\n([\s\S]*?)\n---\n/);
-  if (!match) throw new Error('SKILL.md must begin with closed YAML frontmatter.');
-  const values = {};
-  for (const line of match[1].split('\n')) {
-    const field = line.match(/^([a-zA-Z0-9_-]+):\s*(.+)$/);
-    if (field) values[field[1]] = field[2].trim().replace(/^['"]|['"]$/g, '');
-  }
-  return { values, body: markdown.slice(match[0].length).trim() };
-}
-
 async function validateSkill(skill) {
-  const root = path.resolve(packageRoot, skill.path);
-  if (!root.startsWith(`${packageRoot}${path.sep}`)) throw new Error(`${skill.name}: path escapes package root.`);
-  const files = await collectFiles(root);
-  if (!files.includes('SKILL.md')) throw new Error(`${skill.name}: SKILL.md is missing.`);
-  if (!files.includes('LICENSE')) throw new Error(`${skill.name}: LICENSE is missing.`);
-  const markdown = await readFile(path.join(root, 'SKILL.md'), 'utf8');
-  const frontmatter = parseFrontmatter(markdown);
-  if (frontmatter.values.name !== skill.name) throw new Error(`${skill.name}: frontmatter name does not match.`);
-  if (!frontmatter.values.description || frontmatter.values.description.length > 1024) {
-    throw new Error(`${skill.name}: description must be 1-1024 characters.`);
-  }
-  if (!frontmatter.body) throw new Error(`${skill.name}: instructions are empty.`);
-  const hash = createHash('sha256');
-  for (const file of files) {
-    hash.update(`${file}\0`);
-    hash.update(await readFile(path.join(root, file)));
-    hash.update('\0');
-  }
-  return { name: skill.name, plugin: skill.plugin, files: files.length, digest: `sha256:${hash.digest('hex')}` };
+  return validateBundledSkill({
+    packageRoot,
+    skill,
+    lockEntry: relayLock.skills?.[skill.name] || null,
+  });
 }
 
 function resolveHosts(value = 'both') {
@@ -175,9 +142,14 @@ async function main() {
   if (options.help || ['help', '--help', '-h'].includes(command)) return print(usage(), false);
   if (command === 'list') return print(catalog.skills, options.json);
   if (command === 'verify') {
+    if (options.release) validateProductionLock(relayLock);
     const skills = positionals.length ? positionals.map((name) => skillByName(name)) : catalog.skills;
     if (skills.some((skill) => !skill)) throw new Error('One or more requested skills are unknown.');
     return print(await Promise.all(skills.map(validateSkill)), options.json);
+  }
+  if (command === 'verify-live') {
+    await verifyLiveLock(relayLock);
+    return print({ status: 'matched', relayOrigin: relayLock.relayOrigin, skills: Object.keys(relayLock.skills) }, options.json);
   }
   if (command === 'install') {
     if (!positionals.length) throw new Error('Install requires at least one skill name.');
@@ -185,8 +157,8 @@ async function main() {
   }
   if (command === 'mcp') {
     const host = options.host || 'codex';
-    if (host === 'codex') return print('[mcp_servers.relay-skills]\nurl = "https://relay.builtbyrose.co/mcp"\noauth_resource = "https://relay.builtbyrose.co/mcp"\nscopes = ["relay.skills.read", "relay.skills.route", "relay.skills.activate"]', false);
-    if (host === 'claude') return print('claude mcp add --transport http relay-skills https://relay.builtbyrose.co/mcp', false);
+    if (host === 'codex') return print('[mcp_servers.relay-skills]\nurl = "https://relay.builtbyrose.co/mcp"\nauth = "oauth"\noauth_resource = "https://relay.builtbyrose.co/mcp"\nscopes = ["relay.skills.read", "relay.skills.route", "relay.skills.activate"]', false);
+    if (host === 'claude') return print(JSON.stringify({ mcpServers: { 'relay-skills': { type: 'http', url: 'https://relay.builtbyrose.co/mcp', oauth: { scopes: 'relay.skills.read relay.skills.route relay.skills.activate' } } } }, null, 2), false);
     throw new Error('--host must be codex or claude for the mcp command.');
   }
   throw new Error(`Unknown command: ${command}\n\n${usage()}`);

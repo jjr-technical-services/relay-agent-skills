@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "relay.agent-skills.lock.v1",
+  "pluginVersion": "0.2.0",
+  "distributionStatus": "candidate_unpromoted",
+  "relayOrigin": "https://relay.builtbyrose.co",
+  "skills": {
+    "relay-skill-router": {
+      "assetId": null,
+      "assetVersionId": null,
+      "packageUrl": null,
+      "packageDigest": null,
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": null,
+      "license": "MIT",
+      "qualificationId": null,
+      "evaluationSuiteDigest": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "7d9d7dd52588a30becdcb1df4ff5bb76522a23b62db41db05a23758fbcce0a62",
+          "byteSize": 495
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "bd65154af9ecfa315b9c463f44e3cd864b0eb4e134437203a46eb3cc702973f6",
+          "byteSize": 1404
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "225c56111b0c6b2d9c90b99e5e71d0f5548b4ef2430bf8ab3c7dce7421870b4a",
+          "byteSize": 1982
+        }
+      ]
+    },
+    "kpi-tree": {
+      "assetId": null,
+      "assetVersionId": null,
+      "packageUrl": null,
+      "packageDigest": null,
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": null,
+      "license": "MIT",
+      "qualificationId": null,
+      "evaluationSuiteDigest": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "fc603577b035b5b3241ddcdcb0a8bc414f07b2846e18fb47364d2d79fb9d425e",
+          "byteSize": 186
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "239187e80c520add682041713f3b5c7ecc1b2d4ec102c78f23b4d527dbf61344",
+          "byteSize": 1397
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "b2c4f710779d5cc664f8e51d82ed3481d27aad17ae9283d92f8a4de354b5ec29",
+          "byteSize": 1846
+        }
+      ]
+    },
+    "ab-test-setup": {
+      "assetId": null,
+      "assetVersionId": null,
+      "packageUrl": null,
+      "packageDigest": null,
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": null,
+      "license": "MIT",
+      "qualificationId": null,
+      "evaluationSuiteDigest": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "ec3a2e7996694b7d3e0c69641e02f317c8346d207e5485a075c4f6a5c36ea7b8",
+          "byteSize": 210
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "3954e306560e140a4024226c6a995f734e4c496d5768804dd689feef60a78660",
+          "byteSize": 1424
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "f104b51fbee9e5b77126faf562256c432109756fa6f05ace322aff5ac51b19be",
+          "byteSize": 2093
+        }
+      ]
+    },
+    "negotiate-tactically": {
+      "assetId": null,
+      "assetVersionId": null,
+      "packageUrl": null,
+      "packageDigest": null,
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": null,
+      "license": "MIT",
+      "qualificationId": null,
+      "evaluationSuiteDigest": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "197abf36ce4be1c00d8d2190b72984ab312955780b05da0f7383708a0aa77a42",
+          "byteSize": 229
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "240bf46eb43831f88ed9d00b426653f06a210a08974189e7e4131107ff4df821",
+          "byteSize": 1446
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "references/patterns.md",
+          "sha256": "e0b75de0716ca13eed236a9d68d58838043188504e981b226bd934916097dfcb",
+          "byteSize": 2371
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "caa2457306746b0e4af2b3e047bfacb983952e2447139266f5c7b2e14806af35",
+          "byteSize": 5431
+        }
+      ]
+    }
+  }
+}

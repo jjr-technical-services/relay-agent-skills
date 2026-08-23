@@ -1,7 +1,7 @@
 {
   "name": "relay-agent-skills",
-  "version": "0.1.0",
-  "description": "Install and validate Relay Agent Skills for Codex and Claude Code.",
+  "version": "0.2.0",
+  "description": "Install and validate the version-locked Relay Skills plugin for Codex and Claude Code.",
   "license": "MIT",
   "type": "module",
   "bin": {
@@ -11,15 +11,26 @@
     ".agents/",
     ".claude-plugin/",
     "bin/",
+    "lib/",
     "plugins/",
+    "scripts/",
     "submissions/",
     "catalog.json",
+    "compatibility-lock.json",
+    "relay-lock.json",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "RELEASE_STATUS.md"
   ],
   "scripts": {
+    "sync:relay": "node ./scripts/sync-from-relay.mjs",
     "test": "node --test",
     "verify": "node ./bin/relay-agent-skills.mjs verify",
+    "verify:release": "node ./bin/relay-agent-skills.mjs verify --release",
+    "verify:live": "node ./bin/relay-agent-skills.mjs verify-live --json",
+    "verify:live:if-promoted": "node ./scripts/verify-live-if-promoted.mjs",
+    "validate:hosts": "node ./scripts/validate-host-manifests.mjs",
+    "test:hosts": "node ./scripts/disposable-host-install.mjs",
     "pack:dry-run": "npm pack --dry-run"
   },
   "engines": {

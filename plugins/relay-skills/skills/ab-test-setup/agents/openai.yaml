@@ -1,0 +1,4 @@
+interface:
+  display_name: "A/B Test Setup"
+  short_description: "Design decision-ready controlled experiments"
+  default_prompt: "Use $ab-test-setup to design a decision-ready experiment for this hypothesis."

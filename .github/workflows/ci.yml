@@ -29,8 +29,25 @@ jobs:
       - name: Verify skill packages
         run: npm run verify
 
+      - name: Validate host manifests
+        run: npm run validate:hosts
+
+      - name: Reject live discovery drift after promotion
+        run: npm run verify:live:if-promoted
+
       - name: Run CLI tests
         run: npm test
 
       - name: Verify npm package contents
         run: npm run pack:dry-run
+
+      - name: Install pinned host CLIs
+        run: npm install --global @openai/codex@0.147.0-alpha.6.5 @anthropic-ai/claude-code@2.1.183
+
+      - name: Validate Claude marketplace strictly
+        run: claude plugin validate . --strict
+
+      - name: Parse and install through disposable host profiles
+        env:
+          RELAY_DISPOSABLE_HOST_ENV: '1'
+        run: npm run test:hosts

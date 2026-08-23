@@ -24,12 +24,37 @@ test('top-level help flags print usage', () => {
   }
 });
 
-test('verify validates all bundled canaries and returns digests', () => {
+test('verify validates all four bundled skills against the candidate lock', () => {
   const result = run(['verify', '--json']);
   assert.equal(result.status, 0, result.stderr);
   const report = JSON.parse(result.stdout);
-  assert.deepEqual(report.map((entry) => entry.name), ['relay-skill-router', 'kpi-tree', 'ab-test-setup']);
+  assert.deepEqual(report.map((entry) => entry.name), [
+    'relay-skill-router',
+    'kpi-tree',
+    'ab-test-setup',
+    'negotiate-tactically',
+  ]);
   assert.equal(report.every((entry) => /^sha256:[a-f0-9]{64}$/.test(entry.digest)), true);
+});
+
+test('release verification fails closed until production promotion supplies exact evidence', () => {
+  const result = run(['verify', '--release']);
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /not production-promoted/);
+});
+
+test('host manifest validation accepts the candidate and rejects release mode', () => {
+  const candidate = spawnSync(process.execPath, [path.join(root, 'scripts/validate-host-manifests.mjs')], {
+    cwd: root,
+    encoding: 'utf8',
+  });
+  assert.equal(candidate.status, 0, candidate.stderr);
+  const release = spawnSync(process.execPath, [path.join(root, 'scripts/validate-host-manifests.mjs'), '--release'], {
+    cwd: root,
+    encoding: 'utf8',
+  });
+  assert.equal(release.status, 1);
+  assert.match(release.stderr, /not production-promoted/);
 });
 
 test('project installation targets both host skill roots', async (t) => {
