@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "relay.compatibility-plugins.lock.v1",
+  "plugins": {
+    "relay-product-skills": {
+      "version": "0.1.0",
+      "files": {
+        ".claude-plugin/plugin.json": "e7f6d62902b712cae4e5bc8fe305a92f5283da83effbadd7cfdefe2dc0642d5f",
+        ".codex-plugin/plugin.json": "efb69a939bd9347abdf96cf205d3ddc38bb6b490a9433fccd5e27f60dafdbcba",
+        "skills/kpi-tree/LICENSE": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+        "skills/kpi-tree/SKILL.md": "b2c4f710779d5cc664f8e51d82ed3481d27aad17ae9283d92f8a4de354b5ec29",
+        "skills/kpi-tree/agents/openai.yaml": "fc603577b035b5b3241ddcdcb0a8bc414f07b2846e18fb47364d2d79fb9d425e"
+      }
+    },
+    "relay-growth-skills": {
+      "version": "0.1.0",
+      "files": {
+        ".claude-plugin/plugin.json": "c5c92651a9a4bbe6eb9660c3c483aa536d53d2e57fcea8f58588349a2caf2ad7",
+        ".codex-plugin/plugin.json": "8386e7bef19d87c3d4c3e1764666ece093f1cc49aaf5e8fa05fadfe4ec531029",
+        "skills/ab-test-setup/LICENSE": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+        "skills/ab-test-setup/SKILL.md": "f104b51fbee9e5b77126faf562256c432109756fa6f05ace322aff5ac51b19be",
+        "skills/ab-test-setup/agents/openai.yaml": "ec3a2e7996694b7d3e0c69641e02f317c8346d207e5485a075c4f6a5c36ea7b8"
+      }
+    }
+  }
+}

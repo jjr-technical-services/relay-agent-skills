@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tactical Negotiation"
+  short_description: "Prepare and steer difficult negotiations"
+  default_prompt: "Use $negotiate-tactically to help me prepare for a negotiation and draft calibrated questions."

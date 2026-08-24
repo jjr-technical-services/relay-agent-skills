@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "rose.skill-manifest.v1",
+  "id": "cmt6sm51o0c8xad0kzm1fmxdc",
+  "slug": "negotiate-tactically",
+  "name": "Tactical Negotiation",
+  "description": "Negotiation coaching for preparing offers, responding to pressure, handling price or scope objections, de-escalating conflict, drafting tactical emails, planning calls, and improving deal strategy. Use when the user asks for negotiation help, difficult conversation prep, calibrated questions, objection handling, salary or vendor negotiation, sales or partnership negotiation, conflict de-escalation, or a response to a counterparty.",
+  "category": "sales-customer-success",
+  "categoryPath": [
+    "sales-customer-success"
+  ],
+  "tags": [
+    "negotiation",
+    "objection-handling",
+    "conflict-resolution",
+    "deal-strategy",
+    "rose-authored",
+    "sales-customer-success"
+  ],
+  "providerCompatibility": [
+    "openai-codex",
+    "chatgpt",
+    "anthropic-claude",
+    "gemini-cli",
+    "github-copilot",
+    "cursor",
+    "agents-standard"
+  ],
+  "requiredTools": [],
+  "resources": {},
+  "artifactTypes": [
+    "markdown",
+    "negotiation-plan",
+    "message-draft"
+  ],
+  "riskLevel": "low",
+  "visibility": "public",
+  "pricingTier": "free",
+  "license": "MIT",
+  "source": {
+    "url": "https://github.com/rose-digital/relay/tree/main/skills/negotiate-tactically",
+    "repo": "rose-digital/relay",
+    "commit": "088547af337a06bca6d9702c2612dad3cb9609cb"
+  },
+  "version": {
+    "id": "cmt6sm5g50c90ad0kl18hqg3z",
+    "number": 1,
+    "publishedAt": "2026-08-24T05:25:57.864Z"
+  },
+  "files": [
+    {
+      "path": "agents/openai.yaml",
+      "role": "supporting",
+      "contentType": "application/yaml",
+      "sha256": "197abf36ce4be1c00d8d2190b72984ab312955780b05da0f7383708a0aa77a42",
+      "byteSize": 229
+    },
+    {
+      "path": "evals/manifest.json",
+      "role": "evaluation",
+      "contentType": "application/json",
+      "sha256": "240bf46eb43831f88ed9d00b426653f06a210a08974189e7e4131107ff4df821",
+      "byteSize": 1446
+    },
+    {
+      "path": "LICENSE",
+      "role": "license",
+      "contentType": "text/plain",
+      "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+      "byteSize": 1069
+    },
+    {
+      "path": "references/patterns.md",
+      "role": "reference",
+      "contentType": "text/markdown",
+      "sha256": "e0b75de0716ca13eed236a9d68d58838043188504e981b226bd934916097dfcb",
+      "byteSize": 2371
+    },
+    {
+      "path": "SKILL.md",
+      "role": "entrypoint",
+      "contentType": "text/markdown",
+      "sha256": "caa2457306746b0e4af2b3e047bfacb983952e2447139266f5c7b2e14806af35",
+      "byteSize": 5431
+    }
+  ]
+}

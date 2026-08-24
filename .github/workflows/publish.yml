@@ -39,7 +39,15 @@ jobs:
         run: test "v$(node -p "require('./package.json').version")" = "$RELEASE_TAG"
 
       - name: Qualify package
-        run: npm run verify && npm test && npm run pack:dry-run
+        run: npm run verify:release && npm run verify:live && npm run validate:hosts -- --release && npm test && npm run pack:dry-run
+
+      - name: Install pinned host CLIs
+        run: npm install --global @openai/codex@0.147.0-alpha.6.5 @anthropic-ai/claude-code@2.1.183
+
+      - name: Validate and install through disposable host profiles
+        env:
+          RELAY_DISPOSABLE_HOST_ENV: '1'
+        run: claude plugin validate . --strict && npm run test:hosts
 
       - name: Publish with provenance
         run: npm publish --access public --provenance

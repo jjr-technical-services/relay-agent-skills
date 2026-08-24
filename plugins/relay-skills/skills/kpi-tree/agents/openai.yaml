@@ -1,0 +1,4 @@
+interface:
+  display_name: "KPI Tree"
+  short_description: "Connect outcomes to measurable input metrics"
+  default_prompt: "Use $kpi-tree to turn this goal into a measurable KPI tree."

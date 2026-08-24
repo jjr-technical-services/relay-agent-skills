@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "relay.agent-skills.lock.v1",
+  "pluginVersion": "0.2.0",
+  "distributionStatus": "production_promoted",
+  "relayOrigin": "https://relay.builtbyrose.co",
+  "skills": {
+    "relay-skill-router": {
+      "assetId": "cmt6sm5pf0c9lad0k6ovvg0ap",
+      "assetVersionId": "cmt6sm5py0c9nad0k8dv3vqzf",
+      "packageUrl": "https://relay.builtbyrose.co/api/v1/skills/relay-skill-router/package?format=zip&versionId=cmt6sm5py0c9nad0k8dv3vqzf",
+      "packageDigest": "sha256:7eff45cc157c677ff3e74b1bbbae0063f8b37bee530c463c59651cf50b405425",
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "088547af337a06bca6d9702c2612dad3cb9609cb",
+      "license": "MIT",
+      "qualificationId": "cmt7fw3lr002xad0efebo2u7r",
+      "evaluationSuiteDigest": "0612ad7aa8b4626ed03e3a6d9ec84a3598f9e48f0e1dcdf8223970295dbc5543",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "7d9d7dd52588a30becdcb1df4ff5bb76522a23b62db41db05a23758fbcce0a62",
+          "byteSize": 495
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "bd65154af9ecfa315b9c463f44e3cd864b0eb4e134437203a46eb3cc702973f6",
+          "byteSize": 1404
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "c527c78a632f03b4b20af544adff9d7b1e1c89559e69497f221018592c6a1b79",
+          "byteSize": 2508
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "225c56111b0c6b2d9c90b99e5e71d0f5548b4ef2430bf8ab3c7dce7421870b4a",
+          "byteSize": 1982
+        }
+      ]
+    },
+    "kpi-tree": {
+      "assetId": "cmt6sm7h30cakad0k2upyncgi",
+      "assetVersionId": "cmt6sm7hl0camad0kxays63hl",
+      "packageUrl": "https://relay.builtbyrose.co/api/v1/skills/kpi-tree/package?format=zip&versionId=cmt6sm7hl0camad0kxays63hl",
+      "packageDigest": "sha256:75cd26e8589d9e0e576d6da0ee9e923d17bd963f103b1c8a686ea30ceb9d28ff",
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "088547af337a06bca6d9702c2612dad3cb9609cb",
+      "license": "MIT",
+      "qualificationId": "cmt782dyc00mead0e2ejxi7je",
+      "evaluationSuiteDigest": "5eeaab5bc8b0746d871778f5936989d01114ca31f9e353f2e85a3d86f1910529",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "fc603577b035b5b3241ddcdcb0a8bc414f07b2846e18fb47364d2d79fb9d425e",
+          "byteSize": 186
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "239187e80c520add682041713f3b5c7ecc1b2d4ec102c78f23b4d527dbf61344",
+          "byteSize": 1397
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "43912b217fbe9884305ac60842c974a53f658b70d9f05d74765c105dd9723dd6",
+          "byteSize": 2195
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "b2c4f710779d5cc664f8e51d82ed3481d27aad17ae9283d92f8a4de354b5ec29",
+          "byteSize": 1846
+        }
+      ]
+    },
+    "ab-test-setup": {
+      "assetId": "cmt6sm5of0c9iad0k0zxe09my",
+      "assetVersionId": "cmt6sm5qa0c9tad0kyo2nq9co",
+      "packageUrl": "https://relay.builtbyrose.co/api/v1/skills/ab-test-setup/package?format=zip&versionId=cmt6sm5qa0c9tad0kyo2nq9co",
+      "packageDigest": "sha256:dc7daa7d32f1d4ed47b5683494b30af368e718f33422803b50aec29779657996",
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "088547af337a06bca6d9702c2612dad3cb9609cb",
+      "license": "MIT",
+      "qualificationId": "cmt782ffv00mpad0ezndh95in",
+      "evaluationSuiteDigest": "eb3a89916921208f224485c4696be54b00a5764420f1481be7b724bc50d013f3",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "ec3a2e7996694b7d3e0c69641e02f317c8346d207e5485a075c4f6a5c36ea7b8",
+          "byteSize": 210
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "3954e306560e140a4024226c6a995f734e4c496d5768804dd689feef60a78660",
+          "byteSize": 1424
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "27652324e2fd8b688d8d06c5b2d9b735da90f00abe193f177f5fa8c8db7b8655",
+          "byteSize": 2271
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "f104b51fbee9e5b77126faf562256c432109756fa6f05ace322aff5ac51b19be",
+          "byteSize": 2093
+        }
+      ]
+    },
+    "negotiate-tactically": {
+      "assetId": "cmt6sm51o0c8xad0kzm1fmxdc",
+      "assetVersionId": "cmt6sm5g50c90ad0kl18hqg3z",
+      "packageUrl": "https://relay.builtbyrose.co/api/v1/skills/negotiate-tactically/package?format=zip&versionId=cmt6sm5g50c90ad0kl18hqg3z",
+      "packageDigest": "sha256:bcdbd43e2534f99d3383a2b456e290a56742b730dfa3ed3993754892c8cde8d0",
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "088547af337a06bca6d9702c2612dad3cb9609cb",
+      "license": "MIT",
+      "qualificationId": "cmt782hbf00load0eo677nrg0",
+      "evaluationSuiteDigest": "cf039ee42a807649a9d7532f97c50d7daba5fbe7cd5fe8c789acfc2a2b9bb624",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "197abf36ce4be1c00d8d2190b72984ab312955780b05da0f7383708a0aa77a42",
+          "byteSize": 229
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "240bf46eb43831f88ed9d00b426653f06a210a08974189e7e4131107ff4df821",
+          "byteSize": 1446
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "d0afb94317fba5fa050030fcba0e60c7eaefa9e4a333d44c0b21db4c08fa2717",
+          "byteSize": 2682
+        },
+        {
+          "path": "references/patterns.md",
+          "sha256": "e0b75de0716ca13eed236a9d68d58838043188504e981b226bd934916097dfcb",
+          "byteSize": 2371
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "caa2457306746b0e4af2b3e047bfacb983952e2447139266f5c7b2e14806af35",
+          "byteSize": 5431
+        }
+      ]
+    }
+  }
+}

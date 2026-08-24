@@ -1,6 +1,6 @@
 # OpenAI plugin submission dossier
 
-Status: implementation-ready draft. Do not submit until the Relay production release, OAuth canary, public skill promotion, and reviewer account are verified.
+Status: gated v0.2.0 draft. Relay v0.1.49 is deployed; do not register or submit until the four exact public promotions, released lock manifest, dual-host OAuth UAT, and reviewer account are verified.
 
 ## Listing
 
@@ -10,7 +10,7 @@ Status: implementation-ready draft. Do not submit until the Relay production rel
 - Legal operator: JJR Technical Services LLC
 - Category: Developer Tools
 - Short description: Governed skills from Relay
-- Long description: Use Relay's OAuth-protected MCP server to match work to an authorized, version-pinned skill, activate approved matches, and read the exact package files needed for execution.
+- Long description: Use four native Relay workflows and an OAuth-protected MCP server to match work to an authorized, version-pinned skill, activate approved matches, and read exact package files.
 - Website: https://relay.builtbyrose.co
 - Support: https://relay.builtbyrose.co/support
 - Privacy: https://relay.builtbyrose.co/privacy
@@ -34,6 +34,13 @@ Status: implementation-ready draft. Do not submit until the Relay production rel
 1. Use Relay to find and activate the best governed skill for planning this product launch.
 2. Match this measurement problem to a Relay skill and follow the approved workflow.
 3. Find an organization-approved workflow for this task and show which immutable version you used.
+
+## Registered app mapping
+
+1. Register `https://relay.builtbyrose.co/mcp` in ChatGPT developer mode only after production OAuth qualification passes.
+2. Copy the resulting `plugin_asdk_app...` technical ID from the browser URL.
+3. Generate `plugins/relay-skills/.app.json` with that exact mapping and add `"apps": "./.app.json"` to the Codex manifest.
+4. Re-run `npm run verify:release`, local fresh-chat UAT, and the portal tool scan. Never invent or preallocate this ID.
 
 ## Positive review tests
 
@@ -74,6 +81,7 @@ Status: implementation-ready draft. Do not submit until the Relay production rel
 - `OPENAI_APPS_CHALLENGE_TOKEN` is set to the portal-issued token and the endpoint returns only that value.
 - The portal's Scan Tools result matches the three tools and annotation table above.
 - The uploaded skill snapshot matches the tagged public repository release.
+- `relay-lock.json` is production-promoted and matches all four live discovery entries and per-file hashes.
 - Five positive and three negative tests pass with reviewer fixtures.
 - Availability, policy attestations, and release notes are reviewed by the operator.
 

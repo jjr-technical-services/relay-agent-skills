@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "prepare-negotiation",
+        "query": "Help me prepare tactically for this negotiation."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "generic-email-edit",
+        "query": "Make this routine status email shorter."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "respond-to-pressure",
+        "query": "Prepare my response to a deadline-driven price concession request without damaging the relationship."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "price-pressure-response",
+      "task": "Prepare a negotiation plan and response to a client demanding a 20 percent discount by tomorrow.",
+      "baselineFailure": "The baseline accepts or rejects the demand without clarifying leverage, constraints, calibrated questions, concessions, or walk-away conditions.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "objective",
+          "kind": "text_contains",
+          "value": "Objective"
+        },
+        {
+          "id": "calibrated-questions",
+          "kind": "text_contains",
+          "value": "calibrated questions"
+        },
+        {
+          "id": "concessions",
+          "kind": "text_contains",
+          "value": "concessions"
+        },
+        {
+          "id": "walk-away",
+          "kind": "text_contains",
+          "value": "walk-away"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "rose.skill-manifest.v1",
+  "id": "cmt6sm5of0c9iad0k0zxe09my",
+  "slug": "ab-test-setup",
+  "name": "A/B Test Setup",
+  "description": "Design a decision-ready controlled experiment with an explicit hypothesis, assignment unit, exposure rules, metrics, guardrails, sample assumptions, QA checks, and stopping criteria. Use when planning an A/B test, feature experiment, growth experiment, holdout, rollout validation, or experiment brief.",
+  "category": "marketing-growth",
+  "categoryPath": [
+    "marketing-growth"
+  ],
+  "tags": [
+    "growth",
+    "experimentation",
+    "ab-testing",
+    "measurement",
+    "rose-authored",
+    "marketing-growth"
+  ],
+  "providerCompatibility": [
+    "openai-codex",
+    "chatgpt",
+    "anthropic-claude",
+    "gemini-cli",
+    "github-copilot",
+    "cursor",
+    "agents-standard"
+  ],
+  "requiredTools": [],
+  "resources": {},
+  "artifactTypes": [
+    "markdown",
+    "experiment-brief",
+    "launch-checklist"
+  ],
+  "riskLevel": "low",
+  "visibility": "public",
+  "pricingTier": "free",
+  "license": "MIT",
+  "source": {
+    "url": "https://github.com/rose-digital/relay/tree/main/skills/ab-test-setup",
+    "repo": "rose-digital/relay",
+    "commit": "088547af337a06bca6d9702c2612dad3cb9609cb"
+  },
+  "version": {
+    "id": "cmt6sm5qa0c9tad0kyo2nq9co",
+    "number": 1,
+    "publishedAt": "2026-08-24T05:25:58.050Z"
+  },
+  "files": [
+    {
+      "path": "agents/openai.yaml",
+      "role": "supporting",
+      "contentType": "application/yaml",
+      "sha256": "ec3a2e7996694b7d3e0c69641e02f317c8346d207e5485a075c4f6a5c36ea7b8",
+      "byteSize": 210
+    },
+    {
+      "path": "evals/manifest.json",
+      "role": "evaluation",
+      "contentType": "application/json",
+      "sha256": "3954e306560e140a4024226c6a995f734e4c496d5768804dd689feef60a78660",
+      "byteSize": 1424
+    },
+    {
+      "path": "LICENSE",
+      "role": "license",
+      "contentType": "text/plain",
+      "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+      "byteSize": 1069
+    },
+    {
+      "path": "SKILL.md",
+      "role": "entrypoint",
+      "contentType": "text/markdown",
+      "sha256": "f104b51fbee9e5b77126faf562256c432109756fa6f05ace322aff5ac51b19be",
+      "byteSize": 2093
+    }
+  ]
+}

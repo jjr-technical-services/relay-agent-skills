@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "design-ab-test",
+        "query": "Design an A/B test for this growth hypothesis."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "report-existing-result",
+        "query": "Summarize the result of this completed experiment."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "experiment-launch-brief",
+        "query": "Turn this hypothesis into a safe experiment with assignment, metrics, stopping rules, and launch checks."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "activation-experiment",
+      "task": "Design an A/B test for a new onboarding checklist intended to improve activation.",
+      "baselineFailure": "The baseline proposes two variants without a falsifiable hypothesis, unit of randomization, guardrails, sample plan, or stopping rule.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "hypothesis",
+          "kind": "text_contains",
+          "value": "Hypothesis"
+        },
+        {
+          "id": "randomization",
+          "kind": "text_contains",
+          "value": "randomization"
+        },
+        {
+          "id": "guardrails",
+          "kind": "text_contains",
+          "value": "Guardrails"
+        },
+        {
+          "id": "stopping-rule",
+          "kind": "text_contains",
+          "value": "stopping"
+        }
+      ]
+    }
+  ]
+}
