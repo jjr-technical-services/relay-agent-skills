@@ -1,6 +1,6 @@
 {
   "name": "relay-agent-skills",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Install and validate the version-locked Relay Skills plugin for Codex and Claude Code.",
   "license": "MIT",
   "type": "module",

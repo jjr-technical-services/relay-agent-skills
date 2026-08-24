@@ -1,6 +1,6 @@
 {
   "name": "relay-skills",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Four native Relay workflows plus OAuth-protected access to the governed skill catalog.",
   "author": {
     "name": "Rose Digital",

@@ -5,14 +5,14 @@
     "url": "https://builtbyrose.co"
   },
   "description": "Open Agent Skills and governed Relay MCP tools for Claude Code.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "plugins": [
     {
       "name": "relay-skills",
       "displayName": "Relay Skills",
       "source": "./plugins/relay-skills",
       "description": "Match and activate governed Relay skills through OAuth-protected MCP.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
       "homepage": "https://relay.builtbyrose.co",
       "repository": "https://github.com/rose-digital/relay-agent-skills",

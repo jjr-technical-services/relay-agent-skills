@@ -29,6 +29,10 @@ const codexInstalled = run('codex', ['plugin', 'list', '--json']);
 for (const name of ['relay-skills', 'relay-product-skills', 'relay-growth-skills']) {
   if (!codexInstalled.includes(name)) throw new Error(`Codex did not install ${name}.`);
 }
+const codexMcp = run('codex', ['mcp', 'list']);
+if (!codexMcp.includes('relay-skills')) {
+  throw new Error('Codex installed relay-skills but did not load its bundled MCP server.');
+}
 
 run('claude', ['plugin', 'marketplace', 'add', root]);
 const claudeAvailable = run('claude', ['plugin', 'list', '--available', '--json']);

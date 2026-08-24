@@ -29,19 +29,20 @@ async function main() {
   const codexMarketplace = await json('.agents/plugins/marketplace.json');
   const claudeMarketplace = await json('.claude-plugin/marketplace.json');
 
-  assert(packageJson.version === '0.2.0', 'npm package version must be 0.2.0.');
+  assert(packageJson.version === '0.2.1', 'npm package version must be 0.2.1.');
   assert(codexManifest.version === packageJson.version, 'Codex plugin version differs from npm package.');
   assert(claudeManifest.version === packageJson.version, 'Claude plugin version differs from npm package.');
   assert(claudeMarketplace.version === packageJson.version, 'Claude marketplace version differs from npm package.');
   assert(JSON.stringify(catalog.skills.map((skill) => skill.name)) === JSON.stringify(PUBLIC_SKILL_SLUGS), 'Catalog must contain exactly the four public skills in lock order.');
-  assert(catalog.skills.every((skill) => skill.plugin === 'relay-skills'), 'Every v0.2.0 catalog skill must belong to relay-skills.');
+  assert(catalog.skills.every((skill) => skill.plugin === 'relay-skills'), 'Every v0.2.x catalog skill must belong to relay-skills.');
 
-  const codexServer = codexMcp['relay-skills'];
+  const codexServer = codexMcp.mcpServers?.['relay-skills'];
+  assert(codexServer?.type === 'http', 'Codex MCP transport must be http.');
   assert(codexServer?.url === 'https://relay.builtbyrose.co/mcp', 'Codex MCP URL is invalid.');
   assert(codexServer?.auth === 'oauth', 'Codex MCP auth must be oauth.');
   assert(codexServer?.oauth_resource === 'https://relay.builtbyrose.co/mcp', 'Codex OAuth resource is invalid.');
   assert(JSON.stringify(codexServer?.scopes) === JSON.stringify(scopes), 'Codex MCP scopes are invalid.');
-  assert(!codexMcp.mcpServers && !codexMcp.mcp_servers, 'Codex .mcp.json must use the supported direct server map.');
+  assert(!codexMcp.mcp_servers, 'Codex .mcp.json must use the runtime-supported mcpServers wrapper.');
 
   const claudeServer = claudeMcp.mcpServers?.['relay-skills'];
   assert(claudeServer?.type === 'http', 'Claude MCP transport must be http.');
