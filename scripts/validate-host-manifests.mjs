@@ -86,11 +86,14 @@ async function main() {
     assert(!catalog.skills.some((skill) => skill.name === excluded), `${excluded} must remain outside public distribution.`);
   }
 
-  if (release) {
+  const productionPromoted = lock.distributionStatus === 'production_promoted';
+  if (release || productionPromoted) {
     validateProductionLock(lock);
     const app = await json('plugins/relay-skills/.app.json');
     assert(codexManifest.apps === './.app.json', 'Release Codex manifest must map apps to ./.app.json.');
-    assert(JSON.stringify(app).includes('plugin_asdk_app'), '.app.json must contain the registered ChatGPT technical ID.');
+    const relayApp = app.apps?.['relay-skills'];
+    assert(/^asdk_app_[a-f0-9]+$/.test(relayApp?.id || ''), '.app.json must contain the registered ChatGPT app ID.');
+    assert(relayApp?.required === true, 'The registered Relay app must be required.');
   } else {
     assert(!codexManifest.apps, 'Candidate manifest must not advertise .app.json before ChatGPT registration.');
   }

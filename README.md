@@ -59,7 +59,7 @@ npm run validate:hosts -- --release
 claude plugin validate . --strict
 ```
 
-The checked-in candidate lock intentionally blocks release verification until the exact four production versions are behaviorally qualified and promoted. Manual file changes fail `npm run verify`; changes in production discovery fail `npm run verify:live`.
+The checked-in production lock pins the exact four behaviorally qualified and promoted Relay versions. Manual file changes fail `npm run verify`; changes in production discovery fail `npm run verify:live`.
 
 ## Direct MCP setup
 

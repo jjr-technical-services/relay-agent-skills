@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "rose.skill-manifest.v1",
+  "id": "cmt6sm5pf0c9lad0k6ovvg0ap",
+  "slug": "relay-skill-router",
+  "name": "Relay Skill Router",
+  "description": "Find, evaluate, and activate version-pinned procedural skills from Relay without waiting for a human to name one. Use at the beginning of a substantive task, when the goal materially changes, when the work enters an unfamiliar or specialized domain, or when a reusable procedure could improve accuracy or safety. Treat no-match as a valid result and surface relevant suggestions when policy does not allow automatic activation.",
+  "category": "skill-operations",
+  "categoryPath": [
+    "skill-operations"
+  ],
+  "tags": [
+    "skill-discovery",
+    "skill-routing",
+    "agent-orchestration",
+    "progressive-disclosure",
+    "rose-authored",
+    "skill-operations"
+  ],
+  "providerCompatibility": [
+    "openai-codex",
+    "chatgpt",
+    "anthropic-claude",
+    "gemini-cli",
+    "github-copilot",
+    "cursor",
+    "agents-standard"
+  ],
+  "requiredTools": [
+    "relay_match_skills",
+    "relay_activate_skill",
+    "relay_skill_read"
+  ],
+  "resources": {},
+  "artifactTypes": [
+    "skill-match",
+    "skill-activation",
+    "json"
+  ],
+  "riskLevel": "low",
+  "visibility": "public",
+  "pricingTier": "free",
+  "license": "MIT",
+  "source": {
+    "url": "https://github.com/rose-digital/relay/tree/main/skills/relay-skill-router",
+    "repo": "rose-digital/relay",
+    "commit": "088547af337a06bca6d9702c2612dad3cb9609cb"
+  },
+  "version": {
+    "id": "cmt6sm5py0c9nad0k8dv3vqzf",
+    "number": 1,
+    "publishedAt": "2026-08-24T05:25:58.024Z"
+  },
+  "files": [
+    {
+      "path": "agents/openai.yaml",
+      "role": "supporting",
+      "contentType": "application/yaml",
+      "sha256": "7d9d7dd52588a30becdcb1df4ff5bb76522a23b62db41db05a23758fbcce0a62",
+      "byteSize": 495
+    },
+    {
+      "path": "evals/manifest.json",
+      "role": "evaluation",
+      "contentType": "application/json",
+      "sha256": "bd65154af9ecfa315b9c463f44e3cd864b0eb4e134437203a46eb3cc702973f6",
+      "byteSize": 1404
+    },
+    {
+      "path": "LICENSE",
+      "role": "license",
+      "contentType": "text/plain",
+      "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+      "byteSize": 1069
+    },
+    {
+      "path": "SKILL.md",
+      "role": "entrypoint",
+      "contentType": "text/markdown",
+      "sha256": "225c56111b0c6b2d9c90b99e5e71d0f5548b4ef2430bf8ab3c7dce7421870b4a",
+      "byteSize": 1982
+    }
+  ]
+}

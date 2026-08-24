@@ -12,6 +12,7 @@
   "keywords": ["relay", "agent-skills", "mcp", "governance", "product", "experimentation", "negotiation"],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
   "interface": {
     "displayName": "Relay Skills",
     "shortDescription": "Governed skills from Relay",
