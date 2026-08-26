@@ -20,7 +20,7 @@ Claude Code:
 /plugin install relay-skills@relay
 ```
 
-`relay-skills` v0.2.0 bundles all four public workflows and connects to `https://relay.builtbyrose.co/mcp`. The host discovers Relay's OAuth metadata, opens sign-in and consent, and requests only `relay.skills.read`, `relay.skills.route`, and `relay.skills.activate`. Do not paste or commit a bearer token.
+`relay-skills` v0.2.1 bundles all four public workflows and connects to `https://relay.builtbyrose.co/mcp`. The host discovers Relay's OAuth metadata, opens sign-in and consent, and requests only `relay.skills.read`, `relay.skills.route`, and `relay.skills.activate`. Do not paste or commit a bearer token.
 
 `relay-product-skills` and `relay-growth-skills` remain available at frozen v0.1.0 for one compatibility release. New installations should use only `relay-skills`; the compatibility marketplace entries are scheduled for removal after v0.2.x.
 

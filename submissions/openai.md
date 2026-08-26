@@ -1,6 +1,6 @@
 # OpenAI plugin submission dossier
 
-Status: gated v0.2.0 draft. Relay v0.1.49 is deployed; do not register or submit until the four exact public promotions, released lock manifest, dual-host OAuth UAT, and reviewer account are verified.
+Status: gated v0.2.1 corrective-release draft. Relay v0.1.56 and the four exact public promotions are live; do not submit until corrective host OAuth UAT and the reviewer account are verified.
 
 ## Listing
 

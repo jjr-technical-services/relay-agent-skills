@@ -1,4 +1,4 @@
-# Relay Skills v0.2.0 release ledger
+# Relay Skills v0.2.1 corrective release ledger
 
 This ledger records evidence states independently. A later state never implies an earlier or adjacent one.
 
@@ -16,17 +16,20 @@ This ledger records evidence states independently. A later state never implies a
 | Public packages promoted | Passed 2026-08-24 | The governed worker promoted exactly four packages; live anonymous discovery, package digest headers, and downloaded bytes match, while a cross-version anonymous pin returns 404 |
 | Distribution lock generated | Passed 2026-08-24 | `relay-lock.json` is `production_promoted` and pins the four live asset-version IDs, qualifications, evaluation suites, archive digests, source commits, licenses, and file hashes |
 | Distribution candidate locally qualified | Passed 2026-08-24 | Node 22 clean install and zero-vulnerability audit; 11 tests; all four package hashes; normal and release host manifests; live production drift check; source-tree comparison; lock and compatibility hashes; all four skills pass `quick_validate.py` |
-| Disposable host parser/install qualification | Passed 2026-08-24 | Exact Codex `0.147.0-alpha.6.5` and Claude `2.1.183` installed and parsed core plus compatibility plugins in a disposable Linux/ARM64 Node 22 container; strict Claude validation passed and the read-only candidate mount prevented profile or source mutation |
-| Generic plugin-validator compatibility | Known tool gap | The bundled generic validator rejects Codex's officially supported direct MCP server map and ChatGPT's current `required` app mapping; exact Codex marketplace parsing/install and `claude plugin validate --strict` both pass the release artifact |
-| Local npm tarball staged | Passed 2026-08-24 | Production-promoted dry pack contains 56 files, is 31.6 kB packed and 119.1 kB unpacked, and passed lock, live, release, host, and skill verification; it remains unpublished pending release publication |
-| GitHub v0.2.0 published | Not started | Requires released production lock and public-repository qualification |
-| npm v0.2.0 published with provenance | Not started | Governed GitHub Release workflow only |
-| Codex marketplace published | Not started | Same tagged lock manifest |
-| Claude self-hosted marketplace published | Not started | Same tagged lock manifest |
-| Codex installed on this Mac | Not started | Released public marketplace only |
-| Claude installed on this Mac | Not started | Released public marketplace only |
-| Codex fresh-session UAT passed | Not started | Four skills, OAuth consent, three MCP tools, auth boundaries |
-| Claude fresh-session UAT passed | Not started | Four skills, OAuth consent, three MCP tools, auth boundaries |
+| v0.2.0 disposable host parser/install qualification | Incomplete gate found by UAT | Exact Codex `0.147.0-alpha.6.5` and Claude `2.1.183` parsed and installed both marketplaces, but the gate did not assert that Codex actually loaded the bundled MCP server |
+| v0.2.1 corrective host qualification | Passed 2026-08-24 | Exact Codex `0.147.0-alpha.6.5` and Claude `2.1.183` strict validation/install pass in a disposable Linux/ARM64 Node 22 container; the account-bound Codex `0.149.0-alpha.4.1` session resolves `relay_skills` and reaches Relay's OAuth challenge |
+| Generic plugin-validator compatibility | Passed 2026-08-24 | The current first-party Codex `mcpServers` HTTP/OAuth-resource envelope and optional ChatGPT app mapping pass the bundled validator |
+| v0.2.1 local npm tarball staged | Passed 2026-08-24 | Corrective dry pack contains the expected 56 files; lock, live drift, host manifests, 11 tests, strict Claude validation, and the strengthened disposable host gate pass |
+| GitHub v0.2.0 published | Passed 2026-08-24 | Release `v0.2.0` targets exact revision `690c8f2db33f52f186c50043ced2a3b40eb5c650` |
+| npm v0.2.0 published with provenance | Passed 2026-08-24 | Governed release workflow `32769608769` passed every release gate and published the public npm artifact |
+| v0.2.0 self-hosted marketplaces published | Passed 2026-08-24 | The public Git marketplace installed successfully in Codex and Claude on this Mac |
+| Codex v0.2.0 installed on this Mac | Passed 2026-08-24 | Public marketplace inventory readback shows enabled `relay-skills@relay` v0.2.0 |
+| Claude v0.2.0 installed on this Mac | Passed 2026-08-24 | Public marketplace inventory readback shows enabled `relay-skills@relay` v0.2.0 with the expected HTTP OAuth definition |
+| Codex v0.2.0 native-skill UAT | Passed 2026-08-24 | A fresh ephemeral session discovered and invoked all four exact `relay-skills:*` native skills |
+| Codex v0.2.0 MCP UAT | Failed 2026-08-24 | Fresh-session `relay_match_skills` was unavailable; v0.2.1 uses the current first-party `mcpServers` envelope and an underscore-only internal server key so Codex exposes callable plugin MCP tools |
+| Claude v0.2.1 native-skill UAT | Passed 2026-08-24 | Claude host authentication was refreshed, the candidate exposes one `relay_skills` MCP connection, and a fresh session invoked all four exact `relay-skills:*` skills once each |
+| Claude v0.2.1 MCP UAT | Pending OAuth | Run match, activation, and immutable file read after the Relay consent grant is complete |
+| Corrective GitHub/npm v0.2.1 published | Not started | Requires exact corrected-head local and hosted qualification plus real Codex MCP readback |
 | Release screenshots approved | Not started | Capture actual released Codex and Claude inventory/invocation states during dual-host UAT; do not substitute candidate or fabricated host images |
 | ChatGPT app mapping registered | Passed 2026-08-24 | Developer mode is enabled; ChatGPT registered the production Relay MCP URL with DCR, the exact three Relay scopes, app ID `asdk_app_6a8c9b9e00e8819196dc67e0197c3254`, and version ID `asdk_app_v_6a8c9b9e00fc8191a2e086d7842bb2ab`; OAuth connection remains a distinct UAT gate |
 | OpenAI submitted | Not started | Separate challenge-token/configuration and portal submission authority |

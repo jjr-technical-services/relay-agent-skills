@@ -1,12 +1,8 @@
 {
-  "relay-skills": {
-    "url": "https://relay.builtbyrose.co/mcp",
-    "auth": "oauth",
-    "oauth_resource": "https://relay.builtbyrose.co/mcp",
-    "scopes": [
-      "relay.skills.read",
-      "relay.skills.route",
-      "relay.skills.activate"
-    ]
+  "mcpServers": {
+    "relay_skills": {
+      "type": "http",
+      "url": "https://relay.builtbyrose.co/mcp"
+    }
   }
 }

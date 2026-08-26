@@ -1,6 +1,6 @@
 # Claude Code marketplace release dossier
 
-Status: gated v0.2.0 draft. Relay v0.1.49 is deployed; GitHub publication and official-marketplace submission remain blocked on the production lock, dual-host OAuth UAT, and separately authorized submission with a retained receipt.
+Status: gated v0.2.1 corrective-release draft. Relay v0.1.56 and the production lock are live; official-marketplace submission remains blocked on corrective dual-host OAuth UAT and a retained receipt.
 
 Claude Code marketplaces are Git repositories containing `.claude-plugin/marketplace.json`; publishing this repository makes the marketplace installable without a separate central marketplace-review claim.
 
@@ -8,7 +8,7 @@ Claude Code marketplaces are Git repositories containing `.claude-plugin/marketp
 
 - Repository: `rose-digital/relay-agent-skills`
 - Marketplace: `relay`
-- Primary plugin: `relay-skills` v0.2.0 with four bundled native workflows
+- Primary plugin: `relay-skills` v0.2.1 with four bundled native workflows
 - Compatibility plugins: frozen `relay-product-skills` v0.1.0 and `relay-growth-skills` v0.1.0, deprecated for this release
 - Core MCP URL: https://relay.builtbyrose.co/mcp
 - Authentication: Relay OAuth discovered from protected-resource and authorization-server metadata

@@ -122,7 +122,7 @@ test('production lock requires exact Relay provenance, qualification, license, a
   const skills = Object.fromEntries(PUBLIC_SKILL_SLUGS.map((slug) => [slug, productionLockEntry()]));
   const lock = {
     schemaVersion: 'relay.agent-skills.lock.v1',
-    pluginVersion: '0.2.0',
+    pluginVersion: '0.2.1',
     distributionStatus: 'production_promoted',
     relayOrigin: 'https://relay.builtbyrose.co',
     skills,
@@ -153,7 +153,7 @@ test('live verification checks exact packages, OAuth metadata, OIDC rejection, a
   })]));
   const lock = {
     schemaVersion: 'relay.agent-skills.lock.v1',
-    pluginVersion: '0.2.0',
+    pluginVersion: '0.2.1',
     distributionStatus: 'production_promoted',
     relayOrigin: 'https://relay.builtbyrose.co',
     skills,

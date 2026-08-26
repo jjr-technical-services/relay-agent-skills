@@ -112,7 +112,7 @@ async function main() {
 
     const lock = {
       schemaVersion: 'relay.agent-skills.lock.v1',
-      pluginVersion: '0.2.0',
+      pluginVersion: '0.2.1',
       distributionStatus: 'production_promoted',
       relayOrigin: RELAY_ORIGIN,
       skills: lockSkills,
