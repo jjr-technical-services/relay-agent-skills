@@ -9,14 +9,14 @@ Relay is operated by JJR Technical Services LLC. The tooling in this repository 
 Codex:
 
 ```sh
-codex plugin marketplace add rose-digital/relay-agent-skills
+codex plugin marketplace add jjr-technical-services/relay-agent-skills
 codex plugin add relay-skills@relay
 ```
 
 Claude Code:
 
 ```text
-/plugin marketplace add rose-digital/relay-agent-skills
+/plugin marketplace add jjr-technical-services/relay-agent-skills
 /plugin install relay-skills@relay
 ```
 

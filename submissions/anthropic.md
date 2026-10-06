@@ -6,7 +6,7 @@ Claude Code marketplaces are Git repositories containing `.claude-plugin/marketp
 
 ## Marketplace
 
-- Repository: `rose-digital/relay-agent-skills`
+- Repository: `jjr-technical-services/relay-agent-skills`
 - Marketplace: `relay`
 - Primary plugin: `relay-skills` v0.2.1 with four bundled native workflows
 - Compatibility plugins: frozen `relay-product-skills` v0.1.0 and `relay-growth-skills` v0.1.0, deprecated for this release
@@ -23,13 +23,13 @@ Claude Code marketplaces are Git repositories containing `.claude-plugin/marketp
 6. Confirm a cross-organization decision ID and an approval-gated activation both fail closed.
 7. Remove the local canary installs and marketplace registration.
 8. Tag the exact qualified commit and publish the GitHub repository and self-hosted marketplace.
-9. From a clean environment, add `rose-digital/relay-agent-skills`, install `relay-skills`, and repeat the MCP smoke.
-10. Submit the released plugin through `https://claude.ai/settings/plugins/submit` or `https://platform.claude.com/plugins/submit` and retain the receipt.
+9. From a clean environment, add `jjr-technical-services/relay-agent-skills`, install `relay-skills`, and repeat the MCP smoke.
+10. Submit the released plugin through `https://claude.ai/directory/manage` and retain the receipt.
 
 ## User commands after publication
 
 ```text
-/plugin marketplace add rose-digital/relay-agent-skills
+/plugin marketplace add jjr-technical-services/relay-agent-skills
 /plugin install relay-skills@relay
 ```
 

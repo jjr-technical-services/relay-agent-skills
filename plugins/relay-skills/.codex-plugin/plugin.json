@@ -7,7 +7,7 @@
     "url": "https://builtbyrose.co"
   },
   "homepage": "https://relay.builtbyrose.co",
-  "repository": "https://github.com/rose-digital/relay-agent-skills",
+  "repository": "https://github.com/jjr-technical-services/relay-agent-skills",
   "license": "MIT",
   "keywords": ["relay", "agent-skills", "mcp", "governance", "product", "experimentation", "negotiation"],
   "skills": "./skills/",
