@@ -36,6 +36,9 @@ async function main() {
   assert(JSON.stringify(catalog.skills.map((skill) => skill.name)) === JSON.stringify(PUBLIC_SKILL_SLUGS), 'Catalog must contain exactly the four public skills in lock order.');
   assert(catalog.skills.every((skill) => skill.plugin === 'relay-skills'), 'Every v0.2.x catalog skill must belong to relay-skills.');
 
+  assert(claudeManifest.icon === './assets/relay-icon.png', 'Claude directory icon must use the approved Relay image.');
+  await access(path.join(root, 'plugins/relay-skills', claudeManifest.icon));
+
   const codexServer = codexMcp.mcpServers?.relay_skills;
   assert(codexServer?.type === 'http', 'Codex MCP transport must be http.');
   assert(codexServer?.url === 'https://relay.builtbyrose.co/mcp', 'Codex MCP URL is invalid.');

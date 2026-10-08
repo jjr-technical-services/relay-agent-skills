@@ -8,6 +8,7 @@
   "repository": "https://github.com/jjr-technical-services/relay-agent-skills",
   "license": "MIT",
   "keywords": ["relay", "agent-skills", "mcp", "product", "experimentation", "negotiation"],
+  "icon": "./assets/relay-icon.png",
   "skills": "./skills/",
   "mcpServers": "./.claude-mcp.json"
 }

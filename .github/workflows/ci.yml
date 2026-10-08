@@ -42,7 +42,7 @@ jobs:
         run: npm run pack:dry-run
 
       - name: Install pinned host CLIs
-        run: npm install --global @openai/codex@0.147.0-alpha.6.5 @anthropic-ai/claude-code@2.1.183
+        run: npm install --global @openai/codex@0.147.0-alpha.6.5 @anthropic-ai/claude-code@2.1.281
 
       - name: Validate Claude marketplace strictly
         run: claude plugin validate . --strict
