@@ -42,7 +42,7 @@ jobs:
         run: npm run verify:release && npm run verify:live && npm run validate:hosts -- --release && npm test && npm run pack:dry-run
 
       - name: Install pinned host CLIs
-        run: npm install --global @openai/codex@0.147.0-alpha.6.5 @anthropic-ai/claude-code@2.1.183
+        run: npm install --global @openai/codex@0.147.0-alpha.6.5 @anthropic-ai/claude-code@2.1.281
 
       - name: Validate and install through disposable host profiles
         env:
