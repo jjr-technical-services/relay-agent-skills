@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Communications Performance Report"
+  short_description: "Relay: Monthly comms report with honest metrics"
+  default_prompt: "Use $report-communications-performance to turn this month's email, social and donation exports into a goals-first report with metric definitions, attribution caveats, next-month actions and a one-page leadership summary."

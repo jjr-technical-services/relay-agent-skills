@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Structured Decision Designer"
+  short_description: "Relay: Design and calibrate bounded AI decisions"
+  default_prompt: "Use $design-structured-decisions to design a typed decision and its calibration plan for this workflow."

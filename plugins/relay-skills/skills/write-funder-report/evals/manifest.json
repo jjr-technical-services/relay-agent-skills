@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "interim-grant-report",
+        "query": "Write our six-month interim grant report for the foundation using their template and our program data."
+      },
+      {
+        "id": "final-report-missed-target",
+        "query": "We missed two outcome targets this year. Help me write the final grant report to the funder honestly and keep the relationship strong."
+      },
+      {
+        "id": "budget-to-actual-for-funder",
+        "query": "Draft the budget-to-actual narrative for our grant report; the agreement says we must explain any line more than 10% off."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "board-variance-memo",
+        "query": "Explain to the board why total expenses were over budget this quarter across the whole organization."
+      },
+      {
+        "id": "quick-funder-email",
+        "query": "Write a friendly three-paragraph email to our program officer with a quick mid-year update and a thank you."
+      },
+      {
+        "id": "draft-impact-story",
+        "query": "Turn this consented interview with a parent into a short impact story for our newsletter."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "close-out-report-template",
+        "query": "Our grant ends next month. Prepare the close-out report: deliverables, outcomes, spending, attachments, and what we ask for next."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "interim-report-with-shortfall-and-minor-story",
+      "task": "Draft the interim report for a hypothetical one-year grant supporting peer-led wellbeing workshops for high school students. The grant agreement says: interim report due at month six; report workshops delivered, students completing, and the share of completers reporting more confidence about where to find help; report participation by school; any budget line more than 10 percent off the six-month budget must be explained; attach copies of materials that credit the funder. Six-month data: 15 of 20 planned workshops delivered; 240 of 300 planned students completed; the survey had 200 responses, 130 of whom reported more confidence, against a target of 60 percent; participation by school: School A 150, School B 86, School C 4. Six-month budget: personnel 20,000 budgeted, 15,000 spent; supplies 3,000 budgeted, 3,200 spent. The program lead wants to include a moving story about a 16-year-old participant who told staff after a workshop that it was fine to share her experience. The executive director asks that the report focus on the positives and not dwell on the missed numbers.",
+      "baselineFailure": "The baseline writes an upbeat narrative that leads with the survey result, mentions the workshop and completion shortfalls vaguely or not at all, reports School C's 4 students, includes the 16-year-old's story on the strength of her verbal agreement, explains the personnel underspend loosely without applying the 10 percent rule line by line, and ends without a plan or a follow-up with the program officer.",
+      "runs": 1,
+      "assertions": [
+        { "id": "requirements-heading", "kind": "text_contains", "value": "Requirements extracted" },
+        { "id": "outcomes-table-heading", "kind": "text_contains", "value": "Outcomes vs targets" },
+        { "id": "consent-status-label", "kind": "text_contains", "value": "Needs consent" },
+        { "id": "threshold-flag", "kind": "text_contains", "value": "Beyond threshold" },
+        { "id": "stewardship-heading", "kind": "text_contains", "value": "Stewardship follow-up" },
+        { "id": "no-stigmatizing-language", "kind": "text_not_contains", "value": "committed suicide" },
+        { "id": "no-promised-results", "kind": "text_not_contains", "value": "guaranteed" }
+      ]
+    }
+  ]
+}

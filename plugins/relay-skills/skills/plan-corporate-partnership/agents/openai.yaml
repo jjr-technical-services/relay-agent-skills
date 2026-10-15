@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Plan Corporate Partnership"
+  short_description: "Relay: Design, price and run corporate partnerships"
+  default_prompt: "Use $plan-corporate-partnership to review this company's sponsorship offer, build the benefit value ledger, flag sponsorship, cause marketing and brand-use issues, and draft the agreement terms checklist."

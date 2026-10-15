@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [{ "id": "route-support", "query": "Classify and route this support request among our approved teams." }],
+    "nearMiss": [{ "id": "write-support", "query": "Draft a reply to this support request." }],
+    "holdout": [{ "id": "warehouse-domain", "query": "Choose which approved data warehouse domain should handle this analytics question." }]
+  },
+  "scenarios": [{
+    "id": "unknown-destinations",
+    "task": "Route this customer message to an operations team. The organization has not supplied a team list or routing authority.",
+    "baselineFailure": "The baseline invents a team and performs a live handoff.",
+    "runs": 1,
+    "assertions": [
+      { "id": "approved-options", "kind": "text_contains", "value": "approved" },
+      { "id": "review-path", "kind": "text_contains", "value": "review" },
+      { "id": "no-handoff", "kind": "text_not_contains", "value": "I have routed" }
+    ]
+  }]
+}

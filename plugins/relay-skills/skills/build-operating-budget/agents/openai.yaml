@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Build Operating Budget"
+  short_description: "Relay: Driver-based annual plan, headcount and runway"
+  default_prompt: "Use $build-operating-budget to build next year's driver-based operating plan with a headcount plan, monthly phasing, scenarios, and cash runway."

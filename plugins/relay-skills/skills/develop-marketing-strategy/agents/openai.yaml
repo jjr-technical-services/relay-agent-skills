@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Develop Marketing Strategy"
+  short_description: "Relay: Build evidence-backed channel and go-to-market strategy"
+  default_prompt: "Use $develop-marketing-strategy to turn my business, offer, ICP, and research into a prioritized marketing and channel strategy."

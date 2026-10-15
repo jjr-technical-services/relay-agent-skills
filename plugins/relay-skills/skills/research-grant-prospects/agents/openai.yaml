@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Research Grant Prospects"
+  short_description: "Relay: Find, score and pipeline grant funders with sources"
+  default_prompt: "Use $research-grant-prospects to define our funding need, score these funders on fit with cited facts, and build the prospect pipeline with next actions."

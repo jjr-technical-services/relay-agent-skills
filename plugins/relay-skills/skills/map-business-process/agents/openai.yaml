@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Business Process Mapper"
+  short_description: "Relay: Map, measure, and redesign a business process"
+  default_prompt: "Use $map-business-process to scope this process with SIPOC, map and measure the current state, find root causes, and design the future state."

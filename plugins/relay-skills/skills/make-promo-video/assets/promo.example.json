@@ -1,0 +1,43 @@
+{
+  "product": "Northwind",
+  "origin": "https://example.com",
+  "allowHosts": [],
+  "readOnly": true,
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "captureScale": 2,
+  "fps": 30,
+  "ratios": [
+    "16:9",
+    "9:16",
+    "1:1"
+  ],
+  "voice": {
+    "provider": "elevenlabs",
+    "voiceId": "iP95p4xoKVk53GoZ742B",
+    "name": "Chris",
+    "model": "eleven_v3"
+  },
+  "music": {
+    "source": "elevenlabs",
+    "model": "music_v2_5",
+    "prompt": "Cinematic modern tech launch instrumental at 112 BPM in 4/4. Sparse and tense for the first seven seconds, then a confident full drop, driving and optimistic, a short lift near the end and a satisfying resolve. Polished, premium, minimal. No vocals."
+  },
+  "broll": {
+    "provider": "none",
+    "model": "veo-3.1-fast-generate-preview",
+    "maxSpendUsd": 5
+  },
+  "brand": {
+    "ink": "#020617",
+    "paper": "#f8fafc",
+    "muted": "#64748b",
+    "fontSans": "Public Sans",
+    "fontMono": "IBM Plex Mono",
+    "logo": null,
+    "url": "example.com"
+  },
+  "disclosure": "AI voice"
+}

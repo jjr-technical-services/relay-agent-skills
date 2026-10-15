@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "sig-lite-from-soc2",
+        "query": "A prospect sent us a SIG Lite security questionnaire. Answer it from our SOC 2 Type II report and policies and tell me what needs sign-off."
+      },
+      {
+        "id": "caiq-answer-library",
+        "query": "Help me build an answer library so our CAIQ and custom vendor risk questionnaires get consistent answers."
+      },
+      {
+        "id": "custom-spreadsheet-gaps",
+        "query": "Our customer's due-diligence spreadsheet asks about encryption, access reviews, and incident notification. Draft Yes, No, or Partial answers and give me the gap list."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "full-rfp-proposal",
+        "query": "Draft our full RFP response for this procurement, including pricing, implementation timeline, and company overview."
+      },
+      {
+        "id": "threat-model-request",
+        "query": "Threat model our new file upload service and list the attack paths an attacker could use."
+      },
+      {
+        "id": "write-security-policy",
+        "query": "Write an information security policy for our startup from scratch."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "third-party-risk-review",
+        "query": "A bank's third-party risk team wants our answers on penetration testing, subprocessors, and backups by Friday. Use our evidence and be honest about what we lack."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "mfa-partial-and-notification-time",
+      "task": "Hypothetical facts: we have a SOC 2 Type II report for our production platform covering the last 12 months with no exceptions. Multi-factor authentication is enforced via single sign-on for production and the identity provider, but two internal tools without customer data use local sign-in only. Our incident response plan says customers are notified within 72 hours of confirming a breach. Our last penetration test was 18 months ago on the web application. A customer questionnaire asks: (1) Is MFA enforced for all employee access to all systems? (2) Will you notify us within 24 hours of a security incident? (3) Do you perform annual penetration testing? (4) Are you SOC 2 compliant? Draft the answers.",
+      "baselineFailure": "The baseline answers Yes to everything with confident marketing language, calls the company SOC 2 compliant, and agrees to the 24-hour notification without routing it to legal.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "uses-partial",
+          "kind": "text_contains",
+          "value": "Partial"
+        },
+        {
+          "id": "has-gap-list",
+          "kind": "text_contains",
+          "value": "gap"
+        },
+        {
+          "id": "routes-to-legal",
+          "kind": "text_contains",
+          "value": "legal"
+        },
+        {
+          "id": "cites-type-ii",
+          "kind": "text_contains",
+          "value": "Type II"
+        },
+        {
+          "id": "no-compliant-claim",
+          "kind": "text_not_contains",
+          "value": "Yes, we are SOC 2 compliant"
+        },
+        {
+          "id": "no-marketing-adjective",
+          "kind": "text_not_contains",
+          "value": "industry-leading"
+        }
+      ]
+    },
+    {
+      "id": "compensating-control-no-evidence",
+      "task": "Hypothetical facts: a customer asks whether a web application firewall protects all public endpoints. We have none, but we use rate limiting at the load balancer and run dependency scanning. They also ask whether access to production is reviewed quarterly; our policy says quarterly but the only records are two reviews last year. Draft the answers and the items for our security owner.",
+      "baselineFailure": "The baseline answers Yes to the firewall question by treating rate limiting as equivalent and answers Yes to quarterly reviews based on the policy alone.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "names-compensating",
+          "kind": "text_contains",
+          "value": "compensating"
+        },
+        {
+          "id": "names-rate-limiting",
+          "kind": "text_contains",
+          "value": "rate limiting"
+        },
+        {
+          "id": "flags-evidence",
+          "kind": "text_contains",
+          "value": "evidence"
+        },
+        {
+          "id": "security-owner",
+          "kind": "text_contains",
+          "value": "security owner"
+        },
+        {
+          "id": "no-robust",
+          "kind": "text_not_contains",
+          "value": "robust"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "slow-approval-process",
+        "query": "Our purchase approval process takes two weeks and has too many handoffs. Map it and tell me where the time goes."
+      },
+      {
+        "id": "sipoc-and-swimlane",
+        "query": "Build a SIPOC and a current-state swimlane map for our customer onboarding process, then suggest a future state."
+      },
+      {
+        "id": "rework-root-cause",
+        "query": "Half our order entries get sent back for rework. Find the root cause and redesign the process with a RACI."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "write-sop",
+        "query": "Our refund process is settled. Write it up as a step-by-step standard operating procedure for the support team."
+      },
+      {
+        "id": "kpi-hierarchy",
+        "query": "Build a KPI tree from our revenue goal down to input metrics for each team."
+      },
+      {
+        "id": "outage-postmortem",
+        "query": "Write the postmortem for yesterday's payment outage with timeline and action items."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "month-end-bottleneck",
+        "query": "Where is the bottleneck in our month-end reporting workflow? We need cycle time, waste, and an improvement plan with metrics."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "invoice-approval-redesign",
+      "task": "Hypothetical facts: supplier invoices go from accounts payable coding to a budget-holder approval to a weekly treasury payment run. A sample of 20 invoices shows average elapsed time of 8 working days and about 3 hours of hands-on work in total. Approvers send back about 1 in 4 invoices, usually for a missing purchase order number. There are roughly 200 invoices in progress and about 25 finished per working day. Map the process, measure it, find the root cause, and propose a future state with owners and controls.",
+      "baselineFailure": "The baseline recommends buying automation software, skips measurement, blames staff carelessness, and gives no SIPOC, RACI, or controls.",
+      "runs": 1,
+      "assertions": [
+        { "id": "has-sipoc", "kind": "text_contains", "value": "SIPOC" },
+        { "id": "flow-efficiency", "kind": "text_contains", "value": "flow efficiency" },
+        { "id": "has-raci", "kind": "text_contains", "value": "RACI" },
+        { "id": "littles-law", "kind": "text_contains", "value": "Little" },
+        { "id": "has-controls", "kind": "text_contains", "value": "control" },
+        { "id": "no-human-error-root", "kind": "text_not_contains", "value": "root cause is human error" }
+      ]
+    }
+  ]
+}

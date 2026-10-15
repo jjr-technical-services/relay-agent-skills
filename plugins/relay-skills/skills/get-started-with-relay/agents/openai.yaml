@@ -1,0 +1,4 @@
+interface:
+  display_name: "Get Started with Relay"
+  short_description: "Choose a useful workflow and get to work"
+  default_prompt: "Use $get-started-with-relay to help me choose a workflow and make something useful."

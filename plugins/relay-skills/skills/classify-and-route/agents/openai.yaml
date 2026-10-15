@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Classify and Route"
+  short_description: "Relay: Route content among approved destinations"
+  default_prompt: "Use $classify-and-route to recommend one of these approved destinations for the supplied content."

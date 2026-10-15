@@ -1,0 +1,51 @@
+{
+  "product": "Relay",
+  "origin": "http://localhost:3191",
+  "packDir": ".",
+  "appRoot": "../relay-capture-build",
+  "viewports": {
+    "desktop": { "width": 1440, "height": 900 },
+    "mobile": { "width": 390, "height": 844 }
+  },
+  "deviceScaleFactor": 2,
+  "colorScheme": "light",
+  "scrollRootSelector": "",
+  "allowHosts": [],
+  "signedOutSelector": "header a[href='/login']",
+  "maxShotHeight": 7000,
+  "uploadLimitMiB": 19,
+  "areas": ["access", "work", "discover", "knowledge", "build", "admin", "public"],
+  "personas": [
+    { "id": "anon", "label": "Logged out" },
+    { "id": "new", "label": "New user, no workspace, not onboarded", "name": "Sam Patel", "email": "sam@newco-demo.test" },
+    { "id": "member", "label": "Workspace member", "name": "Priya Raman", "email": "priya@northwind-demo.test", "role": "member", "org": "northwind" },
+    { "id": "owner", "label": "Workspace owner / admin", "name": "Maya Chen", "email": "maya@northwind-demo.test", "role": "owner", "org": "northwind", "extraOrgs": ["harbor"] },
+    { "id": "superadmin", "label": "Platform superadmin", "name": "Alex Rivera", "email": "alex@northwind-demo.test", "role": "owner", "org": "northwind", "superadmin": true }
+  ],
+  "defaultPersonas": ["owner"],
+  "routeRules": [
+    { "match": "^/(onboarding|checkout)", "personas": ["new"] },
+    { "match": "^/admin", "personas": ["superadmin", "owner"] },
+    { "match": "^/($|about|blog|pricing|privacy|terms|security|docs|help|login|register)", "personas": ["anon", "owner"] }
+  ],
+  "ignoreRoutes": ["^/api/", "^/_next/"],
+  "dynamicSamples": {
+    "/agents/[id]": ["/agents/seed-agent-research"],
+    "/runs/[runId]": ["/runs/seed-run-complete", "/runs/seed-run-failed"]
+  },
+  "navSources": ["../relay-capture-build/src/components/Header.js"],
+  "sourceDirs": ["../relay-capture-build/src"],
+  "serverFlags": {
+    "RELAY_WORKSTREAM_MAP": "1",
+    "RELAY_ASK_INBOX": "1",
+    "RELAY_AGENT_OPERATIONS_ENABLED": "1",
+    "RELAY_WORKFORCE_DIRECTORY": "1"
+  },
+  "adapter": "adapters/relay.mjs",
+  "adapterOptions": {
+    "organizations": [
+      { "key": "northwind", "id": "org-northwind", "name": "Northwind Labs", "slug": "northwind-labs" },
+      { "key": "harbor", "id": "org-harbor", "name": "Harbor Goods Co", "slug": "harbor-goods" }
+    ]
+  }
+}

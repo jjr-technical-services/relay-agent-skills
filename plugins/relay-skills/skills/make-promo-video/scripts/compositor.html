@@ -1,0 +1,576 @@
+<!doctype html>
+<!--
+  Frame compositor for make-promo-video. render.mjs loads this page at the output size, calls
+  __setup(options) once, then __frame(t) for every output frame and screenshots the result.
+  Everything on screen is a pure function of t, so renders are deterministic and resumable.
+  Captured product pixels are only moved and scaled (camera), never altered; the cursor, click
+  ripple, captions, headlines and title cards are drawn on top.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Defence in depth: no network, no frames, no fetch/XHR; images from local files only, fonts inline. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src file: data: blob:; style-src 'unsafe-inline'; font-src data:; script-src 'unsafe-inline'; connect-src 'none'; frame-src 'none'; child-src 'none'; object-src 'none'; media-src 'none'; form-action 'none'; base-uri 'none'">
+<style id="fonts"></style>
+<style>
+  :root { --ink: #020617; --paper: #f8fafc; --muted: #64748b; --sans: "Public Sans", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, monospace; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--ink); overflow: hidden; }
+  #stage { position: relative; overflow: hidden; background: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  .layer { position: absolute; inset: 0; }
+  #screen { position: absolute; overflow: hidden; background: #fff; }
+  #screen img { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; image-rendering: auto; }
+  #cursor { position: absolute; left: 0; top: 0; transform-origin: 0 0; pointer-events: none; }
+  #ripple { position: absolute; border-radius: 9999px; background: rgba(2, 6, 23, 0.28); border: 2px solid rgba(2, 6, 23, 0.55); pointer-events: none; }
+  #headline { position: absolute; color: #fff; font-weight: 800; letter-spacing: -0.025em; line-height: 1.04; text-wrap: balance; }
+  #brandrow { position: absolute; display: flex; align-items: center; gap: 0.45em; color: #fff; font-weight: 700; letter-spacing: -0.01em; }
+  #brandrow img { display: block; }
+  #captions { position: absolute; display: flex; justify-content: center; text-align: center; }
+  #captions span { display: inline-block; font-weight: 600; line-height: 1.22; letter-spacing: -0.005em; text-wrap: balance; }
+  .cap-pill span { background: rgba(2, 6, 23, 0.88); color: #fff; border-radius: 6px; padding: 0.28em 0.6em 0.32em; }
+  .cap-plain span { color: #fff; }
+  #disclosure { position: absolute; font-family: var(--mono); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: rgba(2, 6, 23, 0.55); border-radius: 4px; padding: 0.3em 0.6em; }
+  #title { position: absolute; inset: 0; background: var(--ink); color: #fff; display: none; }
+  #title .inner { position: absolute; display: flex; flex-direction: column; }
+  #title .kicker { font-family: var(--mono); font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #94a3b8; }
+  #title .heading { font-weight: 800; letter-spacing: -0.035em; line-height: 1.0; text-wrap: balance; }
+  #title .heading .w { display: inline-block; white-space: pre; }
+  #title .sub { color: #cbd5e1; font-weight: 500; line-height: 1.3; }
+  #title .cta { display: inline-flex; align-self: flex-start; background: #fff; color: var(--ink); font-weight: 700; border-radius: 4px; }
+  #title .mark { display: block; }
+  #title.end .inner { align-items: center; text-align: center; }
+  #title.end .cta { align-self: center; }
+  #dotgrid { position: absolute; opacity: 0.12; }
+  /* Cinematic shot types (text, hero3d, lift, scroll). Real captured pixels only: cropped, scaled, tilted. */
+  #fx { position: absolute; inset: 0; display: none; overflow: hidden; background: var(--ink); perspective: 2200px; }
+  #fx::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 55% at 50% 45%, rgba(148,163,184,0.16), transparent 70%); pointer-events: none; }
+  #fx::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 50%, transparent 55%, rgba(2,6,23,0.55)); pointer-events: none; }
+  #fxbg { position: absolute; inset: -40px; background-repeat: no-repeat; filter: blur(10px) brightness(0.3) saturate(0.85); }
+  #fxwin { position: absolute; transform-style: preserve-3d; overflow: hidden; background-color: #fff; background-repeat: no-repeat; box-shadow: 0 50px 140px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); }
+  #fxfg { position: absolute; background-color: #fff; background-repeat: no-repeat; border-radius: 10px; box-shadow: 0 34px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.12); }
+  #fxtext { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; z-index: 2; }
+  #fxtext .t { font-weight: 800; letter-spacing: -0.04em; line-height: 1.0; text-wrap: balance; }
+  #fxtext .w { display: inline-block; white-space: pre; }
+  #fxtext .s { margin-top: 0.7em; font-weight: 500; letter-spacing: -0.01em; opacity: 0.72; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="screen"><img id="src" alt=""><svg id="cursor" width="22" height="30" viewBox="0 0 22 30"><path d="M2 2 L2 24 L8 18.5 L12.2 27.5 L16 25.8 L11.9 17 L19.5 17 Z" fill="#020617" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg><div id="ripple"></div></div>
+  <div id="brandrow"><img id="brandmark" alt=""><span id="brandname"></span></div>
+  <div id="headline"></div>
+  <div id="title"><canvas id="dotgrid"></canvas><div class="inner"></div></div>
+  <div id="fx"><div id="fxbg"></div><div id="fxwin"></div><div id="fxfg"></div><div id="fxtext"></div></div>
+  <div id="captions"><span></span></div>
+  <div id="disclosure"></div>
+</div>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+  const easeInOut = (x) => (x < 0.5 ? 4 * x * x * x : 1 - (-2 * x + 2) ** 3 / 2);
+  const easeOut = (x) => 1 - (1 - x) ** 3;
+  const ramp = (t, a, b) => clamp((t - a) / (b - a), 0, 1);
+  let S = null; // setup state
+
+  // Every string on screen (titles, cards, captions) can come from a model that read the target site,
+  // so text is only ever set with textContent, never parsed as HTML.
+  function h(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text != null) node.textContent = String(text);
+    return node;
+  }
+  function wordSpans(text) {
+    const box = h('div');
+    String(text || '').split(' ').forEach((word, i) => { const span = h('span', 'w', `${word} `); span.dataset.i = String(i); box.appendChild(span); });
+    return box;
+  }
+  let currentSrc = '';
+  let currentTitleKey = '';
+
+  // Per-ratio layout. screen = where product pixels appear; baseCss = CSS px of page width shown at zoom 1.
+  function layoutFor(W, H) {
+    if (W > H) return {
+      kind: 'wide', screen: { x: 0, y: 0, w: W, h: H, r: 0 }, baseCss: 1280, autoZoom: 1.55,
+      captions: { left: 160, right: 160, bottom: 64, size: 40, maxChars: 52, style: 'pill' },
+      headline: null, brand: null, disclosure: { right: 34, bottom: 26, size: 16 },
+      title: { pad: 150, kicker: 24, heading: 108, sub: 38, cta: 34, mark: 72 },
+    };
+    if (H > W) return {
+      kind: 'tall', screen: { x: 40, y: 600, w: W - 80, h: 860, r: 6 }, baseCss: 820, autoZoom: 1.2,
+      captions: { left: 70, right: 70, top: 1530, size: 52, maxChars: 46, style: 'plain' },
+      headline: { x: 64, y: 250, w: W - 128, size: 84 }, brand: { x: 64, y: 110, size: 44 },
+      disclosure: { right: 40, bottom: 56, size: 22 },
+      title: { pad: 80, kicker: 26, heading: 112, sub: 42, cta: 38, mark: 96 },
+    };
+    return {
+      kind: 'square', screen: { x: 48, y: 250, w: W - 96, h: 560, r: 6 }, baseCss: 1100, autoZoom: 1.3,
+      captions: { left: 60, right: 60, top: 846, size: 40, maxChars: 56, style: 'plain' },
+      headline: { x: 52, y: 120, w: W - 104, size: 56 }, brand: { x: 52, y: 44, size: 36 },
+      disclosure: { right: 36, top: 40, size: 18 },
+      title: { pad: 80, kicker: 22, heading: 92, sub: 34, cta: 30, mark: 80 },
+    };
+  }
+
+  function chunkText(text, maxChars) {
+    const words = text.split(/\s+/).filter(Boolean);
+    const chunks = [];
+    let line = '';
+    for (const word of words) {
+      const next = line ? `${line} ${word}` : word;
+      if (next.length > maxChars && line) { chunks.push(line); line = word; } else line = next;
+    }
+    if (line) chunks.push(line);
+    // Rebalance a dangling short last chunk into the previous one when it still fits 1.35x.
+    if (chunks.length > 1 && chunks.at(-1).length < maxChars * 0.35) {
+      const merged = `${chunks.at(-2)} ${chunks.at(-1)}`;
+      if (merged.length <= maxChars * 1.35) chunks.splice(-2, 2, merged);
+    }
+    return chunks;
+  }
+
+  window.__setup = (options) => {
+    S = options;
+    $('fonts').textContent = options.fontCss || '';
+    const { W, H } = options;
+    S.L = layoutFor(W, H);
+    const stage = $('stage');
+    stage.style.width = `${W}px`; stage.style.height = `${H}px`;
+    const sc = S.L.screen;
+    Object.assign($('screen').style, { left: `${sc.x}px`, top: `${sc.y}px`, width: `${sc.w}px`, height: `${sc.h}px`, borderRadius: `${sc.r}px` });
+    const c = S.L.captions;
+    Object.assign($('captions').style, { left: `${c.left}px`, right: `${c.right}px`, fontSize: `${c.size}px`, ...(c.bottom != null ? { bottom: `${c.bottom}px` } : { top: `${c.top}px` }) });
+    $('captions').className = c.style === 'pill' ? 'cap-pill' : 'cap-plain';
+    const d = S.L.disclosure;
+    Object.assign($('disclosure').style, { fontSize: `${d.size}px`, ...(d.top != null ? { top: `${d.top}px` } : { bottom: `${d.bottom}px` }), right: `${d.right}px` });
+    $('disclosure').textContent = options.disclosure || '';
+    $('disclosure').style.display = options.disclosure ? 'block' : 'none';
+    const b = S.L.brand;
+    if (b) {
+      Object.assign($('brandrow').style, { left: `${b.x}px`, top: `${b.y}px`, fontSize: `${b.size}px` });
+      $('brandmark').src = options.logo || '';
+      $('brandmark').style.width = $('brandmark').style.height = `${Math.round(b.size * 1.05)}px`;
+      $('brandname').textContent = options.product;
+    } else $('brandrow').style.display = 'none';
+    if (S.L.headline) Object.assign($('headline').style, { left: `${S.L.headline.x}px`, top: `${S.L.headline.y}px`, width: `${S.L.headline.w}px`, fontSize: `${S.L.headline.size}px` });
+    drawDotGrid();
+    return document.fonts.ready.then(() => [...document.fonts].filter((f) => f.status === 'loaded').length);
+  };
+
+  // A faint grid of dots echoing the Relay mark, behind title cards.
+  function drawDotGrid() {
+    const canvas = $('dotgrid');
+    canvas.width = S.W; canvas.height = S.H;
+    Object.assign(canvas.style, { left: 0, top: 0, width: `${S.W}px`, height: `${S.H}px` });
+    const ctx = canvas.getContext('2d');
+    const step = Math.round(Math.min(S.W, S.H) / 9);
+    ctx.fillStyle = '#ffffff';
+    for (let y = step / 2; y < S.H; y += step) for (let x = step / 2; x < S.W; x += step) {
+      ctx.beginPath(); ctx.arc(x, y, step * 0.07, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+
+  function shotAt(t) {
+    const shots = S.timeline.shots;
+    let found = shots[0];
+    for (const shot of shots) if (shot.start <= t + 1e-6) found = shot;
+    return found;
+  }
+
+  async function setImage(url, naturalW, naturalH) {
+    const img = $('src');
+    if (currentSrc !== url) {
+      currentSrc = url;
+      img.src = url;
+      img.width = naturalW; img.height = naturalH;
+      try { await img.decode(); } catch { /* keep going; missing frames render blank */ }
+    }
+  }
+
+  // Camera: {cx, cy, z} in CSS px of the captured page. Returns the transform for #src.
+  function place(shot, cam, srcCssW, srcCssH) {
+    const sc = S.L.screen;
+    const visW = S.L.baseCss / cam.z;
+    const s = sc.w / visW;
+    const visH = sc.h / s;
+    const cx = visW >= srcCssW ? srcCssW / 2 : clamp(cam.cx, visW / 2, srcCssW - visW / 2);
+    const cy = visH >= srcCssH ? srcCssH / 2 : clamp(cam.cy, visH / 2, srcCssH - visH / 2);
+    const scale = shot.capture.scale;
+    const tx = sc.w / 2 - cx * s;
+    const ty = sc.h / 2 - cy * s;
+    $('src').style.transform = `translate(${tx}px, ${ty}px) scale(${s / scale})`;
+    return { s, tx, ty };
+  }
+
+  function interpolate(keys, t, spanMode) {
+    if (t <= keys[0].t) return keys[0];
+    for (let i = 1; i < keys.length; i += 1) {
+      const a = keys[i - 1], b = keys[i];
+      if (t >= b.t) continue;
+      const startT = spanMode ? a.t : Math.max(a.t, b.t - 0.75);
+      if (t <= startT) return a;
+      const k = easeInOut((t - startT) / (b.t - startT));
+      return { cx: a.cx + (b.cx - a.cx) * k, cy: a.cy + (b.cy - a.cy) * k, z: a.z + (b.z - a.z) * k };
+    }
+    return keys.at(-1);
+  }
+
+  function stillKeys(shot) {
+    if (shot._keys) return shot._keys;
+    const vp = shot.capture.viewport;
+    const visHAt = (z) => (S.L.baseCss / z) * (S.L.screen.h / S.L.screen.w);
+    shot._keys = shot.camera.map((key) => {
+      const z = key.zoom;
+      const dx = key.offset?.x || 0;
+      const dy = key.offset?.y || 0;
+      // Never zoom so far that the target no longer fits across this layout's screen (narrow formats
+      // show less of the page at zoom 1, so the same storyboard zoom would crop the element).
+      if (key.box) {
+        const zFit = Math.min(z, Math.max(1, S.L.baseCss / (key.box.width + 120)));
+        const visW = S.L.baseCss / zFit;
+        // A target wider than the view is read from its left edge, like text, rather than centred.
+        const cx = key.box.width + 120 > visW ? key.box.x - 60 + visW / 2 : key.box.x + key.box.width / 2;
+        return { t: key.at * shot.duration, cx: cx + dx, cy: key.box.y + key.box.height / 2 + dy, z: zFit };
+      }
+      return { t: key.at * shot.duration, cx: null, cy: key.y + visHAt(z) / 2, z };
+    }).sort((a, b) => a.t - b.t);
+    // Scroll-position keys take their horizontal position from the nearest element key, so a narrow
+    // layout keeps looking at the same content column instead of the page's centre.
+    for (const key of shot._keys) {
+      if (key.cx != null) continue;
+      const anchored = shot._keys.filter((k) => k.cx != null).sort((a, b) => Math.abs(a.t - key.t) - Math.abs(b.t - key.t))[0];
+      key.cx = anchored ? anchored.cx : vp.width / 2;
+    }
+    return shot._keys;
+  }
+
+  function liveKeys(shot) {
+    if (shot._keys) return shot._keys;
+    const vp = shot.capture.viewport;
+    const keys = [{ t: 0, cx: vp.width / 2, cy: vp.height / 2, z: 1 }];
+    const zoomOn = shot.zoom !== 'none';
+    for (const a of shot.actions) {
+      if (a.type === 'navigate' || a.type === 'scroll') keys.push({ t: a.t, cx: vp.width / 2, cy: vp.height / 2, z: 1 });
+      if (['hover', 'click', 'type'].includes(a.type) && a.box) {
+        const visH = S.L.baseCss * (S.L.screen.h / S.L.screen.w);
+        const fit = Math.min(S.L.baseCss / (a.box.width + 360), visH / (a.box.height + 240));
+        const z = zoomOn ? clamp(fit, 1, S.L.autoZoom) : 1;
+        keys.push({ t: a.t, cx: a.box.x + a.box.width / 2, cy: a.box.y + a.box.height / 2, z });
+      }
+    }
+    shot._keys = keys.sort((a, b) => a.t - b.t);
+    return shot._keys;
+  }
+
+  function mapTime(map, tau) {
+    if (tau <= map[0][0]) return map[0][1];
+    for (let i = 1; i < map.length; i += 1) {
+      const [o0, c0] = map[i - 1];
+      const [o1, c1] = map[i];
+      if (tau <= o1) return o1 === o0 ? c1 : c0 + (c1 - c0) * ((tau - o0) / (o1 - o0));
+    }
+    return map.at(-1)[1];
+  }
+
+  function frameAt(frames, tc) {
+    let lo = 0, hi = frames.length - 1;
+    if (tc <= frames[0].t) return frames[0];
+    while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (frames[mid].t <= tc) lo = mid; else hi = mid - 1; }
+    return frames[lo];
+  }
+
+  function cursorAt(shot, tc) {
+    let pos = { ...shot.cursorStart };
+    let moving = null;
+    for (const a of shot.actions) {
+      if (a.t > tc) { if (moving && a.point) { const k = easeInOut(clamp((tc - moving.t) / (a.t - moving.t), 0, 1)); return { x: moving.from.x + (a.point.x - moving.from.x) * k, y: moving.from.y + (a.point.y - moving.from.y) * k }; } break; }
+      if (a.type === 'move-start') moving = a;
+      else if (a.point) { pos = { ...a.point }; moving = null; }
+    }
+    return pos;
+  }
+
+  function drawCursor(shot, tc, placed, srcCssW) {
+    const cur = cursorAt(shot, tc);
+    const { s, tx, ty } = placed;
+    const cursor = $('cursor');
+    cursor.style.display = 'block';
+    const size = clamp(s, 0.9, 2.2);
+    cursor.style.transform = `translate(${tx + cur.x * s - 2 * size}px, ${ty + cur.y * s - 2 * size}px) scale(${size})`;
+    const ripple = $('ripple');
+    const click = shot.actions.find((a) => a.type === 'click' && tc >= a.t && tc < a.t + 0.55);
+    if (click) {
+      const k = (tc - click.t) / 0.55;
+      const r = (10 + 34 * easeOut(k)) * s;
+      Object.assign(ripple.style, { display: 'block', left: `${tx + click.point.x * s - r}px`, top: `${ty + click.point.y * s - r}px`, width: `${2 * r}px`, height: `${2 * r}px`, opacity: String(1 - k) });
+    } else ripple.style.display = 'none';
+  }
+
+  function renderTitle(shot, tau) {
+    const el = $('title');
+    const T = S.L.title;
+    const title = shot.title || {};
+    const style = title.style || 'statement';
+    const key = `${shot.id}:${S.W}`;
+    const inner = el.querySelector('.inner');
+    if (currentTitleKey !== key) {
+      currentTitleKey = key;
+      el.className = style;
+      inner.replaceChildren();
+      const add = (cls, child) => { const node = h('div', cls); if (typeof child === 'string') node.textContent = child; else node.appendChild(child); inner.appendChild(node); return node; };
+      if (style === 'end') {
+        const mark = h('img', 'mark'); mark.src = S.logo; mark.style.width = mark.style.height = `${T.mark * 1.4}px`; inner.appendChild(mark);
+      } else if (S.logo) {
+        const brand = h('span');
+        Object.assign(brand.style, { display: 'inline-flex', alignItems: 'center', gap: '.6em', color: '#fff', letterSpacing: '.02em', textTransform: 'none', fontFamily: 'var(--sans)', fontWeight: '700', fontSize: `${T.kicker * 1.35}px` });
+        const logo = h('img'); logo.src = S.logo; logo.style.width = logo.style.height = `${T.kicker * 1.7}px`;
+        brand.append(logo, h('span', null, S.product));
+        add('kicker', brand).dataset.role = 'brand';
+      }
+      if (title.kicker) add('kicker', title.kicker).dataset.role = 'kicker';
+      const heading = add('heading', wordSpans(title.heading));
+      heading.dataset.role = 'heading';
+      heading.replaceChildren(...heading.firstChild.childNodes);
+      if (title.sub) add('sub', title.sub).dataset.role = 'sub';
+      if (title.cta) add('cta', title.cta).dataset.role = 'cta';
+      Object.assign(inner.style, { left: `${T.pad}px`, right: `${T.pad}px`, top: '0', bottom: '0', justifyContent: 'center', gap: `${T.kicker * 1.3}px` });
+      for (const node of inner.children) {
+        const role = node.dataset.role || 'mark';
+        if (role === 'kicker') node.style.fontSize = `${T.kicker}px`;
+        if (role === 'heading') node.style.fontSize = `${style === 'end' ? T.heading * 0.82 : T.heading}px`;
+        if (role === 'sub') node.style.fontSize = `${T.sub}px`;
+        if (role === 'cta') Object.assign(node.style, { fontSize: `${T.cta}px`, padding: `${T.cta * 0.5}px ${T.cta * 0.9}px`, marginTop: `${T.cta * 0.6}px` });
+      }
+    }
+    el.style.display = 'block';
+    // Over generated b-roll the card is a dimmed scrim instead of solid ink, and the dot grid is hidden.
+    el.style.background = shot.source === 'generated' ? 'linear-gradient(180deg, rgba(2,6,23,0.55), rgba(2,6,23,0.72))' : 'var(--ink)';
+    $('dotgrid').style.display = shot.source === 'generated' ? 'none' : 'block';
+    const show = (node, a, b, dy = 24) => { const k = easeOut(ramp(tau, a, b)); node.style.opacity = String(k); node.style.transform = `translateY(${(1 - k) * dy}px)`; };
+    for (const node of inner.children) {
+      const role = node.dataset.role || 'mark';
+      if (role === 'brand') show(node, 0, 0.4, 0);
+      if (role === 'kicker') show(node, 0.05, 0.45);
+      if (role === 'mark') { const k = easeOut(ramp(tau, 0, 0.6)); node.style.opacity = String(k); node.style.transform = `scale(${0.85 + 0.15 * k})`; }
+      if (role === 'heading') {
+        node.style.opacity = '1';
+        for (const w of node.querySelectorAll('.w')) show(w, 0.18 + Number(w.dataset.i) * 0.07, 0.55 + Number(w.dataset.i) * 0.07, 30);
+      }
+      if (role === 'sub') show(node, 0.8, 1.2);
+      if (role === 'cta') show(node, 1.1, 1.5);
+    }
+  }
+
+  // Captions live on one global track (a voice line may run across a cut). A shot can hide them.
+  function renderCaptions(shot, t) {
+    const span = $('captions').querySelector('span');
+    if (!S.globalCaptions) {
+      const source = S.timeline.captions || S.timeline.shots.flatMap((s) => s.lines.map((l) => ({ start: s.start + l.start, end: s.start + l.end, text: l.text })));
+      S.globalCaptions = source.flatMap((cue) => {
+        const chunks = chunkText(cue.text, S.L.captions.maxChars);
+        const total = chunks.reduce((n, c) => n + c.length, 0);
+        let at = cue.start;
+        return chunks.map((chunk) => { const d = (cue.end - cue.start) * (chunk.length / total); const out = { start: at, end: at + d, text: chunk }; at += d; return out; });
+      });
+    }
+    const cap = shot.captions ? S.globalCaptions.find((c) => t >= c.start && t < c.end) : null;
+    span.textContent = cap ? cap.text : '';
+    span.style.display = cap ? 'inline-block' : 'none';
+  }
+
+  // ---- Cinematic shots -----------------------------------------------------------------------------
+  const FX = ['text', 'hero3d', 'lift', 'scroll'];
+  const imageCache = new Map();
+  function loadImage(url) {
+    if (!imageCache.has(url)) { const img = new Image(); img.src = url; imageCache.set(url, img.decode().then(() => img).catch(() => img)); }
+    return imageCache.get(url);
+  }
+  const lerp = (a, b, k) => a + (b - a) * k;
+  const easeInOutExpo = (x) => (x <= 0 ? 0 : x >= 1 ? 1 : x < 0.5 ? 2 ** (20 * x - 10) / 2 : (2 - 2 ** (-20 * x + 10)) / 2);
+  let fxKey = '';
+
+  function windowRect(kind) {
+    const W = S.W, H = S.H;
+    if (kind === 'full') return { x: 0, y: 0, w: W, h: H, r: 0 };
+    const w = S.L.kind === 'wide' ? W * 0.78 : W * 0.9;
+    const h = w * 0.5625;
+    return { x: (W - w) / 2, y: (H - h) / 2 - (S.L.kind === 'tall' ? H * 0.04 : 0), w, h, r: 12 };
+  }
+
+  // Paints a CSS-px region of the page still into an element sized rect.w x rect.h.
+  function paintRegion(el, shot, url, region, rect) {
+    const k = rect.w / region.w;
+    Object.assign(el.style, {
+      left: `${rect.x}px`, top: `${rect.y}px`, width: `${rect.w}px`, height: `${rect.h}px`, borderRadius: `${rect.r ?? 10}px`,
+      backgroundImage: `url("${url}")`, backgroundSize: `${shot.capture.viewport.width * k}px ${shot.pageHeight * k}px`,
+      backgroundPosition: `${-region.x * k}px ${-region.y * k}px`,
+    });
+  }
+
+  function paintBackdrop(shot, url, centerY) {
+    const vp = shot.capture.viewport;
+    const top = clamp(centerY - vp.height / 2, 0, Math.max(0, shot.pageHeight - vp.height));
+    const k = Math.max(S.W / vp.width, S.H / vp.height) * 1.1;
+    Object.assign($('fxbg').style, {
+      display: 'block', backgroundImage: `url("${url}")`, backgroundSize: `${vp.width * k}px ${shot.pageHeight * k}px`,
+      backgroundPosition: `${(S.W + 80 - vp.width * k) / 2}px ${-top * k}px`,
+    });
+  }
+
+  function renderText(shot, tau) {
+    const box = $('fxtext');
+    const spec = shot.text || {};
+    const key = `${shot.id}:${S.W}`;
+    const paper = spec.theme === 'paper';
+    $('fx').style.background = paper ? '#f8fafc' : 'var(--ink)';
+    if (fxKey !== key) {
+      fxKey = key;
+      const size = S.L.kind === 'wide' ? 128 : S.L.kind === 'tall' ? 110 : 96;
+      const main = wordSpans(spec.text);
+      main.className = 't';
+      box.replaceChildren(main, ...(spec.sub ? [h('div', 's', spec.sub)] : []));
+      Object.assign(box.style, { padding: `0 ${S.L.kind === 'wide' ? 9 : 8}%`, alignItems: spec.align === 'left' ? 'flex-start' : 'center', textAlign: spec.align === 'left' ? 'left' : 'center', color: paper ? 'var(--ink)' : '#fff', fontSize: `${size}px` });
+      box.querySelector('.s')?.style.setProperty('font-size', `${Math.round(size * 0.36)}px`);
+    }
+    const half = (60 / (S.timeline.bpm || 112)) / 2;
+    for (const w of box.querySelectorAll('.w')) {
+      const i = Number(w.dataset.i);
+      const k = easeOut(ramp(tau, i * half, i * half + 0.22));
+      w.style.opacity = String(k);
+      w.style.transform = `translateY(${(1 - k) * 0.22}em) scale(${1 + (1 - k) * 0.05})`;
+    }
+    const sub = box.querySelector('.s');
+    if (sub) { const n = box.querySelectorAll('.w').length; const k = easeOut(ramp(tau, n * half, n * half + 0.3)); sub.style.opacity = String(0.72 * k); }
+  }
+
+  async function renderHero(shot, tau, url) {
+    const fx = shot.fx; const vp = shot.capture.viewport;
+    const p = easeOut(clamp(tau / shot.duration, 0, 1));
+    const centerY = fx.focusBox ? fx.focusBox.y + fx.focusBox.height / 2 : (fx.focusY ?? vp.height / 2);
+    const top = clamp(centerY - vp.height / 2, 0, Math.max(0, shot.pageHeight - vp.height));
+    paintBackdrop(shot, url, centerY);
+    const rect = windowRect('window');
+    const win = $('fxwin');
+    paintRegion(win, shot, url, { x: 0, y: top, w: vp.width, h: vp.height }, rect);
+    win.style.display = 'block';
+    win.style.transform = `translateY(${lerp(30, 0, p)}px) rotateY(${lerp(fx.rotateY[0], fx.rotateY[1], p)}deg) rotateX(${lerp(fx.rotateX[0], fx.rotateX[1], p)}deg) scale(${lerp(fx.scale[0], fx.scale[1], p)})`;
+    win.style.filter = 'none';
+  }
+
+  async function renderLift(shot, tau, url) {
+    const fx = shot.fx; const vp = shot.capture.viewport;
+    const b = fx.selectorBox;
+    if (!b) return renderHero(shot, tau, url);
+    const region = { x: Math.max(0, b.x - fx.pad), y: Math.max(0, b.y - fx.pad), w: b.width + fx.pad * 2, h: b.height + fx.pad * 2 };
+    paintBackdrop(shot, url, b.y + b.height / 2);
+    const maxW = S.L.kind === 'wide' ? S.W * 0.62 : S.W * 0.86;
+    const k = Math.min(maxW / region.w, (S.H * 0.66) / region.h, 2.4);
+    const w = region.w * k; const h = region.h * k;
+    const fg = $('fxfg');
+    paintRegion(fg, shot, url, region, { x: (S.W - w) / 2, y: (S.H - h) / 2, w, h, r: 10 });
+    const p = easeOut(clamp(tau / shot.duration, 0, 1));
+    const enter = easeOut(ramp(tau, 0, 0.35));
+    fg.style.display = 'block';
+    fg.style.opacity = String(enter);
+    fg.style.transform = `translateY(${lerp(26, -8, p)}px) scale(${lerp(0.94, 1.03, p)})`;
+  }
+
+  async function renderScroll(shot, tau, url) {
+    const fx = shot.fx; const vp = shot.capture.viewport;
+    const from = fx.fromBox ? fx.fromBox.y - 80 : (fx.fromY ?? 0);
+    const to = fx.toBox ? fx.toBox.y - 120 : (fx.toY ?? Math.max(0, shot.pageHeight - vp.height));
+    const x = clamp(tau / shot.duration, 0, 1);
+    const k = easeInOutExpo(x);
+    const velocity = Math.abs(easeInOutExpo(Math.min(1, x + 0.01)) - k) * 100;
+    const top = clamp(lerp(from, to, k), 0, Math.max(0, shot.pageHeight - vp.height));
+    const full = S.L.kind === 'wide';
+    const rect = windowRect(full ? 'full' : 'window');
+    if (!full) paintBackdrop(shot, url, top + vp.height / 2); else $('fxbg').style.display = 'none';
+    const win = $('fxwin');
+    paintRegion(win, shot, url, { x: 0, y: top, w: vp.width, h: vp.width * (rect.h / rect.w) }, rect);
+    win.style.display = 'block';
+    win.style.transform = 'none';
+    win.style.filter = velocity > 0.4 ? `blur(${Math.min(5, velocity * 1.4).toFixed(2)}px)` : 'none';
+  }
+
+  async function renderFx(shot, tau) {
+    $('fx').style.display = 'block';
+    for (const id of ['fxbg', 'fxwin', 'fxfg']) $(id).style.display = 'none';
+    $('fxtext').style.display = shot.source === 'text' ? 'flex' : 'none';
+    $('fx').style.background = 'var(--ink)';
+    if (shot.source === 'text') return renderText(shot, tau);
+    fxKey = '';
+    const url = S.files[shot.image];
+    await loadImage(url);
+    if (shot.source === 'hero3d') return renderHero(shot, tau, url);
+    if (shot.source === 'lift') return renderLift(shot, tau, url);
+    return renderScroll(shot, tau, url);
+  }
+
+  function renderHeadline(shot, tau) {
+    const el = $('headline');
+    if (!S.L.headline || !shot.headline || shot.source === 'title') { el.style.display = 'none'; return; }
+    el.style.display = 'block';
+    el.textContent = shot.headline;
+    const k = easeOut(ramp(tau, 0.05, 0.5));
+    el.style.opacity = String(k);
+    el.style.transform = `translateY(${(1 - k) * 20}px)`;
+  }
+
+  window.__frame = async (t) => {
+    const shot = shotAt(t);
+    const tau = t - shot.start;
+    const isFx = FX.includes(shot.source);
+    $('fx').style.display = isFx ? 'block' : 'none';
+    if (isFx) {
+      $('title').style.display = 'none';
+      $('screen').style.display = 'none';
+      $('brandrow').style.visibility = 'hidden';
+      $('headline').style.display = 'none';
+      await renderFx(shot, tau);
+      renderCaptions(shot, t);
+      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      return shot.id;
+    }
+    const isTitle = shot.source === 'title';
+    const fullBleed = shot.source === 'generated';
+    const hasCard = isTitle || (fullBleed && shot.title);
+    $('title').style.display = hasCard ? 'block' : 'none';
+    $('screen').style.display = isTitle ? 'none' : 'block';
+    $('brandrow').style.visibility = hasCard ? 'hidden' : 'visible';
+    // Generated b-roll fills the whole frame in every ratio; product pixels stay in the layout's screen rect.
+    const sc = fullBleed ? { x: 0, y: 0, w: S.W, h: S.H, r: 0 } : S.L.screen;
+    Object.assign($('screen').style, { left: `${sc.x}px`, top: `${sc.y}px`, width: `${sc.w}px`, height: `${sc.h}px`, borderRadius: `${sc.r}px` });
+    $('cursor').style.display = 'none';
+    $('ripple').style.display = 'none';
+    if (isTitle) renderTitle(shot, tau);
+    else if (shot.source === 'still') {
+      const vp = shot.capture.viewport;
+      await setImage(S.files[shot.image], vp.width * shot.capture.scale, shot.pageHeight * shot.capture.scale);
+      place(shot, interpolate(stillKeys(shot), tau, true), vp.width, shot.pageHeight);
+    } else if (shot.source === 'live') {
+      const vp = shot.capture.viewport;
+      const tc = mapTime(shot.timeMap, tau);
+      const frame = frameAt(shot.frames, tc);
+      await setImage(S.files[frame.file], vp.width * shot.capture.scale, vp.height * shot.capture.scale);
+      const placed = place(shot, interpolate(liveKeys(shot), tc, false), vp.width, vp.height);
+      drawCursor(shot, tc, placed, vp.width);
+    } else if (shot.source === 'generated') {
+      const index = Math.min(shot.clipFrames.length - 1, Math.floor(tau * S.timeline.fps));
+      const size = shot.clipSize;
+      await setImage(S.files[shot.clipFrames[index]], size.w, size.h);
+      const s = Math.max(sc.w / size.w, sc.h / size.h) * (1 + 0.04 * (tau / shot.duration));
+      $('src').style.transform = `translate(${(sc.w - size.w * s) / 2}px, ${(sc.h - size.h * s) / 2}px) scale(${s})`;
+      if (shot.title) renderTitle(shot, tau);
+    }
+    renderHeadline(shot, tau);
+    renderCaptions(shot, t);
+    // Wait for the changes to be painted; a screenshot taken straight after a DOM change can miss them.
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    return shot.id;
+  };
+})();
+</script>
+</body>
+</html>

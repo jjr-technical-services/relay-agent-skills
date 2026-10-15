@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "review-pull-request",
+        "query": "Review this pull request for regressions and missing tests."
+      },
+      {
+        "id": "review-local-diff",
+        "query": "Use GitNexus to review my staged and unstaged changes."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "summarize-diff",
+        "query": "Summarize the diff without evaluating it."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "merge-risk",
+        "query": "Is this commit range safe to merge, and what behavior lacks coverage?"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "source-supported-review",
+      "task": "Review a repository change using its exact base and head revisions. Trace affected symbols and dependents with GitNexus, verify each candidate issue against source and tests, and produce severity-ranked findings, coverage gaps, graph limitations, and a verdict.",
+      "baselineFailure": "The baseline may restate the diff or report speculative issues without dependency evidence, triggering scenarios, exact lines, or a merge verdict.",
+      "runs": 1,
+      "assertions": [
+        { "id": "revisions", "kind": "text_contains", "value": "revisions" },
+        { "id": "findings", "kind": "text_contains", "value": "findings" },
+        { "id": "severity", "kind": "text_contains", "value": "severity" },
+        { "id": "coverage", "kind": "text_contains", "value": "coverage" },
+        { "id": "limitations", "kind": "text_contains", "value": "limitations" },
+        { "id": "verdict", "kind": "text_contains", "value": "verdict" }
+      ]
+    },
+    {
+      "id": "no-finding-review",
+      "task": "Review a small change whose candidate issues do not survive exact-source verification. Return no findings, summarize the dependency checks and tests examined, and state residual uncertainty.",
+      "baselineFailure": "The baseline may invent a finding to fill the review or omit what was actually checked.",
+      "runs": 1,
+      "assertions": [
+        { "id": "no-findings", "kind": "text_contains", "value": "no qualifying findings" },
+        { "id": "checks", "kind": "text_contains", "value": "checks" },
+        { "id": "uncertainty", "kind": "text_contains", "value": "uncertainty" }
+      ]
+    }
+  ]
+}

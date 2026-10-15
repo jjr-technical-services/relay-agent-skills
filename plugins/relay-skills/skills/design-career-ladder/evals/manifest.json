@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "engineering-career-ladder",
+        "query": "Create a career ladder for our 40-person engineering team with IC and manager tracks."
+      },
+      {
+        "id": "fix-vague-levels",
+        "query": "Our leveling guide just says good, strong, excellent at each level. Rewrite the level expectations so promotion decisions are consistent."
+      },
+      {
+        "id": "promotion-criteria",
+        "query": "Define promotion criteria and a calibration process that ties to our career framework."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "single-job-description",
+        "query": "Write a job description for a senior product designer to post on our careers page."
+      },
+      {
+        "id": "individual-review",
+        "query": "Draft the annual performance review for my direct report based on these notes."
+      },
+      {
+        "id": "price-the-levels",
+        "query": "Build salary ranges for each of our levels using this survey data."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "sales-leveling",
+        "query": "Titles are inconsistent across our sales teams. Build a leveling framework and map existing reps to it."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "customer-success-ladder",
+      "task": "Hypothetical facts: a 25-person customer success team has titles CSM, Senior CSM, and Lead CSM used inconsistently across two regions. Two managers. No existing framework, no pay bands yet. Design a career ladder with tracks, levels, dimensions, and level expectations, and explain how to map current people and run promotions.",
+      "baselineFailure": "The baseline produces a table of adjectives (good, strong, excellent) with years-of-experience requirements, no manager track equivalence, no calibration, and maps people by current title.",
+      "runs": 1,
+      "assertions": [
+        { "id": "has-manager-track", "kind": "text_contains", "value": "manager track" },
+        { "id": "has-dimensions", "kind": "text_contains", "value": "scope" },
+        { "id": "has-calibration", "kind": "text_contains", "value": "calibrat" },
+        { "id": "promotion-evidence", "kind": "text_contains", "value": "evidence" },
+        { "id": "links-to-bands", "kind": "text_contains", "value": "band" },
+        { "id": "no-years-requirement", "kind": "text_not_contains", "value": "years of experience required" }
+      ]
+    }
+  ]
+}

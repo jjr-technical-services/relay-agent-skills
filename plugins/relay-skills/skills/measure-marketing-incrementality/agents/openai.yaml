@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Measure Marketing Incrementality"
+  short_description: "Relay: Test what marketing actually causes"
+  default_prompt: "Use $measure-marketing-incrementality to diagnose our attribution, design and size a holdout or geo-lift test for our biggest channel, and write a measurement plan with decision rules."

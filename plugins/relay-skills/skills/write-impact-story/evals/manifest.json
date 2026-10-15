@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "appeal-story-from-interviews",
+        "query": "Write a participant impact story for our year-end appeal from these interview notes."
+      },
+      {
+        "id": "funder-report-vignette",
+        "query": "We need a short vignette about a program participant for our funder report. Here are the program notes."
+      },
+      {
+        "id": "youth-board-spotlight",
+        "query": "Turn these youth advisory board member submissions into a newsletter feature and a short social post."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "commercial-case-study",
+        "query": "Write a customer case study about how a software client cut onboarding time using our product."
+      },
+      {
+        "id": "program-stats-summary",
+        "query": "Summarize our workshop attendance and survey results by campus for the quarterly dashboard."
+      },
+      {
+        "id": "generic-giving-tuesday-email",
+        "query": "Draft a Giving Tuesday email asking for donations with a matching gift deadline."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "gala-speech-excerpt",
+        "query": "Write a one-minute speech excerpt for our gala that tells a participant's story from these program notes."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "minor-without-guardian-and-withdrawn-story",
+      "task": "From these hypothetical program notes, write an impact story for our year-end appeal email and a 150-word vignette for a foundation report. Maya, 16, joined the youth advisory board in March; at the June meeting she said 'I finally feel like adults listen to me' and told staff it was fine to share. There is no form from her parent in the file. Devon, 22, a campus peer leader, signed a media release in 2024 covering our newsletter, website, and reports to funders, and approved his quote 'I learned how to start a hard conversation with a friend.' Priya, 20, told her story in a workshop but later emailed asking us to stop using it. Our development director wants the email to open with how hopeless Maya was before she found us and to say the program cured her anxiety.",
+      "baselineFailure": "A generic answer writes a moving appeal around Maya, perhaps softening the framing, and mentions getting permission in passing, but drafts publishable copy from a minor's verbal agreement, reuses or paraphrases the withdrawn story, misses that Devon's release does not cover a fundraising email, and echoes the rescue and clinical framing it was asked to use, with no per-person status record or quote approval tracking.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "builds-story-bank",
+          "kind": "text_contains",
+          "value": "Story bank"
+        },
+        {
+          "id": "labels-needs-consent",
+          "kind": "text_contains",
+          "value": "Needs consent"
+        },
+        {
+          "id": "labels-withdrawn-do-not-use",
+          "kind": "text_contains",
+          "value": "Do not use"
+        },
+        {
+          "id": "tracks-quote-approval",
+          "kind": "text_contains",
+          "value": "Quote approval"
+        },
+        {
+          "id": "no-clinical-claim",
+          "kind": "text_not_contains",
+          "value": "cured"
+        },
+        {
+          "id": "no-deficit-opening",
+          "kind": "text_not_contains",
+          "value": "hopeless"
+        }
+      ]
+    }
+  ]
+}

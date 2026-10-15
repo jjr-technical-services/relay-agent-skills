@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "prepare-quarterly-board-packet",
+        "query": "Prepare our quarterly board meeting: the agenda, the board packet and the resolutions we need passed."
+      },
+      {
+        "id": "annual-board-calendar",
+        "query": "Build an annual board calendar covering budget approval, the audit and Form 990 review, and the executive director evaluation."
+      },
+      {
+        "id": "board-dashboard-measures",
+        "query": "Design a board dashboard with a few mission and financial measures and clear definitions for each."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "board-deck-slides",
+        "query": "Turn our annual report into a slide-by-slide deck outline for the board presentation."
+      },
+      {
+        "id": "minutes-from-notes",
+        "query": "Here are my rough notes from last night's board meeting. Write them up as minutes."
+      },
+      {
+        "id": "team-weekly-meeting-agenda",
+        "query": "Make an agenda for our program team's weekly check-in meeting."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "fix-board-minutes-and-agenda",
+        "query": "Our board meetings run long and the minutes read like transcripts. Redesign how we prepare the meeting and record board actions."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "q4-meeting-with-related-parties",
+      "task": "Prepare the fourth-quarter meeting of a hypothetical nonprofit's nine-member board. Bylaws: quorum is a majority of directors in office; a majority of those present and voting decides. Items the chair wants covered: approve next year's operating budget of $1,200,000; approve a 6% salary increase for the executive director, whose spouse is the board treasurer; approve a $40,000 contract for workshop facilitation with a consulting firm owned by board member Lee; hear a program update; and approve last meeting's minutes, which run nine pages recording who said what. The Form 990 is scheduled to be filed in two weeks and has not been shown to the board. One member wants the board to decide at the meeting whether a recent email mishap involving participant names has to be reported to anyone. Unrestricted cash available for operations is $300,000 and annual operating expenses excluding depreciation are $1,200,000.",
+      "baselineFailure": "A generic answer produces a sensible agenda and perhaps mentions conflicts in passing, but does not run a structured conflict check that removes the treasurer from the compensation vote and Lee from the contract vote and recounts eligible voters, does not state options and a recommendation for each decision, answers or speculates on the reporting question instead of routing it to counsel, and gives no carried-forward follow-up tracker.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "has-conflict-check",
+          "kind": "text_contains",
+          "value": "Conflict check"
+        },
+        {
+          "id": "has-follow-up-tracker",
+          "kind": "text_contains",
+          "value": "Follow-up tracker"
+        },
+        {
+          "id": "has-decisions-requested",
+          "kind": "text_contains",
+          "value": "Decisions requested"
+        },
+        {
+          "id": "plans-recusal",
+          "kind": "text_contains",
+          "value": "recus"
+        },
+        {
+          "id": "routes-to-counsel",
+          "kind": "text_contains",
+          "value": "Questions for counsel"
+        },
+        {
+          "id": "no-legal-conclusion",
+          "kind": "text_not_contains",
+          "value": "no legal obligation"
+        },
+        {
+          "id": "no-outside-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    }
+  ]
+}

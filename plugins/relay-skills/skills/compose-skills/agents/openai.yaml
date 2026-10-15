@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Compose Skills"
+  short_description: "Relay: Build reusable master skills and workflows"
+  default_prompt: "Use $compose-skills to turn this outcome or skill sequence into one reusable master skill."

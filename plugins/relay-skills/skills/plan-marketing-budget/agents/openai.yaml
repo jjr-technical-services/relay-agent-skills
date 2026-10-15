@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Plan Marketing Budget"
+  short_description: "Relay: Build and allocate a marketing budget"
+  default_prompt: "Use $plan-marketing-budget to back-solve our revenue target into leads and program cost by channel, allocate on marginal CAC, and model base, cut 20%, and add 20% scenarios."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Promo Video Maker"
+  short_description: "Relay: Turn a product URL into a finished promo video from real product footage"
+  default_prompt: "Use $make-promo-video to make a 60-second promo video for this product URL from real recorded product flows, with voiceover, captions and 16:9, 9:16 and 1:1 masters."

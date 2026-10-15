@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "prepare-weekly-forecast-call",
+        "query": "Prepare our weekly forecast call: here is the pipeline export with categories, stages and close dates. What should we call for the quarter?"
+      },
+      {
+        "id": "pressure-test-commit",
+        "query": "Pressure-test the commit deals using MEDDPICC and tell me which ones should move to best case."
+      },
+      {
+        "id": "coverage-and-slippage",
+        "query": "Is our pipeline coverage enough to hit the quarter, and how much has slipped or been pushed since last week?"
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "mutual-action-plan-request",
+        "query": "Build a mutual action plan with this buyer covering legal review, security review and signature dates."
+      },
+      {
+        "id": "churn-risk-accounts",
+        "query": "Review which customers are at risk of churning at renewal this quarter and why."
+      },
+      {
+        "id": "annual-quota-setting",
+        "query": "Set next year's quotas for each rep based on territory potential and hiring plans."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "explain-forecast-change",
+        "query": "Our quarter forecast dropped by 400k this week. Explain what moved, compare stage-weighted and rep-judgement numbers, and write the narrative for the CRO."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "commit-inspection-week-nine",
+      "task": "It is week 9 of a 13-week quarter for a hypothetical sales team, and today is 17 August. Target is 4.0M and 1.6M is closed. Reps have called 1.5M as commit across four deals. Aurora, 650k, negotiation stage, close date 29 September: the champion is the IT director; the CFO, who must approve any spend over 250k, has not attended a meeting, and nobody has asked how Aurora's procurement and legal teams sign contracts. Birch, 300k, proposal stage, close date 3 August, next step blank. Cedar, 350k, contract out for signature with redlines agreed and the signatory named, close date 4 September. Delta, 200k, verbal award from the CFO, security review complete, order form sent, close date 11 September. Open pipeline due this quarter, including these deals, is 7.2M. Measured at week 9 over the last six quarters, the team closed 40 percent of the value still open and due in the quarter. Produce the forecast call with a range, inspect the commit deals, check coverage, and write the narrative for the CRO.",
+      "baselineFailure": "The baseline calls closed plus the rep commit (3.1M), keeps Aurora in commit on the champion's confidence without naming the missing economic buyer and unmapped paper process, leaves the past-dated Birch deal in the number, judges 3.0x coverage against a generic 3x rule instead of 1 / 40 percent = 2.5x, and does not produce the reviewed-category, MEDDPICC-gap and hygiene outputs the skill requires.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "reviewed-category-column",
+          "kind": "text_contains",
+          "value": "Category (reviewed)"
+        },
+        {
+          "id": "meddpicc-gaps-column",
+          "kind": "text_contains",
+          "value": "MEDDPICC gaps"
+        },
+        {
+          "id": "hygiene-section",
+          "kind": "text_contains",
+          "value": "Hygiene issues"
+        },
+        {
+          "id": "names-economic-buyer-gap",
+          "kind": "text_contains",
+          "value": "economic buyer"
+        },
+        {
+          "id": "names-paper-process-gap",
+          "kind": "text_contains",
+          "value": "paper process"
+        },
+        {
+          "id": "labels-required-coverage",
+          "kind": "text_contains",
+          "value": "Required coverage"
+        },
+        {
+          "id": "required-coverage-value",
+          "kind": "text_contains",
+          "value": "2.5"
+        },
+        {
+          "id": "states-low-call-high",
+          "kind": "text_contains",
+          "value": "Low / call / high"
+        }
+      ]
+    },
+    {
+      "id": "triangulate-with-repeat-slips",
+      "task": "A hypothetical team is at week 8 of a 13-week quarter with a target of 3.0M and 0.9M closed. This week the stage-weighted forecast is 2.2M using the CRM's default stage probabilities, the historical-conversion forecast is 2.35M, and the rep roll-up is 2.9M. At week 8 in each of the last four quarters, the rep roll-up finished an average of 30 percent above actual bookings, the historical-conversion number 6 percent below, and the stage-weighted number 12 percent above. Three deals worth 700k together have each had their close date moved to a later month twice this quarter, and all three are in the rep roll-up. Explain how to reconcile the three numbers, what to investigate, how to treat those three deals, and what number to call with a range.",
+      "baselineFailure": "The baseline averages or splits the difference between the three numbers, does not weight each method by its own track record at week 8, treats the three moved deals as ordinary pipeline instead of a repeat-pusher risk category with a push rate, and names no specific event and owner that would change the outcome.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "method-table-past-accuracy",
+          "kind": "text_contains",
+          "value": "Past accuracy at this week"
+        },
+        {
+          "id": "risk-table-change-column",
+          "kind": "text_contains",
+          "value": "What would change it"
+        },
+        {
+          "id": "names-repeat-pushers",
+          "kind": "text_contains",
+          "value": "repeat pusher"
+        },
+        {
+          "id": "reports-push-rate",
+          "kind": "text_contains",
+          "value": "push rate"
+        }
+      ]
+    }
+  ]
+}

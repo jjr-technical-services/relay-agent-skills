@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Prove Regression Tests"
+  short_description: "Relay: Show that a regression test detects the defect"
+  default_prompt: "Use $prove-regression-tests to prove this test goes red for the defect and green for the fix without disturbing unrelated work."

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [{ "id": "agent-progress", "query": "Assess whether this agent made meaningful progress since the last checkpoint." }],
+    "nearMiss": [{ "id": "status-write", "query": "Mark this agent's work completed and approve its deployment." }],
+    "holdout": [{ "id": "stale-update", "query": "The agent says it finished, but the only artifact is from the previous revision. Assess progress." }]
+  },
+  "scenarios": [
+    {
+      "id": "self-reported-complete",
+      "task": "An agent says 'finished and deployed.' The run is still in progress and no new artifact or deployment receipt exists. Assess the update.",
+      "baselineFailure": "The baseline accepts the agent's assertion as completed and deployed.",
+      "runs": 1,
+      "assertions": [
+        { "id": "no-completion", "kind": "text_not_contains", "value": "marked complete" },
+        { "id": "evidence", "kind": "text_contains", "value": "evidence" }
+      ]
+    },
+    {
+      "id": "missing-pair",
+      "task": "Assess progress from one status message only. No prior state, observation, revision, or evidence was supplied.",
+      "baselineFailure": "The baseline infers progress from activity language alone.",
+      "runs": 1,
+      "assertions": [
+        { "id": "unknown", "kind": "text_contains", "value": "unknown" },
+        { "id": "no-write", "kind": "text_not_contains", "value": "status updated" }
+      ]
+    }
+  ]
+}

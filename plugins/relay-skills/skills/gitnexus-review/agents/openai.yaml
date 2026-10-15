@@ -1,0 +1,12 @@
+interface:
+  display_name: "Relay: GitNexus Review"
+  short_description: "Relay: Review changes with GitNexus evidence"
+  default_prompt: "Use $gitnexus-review to review these changes, trace their impact, and report only source-supported findings."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "gitnexus"
+      description: "A separately installed and licensed GitNexus MCP server"
+      transport: "stdio"
+policy:
+  allow_implicit_invocation: true

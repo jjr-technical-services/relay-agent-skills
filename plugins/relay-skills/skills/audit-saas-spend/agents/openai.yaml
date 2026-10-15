@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Audit SaaS Spend"
+  short_description: "Relay: Inventory software, cut unused seats, track renewals"
+  default_prompt: "Use $audit-saas-spend to build our software inventory from AP, card, expense and SSO exports, find unused licenses and duplicate tools, and build the renewal calendar and savings plan."

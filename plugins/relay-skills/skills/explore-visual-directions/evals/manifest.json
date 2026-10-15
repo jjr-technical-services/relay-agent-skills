@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "preview-existing-product-in-glass",
+        "query": "Show me how our existing Relay Studio interface would look with a restrained glassmorphism treatment before we decide whether to implement it."
+      },
+      {
+        "id": "compare-visual-directions",
+        "query": "Create side-by-side visual explorations of this dashboard in editorial and retro-terminal directions while preserving its current content and behavior."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "implement-approved-production-redesign",
+        "query": "Implement the already approved production redesign across our shared component library and release it."
+      },
+      {
+        "id": "audit-current-interface",
+        "query": "Audit the current interface for accessibility and usability problems without proposing a new visual direction."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "preview-vague-aesthetic",
+        "query": "Let me see what our billing workspace would feel like with a premium futuristic aesthetic, but keep the product recognizable and do not touch production."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "glass-exploration-decision-package",
+      "task": "Create a visual direction brief for a restrained glass treatment of an existing data-dense operations dashboard. Preserve the current information architecture, content, product identity, and semantic states. Explain what belongs in an isolated preview, propose a token delta and component map, cover accessibility and fallback behavior, and state the human decision needed before implementation.",
+      "baselineFailure": "The baseline may produce generic glass styling or implementation advice without preserving product invariants, isolating the preview, or separating exploration from adoption.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "preserves-baseline",
+          "kind": "text_contains",
+          "value": "Baseline"
+        },
+        {
+          "id": "uses-isolated-preview",
+          "kind": "text_contains",
+          "value": "isolated preview"
+        },
+        {
+          "id": "includes-token-delta",
+          "kind": "text_contains",
+          "value": "Token delta"
+        },
+        {
+          "id": "includes-accessibility",
+          "kind": "text_contains",
+          "value": "Accessibility"
+        },
+        {
+          "id": "requires-human-decision",
+          "kind": "text_contains",
+          "value": "human"
+        }
+      ]
+    },
+    {
+      "id": "brief-only-fallback",
+      "task": "The user wants to see an existing customer portal in a Swiss editorial direction, but no repository, screenshot, or browser is available. Provide the most useful bounded result without pretending a preview was rendered.",
+      "baselineFailure": "The baseline may imply that a working visual preview exists even though there is no target surface or rendering environment.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "labels-unverified-preview",
+          "kind": "text_contains",
+          "value": "not rendered"
+        },
+        {
+          "id": "returns-direction-brief",
+          "kind": "text_contains",
+          "value": "direction brief"
+        }
+      ]
+    }
+  ]
+}

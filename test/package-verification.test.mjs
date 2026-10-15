@@ -114,6 +114,12 @@ test('frontmatter validation rejects missing identity and accepts a bounded skil
   assert.equal(parsed.body, '# KPI Tree');
 });
 
+test('frontmatter preserves folded descriptions used by bundled design skills', () => {
+  const parsed = parseFrontmatter('---\nname: design\ndescription: >-\n  Design a useful surface.\n  Preserve its interaction states.\nlicense: MIT\n---\n\n# Design');
+  assert.equal(parsed.values.description, 'Design a useful surface. Preserve its interaction states.');
+  assert.equal(parsed.values.license, 'MIT');
+});
+
 test('bundled validation rejects symlinks and manual file drift', async (t) => {
   const packageRoot = await mkdtemp(path.join(tmpdir(), 'relay-package-verification-'));
   t.after(() => rm(packageRoot, { recursive: true, force: true }));

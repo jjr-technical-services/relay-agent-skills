@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "channel-strategy",
+        "query": "Which marketing channels should we prioritize for the next quarter, and why?"
+      },
+      {
+        "id": "ninety-day-plan",
+        "query": "Turn our ICP and competitor research into a 90-day marketing plan with tests and decision rules."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "single-ad-copy",
+        "query": "Write three headlines for this one Facebook ad."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "weak-growth-diagnosis",
+        "query": "Our signups have stalled. Work out which acquisition and lifecycle motions to change and how to measure it."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "channel-portfolio",
+      "task": "A two-person software company with a small budget and five hours a week of founder time wants its first ten paying customers within 90 days. It already has an onboarding email sequence and a basic website. Recommend a channel strategy.",
+      "baselineFailure": "The baseline lists every popular channel, ranks the existing onboarding email above ways to reach new buyers, ignores the time constraint, and gives no tests or decision rules.",
+      "runs": 1,
+      "assertions": [
+        { "id": "not-now", "kind": "text_contains", "value": "Not now" },
+        { "id": "acquisition", "kind": "text_contains", "value": "acquisition" },
+        { "id": "decision-rule", "kind": "text_contains", "value": "decision rule" },
+        { "id": "capacity", "kind": "text_contains", "value": "capacity" }
+      ]
+    },
+    {
+      "id": "unattended-downstream-strategy",
+      "task": "A launch workflow runs this skill with nobody available to answer questions. It supplies a product summary and an ICP but no budget or baseline numbers. Produce a strategy the next workflow stage can consume directly.",
+      "baselineFailure": "The baseline stops to ask for the budget, invents baseline and target numbers, and returns prose or YAML that the next stage cannot validate.",
+      "runs": 1,
+      "assertions": [
+        { "id": "handoff-block", "kind": "text_contains", "value": "marketing_strategy_handoff" },
+        { "id": "schema-id", "kind": "text_contains", "value": "relay.gtm.marketing_strategy.v1" },
+        { "id": "unknown-baseline", "kind": "text_contains", "value": "unknown" },
+        { "id": "assumptions", "kind": "text_contains", "value": "assumptions" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "logic-model-for-grant",
+        "query": "Build a logic model for our peer workshop program for a foundation grant application, with inputs, activities, outputs, outcomes and indicators."
+      },
+      {
+        "id": "theory-of-change-draft",
+        "query": "Help us write a theory of change for our family program and show the causal links as a diagram."
+      },
+      {
+        "id": "tighten-outcomes-indicators",
+        "query": "Our outcomes are vague. Rewrite them as short-term, medium-term and long-term outcomes with an indicator, baseline and target for each."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "evaluation-plan-request",
+        "query": "Design the evaluation plan for our program: evaluation questions, comparison group options, consent for minors and the reporting timeline."
+      },
+      {
+        "id": "company-kpi-tree",
+        "query": "Break our SaaS company's revenue goal into a KPI tree of input metrics with owners."
+      },
+      {
+        "id": "quarterly-okrs",
+        "query": "Draft next quarter's OKRs for the marketing team."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "contribution-vs-attribution",
+        "query": "What can our youth advisory board program honestly claim to contribute to, and how should the logic model show assumptions and external factors?"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "campus-peer-program-model",
+      "task": "A nonprofit runs a peer-led mental-health awareness program on four college campuses. Trained student ambassadors run 90-minute workshops and tabling events; roughly 40 workshops a year. The executive director's draft says the long-term outcome is 'reduced depression and anxiety among students', and she wants the model to show the program is responsible for the rise in counseling center visits that the partner colleges reported this year. Nothing was measured before the program started. Build the theory of change and logic model for the board and a grant application.",
+      "baselineFailure": "A generic answer produces a standard inputs-to-impact table, keeps the clinical long-term outcome, credits the program with the partner's counseling-visit increase, and invents starting values or targets instead of marking them as missing.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "has-contribution-statement",
+          "kind": "text_contains",
+          "value": "Contribution statement"
+        },
+        {
+          "id": "has-outcome-wording-check",
+          "kind": "text_contains",
+          "value": "Outcome wording check"
+        },
+        {
+          "id": "has-testable-links",
+          "kind": "text_contains",
+          "value": "Testable links"
+        },
+        {
+          "id": "marks-missing-baselines",
+          "kind": "text_contains",
+          "value": "Baseline needed"
+        },
+        {
+          "id": "includes-mermaid",
+          "kind": "text_contains",
+          "value": "mermaid"
+        },
+        {
+          "id": "no-stigmatizing-phrase",
+          "kind": "text_not_contains",
+          "value": "committed suicide"
+        }
+      ]
+    }
+  ]
+}

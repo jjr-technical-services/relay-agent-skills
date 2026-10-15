@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "trial-signups-not-activating",
+        "query": "Our signups are up but paid conversion dropped this quarter. Here is our product event export; where does the funnel leak and which step should we fix first?"
+      },
+      {
+        "id": "crm-stage-drop-off",
+        "query": "Leads are stalling between MQL and opportunity in our CRM stage data. Diagnose the drop-off by source and region."
+      },
+      {
+        "id": "checkout-drop-off-analysis",
+        "query": "Run a drop-off analysis on our checkout conversion funnel from this analytics export, split by device and new vs returning visitors."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "write-landing-page-copy",
+        "query": "Write new hero headline and body copy for our pricing landing page."
+      },
+      {
+        "id": "size-a-specific-ab-test",
+        "query": "We want to test a one-step signup form against the current two-step form. How many visitors per variant do we need and how long should it run?"
+      },
+      {
+        "id": "post-purchase-retention-curves",
+        "query": "Build monthly retention curves for customers acquired in each quarter of last year."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "why-activation-fell",
+        "query": "Activation fell after our onboarding release. Help me separate a tracking problem from a real leak and give me a ranked list of hypotheses to test."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "saas-funnel-with-segment-gap",
+      "task": "Hypothetical data for one quarterly signup cohort: 100,000 visits, 3,000 signups, 1,200 activated accounts, 300 paid. Desktop: 60,000 visits, 2,000 signups, 1,000 activated, 250 paid. Mobile: 40,000 visits, 1,000 signups, 200 activated, 50 paid. The marketing lead says the visit-to-signup step is the problem because it has the lowest rate. Diagnose the funnel, say whether the mobile difference is real, rank the steps, and produce a hypothesis backlog with routing for tests.",
+      "baselineFailure": "The baseline agrees that the lowest-rate step is the priority, reports rates without formulas or a significance check, and lists generic optimization ideas without recoverable-loss sizing or routing.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "names-recoverable-loss",
+          "kind": "text_contains",
+          "value": "recoverable"
+        },
+        {
+          "id": "runs-significance-check",
+          "kind": "text_contains",
+          "value": "significance"
+        },
+        {
+          "id": "states-cohort-choice",
+          "kind": "text_contains",
+          "value": "cohort"
+        },
+        {
+          "id": "includes-hypothesis-backlog",
+          "kind": "text_contains",
+          "value": "Hypothesis backlog"
+        },
+        {
+          "id": "routes-tests",
+          "kind": "text_contains",
+          "value": "ab-test-setup"
+        },
+        {
+          "id": "no-invented-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    },
+    {
+      "id": "period-mixing-drop",
+      "task": "A team doubled trial signups in March from a hypothetical 1,000 to 2,000. Trials take about 30 days to convert. Their dashboard shows March paid conversions of 100 against 2,000 trials and calls it a conversion collapse from 10% to 5%. Explain whether conversion really fell, what measurement the diagnosis should use, and what to check before looking for behavioral causes.",
+      "baselineFailure": "The baseline accepts the 5% figure as a real drop and proposes onboarding changes without noticing that a period-based numerator came from the smaller February cohort.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "uses-cohort-measurement",
+          "kind": "text_contains",
+          "value": "cohort"
+        },
+        {
+          "id": "names-period-measurement",
+          "kind": "text_contains",
+          "value": "period"
+        },
+        {
+          "id": "checks-instrumentation",
+          "kind": "text_contains",
+          "value": "tracking"
+        },
+        {
+          "id": "recomputes-rate",
+          "kind": "text_contains",
+          "value": "10%"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      { "id": "prove-bug-test", "query": "Prove this regression test actually detects the bug before we merge the fix." },
+      { "id": "load-bearing-test", "query": "Is this test load-bearing? Show red, green, controlled regression, and restored green." }
+    ],
+    "nearMiss": [
+      { "id": "write-unit-tests", "query": "Add ordinary unit tests for this new helper." },
+      { "id": "reset-worktree", "query": "Discard every local change and rerun the suite." }
+    ],
+    "holdout": [
+      { "id": "safe-red-green-proof", "query": "Demonstrate that the bug test fails without the fix while preserving the other developer's dirty working tree." }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "dirty-worktree-safe-proof-plan",
+      "task": "A teammate has unrelated uncommitted changes in the primary checkout. Describe how to prove a new regression test fails on the defective revision and passes with the fix without losing their work.",
+      "baselineFailure": "A baseline may use a broad stash, reset, checkout, or copy operation that overwrites unrelated work.",
+      "runs": 1,
+      "assertions": [
+        { "id": "uses-task-worktree", "kind": "text_contains", "value": "task-owned worktree" },
+        { "id": "requires-red", "kind": "text_contains", "value": "fail" },
+        { "id": "restores-green", "kind": "text_contains", "value": "restore" },
+        { "id": "forbids-reset", "kind": "text_not_contains", "value": "git reset --hard" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Landing Page Design"
+  short_description: "Relay: Design and build evidence-grounded, conversion-focused landing pages"
+  default_prompt: "Use $landing-page-design to plan, write, and build a conversion-focused landing page from my offer, audience, and product evidence."

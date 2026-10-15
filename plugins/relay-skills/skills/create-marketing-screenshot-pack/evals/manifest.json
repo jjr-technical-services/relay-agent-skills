@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "screenshot-pack",
+        "query": "Capture the best product screens for our case study and organize them with a narrative."
+      },
+      {
+        "id": "responsive-captures",
+        "query": "Take desktop and mobile screenshots of our key product flows for the new landing page."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "single-bug-screenshot",
+        "query": "Take one screenshot of this error so I can file a bug."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "sales-deck-visuals",
+        "query": "Pick the product moments that best prove our value for a sales deck and give me framed versions."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "narrative-pack",
+      "task": "A team wants product screenshots for a landing page and a short case study. You can read the product's code but cannot sign in. Plan and describe the pack you would deliver, including how each selected image would be placed on the page.",
+      "baselineFailure": "The baseline dumps screenshots without a narrative, presents code-inferred screens as observed, and gives images no descriptions or placement roles.",
+      "runs": 1,
+      "assertions": [
+        { "id": "source-inferred", "kind": "text_contains", "value": "source-inferred" },
+        { "id": "manifest", "kind": "text_contains", "value": "manifest.json" },
+        { "id": "alt-text", "kind": "text_contains", "value": "altText" },
+        { "id": "page-role", "kind": "text_contains", "value": "pageRole" }
+      ]
+    },
+    {
+      "id": "noisy-console",
+      "task": "While capturing a signed-out marketing page, every page logs a failed session request. Explain how you would treat those errors in the pack and how you would decide whether a capture is still usable as proof.",
+      "baselineFailure": "The baseline either ignores all console errors or rejects every capture, with no record of which errors are expected and why.",
+      "runs": 1,
+      "assertions": [
+        { "id": "allowlist", "kind": "text_contains", "value": "harmlessConsoleErrors" },
+        { "id": "allowlist-entry-pattern", "kind": "text_contains", "value": "\"pattern\"" },
+        { "id": "capture-log", "kind": "text_contains", "value": "capture-log" }
+      ]
+    }
+  ]
+}

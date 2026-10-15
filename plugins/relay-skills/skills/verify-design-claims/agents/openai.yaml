@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Verify Design Claims"
+  short_description: "Relay: Check technical claims against evidence"
+  default_prompt: "Use $verify-design-claims to verify this plan or architecture document against the available source and runtime evidence."

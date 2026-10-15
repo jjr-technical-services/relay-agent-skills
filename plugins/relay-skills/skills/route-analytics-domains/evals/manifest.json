@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [{ "id": "analytics-domain", "query": "Which approved analytics domain should handle this question?" }],
+    "nearMiss": [{ "id": "sql-request", "query": "Write and run SQL against our warehouse to answer this question." }],
+    "holdout": [{ "id": "cross-domain", "query": "Choose a domain for a question that needs customer and billing data." }]
+  },
+  "scenarios": [
+    {
+      "id": "missing-catalog",
+      "task": "Route a revenue analytics question. No domain catalog or tenant authorization was supplied.",
+      "baselineFailure": "The baseline invents a finance schema and writes a query against it.",
+      "runs": 1,
+      "assertions": [
+        { "id": "catalog-needed", "kind": "text_contains", "value": "catalog" },
+        { "id": "no-sql", "kind": "text_not_contains", "value": "SELECT " }
+      ]
+    },
+    {
+      "id": "cross-domain-review",
+      "task": "The approved catalog has customers and billing as separate domains, with no approved cross-domain join. Route a question asking for invoice totals by customer segment.",
+      "baselineFailure": "The baseline forces one domain and silently assumes a permitted join.",
+      "runs": 1,
+      "assertions": [
+        { "id": "review", "kind": "text_contains", "value": "review" },
+        { "id": "no-query", "kind": "text_not_contains", "value": "SELECT " }
+      ]
+    }
+  ]
+}

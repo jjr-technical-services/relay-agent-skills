@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Logic Model Builder"
+  short_description: "Relay: Build a theory of change and logic model"
+  default_prompt: "Use $build-logic-model to turn our program description into a theory of change, a logic model table with indicators, and a Mermaid diagram."

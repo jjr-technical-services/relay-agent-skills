@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "cluttered-admin-list-surface",
+        "query": "Our internal admin list view feels cluttered and cramped — too much chrome above the table before any data shows. Restructure the surface."
+      },
+      {
+        "id": "design-data-table-with-bulk-actions",
+        "query": "Design the orders data table for our SaaS dashboard: columns, sorting, filters, bulk actions, pagination and the empty states."
+      },
+      {
+        "id": "settings-form-validation-and-destructive-action",
+        "query": "Build the team settings surface — field validation timing, progressive disclosure, and the pattern for removing a member."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "marketing-landing-page-motion",
+        "query": "Build our marketing landing page hero with scroll reveals, parallax and a premium animated background."
+      },
+      {
+        "id": "preview-named-aesthetic-on-product",
+        "query": "Show me how this product would look with a glassmorphism aesthetic without changing production."
+      },
+      {
+        "id": "marketing-site-information-architecture",
+        "query": "Write the sitemap, navigation and page copy for our multi-page marketing website."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "internal-tool-feels-unfinished",
+        "query": "This internal CRUD tool works but reads as assembled rather than designed: the rows are inconsistent, the filters are invisible, and nobody designed the loading or empty states."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "chrome-budget-restructure",
+      "task": "An internal orders list view stacks a breadcrumb, a page title, a description paragraph, a band of large summary numbers, a tab bar and a filter row above the first table row. Restructure the surface. State how many bands of chrome remain and the pixel distance to the first row of content, give the single-toolbar collapse, say where the summary numbers and the page description each belong instead, and name the control and row sizing you are applying.",
+      "baselineFailure": "The baseline restyles the existing bands or offers generic decluttering advice without measuring the chrome, collapsing the toolbar into one band, relocating the summary numbers into the toolbar as count-tabs, or moving the page description into the empty state.",
+      "runs": 1,
+      "assertions": [
+        { "id": "measures-chrome", "kind": "text_contains", "value": "chrome budget" },
+        { "id": "collapses-to-one-toolbar", "kind": "text_contains", "value": "toolbar" },
+        { "id": "stats-band-becomes-count-tabs", "kind": "text_contains", "value": "count-tabs" },
+        { "id": "declares-band-heights", "kind": "text_contains", "value": "40px" },
+        { "id": "moves-description-to-empty-state", "kind": "text_contains", "value": "empty state" },
+        { "id": "no-marketing-rhythm", "kind": "text_not_contains", "value": "py-20 section rhythm is fine" }
+      ]
+    },
+    {
+      "id": "data-table-anatomy",
+      "task": "Specify the data table for a payments list: amount, status, customer, method and created date. Give column order and alignment with the rule for numeric versus nominal numbers, the row height tier, how numerals are set, which single column may truncate, how a missing value renders, the selection model, and where the bulk-action bar docks with the reason.",
+      "baselineFailure": "The baseline centres or left-aligns amounts, truncates several columns, leaves missing values blank, lets row click toggle selection, and inserts the bulk-action bar above the list so selecting a row shifts every row down.",
+      "runs": 1,
+      "assertions": [
+        { "id": "right-aligns-amounts", "kind": "text_contains", "value": "right" },
+        { "id": "uses-tabular-figures", "kind": "text_contains", "value": "tabular" },
+        { "id": "nominal-numbers-stay-left", "kind": "text_contains", "value": "nominal" },
+        { "id": "one-truncating-column", "kind": "text_contains", "value": "truncat" },
+        { "id": "bulk-bar-does-not-insert-a-band", "kind": "text_contains", "value": "bulk" },
+        { "id": "gives-row-height", "kind": "text_contains", "value": "row height" }
+      ]
+    },
+    {
+      "id": "flow-validation-and-destructive-action",
+      "task": "Specify the member management surface: when field errors appear versus clear, what an error message must say, the complete set of states the list must ship, and whether removing a member gets an undo or a confirmation dialog. Justify the destructive-action choice against the conditions that make a confirm dialog necessary.",
+      "baselineFailure": "The baseline validates while the user types, writes colour-only errors, ships only the populated and loading states, and puts a generic 'Are you sure?' dialog on every destructive action.",
+      "runs": 1,
+      "assertions": [
+        { "id": "validates-on-blur", "kind": "text_contains", "value": "blur" },
+        { "id": "prefers-undo", "kind": "text_contains", "value": "undo" },
+        { "id": "names-confirm-conditions", "kind": "text_contains", "value": "irreversible" },
+        { "id": "requires-full-state-set", "kind": "text_contains", "value": "no-results" },
+        { "id": "accessible-error-wiring", "kind": "text_contains", "value": "aria-describedby" },
+        { "id": "no-generic-confirm", "kind": "text_not_contains", "value": "Are you sure?" }
+      ]
+    }
+  ]
+}

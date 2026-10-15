@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Agent Progress Assessor"
+  short_description: "Relay: Check progress against evidence"
+  default_prompt: "Use $assess-agent-progress to compare this agent update with the prior state and observed evidence."

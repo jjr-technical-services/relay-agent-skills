@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "year-end-campaign-with-realistic-goal",
+        "query": "Plan our year-end fundraising campaign and set a realistic goal from last year's results, with a channel plan and cadence."
+      },
+      {
+        "id": "giving-day-with-match",
+        "query": "We have a giving day in the spring and a donor offering a matching gift. Plan the campaign, segments, tracking codes and gift processing."
+      },
+      {
+        "id": "memorial-peer-to-peer-fundraiser",
+        "query": "A family wants to run a memorial peer-to-peer fundraiser for us. How should we plan and run the campaign?"
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "write-year-end-appeal-letter",
+        "query": "Write the year-end appeal letter from our executive director, about one page."
+      },
+      {
+        "id": "commercial-product-launch-campaign",
+        "query": "Make a one-page campaign plan for launching our new paid webinar series to HR buyers."
+      },
+      {
+        "id": "donor-retention-program",
+        "query": "Score our donors with RFM and build a stewardship calendar to improve retention across the year."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "employee-giving-drive",
+        "query": "A corporate partner's employee resource group wants to run an employee giving drive with company matching for us in November. Plan the campaign."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "year-end-plan-with-pressure-and-memorial",
+      "task": "Plan the year-end campaign for a small hypothetical nonprofit. Last year's year-end results by audience, and this year's audiences are the same size: 600 people who had given to the previous year-end appeal were asked, and 50% of them gave with an average of $200; 900 donors who last gave two or more years ago were asked and 5% gave, averaging $120; 3,000 newsletter subscribers who have never given were asked and 1% gave, averaging $80. A board member has offered a $25,000 one-to-one match for gifts made in December and has said privately she will give the full $25,000 even if it is not matched. The board chair wants the goal set at $250,000 because that is the budget shortfall. The executive director wants a countdown timer on the donation page and the monthly giving box pre-checked. A family has asked to include a memorial peer-to-peer page for their 19-year-old son who died by suicide last spring.",
+      "baselineFailure": "A generic plan accepts or lightly questions the $250,000 figure without building the goal segment by segment, does not show the gap and the levers to close it, lets match language imply the match could be lost, and treats the memorial page without written family agreement, safe messaging guidance and an approved crisis resource slot.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "has-goal-build-up",
+          "kind": "text_contains",
+          "value": "Goal build-up"
+        },
+        {
+          "id": "has-gap-section",
+          "kind": "text_contains",
+          "value": "Gap to requested goal"
+        },
+        {
+          "id": "computes-segment-revenue",
+          "kind": "text_contains",
+          "value": "67,800"
+        },
+        {
+          "id": "has-ethics-check",
+          "kind": "text_contains",
+          "value": "Ethics check"
+        },
+        {
+          "id": "uses-approved-crisis-slot",
+          "kind": "text_contains",
+          "value": "organization-approved crisis resource"
+        },
+        {
+          "id": "no-stigmatizing-language",
+          "kind": "text_not_contains",
+          "value": "committed suicide"
+        },
+        {
+          "id": "no-outside-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    }
+  ]
+}

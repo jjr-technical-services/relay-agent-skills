@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Diagnose Conversion Funnel"
+  short_description: "Relay: Find where and why your funnel leaks"
+  default_prompt: "Use $diagnose-conversion-funnel to define our funnel stages, find the step losing the most recoverable conversions, and build a scored hypothesis backlog."

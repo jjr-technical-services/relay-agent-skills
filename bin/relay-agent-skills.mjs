@@ -14,6 +14,7 @@ import {
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const catalog = JSON.parse(await readFile(path.join(packageRoot, 'catalog.json'), 'utf8'));
 const relayLock = JSON.parse(await readFile(path.join(packageRoot, 'relay-lock.json'), 'utf8'));
+const libraryLock = JSON.parse(await readFile(path.join(packageRoot, 'library-lock.json'), 'utf8'));
 const hostRoots = {
   codex: { user: path.join(homedir(), '.agents', 'skills'), project: '.agents/skills' },
   claude: { user: path.join(homedir(), '.claude', 'skills'), project: '.claude/skills' },
@@ -24,7 +25,7 @@ function usage() {
 
 Commands:
   list [--json]                         List bundled skills.
-  verify [skill...] [--release] [--json] Validate bundled skills against relay-lock.json.
+  verify [skill...] [--release] [--json] Validate bundled skills against library-lock.json.
   verify-live [--json]                  Compare relay-lock.json with production discovery.
   install <skill...> [options]           Install skills into Codex, Claude Code, or both.
   mcp [--host codex|claude]              Print the Relay MCP configuration for a host.
@@ -67,10 +68,12 @@ function skillByName(name) {
 }
 
 async function validateSkill(skill) {
+  const locked = libraryLock.skills?.[skill.name];
+  if (!locked) throw new Error(`${skill.name}: missing from library-lock.json.`);
   return validateBundledSkill({
     packageRoot,
     skill,
-    lockEntry: relayLock.skills?.[skill.name] || null,
+    lockEntry: locked,
   });
 }
 

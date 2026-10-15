@@ -1,0 +1,12 @@
+interface:
+  display_name: "Relay: GitNexus Impact Analysis"
+  short_description: "Relay: Trace change impact with GitNexus evidence"
+  default_prompt: "Use $gitnexus-impact-analysis to assess the blast radius of this change and verify the result against exact source."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "gitnexus"
+      description: "A separately installed and licensed GitNexus MCP server"
+      transport: "stdio"
+policy:
+  allow_implicit_invocation: true

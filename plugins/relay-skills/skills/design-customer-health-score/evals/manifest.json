@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "build-health-score-from-scratch",
+        "query": "We need a customer health score for our CS team. Which signals should we use and how should we weight them?"
+      },
+      {
+        "id": "validate-existing-score",
+        "query": "Our health score shows green for accounts that later churned. Check whether it predicts churn and redesign it."
+      },
+      {
+        "id": "set-health-thresholds",
+        "query": "Help me set red, yellow and green thresholds for our health score and write a playbook for each band."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "at-risk-account-review",
+        "query": "Review these five accounts renewing next month and tell me which are most likely to churn and what to say to each."
+      },
+      {
+        "id": "qbr-preparation",
+        "query": "Prepare the quarterly business review brief for our largest customer's meeting next week."
+      },
+      {
+        "id": "cohort-retention-curves",
+        "query": "Build monthly cohort retention curves and calculate GRR and NRR for the last two years."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "logistic-versus-expert-weights",
+        "query": "Should we weight our health signals by expert judgement or fit a logistic regression on past renewals, and how do we backtest it?"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "design-score-with-few-churns",
+      "task": "A hypothetical software company has 400 customers and saw 18 churn at renewal last year. It has product usage events, support tickets, NPS responses from about a third of customers, and CSM notes. Design a health score: define the outcome and window, choose signals, choose a weighting approach, describe the backtest, set bands and playbooks, and name the failure modes.",
+      "baselineFailure": "The baseline lists a dozen signals with round weights agreed by opinion, includes signals that occur after the churn decision, skips the backtest, treats missing NPS as neutral, and gives bands with no playbooks.",
+      "runs": 1,
+      "assertions": [
+        { "id": "defines-prediction-window", "kind": "text_contains", "value": "prediction window" },
+        { "id": "requires-backtest", "kind": "text_contains", "value": "backtest" },
+        { "id": "addresses-leakage", "kind": "text_contains", "value": "leakage" },
+        { "id": "names-weighting-choice", "kind": "text_contains", "value": "expert weights" },
+        { "id": "includes-playbooks", "kind": "text_contains", "value": "playbook" },
+        { "id": "no-invented-standard", "kind": "text_not_contains", "value": "the industry standard is" }
+      ]
+    },
+    {
+      "id": "segment-failure-diagnosis",
+      "task": "A hypothetical company's health score catches most churn among enterprise customers but almost none among small-business customers, and CSMs admit they rate accounts green before their own reviews. Diagnose the problems and recommend changes to signals, weights, thresholds and governance.",
+      "baselineFailure": "The baseline suggests adding more signals without testing by segment, ignores CSM gaming, and does not set a review cadence.",
+      "runs": 1,
+      "assertions": [
+        { "id": "tests-by-segment", "kind": "text_contains", "value": "segment" },
+        { "id": "addresses-gaming", "kind": "text_contains", "value": "gaming" },
+        { "id": "sets-review-cadence", "kind": "text_contains", "value": "cadence" },
+        { "id": "uses-band-churn-rate", "kind": "text_contains", "value": "churn rate" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      { "id": "architecture-claim-check", "query": "Verify the API names, file paths, counts, and behavior claims in this architecture proposal against the repository." },
+      { "id": "state-machine-review", "query": "Check this retry state machine for deadlocks, missing guard branches, and false invariants." }
+    ],
+    "nearMiss": [
+      { "id": "ordinary-code-review", "query": "Review this pull request for maintainability and style." },
+      { "id": "implement-plan", "query": "Implement this approved plan exactly as written." }
+    ],
+    "holdout": [
+      { "id": "refactor-preservation", "query": "Determine whether this state-machine refactor actually preserves the old behavior and cite the evidence." }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "evidence-status-and-read-only-boundary",
+      "task": "A proposal says a four-state retry machine can never deadlock and cites two source files. Explain how you would verify the claims when one cited file does not exist. Do not edit anything.",
+      "baselineFailure": "A baseline may trust the proposal, invent the missing file, or claim proof from intuition.",
+      "runs": 1,
+      "assertions": [
+        { "id": "labels-unresolved", "kind": "text_contains", "value": "unresolved" },
+        { "id": "checks-deadlock", "kind": "text_contains", "value": "deadlock" },
+        { "id": "preserves-read-only", "kind": "text_contains", "value": "read-only" },
+        { "id": "does-not-claim-proof", "kind": "text_not_contains", "value": "proved correct" }
+      ]
+    }
+  ]
+}

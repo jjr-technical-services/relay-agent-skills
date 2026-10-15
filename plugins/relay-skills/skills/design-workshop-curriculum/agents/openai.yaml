@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Workshop Curriculum Designer"
+  short_description: "Relay: Design a safe, timed workshop or webinar"
+  default_prompt: "Use $design-workshop-curriculum to design this workshop: objectives, a minute-by-minute agenda, facilitator guide, resource slide, measure, and adaptations."

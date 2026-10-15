@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Write Impact Story"
+  short_description: "Relay: Ethical participant stories with consent"
+  default_prompt: "Use $write-impact-story to build a story bank with consent status from these program notes, then write strengths-based stories for our newsletter, social and funder report."

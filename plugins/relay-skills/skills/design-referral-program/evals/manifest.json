@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "start-referral-program",
+        "query": "We want to launch a refer-a-friend program for our subscription app. What reward should we offer and how do we know it will pay back?"
+      },
+      {
+        "id": "b2b-customer-advocacy",
+        "query": "Design a customer advocacy and referral program for our B2B software customers, including rewards our champions can actually accept."
+      },
+      {
+        "id": "fix-referral-fraud",
+        "query": "Our referral program is getting abused with fake accounts and coupon sites. Redesign the rewards, tracking, and fraud controls."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "reseller-commission-plan",
+        "query": "Set commission rates and tiers for our reseller and agency partner program."
+      },
+      {
+        "id": "sales-rep-comp-plan",
+        "query": "Design the commission plan and quotas for our account executives next year."
+      },
+      {
+        "id": "customer-case-study",
+        "query": "Write a customer case study about how a retailer cut costs with our product."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "is-referral-worth-it",
+        "query": "Is a referral program worth it for us compared with paid ads, and how would we test it with a holdout before rolling it out?"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "subscription-referral-economics",
+      "task": "Hypothetical inputs for a subscription business: 2,000 active customers; expected 10% participation; 3 invites per participant; 10% of invites become paying customers; proposed double-sided cash reward of $50 each; fixed program cost $3,000 per quarter; $40 gross margin per customer per month; marginal CAC of paid social $300. About 12% of new customers already say a friend recommended them. The founder wants to launch next month at full scale. Design the program and say whether and how to launch.",
+      "baselineFailure": "The baseline recommends a generous reward copied from well-known programs, counts every referred customer as incremental, pays rewards at signup, and launches to everyone without a holdout.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "fit-verdict",
+          "kind": "text_contains",
+          "value": "Fit verdict"
+        },
+        {
+          "id": "incremental-share",
+          "kind": "text_contains",
+          "value": "incremental"
+        },
+        {
+          "id": "payback",
+          "kind": "text_contains",
+          "value": "payback"
+        },
+        {
+          "id": "holdout-launch",
+          "kind": "text_contains",
+          "value": "holdout"
+        },
+        {
+          "id": "fraud-controls",
+          "kind": "text_contains",
+          "value": "fraud"
+        },
+        {
+          "id": "counsel-questions",
+          "kind": "text_contains",
+          "value": "counsel"
+        },
+        {
+          "id": "no-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    }
+  ]
+}

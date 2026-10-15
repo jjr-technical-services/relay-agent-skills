@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      { "id": "compose-explicit-skill-recipe", "query": "Combine Product Design, natural writing, and wireframe prompt generation into one reusable skill I can invoke later." },
+      { "id": "compose-outcome-workflow", "query": "Find the right skills and build one governed workflow for researching, drafting, reviewing, and publishing a client report." }
+    ],
+    "nearMiss": [
+      { "id": "run-one-existing-skill", "query": "Use the wireframe prompt skill once to turn this PRD into a Claude Design prompt." },
+      { "id": "explain-agent-skills", "query": "Explain what an Agent Skill is and how progressive disclosure works." }
+    ],
+    "holdout": [
+      { "id": "master-skill-from-recurring-process", "query": "Turn this recurring multi-step process into one master skill, including approvals, agent assignments, graph visualization, and Relay publication." }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "wireframe-composition-with-repeated-humanization",
+      "task": "Create one reusable workflow that resolves the focused Product Design skill, simplifies a product brief, generates a complete wireframe prompt, then makes the prompt sound natural without deleting frame IDs, counts, workflows, requirements, or coverage instructions.",
+      "baselineFailure": "A baseline may paste several skill instructions together, treat the Product Design router as an implementation skill, or let the final rewrite remove the wireframe coverage contract.",
+      "runs": 1,
+      "assertions": [
+        { "id": "uses-typed-handoffs", "kind": "text_contains", "value": "handoff" },
+        { "id": "preserves-wireframe-contract", "kind": "text_contains", "value": "frame IDs" },
+        { "id": "includes-graph", "kind": "text_contains", "value": "capability graph" },
+        { "id": "freezes-dependencies", "kind": "text_contains", "value": "freeze" }
+      ]
+    },
+    {
+      "id": "agent-workflow-capability-boundary",
+      "task": "Compose a workflow where an agent uses research and writing skills, invokes a bounded approval workflow, and is then assigned by a packaging workflow. Explain and visualize the relationships without granting new authority.",
+      "baselineFailure": "A baseline may confuse capability references with authorization or create an unbounded recursive agent-workflow loop.",
+      "runs": 1,
+      "assertions": [
+        { "id": "keeps-authority-boundary", "kind": "text_contains", "value": "authority" },
+        { "id": "rejects-recursion", "kind": "text_contains", "value": "recursive" },
+        { "id": "distinguishes-assignment", "kind": "text_contains", "value": "assignment" }
+      ]
+    }
+  ]
+}

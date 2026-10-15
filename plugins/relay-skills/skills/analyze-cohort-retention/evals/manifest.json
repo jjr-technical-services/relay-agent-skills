@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "cohort-triangle-from-csv",
+        "query": "Here is a CSV of customer_id, month, and MRR. Build a cohort retention triangle and tell me whether our newer cohorts retain better."
+      },
+      {
+        "id": "grr-vs-nrr",
+        "query": "Calculate gross revenue retention and net revenue retention by signup cohort; our board deck says NRR is 115% and I want to check it."
+      },
+      {
+        "id": "retention-curve-flattening",
+        "query": "Does our logo retention curve flatten out, and at what month? We have two years of subscription data."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "account-churn-risk",
+        "query": "Review these twelve enterprise accounts renewing next quarter and tell me which are at risk of churning and what the save plan should be."
+      },
+      {
+        "id": "health-score-design",
+        "query": "Design a customer health score with weighted usage, support, and relationship signals for our customer success team."
+      },
+      {
+        "id": "ltv-cac-payback",
+        "query": "Work out our customer lifetime value, CAC payback period, and contribution margin per customer for the investor model."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "trailing-vs-cohort-nrr",
+        "query": "Why is our trailing-twelve-month NRR different from the month-12 NRR in our cohort analysis, and which should we report?"
+      },
+      {
+        "id": "segment-cohort-cut",
+        "query": "Split our retention by plan and acquisition channel and show which segment's cohorts churn fastest."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "expansion-reactivation-small-cohort",
+      "task": "Hypothetical subscription data. The January cohort has 5 customers, each paying 100 per month at the start. By month 3: customer A pays 300, customer B cancelled in month 2, customer C downgraded to 60, customer D cancelled in month 1 and came back in month 3 paying 100, and customer E still pays 100. The February cohort has 3 customers at 100 each and all 3 are still paying in month 2. Leadership wants the January cohort's logo retention, gross and net revenue retention at month 3, and wants to know whether the February cohort is retaining better and whether revenue retention is healthy.",
+      "baselineFailure": "The baseline reports the 112% NRR as healthy without showing that one expansion account hides a 72% GRR, silently counts or drops the returning customer without stating the counting rule or showing the alternative, declares the three-customer February cohort better, and does not state its definitions or data checks.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "definitions-section",
+          "kind": "text_contains",
+          "value": "Definitions used"
+        },
+        {
+          "id": "data-checks-section",
+          "kind": "text_contains",
+          "value": "Data checks"
+        },
+        {
+          "id": "grr-capped-value",
+          "kind": "text_contains",
+          "value": "72%"
+        },
+        {
+          "id": "nrr-value",
+          "kind": "text_contains",
+          "value": "112%"
+        },
+        {
+          "id": "reactivation-mode-named",
+          "kind": "text_contains",
+          "value": "survival"
+        },
+        {
+          "id": "no-invented-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    },
+    {
+      "id": "board-nrr-one-account-expansion",
+      "task": "A hypothetical company's board deck reports 119.2% net revenue retention, computed as this month's recurring revenue from every customer who was paying twelve months ago divided by what those customers paid twelve months ago. That base was 500k of monthly recurring revenue and is now 596k. One customer, Orion, grew from 20k to 140k. Among the other customers, 40k was lost to cancellations, 8k to downgrades, and 24k was gained from upgrades. The last four quarterly cohorts each show month-12 net revenue retention between 96% and 104%. Explain how both can be true, what the board figure hides, which numbers to check, and how to present retention consistently going forward.",
+      "baselineFailure": "The baseline calls one of the numbers wrong, does not name the board figure as a mixed-age trailing view distinct from cohort values, does not compute the 90.4% gross figure that caps Orion's expansion, and gives no standing definitions or investigation list.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "definitions-section",
+          "kind": "text_contains",
+          "value": "Definitions used"
+        },
+        {
+          "id": "ttm-view-section",
+          "kind": "text_contains",
+          "value": "TTM view"
+        },
+        {
+          "id": "what-to-investigate-section",
+          "kind": "text_contains",
+          "value": "What to investigate"
+        },
+        {
+          "id": "grr-capped-value",
+          "kind": "text_contains",
+          "value": "90.4%"
+        },
+        {
+          "id": "no-invented-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    }
+  ]
+}

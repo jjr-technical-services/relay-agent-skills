@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Program Evaluation Planner"
+  short_description: "Relay: Plan a proportionate program evaluation"
+  default_prompt: "Use $design-program-evaluation to plan how we evaluate our program: questions, design and what it can support, consent, privacy, analysis and timeline."

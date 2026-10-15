@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Research Competitive Positioning"
+  short_description: "Relay: Map competitors, positioning, channels, and whitespace"
+  default_prompt: "Use $research-competitive-positioning to research my competitive landscape and produce an evidence-backed handoff for marketing strategy."

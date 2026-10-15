@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "annual-operating-plan",
+        "query": "Build next year's annual operating plan and budget for our company, phased by month, with a headcount plan."
+      },
+      {
+        "id": "reconcile-department-requests",
+        "query": "Department budget requests add up to far more than the company targets allow; help me reconcile them and decide what to fund."
+      },
+      {
+        "id": "scenario-runway",
+        "query": "Model base, downside and upside scenarios for next year's budget and show our cash runway in each."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "variance-explanation",
+        "query": "Explain why actual operating expenses were 12% over budget in Q2 and write the commentary for the board."
+      },
+      {
+        "id": "marketing-channel-allocation",
+        "query": "Allocate our 2 million marketing budget across paid search, events, and content for next year."
+      },
+      {
+        "id": "thirteen-week-cash",
+        "query": "Build a 13-week cash forecast from our receivables and payables so we can manage payroll timing."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "hiring-plan-cost-model",
+        "query": "We plan to hire 25 people next year across engineering and sales; model the fully loaded headcount cost by start month and the effect on next year's budget."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "startup-operating-plan",
+      "task": "A hypothetical software company has 12,000,000 in cash, 8,000,000 of current annual recurring revenue, and 60 employees. Leadership wants 40% revenue growth next year while keeping at least 18 months of runway. Department heads have asked for 30 new hires, most starting in January. The burden rate is unknown. Build the operating plan approach: revenue drivers, headcount plan, reconciliation of requests with the target, scenarios, and cash runway. Show the calculations you can with labelled assumptions and list what you need from the user.",
+      "baselineFailure": "The baseline grows last year's expenses by a percentage, costs every hire for twelve months regardless of start date, invents a burden rate as a benchmark, ignores the gap between requests and targets, and reports runway from operating income instead of cash.",
+      "runs": 1,
+      "assertions": [
+        { "id": "headcount-start-month", "kind": "text_contains", "value": "start month" },
+        { "id": "fully-loaded-cost", "kind": "text_contains", "value": "fully loaded" },
+        { "id": "reconciles-top-down-bottom-up", "kind": "text_contains", "value": "bottom-up" },
+        { "id": "has-scenarios", "kind": "text_contains", "value": "downside" },
+        { "id": "shows-runway", "kind": "text_contains", "value": "runway" },
+        { "id": "labels-assumptions", "kind": "text_contains", "value": "assum" },
+        { "id": "no-invented-benchmark", "kind": "text_not_contains", "value": "industry average" }
+      ]
+    }
+  ]
+}

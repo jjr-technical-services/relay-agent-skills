@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Daily Meeting Prep"
+  short_description: "Relay: Prepare and email tomorrow's meeting brief"
+  default_prompt: "Use $daily-meeting-prep to prepare my coming-day meeting brief."

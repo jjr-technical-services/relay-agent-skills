@@ -4,22 +4,32 @@
     "name": "Rose Digital",
     "url": "https://builtbyrose.co"
   },
-  "description": "Open Agent Skills and governed Relay MCP tools for Claude Code.",
-  "version": "0.2.1",
+  "description": "63 practical Relay workflows for research, strategy, design, analytics, fundraising, operations, and delivery.",
+  "version": "0.3.0",
   "plugins": [
     {
       "name": "relay-skills",
       "displayName": "Relay Skills",
       "source": "./plugins/relay-skills",
-      "description": "Match and activate governed Relay skills through OAuth-protected MCP.",
-      "version": "0.2.1",
-      "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
+      "description": "63 native workflows for research, strategy, design, marketing, fundraising, operations, and delivery, with an optional Relay connection.",
+      "version": "0.3.0",
+      "author": {
+        "name": "Rose Digital",
+        "url": "https://builtbyrose.co"
+      },
       "homepage": "https://relay.builtbyrose.co",
       "repository": "https://github.com/jjr-technical-services/relay-agent-skills",
       "license": "MIT",
-      "keywords": ["relay", "agent-skills", "mcp"],
-      "category": "developer-tools",
-      "tags": ["oauth", "governance"],
+      "keywords": [
+        "relay",
+        "agent-skills",
+        "mcp"
+      ],
+      "category": "productivity",
+      "tags": [
+        "oauth",
+        "governance"
+      ],
       "strict": true
     },
     {
@@ -28,13 +38,23 @@
       "source": "./plugins/relay-product-skills",
       "description": "Deprecated compatibility plugin; install relay-skills for the same frozen KPI workflow.",
       "version": "0.1.0",
-      "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
+      "author": {
+        "name": "Rose Digital",
+        "url": "https://builtbyrose.co"
+      },
       "homepage": "https://relay.builtbyrose.co",
       "repository": "https://github.com/jjr-technical-services/relay-agent-skills",
       "license": "MIT",
-      "keywords": ["relay", "product", "kpi"],
+      "keywords": [
+        "relay",
+        "product",
+        "kpi"
+      ],
       "category": "productivity",
-      "tags": ["metrics", "strategy"],
+      "tags": [
+        "metrics",
+        "strategy"
+      ],
       "strict": true
     },
     {
@@ -43,13 +63,23 @@
       "source": "./plugins/relay-growth-skills",
       "description": "Deprecated compatibility plugin; install relay-skills for the same frozen experiment workflow.",
       "version": "0.1.0",
-      "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
+      "author": {
+        "name": "Rose Digital",
+        "url": "https://builtbyrose.co"
+      },
       "homepage": "https://relay.builtbyrose.co",
       "repository": "https://github.com/jjr-technical-services/relay-agent-skills",
       "license": "MIT",
-      "keywords": ["relay", "growth", "experimentation"],
+      "keywords": [
+        "relay",
+        "growth",
+        "experimentation"
+      ],
       "category": "productivity",
-      "tags": ["ab-testing", "measurement"],
+      "tags": [
+        "ab-testing",
+        "measurement"
+      ],
       "strict": true
     }
   ]

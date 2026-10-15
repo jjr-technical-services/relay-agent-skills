@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Safe Mental-Health Content"
+  short_description: "Relay: Safe-messaging review and rewrites"
+  default_prompt: "Use $write-safe-mental-health-content to review this draft about suicide prevention, label each finding by severity with a rewrite, place the approved crisis resource and write a comment moderation plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: 13-Week Cash Forecast"
+  short_description: "Relay: Build and roll a 13-week direct-method cash forecast"
+  default_prompt: "Use $build-cash-forecast to build a 13-week cash forecast from our bank balance, AR aging, payroll calendar and payables, flag weeks below our minimum cash, and show the levers."

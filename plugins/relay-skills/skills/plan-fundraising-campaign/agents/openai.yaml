@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Plan Fundraising Campaign"
+  short_description: "Relay: Plan an ethical campaign with a goal built from history"
+  default_prompt: "Use $plan-fundraising-campaign to build our year-end campaign goal from last year's results by segment, set the match mechanics, channel cadence and tracking codes, and run the ethics check."

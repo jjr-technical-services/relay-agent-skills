@@ -1,0 +1,60 @@
+{
+  "schema": "relay.promo_storyboard.v1",
+  "mode": "beat",
+  "bpm": 112,
+  "shots": [
+    {
+      "id": "T1-hook",
+      "source": "text",
+      "beats": 4,
+      "text": "A short hook.",
+      "sub": "The pain, in the site's own words.",
+      "claimIds": []
+    },
+    {
+      "id": "R1-reveal",
+      "source": "hero3d",
+      "beats": 8,
+      "url": "/",
+      "focus": "h1",
+      "hit": true,
+      "silenceBefore": true,
+      "lineIds": [
+        "L2"
+      ],
+      "voOffsetBeats": 0.75
+    },
+    {
+      "id": "P1",
+      "source": "text",
+      "beats": 3,
+      "text": "One clear benefit.",
+      "claimIds": [
+        "C1"
+      ]
+    },
+    {
+      "id": "P1-lift",
+      "source": "lift",
+      "beats": 6,
+      "url": "/",
+      "selector": "main section",
+      "pad": 16
+    },
+    {
+      "id": "E-end",
+      "source": "title",
+      "beats": 8,
+      "captions": false,
+      "lineIds": [
+        "L3"
+      ],
+      "hit": true,
+      "title": {
+        "style": "end",
+        "heading": "Northwind",
+        "cta": "Start free at example.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Source Claim Verifier"
+  short_description: "Relay: Screen claims against cited sources"
+  default_prompt: "Use $verify-source-claims to screen these claims against the supplied versioned source passages."

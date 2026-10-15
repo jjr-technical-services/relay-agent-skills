@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Write Grant Proposal"
+  short_description: "Relay: RFP compliance matrix to reviewer-ready proposal"
+  default_prompt: "Use $write-grant-proposal to parse these funder guidelines into a compliance matrix, draft each section under the funder's headings, and run a reviewer read-through."

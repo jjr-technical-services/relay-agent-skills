@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "audit-software-spend",
+        "query": "Audit our software spend from these AP, corporate card and expense exports and tell me where we can cut SaaS costs."
+      },
+      {
+        "id": "unused-licenses-duplicates",
+        "query": "Find unused licenses and duplicate tools across the apps in our SSO list and estimate what we could save."
+      },
+      {
+        "id": "renewal-calendar",
+        "query": "Build a renewal calendar for our SaaS contracts with notice periods and auto-renew dates so we stop missing cancellation windows."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "pick-a-vendor",
+        "query": "Compare three CRM vendors on features, pricing and support and recommend which one we should buy."
+      },
+      {
+        "id": "negotiate-renewal",
+        "query": "Our biggest vendor wants a 12% price increase at renewal; plan my negotiation strategy and walk-away point."
+      },
+      {
+        "id": "security-questionnaire",
+        "query": "Answer this customer's security questionnaire about our data encryption and access controls."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "software-ownership-governance",
+        "query": "Nobody owns half our tools; set up software ownership, an intake process for new apps, and a review cadence after the spend audit."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "saas-rationalization-plan",
+      "task": "A hypothetical 200-person company shares these facts: it pays for two video meeting tools and three project trackers; one design tool has 100 seats at 30 per seat per month with 55 users active in the last 90 days; 12 seats across tools belong to people who have left; the largest contract renews on 1 July with 60 days' notice and auto-renewal. Finance wants to cancel everything with low usage this week. Produce the audit and savings plan.",
+      "baselineFailure": "The baseline recommends immediate cancellations, counts assigned seats as usage, presents savings as certain without formulas or realization dates, ignores notice deadlines, and skips data export, integration, and security checks.",
+      "runs": 1,
+      "assertions": [
+        { "id": "renewal-calendar-present", "kind": "text_contains", "value": "notice deadline" },
+        { "id": "savings-labelled-estimate", "kind": "text_contains", "value": "estimate" },
+        { "id": "design-tool-annual-cost", "kind": "text_contains", "value": "36,000" },
+        { "id": "data-export-check", "kind": "text_contains", "value": "export" },
+        { "id": "integrations-check", "kind": "text_contains", "value": "integration" },
+        { "id": "owner-governance", "kind": "text_contains", "value": "owner" },
+        { "id": "no-invented-benchmark", "kind": "text_not_contains", "value": "industry average" }
+      ]
+    }
+  ]
+}

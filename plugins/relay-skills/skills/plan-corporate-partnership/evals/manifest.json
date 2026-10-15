@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "find-corporate-partners",
+        "query": "Find corporate partners for our family programs based on what local companies say they support, and design what we would offer each one."
+      },
+      {
+        "id": "design-sponsorship-tiers",
+        "query": "Design sponsorship tiers and benefits for our annual event, with fair market value for the tickets and dinner we give sponsors."
+      },
+      {
+        "id": "cause-marketing-partnership",
+        "query": "A retailer wants to donate a portion of each sale to us during October. How do we structure this cause marketing partnership?"
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "partnership-one-pager",
+        "query": "Write a one-page corporate partnership pitch we can email to a company's community relations manager."
+      },
+      {
+        "id": "b2b-sales-discovery",
+        "query": "Prepare a discovery call brief for our SaaS sales rep meeting a mid-market logistics buyer next week."
+      },
+      {
+        "id": "individual-donor-stewardship",
+        "query": "Build a stewardship calendar and RFM segments for our individual donors."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "renew-corporate-partner",
+        "query": "Our corporate partner's agreement ends in March. Plan the partner reporting and the renewal conversation."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "bank-sponsorship-offer-review",
+      "task": "A hypothetical regional bank has offered a small youth-serving nonprofit $50,000 to be presenting sponsor of its spring family workshop series. In return the bank's marketing lead has asked for: its logo and the tagline 'the best bank for growing families' on all workshop materials and in the family newsletter; a table at each workshop where staff hand out new-account offers showing a bonus interest rate; 10 seats at the spring gala, where a seat sells for $250 and the organization values the dinner at $100 per seat; a promotion in its branches in three states saying $1 is donated to the nonprofit for every new account opened; and permission to use photos of teenage workshop participants in its ads. Review the offer and plan the partnership.",
+      "baselineFailure": "A generic answer welcomes the offer, tidies the benefits into tiers and suggests reporting, but does not classify each benefit, misses that the tagline and account offers are advertising-like and can change the tax treatment, does not value the seats, does not flag state co-venturer rules for the per-account promotion, and may allow participant photos with only a signed release.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "has-benefit-value-ledger",
+          "kind": "text_contains",
+          "value": "Benefit value ledger"
+        },
+        {
+          "id": "has-agreement-terms-checklist",
+          "kind": "text_contains",
+          "value": "Agreement terms checklist"
+        },
+        {
+          "id": "classifies-advertising-like",
+          "kind": "text_contains",
+          "value": "advertising-like"
+        },
+        {
+          "id": "flags-co-venturer",
+          "kind": "text_contains",
+          "value": "co-venturer"
+        },
+        {
+          "id": "names-qualified-sponsorship",
+          "kind": "text_contains",
+          "value": "qualified sponsorship"
+        },
+        {
+          "id": "no-deductibility-claim",
+          "kind": "text_not_contains",
+          "value": "fully deductible"
+        }
+      ]
+    }
+  ]
+}
