@@ -2,7 +2,13 @@
   "mcpServers": {
     "relay_skills": {
       "type": "http",
-      "url": "https://relay.builtbyrose.co/mcp"
+      "url": "https://relay.builtbyrose.co/mcp",
+      "scopes": [
+        "offline_access",
+        "relay.skills.read",
+        "relay.skills.route",
+        "relay.skills.activate"
+      ]
     }
   }
 }

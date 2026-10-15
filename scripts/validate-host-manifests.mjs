@@ -43,6 +43,7 @@ async function main() {
 
   const codexServer = codexMcp.mcpServers?.relay_skills;
   assert(codexServer?.type === 'http', 'Codex MCP transport must be http.');
+  assert(JSON.stringify(codexServer.scopes) === JSON.stringify(scopes), 'Codex OAuth scopes must request refresh-token access.');
   assert(codexServer?.url === 'https://relay.builtbyrose.co/mcp', 'Codex MCP URL is invalid.');
   assert(!('oauth_resource' in codexServer), 'Codex must discover the single OAuth resource from Relay metadata instead of duplicating it.');
   assert(Object.keys(codexMcp.mcpServers || {}).length === 1, 'Codex .mcp.json must contain only the relay_skills server.');

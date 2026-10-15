@@ -85,6 +85,8 @@ test('explicit OAuth setup requests refresh-token access on both hosts', async (
   assert.equal(claude.status, 0, claude.stderr);
   const scopes = JSON.parse(claude.stdout).mcpServers['relay-skills'].oauth.scopes.split(' ');
   assert.deepEqual(scopes, ['offline_access', 'relay.skills.read', 'relay.skills.route', 'relay.skills.activate']);
+  const codexManifest = JSON.parse(await readFile(path.join(root, 'plugins/relay-skills/.mcp.json'), 'utf8'));
+  assert.deepEqual(codexManifest.mcpServers.relay_skills.scopes, scopes);
   const manifest = JSON.parse(await readFile(path.join(root, 'plugins/relay-skills/.claude-mcp.json'), 'utf8'));
   assert.deepEqual(Object.values(manifest.mcpServers)[0].oauth.scopes.split(' '), scopes);
 });
