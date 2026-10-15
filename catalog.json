@@ -5,25 +5,441 @@
       "name": "relay-skill-router",
       "plugin": "relay-skills",
       "path": "plugins/relay-skills/skills/relay-skill-router",
-      "description": "Match and activate governed, version-pinned Relay skills."
+      "description": "Find, evaluate, and activate version-pinned procedural skills from Relay without waiting for a human to name one. Use at the beginning of a substantive task, when the goal materially changes, when the work enters an unfamiliar or specialized domain, or when a reusable procedure could improve accuracy or safety. Treat no-match as a valid result and surface relevant suggestions when policy does not allow automatic activation.",
+      "category": "Workflow composition"
     },
     {
       "name": "kpi-tree",
       "plugin": "relay-skills",
       "path": "plugins/relay-skills/skills/kpi-tree",
-      "description": "Connect strategic outcomes to controllable metrics and instrumentation."
+      "description": "Build a KPI tree that connects a strategic goal to an outcome metric, controllable input metrics, guardrails, owners, and instrumentation. Use for product strategy, metric design, OKR measurement, north-star decomposition, initiative prioritization, or diagnosing why a business outcome is moving.",
+      "category": "Product and experimentation"
     },
     {
       "name": "ab-test-setup",
       "plugin": "relay-skills",
       "path": "plugins/relay-skills/skills/ab-test-setup",
-      "description": "Design a decision-ready controlled experiment."
+      "description": "Design a decision-ready controlled experiment with an explicit hypothesis, assignment unit, exposure rules, metrics, guardrails, sample assumptions, QA checks, and stopping criteria. Use when planning an A/B test, feature experiment, growth experiment, holdout, rollout validation, or experiment brief.",
+      "category": "Marketing and growth"
     },
     {
       "name": "negotiate-tactically",
       "plugin": "relay-skills",
       "path": "plugins/relay-skills/skills/negotiate-tactically",
-      "description": "Prepare ethical, high-leverage negotiation plans and messages."
+      "description": "Negotiation coaching for preparing offers, responding to pressure, handling price or scope objections, de-escalating conflict, drafting tactical emails, planning calls, and improving deal strategy. Use when the user asks for negotiation help, difficult conversation prep, calibrated questions, objection handling, salary or vendor negotiation, sales or partnership negotiation, conflict de-escalation, or a response to a counterparty.",
+      "category": "Sales and customer success"
+    },
+    {
+      "name": "analyze-cohort-retention",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/analyze-cohort-retention",
+      "description": "Build and interpret cohort retention analysis from a CSV of customers, subscriptions, or transactions, with a bundled Python script: a logo retention triangle and, when revenue is present, gross revenue retention (GRR, capped at 100%, excludes expansion) and net revenue retention (NRR, includes expansion) by cohort, plus trailing-twelve-month NRR. Handles reactivations, mid-month starts, plan changes, and small cohorts, then reads curves for flattening, cohort-over-cohort improvement, and segment differences. Use when asked for a cohort analysis, retention curve or triangle, NRR or GRR, or whether newer customers retain better. Do not use for churn risk on named accounts (churn-risk-review), a customer health score (design-customer-health-score), or unit economics (model-unit-economics).",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "analyze-survey-results",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/analyze-survey-results",
+      "description": "Turn a survey export (CSV) into a results report - cleaning duplicates, speeders and partials, response rate and nonresponse cautions, Likert distributions and top-2-box instead of inappropriate averages, matched versus unmatched pre/post, crosstabs with small-cell suppression at a user-set threshold, open-ended coding with a codebook, what can and cannot be concluded, and a plain-language summary. Includes a Python tabulation and suppression script. Use when asked to analyze survey results, summarize a feedback or pre/post survey export, report results by site or group, or write up survey findings for a funder or board. Do not use for writing survey questions (survey-designer prompt), planning an evaluation (design-program-evaluation), or interview synthesis (user-interview-synthesis prompt).",
+      "category": "Research and strategy"
+    },
+    {
+      "name": "answer-security-questionnaire",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/answer-security-questionnaire",
+      "description": "Answer a customer's vendor security questionnaire (SIG, CAIQ, or a custom spreadsheet) from the company's own evidence. Builds and maintains an answer library keyed to control areas, maps each question to policies, SOC 2 report sections, penetration test summaries, and architecture documents, answers Yes, No, Partial, or N/A with a short factual explanation, handles compensating controls honestly, routes answers that need security or legal sign-off, and hands back a gap list for the security owner. Use when a prospect or customer sends a security questionnaire, vendor risk assessment, third-party risk review, or due-diligence form, or needs consistent SIG or CAIQ answers. Do not use for drafting a full RFP response (rfp-response-drafter), writing security policies from scratch, running a security audit or threat model, or negotiating contract terms.",
+      "category": "Security and compliance"
+    },
+    {
+      "name": "assess-agent-progress",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/assess-agent-progress",
+      "description": "Compare an agent's reported work with authoritative before-and-after evidence to recommend whether progress is real, stale, blocked, or needs review. Use for agent supervision; do not use to mark work complete or grant approval.",
+      "category": "Planning and delivery"
+    },
+    {
+      "name": "audit-saas-spend",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/audit-saas-spend",
+      "description": "Audit and rationalize a company's software and SaaS spend. Builds the inventory from accounts payable, corporate card and expense exports plus the SSO or identity provider app list, normalizes vendor names, categorizes tools, finds overlapping and duplicate tools, measures license utilization, builds a renewal calendar with notice periods and auto-renew terms, and ranks savings levers with labelled estimates and risk checks before cancelling, ending in an owner-per-app governance model. Use when asked to audit software spend, cut SaaS costs, find unused licenses or duplicate tools, build a renewal calendar, or set up software ownership. Do not use for choosing one vendor among options (vendor-comparison), negotiating a specific renewal (negotiate-tactically), or the annual budget (build-operating-budget).",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "build-cash-forecast",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/build-cash-forecast",
+      "description": "Build and run a 13-week direct-method cash flow forecast: opening cash from the bank, receipts by customer and aging using the user's own collection history, disbursements (payroll calendar, rent, vendor payment runs, taxes, debt service, capex), minimum cash buffer and covenant checks, weekly roll-forward with variance to actual, and scenarios and levers such as collections pushes, payment timing, and credit line draws. Includes a Python script that rolls weekly balances from dated flows and flags weeks below a minimum. Use when asked for a 13-week cash forecast, weekly cash flow, runway in weeks, liquidity planning, or a covenant check. Do not use for an annual operating budget (build-operating-budget), month-end close (run-month-end-close), or legal or insolvency advice.",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "build-grant-budget",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/build-grant-budget",
+      "description": "Build a grant budget and line-by-line budget justification for a foundation, corporate or government funder - personnel with percent effort and fringe, direct versus indirect costs, shared-cost allocation with a documented basis, indirect rate rules (negotiated rate, funder caps, the federal de minimis rate), cost share and in-kind match, multi-year budgets, and restricted funds - then reconcile it to the chart of accounts and payroll allocation, and set up budget-to-actual tracking and requests to modify the budget. Use when asked to build a grant budget, write a budget narrative or budget justification, calculate indirect or overhead on a grant, check a funder's indirect cap, allocate staff time or rent across grants, or prepare a budget modification. Do not use for the whole organization's annual budget (build-operating-budget), explaining monthly variances in general (budget-variance-explainer), or writing the proposal narrative (write-grant-proposal).",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "build-logic-model",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/build-logic-model",
+      "description": "Build a theory of change and logic model for a nonprofit or mission-driven program - problem and population, assumptions and external factors, inputs, activities, outputs, short-, medium- and long-term outcomes, causal links as testable if-then statements, indicators with source, frequency, baseline and target, and what the program can claim to contribute to versus attribute. Non-clinical outcome wording for mental-health programs. Produces a table plus a Mermaid diagram. Use when asked for a logic model, theory of change, outcomes framework, program model for a grant application, or to tighten outcomes and indicators. Do not use for a full evaluation plan (design-program-evaluation), analyzing survey data (analyze-survey-results), company KPI trees (kpi-tree), or OKRs (okr-drafter prompt).",
+      "category": "Research and strategy"
+    },
+    {
+      "name": "build-operating-budget",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/build-operating-budget",
+      "description": "Build an annual operating plan and budget from drivers - revenue drivers, a headcount plan with fully loaded cost and start-month timing, non-headcount opex by department, COGS, monthly phasing, scenarios, and cash runway - and reconcile top-down targets with bottom-up department requests, with approval and reforecast cadence. Use when asked to build next year's budget or annual operating plan, create a headcount plan and cost model, phase a budget by month, reconcile department requests with company targets, model base, upside and downside scenarios, or check runway under the plan. Do not use for explaining actual-versus-budget variances (budget-variance-explainer), marketing channel allocation (plan-marketing-budget), a 13-week cash forecast (build-cash-forecast), or support team sizing (plan-support-staffing).",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "classify-and-route",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/classify-and-route",
+      "description": "Classify supplied content into a caller-approved finite set of destinations and return a confidence-aware routing recommendation. Use for support triage, inbox tagging, document queues, or analytics schema-domain selection when Relay's structured-decision tool is available; do not use for open-ended answers or unapproved actions.",
+      "category": "Planning and delivery"
+    },
+    {
+      "name": "codebase-graph-evidence",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/codebase-graph-evidence",
+      "description": "Explore an authorized codebase with structural graph evidence, trace callers and routes, assess the blast radius of local changes, and verify architecture claims against exact source. Use for unfamiliar repositories, cross-module impact analysis, route or call tracing, and audits where coverage matters. Do not use for trivial single-file work or as a replacement for exact source inspection.",
+      "category": "Engineering and testing"
+    },
+    {
+      "name": "compose-skills",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/compose-skills",
+      "description": "Turn a desired outcome or an explicit sequence of Agent Skills into one reusable master skill and, when execution needs a governed graph, a Relay workflow. Use when a recurring task requires several skills, repeated passes, typed handoffs, gates, agents, subworkflows, or a single callable front door; do not use merely to run one existing skill once.",
+      "category": "Workflow composition"
+    },
+    {
+      "name": "create-marketing-screenshot-pack",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/create-marketing-screenshot-pack",
+      "description": "Create source-grounded marketing and case-study screenshot packs from a product codebase, an authenticated Playwright crawl, or both. Use when selecting high-value product flows, capturing responsive screenshots, making crops or neutral device-framed derivatives, and delivering a narrative with an asset manifest.",
+      "category": "Design and user experience"
+    },
+    {
+      "name": "daily-meeting-prep",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/daily-meeting-prep",
+      "description": "Prepare one concise, reviewable brief for every meeting on the coming day, flag conflicts and open preparation, enrich exact Calendar matches with bounded HQ context, and optionally email the finished brief when the user requests delivery. Use for tomorrow briefs, daily agendas, meeting preparation summaries, or HQ-enriched calendar reviews.",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "design-career-ladder",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/design-career-ladder",
+      "description": "Design a career ladder (leveling framework) for a job family. Sets individual contributor and manager tracks, the number of levels, and the dimensions that define them (scope, impact, complexity, autonomy, leadership and influence, craft), then writes observable level expectations that differ in kind between adjacent levels. Calibrates the draft against real anonymized examples, maps existing employees to levels, defines the promotion process and evidence standard, and links levels to salary bands. Use when asked to create or fix a career ladder, career framework, leveling guide, IC versus manager tracks, or promotion criteria, or when titles and levels are inconsistent across teams. Do not use for writing a single job description (job-description-writer), drafting an individual performance review (performance-review-draft), or pricing levels in pay ranges (design-comp-bands).",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "design-comp-bands",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/design-comp-bands",
+      "description": "Design salary bands (pay ranges) from a job architecture and market data. Confirms job families and levels first, ages survey data to a common effective date with a user-supplied annual factor, rates match quality, sets a pay philosophy percentile, then builds midpoints, range spread ((max - min) / min), midpoint progression, and overlap by level, with geographic differentials. Places current employees with compa-ratio and range penetration, handles red- and green-circle cases, costs bringing people to minimum, and adds pay-transparency and pay-equity review steps. Use when asked to build salary bands, pay ranges, a compensation structure, compa-ratios, or to find who is under or over range. Do not use for sales commission or variable pay plans (design-sales-compensation), defining levels and expectations (design-career-ladder), or writing an individual offer letter.",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "design-customer-health-score",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/design-customer-health-score",
+      "description": "Design a customer health score that predicts a defined outcome and drives customer success action. Defines the outcome (renewal, churn, expansion) and prediction window, selects candidate signals (usage depth and breadth, key feature adoption, support pattern, stakeholder engagement, sentiment, commercial), backtests against past renewals and churn, chooses expert weights or logistic regression, sets bands, playbooks and review cadence, and guards against gaming and lagging signals. Use when asked to build, redesign or validate a health score, pick or weight health signals, check whether a health score predicts churn, or set red, yellow and green thresholds. Do not use for reviewing a list of at-risk accounts this quarter (use churn-risk-review), for preparing a QBR (use quarterly-business-review-brief), or for cohort retention curves (use analyze-cohort-retention).",
+      "category": "Sales and customer success"
+    },
+    {
+      "name": "design-program-evaluation",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/design-program-evaluation",
+      "description": "Design a proportionate evaluation plan for a nonprofit or mission-driven program: process and outcome evaluation questions, design choices and what each can support (pre/post, retrospective pre-post, comparison group, qualitative), indicators and instruments, sampling and response plans, consent and assent for minors, data privacy and small-cell suppression, analysis plan, limitations, and a reporting timeline sized to a small team. Non-clinical. Use when asked to plan an evaluation, measure program impact or outcomes for a funder, choose between pre-post and comparison designs, or plan measurement for a youth or family program. Do not use for drafting survey questions only (survey-designer prompt), a logic model (build-logic-model), or analyzing collected data (analyze-survey-results).",
+      "category": "Research and strategy"
+    },
+    {
+      "name": "design-referral-program",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/design-referral-program",
+      "description": "Design a customer referral or advocacy program that pays for itself. Tests fit first (is word of mouth already happening, per NPS and referral-source evidence), identifies who refers and why beyond cash, chooses the reward structure (single or double-sided; cash, credit, or product; tiered), models economics against alternative CAC with payback and fraud controls, flags tax and legal points for counsel, sets the moments to ask and the tracking, and launches as a test with a holdout. Use when someone asks to start or fix a referral, refer-a-friend, or customer advocacy program, what referral reward to offer, or whether referrals are worth it. Do not use for partner or reseller commissions, sales compensation (use design-sales-compensation), measuring paid channels (use measure-marketing-incrementality), or offer and pricing design (use develop-offers).",
+      "category": "Marketing and growth"
+    },
+    {
+      "name": "design-sales-compensation",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/design-sales-compensation",
+      "description": "Design sales compensation plans that pay for the behaviour the business needs at a cost it can afford. Defines roles, OTE and pay mix by role (SDR, hunter, farmer), up to three measures linked to quota, base commission rate math, accelerators, decelerators, thresholds, caps, SPIFFs, clawbacks, crediting and split rules, a cost-of-sales check, payout modelling at 50/80/100/120/150 percent attainment, and a plan document outline. Use when asked to build or fix a comp plan, set commission rates, choose pay mix or OTE for sales roles, add accelerators, model what reps earn at different attainment, or check whether a plan is affordable. Do not use for carving territories or setting quota totals (use plan-sales-territories), for salary bands of non-sales roles (use design-comp-bands), or for drafting an offer letter.",
+      "category": "Sales and customer success"
+    },
+    {
+      "name": "design-structured-decisions",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/design-structured-decisions",
+      "description": "Design and calibrate a typed AI decision before adding it to a Relay workflow. Use when a workflow needs a bounded choice, score, or yes/no gate with a measured fallback; do not use for open-ended generation.",
+      "category": "Design and user experience"
+    },
+    {
+      "name": "design-workshop-curriculum",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/design-workshop-curriculum",
+      "description": "Design a facilitated workshop or webinar sold to or run with schools, colleges, or employers - audience needs, measurable objectives with Bloom's verbs, a minute-by-minute agenda, virtual and in-person activities, accessibility, trauma-informed facilitation for mental-health topics (non-clinical, content notes, opt-out, a resource slide with the organization-approved crisis resource), a facilitator guide, a pre/post measure, follow-up, and an adaptation guide for students, families, and staff. Use when asked to design a workshop, training, webinar, session plan, curriculum, or facilitator guide. Do not use for replying to a workshop inquiry (workshop-inquiry-response prompt), writing only the follow-up email (workshop-follow-up-email prompt), or evaluating a program (design-program-evaluation).",
+      "category": "Planning and delivery"
+    },
+    {
+      "name": "develop-icp-and-uvp",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/develop-icp-and-uvp",
+      "description": "Develop evidence-backed ideal customer profiles (ICPs), segment priorities, buyer and user profiles, positioning, unique value propositions (UVPs), messaging pillars, proof maps, and validation plans. Use when asked to identify or refine target customers, compare market segments, define primary or secondary ICPs and anti-ICPs, synthesize customer discovery or market evidence, articulate differentiation, assess positioning or messaging, write value-proposition statements, or prepare a decision-ready go-to-market, product, sales, or founder strategy.",
+      "category": "Marketing and growth"
+    },
+    {
+      "name": "develop-marketing-strategy",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/develop-marketing-strategy",
+      "description": "Develop coherent, targeted, evidence-backed marketing and go-to-market strategies from free text, URLs, business and product materials, ICP or UVP work, analytics, customer research, and outputs from other skills or agents. Use when asked to choose or prioritize marketing channels, define channel strategy, connect positioning to acquisition and lifecycle motions, build a campaign or content portfolio, allocate budget or effort, create a 30/60/90-day marketing plan, diagnose weak growth, or turn competitive research into an actionable strategy for a product, service, company, launch, or market.",
+      "category": "Planning and delivery"
+    },
+    {
+      "name": "diagnose-conversion-funnel",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/diagnose-conversion-funnel",
+      "description": "Diagnose where and why a conversion funnel leaks, using the user's own web analytics exports, CRM stage data, or product signup and activation events. Defines stages and exact conversion formulas, chooses cohort or period measurement, cuts by segment, checks sample size before calling a difference real, ranks stages by recoverable loss rather than worst rate, gathers qualitative evidence, and ends with a scored hypothesis backlog. Use when someone asks why conversion dropped, where the funnel leaks, why signups do not activate, why leads stall between stages, for a drop-off analysis, or which funnel step to fix first. Do not use for writing landing page copy (use the landing-page-copy prompt), for designing or sizing a specific A/B test (use ab-test-setup), for building a metric hierarchy (use kpi-tree), or for retention curves after purchase (use analyze-cohort-retention).",
+      "category": "Marketing and growth"
+    },
+    {
+      "name": "explore-visual-directions",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/explore-visual-directions",
+      "description": "Create a reviewable visual-style exploration for an existing product, page, or interface before implementation. Use when someone asks to see how a current experience would look in a named aesthetic or described vibe, such as glassmorphism, editorial, brutalist, retro, premium, playful, or futuristic. Produces an isolated preview or implementation-ready visual specification without replacing the established brand system or changing production.",
+      "category": "Design and user experience"
+    },
+    {
+      "name": "get-started-with-relay",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/get-started-with-relay",
+      "description": "Help a new Relay user choose and start a useful installed workflow. Use when someone asks what Relay can do, how to get started, which included skill to use, or how to turn a goal into a concrete deliverable."
+    },
+    {
+      "name": "gitnexus-impact-analysis",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/gitnexus-impact-analysis",
+      "description": "Assess the likely consequences of a proposed or local code change with GitNexus graph evidence, then verify the result against the exact repository. Use for dependency tracing, blast-radius analysis, regression planning, and deciding whether a shared symbol is safe to change.",
+      "category": "Workflow composition"
+    },
+    {
+      "name": "gitnexus-review",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/gitnexus-review",
+      "description": "Review a pull request, commit range, branch, or local diff with GitNexus-assisted dependency evidence and exact-source verification. Use for regression review, merge-risk assessment, missing-test analysis, and source-supported review findings.",
+      "category": "Workflow composition"
+    },
+    {
+      "name": "landing-page-design",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/landing-page-design",
+      "description": "Design and build conversion-focused landing pages with benefits-led copy, production-grade React and Tailwind, and source-grounded product screenshots when a SaaS or app can be inspected. Use for landing pages, product pages, campaign pages, and other focused marketing experiences. Respects a supplied claim register and places only selected, evidenced screenshots from a validated screenshot pack.",
+      "category": "Design and user experience"
+    },
+    {
+      "name": "make-promo-video",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/make-promo-video",
+      "description": "Turn a product URL into a finished marketing promo video. Reads the product and its site, picks the audience, message and video type, writes a claim-cited voiceover script and a storyboard, records real product flows in an egress-blocked read-only browser (sharp screencast plus an action log for cursor and zoom), signed in to a demo account when the app is behind a login, synthesizes the voice, adds an original or licensed music bed and burned-in captions, optionally generates mood b-roll (Veo or fal, never product UI), renders 16:9, 9:16 and 1:1 masters with SRT/VTT, and runs QA (claims, transcript check, loudness, disclosure) with a provenance record. Use when asked for a product demo video, explainer, launch or social promo video from a website or app. Do not use for screenshot packs, full-site redesign capture, avatar or talking-head videos, or for publishing to ad channels.",
+      "category": "Writing and communications"
+    },
+    {
+      "name": "map-business-process",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/map-business-process",
+      "description": "Map and improve a business process end to end. Scopes it with SIPOC (Suppliers, Inputs, Process, Outputs, Customers), draws the current-state swimlane map, measures cycle time against touch time, handoffs, rework loops, and wait states, classifies waste with the lean waste categories, finds root causes with 5 whys and a fishbone, designs the future state, assigns RACI for the redesigned steps, adds controls, and produces an implementation plan with metrics. Use when a process is slow, error-prone, full of handoffs or approvals, or nobody can say who owns a step; when asked for a process map, value stream map, swimlane, SIPOC, bottleneck analysis, or process improvement. Do not use for documenting a settled process as a procedure (sop-writer), building a metric hierarchy (kpi-tree), or post-incident analysis of a single failure (incident-postmortem).",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "map-site-for-redesign",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/map-site-for-redesign",
+      "description": "Screenshot an entire existing web app and organize it by user flow into a design-handoff pack for redesign or UX optimization work. Discovers every route from source files or a link crawl, runs the app in an isolated environment with seeded fixture data and personas, captures every route per persona and desktop/mobile viewport, deep-captures tabs, modals, empty, loading, error and permission states and multi-step flows, writes a spec per page and end-to-end flow docs with screenshot references, and packages a master brief, per-area prompts, contact sheets and a findings list (bugs, dead links, orphan and legacy pages) for AI design tools such as Claude Design or Figma. Use when asked to document, audit or screenshot every page of a product before a redesign. Do not use for marketing screenshot packs, for deriving views from a PRD with no running app, or for producing the redesigned screens themselves.",
+      "category": "Design and user experience"
+    },
+    {
+      "name": "measure-marketing-incrementality",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/measure-marketing-incrementality",
+      "description": "Measure what marketing actually causes rather than what it gets credit for. Explains attribution models (last-touch, first-touch, position-based, data-driven) and their biases; designs and sizes incrementality tests (randomized holdouts, ghost ads, conversion lift studies, geo-lift and matched markets, on/off switchbacks); outlines a lightweight marketing mix model; reconciles self-reported attribution; and writes a per-channel measurement plan with pre-registered decision rules. Use when someone asks whether a channel really works, why platform ROAS disagrees with revenue, how to run a holdout or geo test, or which attribution model to trust. Do not use for page or product A/B tests (use ab-test-setup), funnel drop-off diagnosis (use diagnose-conversion-funnel), or setting budget levels (use plan-marketing-budget).",
+      "category": "Marketing and growth"
+    },
+    {
+      "name": "model-unit-economics",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/model-unit-economics",
+      "description": "Model the unit economics of a subscription or transactional business - contribution margin per customer or order, CAC (fully loaded vs. paid-only, blended vs. by channel), CAC payback on gross margin, LTV with its caveats, LTV:CAC, sensitivity tables, and segment and channel breakdowns. Use when asked to calculate CAC, LTV, payback period, contribution margin, or LTV to CAC ratio, to check whether customer acquisition is profitable, to compare unit economics by channel or segment, or to prepare unit economics for a board or investor review. Do not use for sizing a market (market-sizing), setting prices and packaging (develop-offers), building the annual budget (build-operating-budget), or measuring retention curves in depth (analyze-cohort-retention).",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "plan-corporate-partnership",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/plan-corporate-partnership",
+      "description": "Plan nonprofit corporate partnerships end to end. Prospects partners from each company's own stated priorities (impact or CSR report, foundation guidelines, employee resource groups, matching and volunteer programs), designs the value exchange (philanthropy, sponsorship, employee engagement, cause marketing, in-kind), builds benefit packages with fair-market-value awareness and the US qualified sponsorship versus advertising distinction, flags commercial co-venturer registration, sets brand-use approvals, and produces an agreement terms checklist, activation, partner reporting and renewal plan. Use when someone asks to find or pitch corporate partners or sponsors, design sponsorship tiers, structure a cause marketing or employee giving partnership, review a company's sponsorship offer, or renew a corporate partner. Do not use for a one-page partnership pitch (use corporate-partnership-one-pager), B2B sales discovery (use the sales discovery prompts), or individual donors (use plan-donor-stewardship).",
+      "category": "Sales and customer success"
+    },
+    {
+      "name": "plan-donor-stewardship",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/plan-donor-stewardship",
+      "description": "Plan donor stewardship for a nonprofit from its own giving data. Segments donors with tunable RFM scoring (recency, frequency, monetary), sizes and assigns portfolios, runs moves management stages (identify, qualify, cultivate, solicit, steward), builds a stewardship calendar by segment, sets acknowledgment and receipt standards including the US $250 written acknowledgment and $75 quid pro quo rules, honours restrictions and anonymity, plans lapsed-donor reactivation, and defines retention, upgrade, average gift and lifetime giving with exact formulas. Use when someone asks for a donor stewardship plan, donor segmentation or RFM scoring, a moves management or portfolio review, donor retention analysis, acknowledgment standards, or how to win back lapsed or LYBUNT donors. Do not use to write a single donor thank-you letter or gift acknowledgment receipt (use those prompts), to plan a time-bound appeal (use plan-fundraising-campaign), or for corporate sponsors (use plan-corporate-partnership).",
+      "category": "Sales and customer success"
+    },
+    {
+      "name": "plan-fundraising-campaign",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/plan-fundraising-campaign",
+      "description": "Plan a nonprofit fundraising campaign from the organization's own giving history. Covers year-end, giving day, peer-to-peer, memorial and tribute, and employee giving campaigns. Builds the goal bottom-up (segment audience x response rate x average gift, plus committed leadership gifts and any match), defines audience segments, the case for support, channel plan and cadence, matching gift mechanics, tracking codes, gift processing and acknowledgment handoff, ethical rules (no guilt, fake urgency, countdown timers or pre-checked recurring boxes), and a post-campaign review. Use when someone asks to plan a year-end appeal campaign, a giving day, a peer-to-peer or memorial fundraiser, an employee giving or matching gift drive, or how to set a realistic fundraising goal. Do not use to write the appeal letter itself (use the year-end-appeal-letter prompt), for commercial marketing campaigns (use campaign-plan-one-pager), or for ongoing donor retention (use plan-donor-stewardship).",
+      "category": "Marketing and growth"
+    },
+    {
+      "name": "plan-marketing-budget",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/plan-marketing-budget",
+      "description": "Build and allocate a marketing budget from the user's own targets and conversion data. Compares top-down methods (percent of revenue as a stated heuristic only; a pipeline back-solve from revenue target to deals, opportunities, and leads by channel) with a bottom-up build by program; allocates on marginal rather than average CAC; separates fixed from variable costs; holds a test reserve; phases by quarter; models base, cut 20%, and add 20% scenarios; and sets a tracking cadence. Use when someone asks how much to spend on marketing, how to split budget across channels, how many leads a revenue target needs, or what to cut if the budget drops. Do not use for a one-page campaign plan (use campaign-plan-one-pager), the company operating budget (use build-operating-budget), or proving channel incrementality (use measure-marketing-incrementality).",
+      "category": "Marketing and growth"
+    },
+    {
+      "name": "plan-new-hire-onboarding",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/plan-new-hire-onboarding",
+      "description": "Plan onboarding for a new employee in a specific role, and build a reusable onboarding program for a team. Covers pre-start logistics (equipment, system access, paperwork), day one, week one, role-specific 30/60/90-day outcomes, a buddy and manager check-in cadence, a learning plan, a first meaningful contribution, stakeholder introductions, success measures such as time to productivity and new-hire feedback, and the hiring manager's checklist. Use when someone is about to start or has just started, or when asked for an onboarding plan, 30-60-90 day plan, first-week schedule, new hire checklist, buddy program, or a standard onboarding template for a team. Do not use for writing the job description (job-description-writer), designing interviews (structured-interview-kit), or designing product onboarding for app users or customers.",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "plan-sales-territories",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/plan-sales-territories",
+      "description": "Plan sales territories and quotas from account and whitespace data. Segments accounts (named, geographic, vertical, employee band), scores account potential, models ramped rep capacity with ramp curves and attrition, runs balance tests on potential, workload, account count and travel, reconciles a top-down bookings plan with bottom-up capacity, sanity-checks quota against OTE, and writes the transition plan with holdover rules for moved accounts. Use when asked to carve or rebalance territories, set or allocate quotas, build a sales capacity model, check whether reps have fair books, plan headcount against a bookings target, or reassign accounts for a new fiscal year. Do not use for designing commission rates, accelerators or pay mix (use design-sales-compensation), for weekly forecast calls (use review-sales-forecast), or for tiering a single rep's accounts or writing an account plan.",
+      "category": "Sales and customer success"
+    },
+    {
+      "name": "plan-support-staffing",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/plan-support-staffing",
+      "description": "Calculate how many agents a customer support or contact center team needs from its workload. Forecasts contact volume by week, day and interval, sizes phone and chat with Erlang C against a service-level target, sizes email and ticket queues with workload hours and response-time targets, then applies occupancy caps and shrinkage to reach FTE, hires and sensitivity. Use when asked how many support agents or FTE to hire, for a support staffing model or headcount plan, to hit an 80/20 service level, to plan peak-season coverage, or to see what happens if handle time or ticket volume changes. Do not use for customer replies (support-reply-drafter), support SOPs (sop-writer), a company-wide budget (build-operating-budget), or process mapping (map-business-process).",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "prepare-board-meeting",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/prepare-board-meeting",
+      "description": "Prepare a nonprofit board meeting that ends in clear decisions. Builds the annual board calendar (budget approval, audit and Form 990 review, executive director evaluation, conflict of interest disclosures, committee reports), designs the agenda with a consent agenda and decisions requested up front with options and a recommendation, a short board dashboard of mission and financial measures with definitions, pre-read standards, draft resolutions, a conflict check, minutes that record actions rather than discussion, and a follow-up tracker. Describes fiduciary duties of care, loyalty and obedience accurately and routes legal questions to counsel. Use when someone asks to prepare a board meeting, board packet or agenda, plan the board calendar, build a board dashboard, draft board resolutions, or fix board minutes. Do not use to design slides (use create-deck-outlines), to write minutes from a transcript (use the board-meeting-minutes prompt), or for general team meetings (use meeting-agenda-builder).",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "prove-regression-tests",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/prove-regression-tests",
+      "description": "Prove that a regression test detects the claimed defect by observing red, green, controlled regression, and restored green states without overwriting unrelated work. Use for bug fixes, incident repairs, flaky areas, or reviews asking whether a test is load-bearing.",
+      "category": "Engineering and testing"
+    },
+    {
+      "name": "report-communications-performance",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/report-communications-performance",
+      "description": "Build a monthly communications performance report for a nonprofit or small team that starts from goals, defines every metric per channel with its formula and denominator (reach versus impressions, engagement rate, email open and click rates, conversions to donations, sign-ups, or registrations), compares periods with context, draws content-level insights, states attribution caveats, recommends what to do next month, and ends with a one-page leadership summary. Flags email opens as directional only because mail privacy features inflate them. Use when asked for a monthly or quarterly comms report, social media and newsletter metrics, email performance, channel results for the board or executive director, or what content worked. Do not use for a weekly team status update (weekly-status-update prompt), proving what marketing caused (measure-marketing-incrementality), or funnel drop-off analysis (diagnose-conversion-funnel).",
+      "category": "Marketing and growth"
+    },
+    {
+      "name": "repurpose-content",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/repurpose-content",
+      "description": "Turn one approved source, such as a research report, webinar, workshop, annual report, or article, into channel-native assets (newsletter section, social posts per platform, blog post, talking points, slide, email, partner kit) without drifting from what the source says. Builds a source claim register so every claim traces to the source, keeps each statistic with its source, base, and date, sets reading level per audience, adds alt text and captions, and classifies every adaptation as Format only, Wording change, or New claim or audience so staff know how much review it needs. Use when asked to repurpose, adapt, cut down, reuse, or turn an approved report or webinar into posts, emails, talking points, or a partner toolkit. Do not use for writing new content from scratch, a single LinkedIn post from an idea (linkedin-post-from-idea), or drafting a whole newsletter issue (newsletter-issue-draft).",
+      "category": "Writing and communications"
+    },
+    {
+      "name": "research-competitive-positioning",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/research-competitive-positioning",
+      "description": "Research a business's competitive landscape, including direct competitors, substitutes, adjacent options, and the status quo; compare target audiences, positioning, claims, proof, pricing and offers, conversion paths, content and acquisition channels; identify category patterns, risks, and credible whitespace; and produce an evidence-labeled handoff for marketing, ICP, product, sales, or brand strategy. Use when given free text, a URL, company or product materials, a competitor list, or another skill or agent's output and is asked for competitor discovery, competitive analysis, positioning maps, channel intelligence, messaging comparisons, differentiation opportunities, market-entry research, or current competitor research.",
+      "category": "Planning and delivery"
+    },
+    {
+      "name": "research-grant-prospects",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/research-grant-prospects",
+      "description": "Research and qualify grant funders for a nonprofit or mission-driven program - define the funding need, gather evidence from funder guidelines, IRS Form 990-PF grant lists, annual reports, peer organizations' funders and CRM history, score each prospect with a tunable weighted rubric (mission, population, geography, grant size, funding type, open or invitation only, recent giving, relationship path), and build a prospect pipeline with stages and next actions. Every funder fact is cited with source and date, and stale data is flagged. Use when asked to find foundations or corporate funders, build or clean a grant prospect list, read a 990-PF, rank funders by fit, decide which funders to approach this quarter, or plan cultivation before a letter of inquiry. Do not use for writing the proposal (write-grant-proposal), drafting a letter of inquiry (grant-letter-of-inquiry prompt), or individual donor segmentation and major-gift research.",
+      "category": "Research and strategy"
+    },
+    {
+      "name": "review-sales-forecast",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/review-sales-forecast",
+      "description": "Run a weekly or quarterly sales forecast review that ends in a defensible number. Applies forecast categories (commit, best case, pipeline, omitted) with explicit inclusion criteria, inspects deals against evidence using MEDDPICC correctly, triangulates stage-weighted, historical-conversion and rep-judgement forecasts, checks pipeline coverage by stage against the team's own win rates, analyses slippage, pushes and aging, and writes the forecast narrative with risks and upside. Use when asked to prepare or run a forecast call, pressure-test a commit, call the quarter, review pipeline coverage, inspect deals for a forecast, or explain why the forecast moved. Do not use for building a mutual action plan with a buyer (use mutual-action-plan), for reviewing customer churn risk (use churn-risk-review), or for setting annual quotas (use plan-sales-territories).",
+      "category": "Sales and customer success"
+    },
+    {
+      "name": "route-analytics-domains",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/route-analytics-domains",
+      "description": "Recommend an approved analytics data domain for a question using a versioned domain catalog. Use before query planning when several authorized domains could fit; do not use to reveal schemas, write SQL, or grant data access.",
+      "category": "Planning and delivery"
+    },
+    {
+      "name": "run-month-end-close",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/run-month-end-close",
+      "description": "Run, document, and speed up a month-end close for a small-to-mid-size company: a business-day close calendar (BD-3 to BD+10) with owners, pre-close and cutoff procedures, the core checklist (cash and bank reconciliations, AR and AP subledger ties, revenue recognition review, accruals, prepaids, fixed assets, payroll, intercompany, deferred revenue roll-forward, inventory), journal entry review standards, balance-sheet reconciliations, flux analysis against user-set thresholds, sign-off and lock, and a faster-close plan. Use when asked to build a close checklist or calendar, reconcile accounts, review journal entries, run a flux review, or shorten the close. Do not use to explain one budget variance (budget-variance-explainer), for a 13-week cash forecast (build-cash-forecast), or for accounting-standard opinions.",
+      "category": "Finance and operations"
+    },
+    {
+      "name": "steel-design",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/steel-design",
+      "description": "Build enterprise SaaS application surfaces — data tables, list views, dashboards, settings, admin panels, detail/inspector panels, multi-step flows, command palettes — that read as designed rather than assembled. Use when building or redesigning any in-app product surface, CRUD screen, internal tool or admin UI; when a table needs columns, sorting, filters, bulk actions, pagination or empty states; when a form needs validation timing, progressive disclosure or a destructive-action pattern; when an app screen feels cluttered, cramped, \"too much chrome\", inconsistent, or like a marketing page wearing an app costume. A capability catalog of grounded UX/UI decision rules with real numbers — chrome budget, app type scale, 4px spacing, control tiers and hit targets, table anatomy, product-UI motion, WCAG 2.2 AA — plus drop-in React + Tailwind v4 reference implementations. Do not use for marketing pages, landing pages, or visual-style exploration.",
+      "category": "Design and user experience"
+    },
+    {
+      "name": "verify-design-claims",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/verify-design-claims",
+      "description": "Verify concrete claims in architecture documents, implementation plans, refactoring proposals, or state-machine designs against source evidence and executable models. Use when correctness depends on named APIs, paths, invariants, transitions, ordering, retries, or behavioral preservation.",
+      "category": "Design and user experience"
+    },
+    {
+      "name": "verify-source-claims",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/verify-source-claims",
+      "description": "Screen factual claims against supplied, versioned source passages and produce a citation-preserving review register. Use for research, reports, and agent output verification; do not treat a model score as proof or search for missing evidence without authorization.",
+      "category": "Planning and delivery"
+    },
+    {
+      "name": "write-funder-report",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/write-funder-report",
+      "description": "Write interim and final grant reports to a funder - extract every deliverable and reporting requirement from the grant agreement, build an outcomes vs targets table with honest variance explanations, write the budget-to-actual narrative explaining every variance beyond the funder's threshold, record lessons learned and course corrections, include participant stories only with recorded consent, complete an attachments checklist, set the next-period plan, and plan a stewardship follow-up. Tone is candid about shortfalls. Use when asked to write a grant report, progress or interim report, final or close-out report, answer a funder's reporting template, explain underspending or missed targets to a funder, or prepare a renewal-ready report. Do not use for a general budget variance memo (budget-variance-explainer prompt), a short update email to a funder (funder-update-email prompt), the original proposal (write-grant-proposal), or drafting the participant story itself (write-impact-story).",
+      "category": "Writing and communications"
+    },
+    {
+      "name": "write-grant-proposal",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/write-grant-proposal",
+      "description": "Develop a complete grant proposal from a funder's RFP or guidelines - parse every requirement into a compliance matrix (sections, questions, word and character limits, attachments, format rules, eligibility, deadline, and where each is answered), write the need statement from cited evidence, program design, SMART objectives, organizational capacity and sustainability, hand off the logic model, evaluation plan and budget narrative, reuse approved boilerplate with freshness checks, and run a reviewer read-through against the funder's scoring criteria and a final submission checklist. Use when asked to write a grant application, answer a funder's proposal questions, turn an RFP into an outline, check a draft against guidelines, or fit a proposal to limits. Do not use for a letter of inquiry (grant-letter-of-inquiry prompt), commercial RFP responses (rfp-response-drafter prompt), the budget itself (build-grant-budget), or post-award reports (write-funder-report).",
+      "category": "Writing and communications"
+    },
+    {
+      "name": "write-impact-story",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/write-impact-story",
+      "description": "Build ethical impact stories for a nonprofit from program notes, interviews, or participant submissions. Starts with a story bank that records consent status for every person (Consent on file, Needs consent, Do not use), applies de-identification and labelled composite rules, adds extra protections for minors (parent or guardian consent plus the organization's review), and writes strengths-based stories in the participant's own voice with quote approval, no clinical claims, and no before-and-after rescue narrative. Produces formats for short social posts, newsletter features, grant or funder report vignettes, and speech excerpts. Use when asked to write a participant story, impact story, beneficiary spotlight, donor appeal story, or vignette for a funder report from program notes or interviews. Do not use for commercial customer case studies (customer-case-study prompt), program statistics without a person's story, or general fundraising copy.",
+      "category": "Writing and communications"
+    },
+    {
+      "name": "write-in-my-voice",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/write-in-my-voice",
+      "description": "Build a consented writing-style profile from a person's own writing, then draft, revise, audit, and refine text against that profile. Use when the subject directly authorizes style analysis or asks to make a draft sound more like their writing. This skill does not clone speech or audio, impersonate another person, or send or publish content.",
+      "category": "Marketing and growth"
+    },
+    {
+      "name": "write-safe-mental-health-content",
+      "plugin": "relay-skills",
+      "path": "plugins/relay-skills/skills/write-safe-mental-health-content",
+      "description": "Write or review mental-health content (social posts, articles, emails, event pages, press materials, video scripts) using recognized safe-messaging practice and non-stigmatizing, people-first language. Produces a review with every finding labelled Must fix, Should fix, or Consider and a specific rewrite for each, places crisis resources using the organization-approved slot, adds content notes where needed, checks images and headlines, writes a comment moderation plan for social posts, and says when to route to the organization's clinical or safety reviewer. Use when drafting or checking anything that mentions suicide, self-harm, a death, a mental-health crisis, or mental illness, including memorial and awareness-month campaigns. Do not use for a quick one-pass check (safe-messaging-review prompt), clinical advice or risk assessment, or general copyediting.",
+      "category": "Writing and communications"
     }
   ]
 }

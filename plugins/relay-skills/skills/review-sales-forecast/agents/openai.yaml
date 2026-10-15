@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Review Sales Forecast"
+  short_description: "Relay: Run the forecast call and inspect deals on evidence"
+  default_prompt: "Use $review-sales-forecast to inspect our commit and best-case deals, triangulate the forecast methods, check coverage and slippage, and write this week's forecast narrative."

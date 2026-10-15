@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "build-ae-comp-plan",
+        "query": "Build next year's comp plan for our account executives: OTE, pay mix, commission rates and accelerators."
+      },
+      {
+        "id": "model-payouts-by-attainment",
+        "query": "Model what our reps would earn at 50, 80, 100, 120 and 150 percent attainment under this commission plan and tell me the cost of sales."
+      },
+      {
+        "id": "sdr-versus-farmer-pay-mix",
+        "query": "Why should SDRs, hunters and account managers have different pay mix, and what measures should each be paid on?"
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "territory-carve",
+        "query": "Carve our accounts into balanced territories and set each rep's share of the bookings target."
+      },
+      {
+        "id": "engineering-salary-bands",
+        "query": "Create salary bands with midpoints and range spread for our engineering levels."
+      },
+      {
+        "id": "offer-letter-draft",
+        "query": "Draft an offer letter for the account executive candidate we just decided to hire."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "fix-capped-plan",
+        "query": "Our commission plan caps payout at 150 percent and top reps are sandbagging deals. Redesign the accelerators and caps and check affordability."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "new-hunter-plan",
+      "task": "A hypothetical company is designing a plan for new-business account executives. Assume OTE of 180,000, an annual quota of 900,000 and no market pay data. Leadership wants to reward overachievement and discourage coasting below 50 percent. Design the pay mix, measures, rate tiers with accelerators, crediting rules and a payout model, and say what needs legal review.",
+      "baselineFailure": "The baseline picks round commission percentages, adds a cap by default, skips the 100 percent calibration check, quotes a market pay mix as fact, and omits jurisdiction-specific legal review.",
+      "runs": 1,
+      "assertions": [
+        { "id": "derives-bcr", "kind": "text_contains", "value": "BCR" },
+        { "id": "uses-accelerator", "kind": "text_contains", "value": "accelerator" },
+        { "id": "models-150-percent", "kind": "text_contains", "value": "150" },
+        { "id": "computes-cost-of-sales", "kind": "text_contains", "value": "Cost of sales" },
+        { "id": "defines-crediting", "kind": "text_contains", "value": "crediting" },
+        { "id": "flags-counsel", "kind": "text_contains", "value": "counsel" }
+      ]
+    },
+    {
+      "id": "multi-role-plan-with-clawback",
+      "task": "Design plans for three hypothetical roles at the same company: SDRs who book meetings, hunters who close new logos, and account managers who own renewals and expansion. The CFO wants commissions recovered if a customer cancels within 90 days. Explain the pay mix differences, choose no more than three measures per role, and describe the clawback and split rules.",
+      "baselineFailure": "The baseline gives every role the same mix, pays account managers on all renewals, stacks five or more measures, and states that clawbacks are always legal.",
+      "runs": 1,
+      "assertions": [
+        { "id": "explains-pay-mix", "kind": "text_contains", "value": "pay mix" },
+        { "id": "covers-clawback", "kind": "text_contains", "value": "clawback" },
+        { "id": "covers-splits", "kind": "text_contains", "value": "split" },
+        { "id": "covers-sdr", "kind": "text_contains", "value": "SDR" },
+        { "id": "no-legal-guarantee", "kind": "text_not_contains", "value": "clawbacks are always legal" }
+      ]
+    }
+  ]
+}

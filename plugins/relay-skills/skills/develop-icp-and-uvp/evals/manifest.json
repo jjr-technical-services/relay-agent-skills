@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "develop-icp-and-uvp",
+        "query": "Build an evidence-backed ideal customer profile and unique value proposition for this offering."
+      },
+      {
+        "id": "prioritize-segments",
+        "query": "Compare these customer segments, choose a primary ICP, and define an anti-ICP."
+      },
+      {
+        "id": "unattended-icp-handoff",
+        "query": "Run the ICP stage of our launch workflow unattended and hand the result to the next stage as a structured handoff."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "tagline-only",
+        "query": "Write ten playful taglines for this campaign."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "evidence-backed-positioning",
+        "query": "Turn our discovery evidence into segment priorities, positioning, proof-backed messaging, and a validation plan."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "segment-selection",
+      "task": "Prioritize three plausible segments for a new B2B workflow product, then define the primary ICP, buying committee, secondary ICP, anti-ICP, and the evidence that would reverse the decision.",
+      "baselineFailure": "The baseline produces a generic persona without comparable scoring, evidence confidence, observable qualification signals, exclusions, or revision triggers.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "primary-icp",
+          "kind": "text_contains",
+          "value": "Primary ICP"
+        },
+        {
+          "id": "anti-icp",
+          "kind": "text_contains",
+          "value": "Anti-ICP"
+        },
+        {
+          "id": "buying-committee",
+          "kind": "text_contains",
+          "value": "Buying committee"
+        },
+        {
+          "id": "evidence-confidence",
+          "kind": "text_contains",
+          "value": "confidence"
+        }
+      ]
+    },
+    {
+      "id": "uvp-proof-and-validation",
+      "task": "Create positioning and a customer-facing UVP for the selected segment. Include differentiated mechanism, value pillars, claim-proof ledger, objections, and falsifiable validation tests without inventing evidence.",
+      "baselineFailure": "The baseline writes polished slogans that omit the alternative, differentiated mechanism, proof status, unsupported-claim controls, and decision thresholds.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "positioning",
+          "kind": "text_contains",
+          "value": "Positioning"
+        },
+        {
+          "id": "value-pillars",
+          "kind": "text_contains",
+          "value": "Value pillars"
+        },
+        {
+          "id": "claim-proof",
+          "kind": "text_contains",
+          "value": "Claim-proof"
+        },
+        {
+          "id": "validation",
+          "kind": "text_contains",
+          "value": "Validation"
+        }
+      ]
+    },
+    {
+      "id": "unattended-low-evidence-handoff",
+      "task": "A workflow runs this skill with no one available to answer questions and no customer evidence. Choose a primary ICP and UVP for a new agency workflow product, and end with the handoff block for the next stage.",
+      "baselineFailure": "The baseline stops to ask questions, presents a low-evidence ranking as a selection, hides guessed inputs, or omits a machine-readable handoff.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "handoff-block",
+          "kind": "text_contains",
+          "value": "icp_uvp_handoff"
+        },
+        {
+          "id": "schema-id",
+          "kind": "text_contains",
+          "value": "relay.gtm.icp_uvp.v1"
+        },
+        {
+          "id": "raw-score-basis",
+          "kind": "text_contains",
+          "value": "\"ranking_basis\": \"raw_score\""
+        },
+        {
+          "id": "hypothesis-level",
+          "kind": "text_contains",
+          "value": "\"evidence_level\": \"hypothesis\""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Security Questionnaire"
+  short_description: "Relay: Answer vendor security reviews from real evidence"
+  default_prompt: "Use $answer-security-questionnaire to answer this customer security questionnaire from our evidence, flag what needs sign-off, and list the gaps."

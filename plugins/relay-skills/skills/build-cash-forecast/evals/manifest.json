@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "thirteen-week-forecast",
+        "query": "Build a 13-week cash forecast from our bank balance, AR aging, payroll calendar, and AP so we can see our lowest week."
+      },
+      {
+        "id": "covenant-minimum-liquidity",
+        "query": "Our credit line has a minimum liquidity covenant of 1 million. Will we dip below it in the next quarter on a weekly basis?"
+      },
+      {
+        "id": "weekly-variance-loop",
+        "query": "Set up the weekly roll-forward and variance-to-actual process for our cash flow forecast."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "annual-operating-budget",
+        "query": "Build next year's operating budget by department with headcount and a monthly P&L."
+      },
+      {
+        "id": "month-end-close-checklist",
+        "query": "Create a month-end close checklist with bank reconciliations and a flux review."
+      },
+      {
+        "id": "insolvency-legal-advice",
+        "query": "We cannot pay our creditors next month. Are the directors personally liable, and should we file for bankruptcy?"
+      }
+    ],
+    "holdout": [
+      {
+        "id": "runway-in-weeks",
+        "query": "How many weeks of runway do we have, and what levers like pushing collections or drawing the credit line would extend our cash?"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "harbor-tax-revolver-thirteen-week",
+      "task": "Hypothetical company, 13-week cash forecast starting Monday 5 October. Opening bank balance 310,000 and minimum cash buffer 100,000. A revolving credit facility has a 200,000 limit with nothing drawn; the lender's covenant requires liquidity, defined as cash plus unused revolver availability, of at least 250,000 in every week. Management plans to draw 50,000 on the revolver in week 4. Payroll of 80,000 is paid every two weeks starting in week 1. Rent of 25,000 is paid in weeks 1, 5 and 9. Customers other than Harbor pay about 20,000 a week. Harbor, the largest customer, owes 120,000 on an invoice issued 28 days before the start date on net-30 terms; Harbor's last eight invoices were paid 57 to 61 days after invoice. The monthly management P&L shows income tax expense of 15,000 per month, and the tax calendar shows a 45,000 estimated tax payment due in week 9. Build the forecast, find the lowest week for cash and for liquidity, test the buffer and the covenant, and list levers with their timing.",
+      "baselineFailure": "The baseline collects Harbor on its week-1 due date instead of week 5 from its payment history (so week 3 shows 305,000, not 185,000), spreads the P&L tax accrual monthly or counts it alongside the week-9 payment, and adds the full 200,000 limit to cash after the week-4 draw, so week-13 liquidity shows 260,000 and hides the covenant breach at 210,000.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "assumptions-register-section",
+          "kind": "text_contains",
+          "value": "Assumptions register"
+        },
+        {
+          "id": "undrawn-credit-row",
+          "kind": "text_contains",
+          "value": "Undrawn credit"
+        },
+        {
+          "id": "harbor-timed-by-history-week-3",
+          "kind": "text_contains",
+          "value": "185,000"
+        },
+        {
+          "id": "tax-lump-in-week-9-closing",
+          "kind": "text_contains",
+          "value": "140,000"
+        },
+        {
+          "id": "liquidity-not-double-counted-week-13",
+          "kind": "text_contains",
+          "value": "210,000"
+        },
+        {
+          "id": "no-invented-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    },
+    {
+      "id": "roll-forward-after-draw-and-missed-receipt",
+      "task": "A hypothetical company is rolling its 13-week cash forecast forward after week 1. Last week's forecast for week 1 was: opening 400,000, receipts 250,000 including 90,000 from Keel, disbursements 300,000 including a 50,000 vendor run, closing 350,000. The bank shows a week-1 closing balance of 410,000. Actual week-1 bank receipts were 260,000, which include a 100,000 draw on the revolving credit facility made on Thursday; Keel did not pay, and the other customers paid the 160,000 expected. Actual disbursements were 250,000 because the 50,000 vendor run moved to this week. The facility limit is 300,000 and nothing was drawn before Thursday. The covenant requires liquidity, defined as cash plus unused facility availability, of at least 650,000. Keel's invoice was issued 42 days before the start of last week on net-45 terms, and Keel's last six payments arrived 58 to 62 days after invoice. Explain what happened last week, roll the forecast forward, update what needs updating, and state liquidity against the covenant.",
+      "baselineFailure": "The baseline reads the 410,000 bank balance as receipts beating plan, treats the draw as customer cash, still adds the full 300,000 limit to liquidity (710,000, a false covenant pass instead of 610,000 and a breach), moves Keel into the next week rather than timing it from its payment history, and gives no forecast-versus-actual table or assumptions register.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "forecast-vs-actual-section",
+          "kind": "text_contains",
+          "value": "Variance to actual"
+        },
+        {
+          "id": "assumptions-register-section",
+          "kind": "text_contains",
+          "value": "Assumptions register"
+        },
+        {
+          "id": "undrawn-credit-row",
+          "kind": "text_contains",
+          "value": "Undrawn credit"
+        },
+        {
+          "id": "liquidity-after-draw",
+          "kind": "text_contains",
+          "value": "610,000"
+        }
+      ]
+    }
+  ]
+}

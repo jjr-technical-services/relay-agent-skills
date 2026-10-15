@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "trace-cross-module-change-impact",
+        "query": "Map the blast radius of changing this shared authorization helper, including callers, routes, tests, and coverage gaps."
+      },
+      {
+        "id": "orient-in-unfamiliar-codebase",
+        "query": "Explain this unfamiliar repository's architecture and verify the important boundaries against exact source."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "edit-known-single-file",
+        "query": "Change this known button label in the open component and run its focused test."
+      },
+      {
+        "id": "summarize-provided-code",
+        "query": "Summarize the function pasted below without inspecting the rest of a repository."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "audit-negative-dependency-claim",
+        "query": "Determine whether any production route depends on this module, and show enough coverage and source evidence to support a negative result."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "coverage-aware-change-impact",
+      "task": "Assess the impact of a local change to a shared repository function. Use structural graph evidence to identify likely callers and routes, check index coverage for the relevant scope, verify the result against the actual diff and exact source, and report residual uncertainty.",
+      "baselineFailure": "The baseline may list textual matches without distinguishing graph freshness, coverage gaps, exact callers, or source-verified impact.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "records-revision-evidence",
+          "kind": "text_contains",
+          "value": "revision"
+        },
+        {
+          "id": "reports-index-coverage",
+          "kind": "text_contains",
+          "value": "coverage"
+        },
+        {
+          "id": "verifies-exact-source",
+          "kind": "text_contains",
+          "value": "exact source"
+        },
+        {
+          "id": "states-residual-uncertainty",
+          "kind": "text_contains",
+          "value": "uncertainty"
+        }
+      ]
+    },
+    {
+      "id": "negative-result-fails-open-to-source",
+      "task": "Investigate whether a named module has any inbound production dependencies. If the graph returns no callers, check scoped coverage and use exact repository search before making the negative claim. Explain any dynamic or generated-code limitations.",
+      "baselineFailure": "The baseline may treat an empty graph result as proof of no dependency and omit source or coverage checks.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "checks-negative-result-coverage",
+          "kind": "text_contains",
+          "value": "coverage"
+        },
+        {
+          "id": "uses-exact-source-fallback",
+          "kind": "text_contains",
+          "value": "exact source"
+        },
+        {
+          "id": "reports-dynamic-limitations",
+          "kind": "text_contains",
+          "value": "dynamic"
+        }
+      ]
+    }
+  ]
+}

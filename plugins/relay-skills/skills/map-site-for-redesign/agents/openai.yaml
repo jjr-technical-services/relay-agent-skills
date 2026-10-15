@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Site Redesign Mapper"
+  short_description: "Relay: Screenshot a whole web app by user flow for redesign handoff"
+  default_prompt: "Use $map-site-for-redesign to capture every page and state of this web app in an isolated environment and package it by user flow for a design tool."

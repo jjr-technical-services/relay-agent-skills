@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Visual Direction Explorer"
+  short_description: "Relay: Preview named visual styles on existing products"
+  default_prompt: "Use $explore-visual-directions to show how this interface would look in a named visual style without changing production."

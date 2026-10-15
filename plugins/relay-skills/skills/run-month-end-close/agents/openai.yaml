@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Month-End Close"
+  short_description: "Relay: Run, reconcile and speed up the month-end close"
+  default_prompt: "Use $run-month-end-close to build our close calendar and checklist, reconcile the balance sheet, run flux analysis against our thresholds, and plan a faster close."

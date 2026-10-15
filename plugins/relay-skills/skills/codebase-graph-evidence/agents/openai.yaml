@@ -1,0 +1,12 @@
+interface:
+  display_name: "Relay: Codebase Graph Evidence"
+  short_description: "Relay: Trace code structure with coverage evidence"
+  default_prompt: "Use $codebase-graph-evidence to map this change's blast radius and verify the result against exact source."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "codebase-memory-analysis"
+      description: "Pinned repository-scoped structural code graph tools"
+      transport: "stdio"
+policy:
+  allow_implicit_invocation: true

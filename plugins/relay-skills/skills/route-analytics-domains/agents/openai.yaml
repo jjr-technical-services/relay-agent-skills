@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Analytics Domain Router"
+  short_description: "Relay: Recommend an approved data domain"
+  default_prompt: "Use $route-analytics-domains to recommend a domain from this approved catalog for my analytics question."

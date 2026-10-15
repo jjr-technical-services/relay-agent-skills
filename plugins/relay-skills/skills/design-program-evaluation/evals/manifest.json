@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "plan-evaluation-for-funder",
+        "query": "Plan an evaluation of our after-school program so we can report outcomes to a foundation next year."
+      },
+      {
+        "id": "choose-evaluation-design",
+        "query": "Should we use a pre/post survey, a retrospective pre-post, or a comparison group to evaluate our workshop series?"
+      },
+      {
+        "id": "measure-program-impact-small-team",
+        "query": "We are a small team. How do we measure program impact on students without overloading staff?"
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "write-survey-items",
+        "query": "Write ten survey questions for our end-of-event feedback form."
+      },
+      {
+        "id": "analyze-existing-export",
+        "query": "Here is our survey CSV export. Tabulate the Likert items and give me top-2-box by campus."
+      },
+      {
+        "id": "build-logic-model-only",
+        "query": "Draw our theory of change as a logic model diagram with inputs, activities and outputs."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "consent-and-privacy-plan",
+        "query": "We want to evaluate our family program with teenagers and parents; what consent, assent and privacy steps should the evaluation plan include?"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "school-wellbeing-group-plan",
+      "task": "A nonprofit with two program staff and no evaluator runs an 8-week after-school wellbeing skills group for high school students aged 14 to 17 at three partner schools, with 40, 25 and 6 students enrolled. A new funder wants the nonprofit to 'demonstrate impact' in a year-end report. The program manager proposes giving students the PHQ-9 at the start and end and reporting the results for each school. Write the plan.",
+      "baselineFailure": "A generic answer accepts the depression screener as the outcome measure, reports each school separately including the six-student site, treats a single-group pre/post as proof of impact, and sizes the plan without regard to two staff members' capacity.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "states-unsupported-claims",
+          "kind": "text_contains",
+          "value": "Claims this design cannot support"
+        },
+        {
+          "id": "has-proportionality-check",
+          "kind": "text_contains",
+          "value": "Proportionality check"
+        },
+        {
+          "id": "states-suppression-threshold",
+          "kind": "text_contains",
+          "value": "Suppression threshold"
+        },
+        {
+          "id": "plans-youth-assent",
+          "kind": "text_contains",
+          "value": "assent"
+        },
+        {
+          "id": "has-limitations",
+          "kind": "text_contains",
+          "value": "Limitations"
+        },
+        {
+          "id": "no-clinical-change-language",
+          "kind": "text_not_contains",
+          "value": "clinically significant"
+        },
+        {
+          "id": "no-stigmatizing-phrase",
+          "kind": "text_not_contains",
+          "value": "committed suicide"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "agents-for-service-level",
+        "query": "How many support agents do we need to answer 80% of calls within 20 seconds given our interval volume and handle time?"
+      },
+      {
+        "id": "support-headcount-plan-with-tickets",
+        "query": "Build a staffing model for our support team covering chat and email tickets, including shrinkage, and tell me how many FTE to hire for next quarter."
+      },
+      {
+        "id": "peak-season-coverage",
+        "query": "Our contact volume doubles in November; plan agent coverage and headcount for the peak season."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "draft-support-reply",
+        "query": "Draft a reply to this angry customer email about a delayed refund."
+      },
+      {
+        "id": "support-escalation-sop",
+        "query": "Write a standard operating procedure for how tier 1 support escalates bugs to engineering."
+      },
+      {
+        "id": "company-annual-budget",
+        "query": "Build next year's company operating budget across all departments with headcount and non-headcount spend."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "handle-time-sensitivity",
+        "query": "If average handle time rises by a minute and ticket volume grows 15%, how many more agents does the contact center need?"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "voice-and-email-staffing-plan",
+      "task": "A hypothetical support team receives, on its busiest weekday, 100 calls in the 10:00-10:30 interval with an average handle time of 180 seconds, and 1,000 email tickets per week at 12 minutes each. The service goal for calls is 80% answered within 20 seconds; emails need a first response within one business day. Shrinkage is not known. Paid hours are 40 per week. A vendor claims a new help center will deflect 30% of emails. Calculate the agents needed for the peak call interval, the FTE for email, and present the staffing plan with assumptions and sensitivity.",
+      "baselineFailure": "The baseline divides call volume by a guessed calls-per-hour rate instead of using Erlang C, multiplies by (1 + shrinkage), nets out the vendor's deflection claim as fact, and gives one headcount number with no assumptions or sensitivity.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "uses-erlang-c",
+          "kind": "text_contains",
+          "value": "Erlang"
+        },
+        {
+          "id": "computes-traffic-intensity",
+          "kind": "text_contains",
+          "value": "10 Erlangs"
+        },
+        {
+          "id": "net-agents-table",
+          "kind": "text_contains",
+          "value": "Net agents"
+        },
+        {
+          "id": "applies-shrinkage",
+          "kind": "text_contains",
+          "value": "shrinkage"
+        },
+        {
+          "id": "labels-deflection-assumption",
+          "kind": "text_contains",
+          "value": "assum"
+        },
+        {
+          "id": "shows-sensitivity",
+          "kind": "text_contains",
+          "value": "Sensitivity"
+        },
+        {
+          "id": "no-invented-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    }
+  ]
+}

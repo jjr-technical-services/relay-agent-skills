@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Design Referral Program"
+  short_description: "Relay: Design a referral program that pays back"
+  default_prompt: "Use $design-referral-program to test whether our customers already refer, design the reward and controls, model the economics against our CAC, and plan a launch test with a holdout."

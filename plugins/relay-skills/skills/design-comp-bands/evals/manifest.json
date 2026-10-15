@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "build-salary-bands",
+        "query": "Build salary bands for our engineering levels L1 to L5 from the survey data I have, targeting the 50th percentile."
+      },
+      {
+        "id": "compa-ratio-check",
+        "query": "Calculate compa-ratios for everyone against our pay ranges and tell me who is below minimum and what it costs to fix."
+      },
+      {
+        "id": "range-spread-overlap",
+        "query": "What range spread and midpoint progression should we use between levels, and how much overlap is reasonable?"
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "sales-commission-plan",
+        "query": "Design the commission plan and quota for our account executives next year."
+      },
+      {
+        "id": "career-ladder-levels",
+        "query": "Write the level expectations for our engineering career ladder from junior to principal."
+      },
+      {
+        "id": "offer-letter",
+        "query": "Draft an offer letter for a senior designer at 140,000 with a start date next month."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "pay-structure-refresh",
+        "query": "Our compensation structure is two years old. Age the market data, rebuild the pay ranges, and flag red-circle employees."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "bands-from-aged-survey",
+      "task": "Hypothetical facts: we have job levels L2, L3, L4 in one engineering family. Survey 50th percentile values effective 1 January are 85,000, 100,000, and 115,000. Our common effective date is 1 July. We have not chosen an aging rate. Employees: A at L3 earns 90,000, B at L3 earns 76,000, C at L4 earns 140,000. Build the bands with a 50% spread, compute compa-ratio and range penetration, and tell us the cost to bring people to minimum.",
+      "baselineFailure": "The baseline invents an aging rate and an industry benchmark, confuses compa-ratio with range penetration, and suggests cutting the pay of the employee above maximum.",
+      "runs": 1,
+      "assertions": [
+        { "id": "compa-ratio", "kind": "text_contains", "value": "compa" },
+        { "id": "range-spread", "kind": "text_contains", "value": "spread" },
+        { "id": "red-circle", "kind": "text_contains", "value": "circle" },
+        { "id": "cost-to-minimum", "kind": "text_contains", "value": "minimum" },
+        { "id": "asks-for-aging-rate", "kind": "text_contains", "value": "aging" },
+        { "id": "pay-equity", "kind": "text_contains", "value": "pay equity" },
+        { "id": "no-pay-cut", "kind": "text_not_contains", "value": "reduce their salary" }
+      ]
+    }
+  ]
+}

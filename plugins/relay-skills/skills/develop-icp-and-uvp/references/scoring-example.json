@@ -1,0 +1,34 @@
+{
+  "segments": [
+    {
+      "name": "Operations teams with an active compliance deadline",
+      "scores": {
+        "problem_severity": {"rating": 5, "confidence": 0.8, "evidence": "Repeated deadline-related failures in win/loss review"},
+        "trigger_urgency": {"rating": 5, "confidence": 0.9, "evidence": "Externally imposed deadline"},
+        "outcome_value": {"rating": 4, "confidence": 0.7, "evidence": "Documented labor and risk reduction"},
+        "solution_fit": {"rating": 4, "confidence": 0.8, "evidence": "Current workflow coverage"},
+        "differentiation": {"rating": 4, "confidence": 0.6, "evidence": "Initial alternative comparison"},
+        "economic_viability": {"rating": 4, "confidence": 0.6, "evidence": "Comparable paid engagements"},
+        "reachability": {"rating": 3, "confidence": 0.5, "evidence": "One proven channel"},
+        "retention_expansion": {"rating": 4, "confidence": 0.5, "evidence": "Recurring review cycle, limited cohort"},
+        "delivery_friction": {"rating": 3, "confidence": 0.8, "evidence": "Known integration work"}
+      },
+      "knockouts": []
+    },
+    {
+      "name": "Small teams with general process-improvement interest",
+      "scores": {
+        "problem_severity": {"rating": 2, "confidence": 0.6, "evidence": "Low reported consequence"},
+        "trigger_urgency": {"rating": 1, "confidence": 0.7, "evidence": "No consistent trigger"},
+        "outcome_value": {"rating": 3, "confidence": 0.4, "evidence": "Benefits are mostly stated"},
+        "solution_fit": {"rating": 4, "confidence": 0.7, "evidence": "Simple workflow fit"},
+        "differentiation": {"rating": 2, "confidence": 0.5, "evidence": "Many acceptable alternatives"},
+        "economic_viability": {"rating": 2, "confidence": 0.4, "evidence": "Unproven willingness to pay"},
+        "reachability": {"rating": 4, "confidence": 0.7, "evidence": "Broad reachable audience"},
+        "retention_expansion": {"rating": 2, "confidence": 0.3, "evidence": "Repeat need is uncertain"},
+        "delivery_friction": {"rating": 5, "confidence": 0.8, "evidence": "Low-complexity implementation"}
+      },
+      "knockouts": []
+    }
+  ]
+}

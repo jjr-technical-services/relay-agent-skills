@@ -1,7 +1,7 @@
 {
   "name": "relay-agent-skills",
-  "version": "0.2.1",
-  "description": "Install and validate the version-locked Relay Skills plugin for Codex and Claude Code.",
+  "version": "0.3.0",
+  "description": "63 practical Relay workflows for research, strategy, design, analytics, fundraising, operations, and delivery.",
   "license": "MIT",
   "type": "module",
   "bin": {
@@ -20,7 +20,8 @@
     "relay-lock.json",
     "LICENSE",
     "README.md",
-    "RELEASE_STATUS.md"
+    "RELEASE_STATUS.md",
+    "library-lock.json"
   ],
   "scripts": {
     "sync:relay": "node ./scripts/sync-from-relay.mjs",

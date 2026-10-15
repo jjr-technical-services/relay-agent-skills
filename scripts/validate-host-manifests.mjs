@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { access, readFile } from 'node:fs/promises';
+import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 
@@ -21,6 +21,7 @@ async function main() {
   const packageJson = await json('package.json');
   const catalog = await json('catalog.json');
   const lock = await json('relay-lock.json');
+  const library = await json('library-lock.json');
   const compatibilityLock = await json('compatibility-lock.json');
   const codexManifest = await json('plugins/relay-skills/.codex-plugin/plugin.json');
   const claudeManifest = await json('plugins/relay-skills/.claude-plugin/plugin.json');
@@ -29,12 +30,18 @@ async function main() {
   const codexMarketplace = await json('.agents/plugins/marketplace.json');
   const claudeMarketplace = await json('.claude-plugin/marketplace.json');
 
-  assert(packageJson.version === '0.2.1', 'npm package version must be 0.2.1.');
+  assert(library.schemaVersion === 'relay.native-skills.lock.v1', 'Native library lock schema is invalid.');
+  assert(library.pluginVersion === packageJson.version, 'Native library version differs from npm package.');
   assert(codexManifest.version === packageJson.version, 'Codex plugin version differs from npm package.');
   assert(claudeManifest.version === packageJson.version, 'Claude plugin version differs from npm package.');
   assert(claudeMarketplace.version === packageJson.version, 'Claude marketplace version differs from npm package.');
-  assert(JSON.stringify(catalog.skills.map((skill) => skill.name)) === JSON.stringify(PUBLIC_SKILL_SLUGS), 'Catalog must contain exactly the four public skills in lock order.');
-  assert(catalog.skills.every((skill) => skill.plugin === 'relay-skills'), 'Every v0.2.x catalog skill must belong to relay-skills.');
+  const names = catalog.skills.map((skill) => skill.name);
+  const folders = (await readdir(path.join(root, 'plugins/relay-skills/skills'))).sort();
+  assert(new Set(names).size === names.length, 'Native catalog contains duplicate skills.');
+  assert(JSON.stringify([...names].sort()) === JSON.stringify(folders), 'Native catalog must include every bundled skill folder.');
+  assert(JSON.stringify(names) === JSON.stringify(Object.keys(library.skills)), 'Native catalog and lock membership differ.');
+  assert(PUBLIC_SKILL_SLUGS.every((name) => names.includes(name)), 'Native catalog must preserve the original governed skills.');
+  assert(catalog.skills.every((skill) => skill.plugin === 'relay-skills'), 'Every native catalog skill must belong to relay-skills.');
 
   assert(claudeManifest.privacyPolicyUrl === 'https://relay.builtbyrose.co/privacy', 'Claude directory privacy policy URL is required.');
   assert(codexManifest.interface?.supportURL === 'https://relay.builtbyrose.co/support', 'OpenAI directory support URL is required.');
@@ -65,6 +72,7 @@ async function main() {
 
   const codexNames = codexMarketplace.plugins.map((plugin) => plugin.name);
   const claudeNames = claudeMarketplace.plugins.map((plugin) => plugin.name);
+  assert(codexMarketplace.plugins.find((plugin) => plugin.name === 'relay-skills')?.policy?.authentication === 'ON_USE', 'Relay connection must be optional until used.');
   for (const name of ['relay-skills', 'relay-product-skills', 'relay-growth-skills']) {
     assert(codexNames.includes(name), `Codex marketplace is missing ${name}.`);
     assert(claudeNames.includes(name), `Claude marketplace is missing ${name}.`);
@@ -80,7 +88,6 @@ async function main() {
   }
 
   for (const excluded of [
-    'daily-meeting-prep',
     'relay-plan-voice-agent',
     'relay-implement-voice-agent',
     'relay-qualify-voice-agent',
@@ -103,7 +110,7 @@ async function main() {
     assert(!codexManifest.apps, 'Candidate manifest must not advertise .app.json before ChatGPT registration.');
   }
 
-  process.stdout.write(`${JSON.stringify({ status: 'valid', release, skills: PUBLIC_SKILL_SLUGS }, null, 2)}\n`);
+  process.stdout.write(`${JSON.stringify({ status: 'valid', release, skills: names }, null, 2)}\n`);
 }
 
 main().catch((error) => {

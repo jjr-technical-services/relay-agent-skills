@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Repurpose Content"
+  short_description: "Relay: Adapt approved content without claim drift"
+  default_prompt: "Use $repurpose-content to turn this approved report into channel-native posts, a newsletter section and a partner kit, with a source claim register and a reuse class for every adaptation."

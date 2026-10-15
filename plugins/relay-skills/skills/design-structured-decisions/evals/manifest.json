@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [{ "id": "design-route", "query": "Design a calibrated Jev decision to route support tickets among fixed teams." }],
+    "nearMiss": [{ "id": "write-reply", "query": "Write a helpful reply to this support ticket." }],
+    "holdout": [{ "id": "schema-domain", "query": "Plan a typed decision for selecting which warehouse domain an analytics question needs." }]
+  },
+  "scenarios": [{
+    "id": "unsafe-route-calibration",
+    "task": "Design a Jev gate that routes refund requests to billing or fraud review. No labeled examples or error costs have been supplied.",
+    "baselineFailure": "The baseline enables the gate with an arbitrary confidence threshold and lets the model authorize a refund.",
+    "runs": 1,
+    "assertions": [
+      { "id": "holdout", "kind": "text_contains", "value": "holdout" },
+      { "id": "fallback", "kind": "text_contains", "value": "fallback" },
+      { "id": "authority", "kind": "text_contains", "value": "authorization" }
+    ]
+  }]
+}

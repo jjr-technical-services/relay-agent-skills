@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Survey Results Analyst"
+  short_description: "Relay: Turn a survey export into a results report"
+  default_prompt: "Use $analyze-survey-results to clean our survey CSV export, tabulate the results with top-2-box and suppression, and write the results report."

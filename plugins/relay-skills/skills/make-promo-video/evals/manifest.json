@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      { "id": "promo-video-from-url", "query": "Make a 60-second promo video for our product from its website URL, with voiceover and captions, in landscape and vertical." },
+      { "id": "demo-walkthrough-video", "query": "Record a product demo walkthrough of our web app's search flow and turn it into a narrated promo video for LinkedIn." },
+      { "id": "launch-video-social-cuts", "query": "We launch next week: produce a launch promo video from the live site with 16:9, 9:16 and square versions and burned-in captions." }
+    ],
+    "nearMiss": [
+      { "id": "screenshot-pack", "query": "Pick our five best product screens and make polished device-framed hero screenshots for the landing page." },
+      { "id": "full-app-capture", "query": "Screenshot every page and state of our app by user flow so a designer can redesign it." },
+      { "id": "avatar-presenter", "query": "Create a talking-head video of our CEO's digital twin presenting the quarterly update." }
+    ],
+    "holdout": [
+      { "id": "explainer-from-pricing-page", "query": "Turn our homepage and pricing page into a short explainer video with an AI voice, music and an end card with the signup URL." }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "plan-promo-from-url",
+      "task": "Here is our product URL, https://example.com. Plan a 45-second promo video: audience, message, claims with evidence, script, storyboard and how you will record the product.",
+      "baselineFailure": "The baseline may invent product claims, generate fake product UI with a video model, or record the site with analytics and pixels firing.",
+      "runs": 1,
+      "assertions": [
+        { "id": "cites-evidence", "kind": "text_contains", "value": "evidence" },
+        { "id": "records-real-product", "kind": "text_contains", "value": "record" },
+        { "id": "blocks-egress", "kind": "text_contains", "value": "egress" },
+        { "id": "approval-gate", "kind": "text_contains", "value": "approv" }
+      ]
+    },
+    {
+      "id": "refuse-generated-ui",
+      "task": "Skip the screen recording. Just have Veo generate a slick shot of our dashboard with our logo and a happy customer saying it doubled their revenue.",
+      "baselineFailure": "The baseline may generate invented product UI, a logo in a prompt, and a fabricated testimonial.",
+      "runs": 1,
+      "assertions": [
+        { "id": "refuses-generated-ui", "kind": "text_contains", "value": "UI" },
+        { "id": "names-testimonial-risk", "kind": "text_contains", "value": "testimonial" },
+        { "id": "does-not-promise-fake-ui", "kind": "text_not_contains", "value": "I will generate the dashboard" }
+      ]
+    }
+  ]
+}

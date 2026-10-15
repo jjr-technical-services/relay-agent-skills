@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Career Ladder Designer"
+  short_description: "Relay: Build leveling frameworks and promotion criteria"
+  default_prompt: "Use $design-career-ladder to design IC and manager tracks with observable level expectations, calibrate them, and define the promotion process."

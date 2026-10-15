@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "analyze-workshop-survey-export",
+        "query": "Analyze the survey results from our workshop feedback export and write a report for the board."
+      },
+      {
+        "id": "pre-post-survey-report",
+        "query": "We ran a pre and post survey with a linking code. Summarize the survey results and what changed."
+      },
+      {
+        "id": "results-by-site-small-groups",
+        "query": "Break our survey export down by site and role, but some groups are tiny. How should we report the results?"
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "design-survey-questions",
+        "query": "Design a ten-question survey to measure how families feel about our newsletter."
+      },
+      {
+        "id": "code-comments-only",
+        "query": "Here are 200 open-ended comments. Just build a codebook and code them into themes."
+      },
+      {
+        "id": "interview-synthesis",
+        "query": "Synthesize these twelve user interview transcripts into key insights and quotes."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "funder-survey-findings",
+        "query": "Turn this CSV of participant survey responses into findings a funder can read, with a plain-language summary."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "unlinked-workshop-survey-with-small-groups",
+      "task": "Hypothetical data. 140 students attended six campus workshops. The post-workshop form got 96 submissions: 8 are repeat submissions from the same email and 9 were completed in under 40 seconds against a typical 4 minutes, leaving 79. Campus: North 57, South 18, East 4. Gender: women 52, men 24, nonbinary 3. Item 'I know where to get support on campus' (79 answers): Strongly agree 22, Agree 29, Neither 16, Disagree 8, Strongly disagree 4. A separate anonymous pre-workshop form (no linking code) got 110 answers to the same item: Strongly agree 15, Agree 30, Neither 35, Disagree 20, Strongly disagree 10. The executive director wants the average score per question, results by campus and by gender, and a sentence saying the workshops improved students' mental health. The board rule is that no group smaller than 5 people is shown. Write the report.",
+      "baselineFailure": "A generic answer reports means, breaks results out for the four-person campus and the three nonbinary respondents with their exact counts, presents the two anonymous waves as individual improvement, and repeats the mental-health claim.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "has-cleaning-log",
+          "kind": "text_contains",
+          "value": "Cleaning log"
+        },
+        {
+          "id": "labels-unmatched",
+          "kind": "text_contains",
+          "value": "Unmatched comparison"
+        },
+        {
+          "id": "has-cannot-tell-section",
+          "kind": "text_contains",
+          "value": "What the data cannot tell us"
+        },
+        {
+          "id": "reports-top-2-box",
+          "kind": "text_contains",
+          "value": "top-2-box"
+        },
+        {
+          "id": "marks-suppression",
+          "kind": "text_contains",
+          "value": "suppressed"
+        },
+        {
+          "id": "no-small-group-count",
+          "kind": "text_not_contains",
+          "value": "n=3"
+        },
+        {
+          "id": "no-spaced-small-group-count",
+          "kind": "text_not_contains",
+          "value": "n = 3"
+        }
+      ]
+    }
+  ]
+}

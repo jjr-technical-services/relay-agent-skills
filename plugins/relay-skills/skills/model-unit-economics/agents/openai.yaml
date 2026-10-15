@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Model Unit Economics"
+  short_description: "Relay: CAC, payback, LTV and margin by channel"
+  default_prompt: "Use $model-unit-economics to calculate our contribution margin, CAC, CAC payback and LTV by channel, with sensitivity tables and clearly labeled assumptions."

@@ -1,0 +1,3059 @@
+{
+  "schemaVersion": "relay.native-skills.lock.v1",
+  "pluginVersion": "0.3.0",
+  "distributionStatus": "native_source_bundle",
+  "skills": {
+    "relay-skill-router": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "088547af337a06bca6d9702c2612dad3cb9609cb",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "relayAssetVersionId": "cmt6sm5py0c9nad0k8dv3vqzf",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "7d9d7dd52588a30becdcb1df4ff5bb76522a23b62db41db05a23758fbcce0a62",
+          "byteSize": 495
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "bd65154af9ecfa315b9c463f44e3cd864b0eb4e134437203a46eb3cc702973f6",
+          "byteSize": 1404
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "c527c78a632f03b4b20af544adff9d7b1e1c89559e69497f221018592c6a1b79",
+          "byteSize": 2508
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "225c56111b0c6b2d9c90b99e5e71d0f5548b4ef2430bf8ab3c7dce7421870b4a",
+          "byteSize": 1982
+        }
+      ]
+    },
+    "kpi-tree": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "088547af337a06bca6d9702c2612dad3cb9609cb",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "relayAssetVersionId": "cmt6sm7hl0camad0kxays63hl",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "fc603577b035b5b3241ddcdcb0a8bc414f07b2846e18fb47364d2d79fb9d425e",
+          "byteSize": 186
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "239187e80c520add682041713f3b5c7ecc1b2d4ec102c78f23b4d527dbf61344",
+          "byteSize": 1397
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "43912b217fbe9884305ac60842c974a53f658b70d9f05d74765c105dd9723dd6",
+          "byteSize": 2195
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "b2c4f710779d5cc664f8e51d82ed3481d27aad17ae9283d92f8a4de354b5ec29",
+          "byteSize": 1846
+        }
+      ]
+    },
+    "ab-test-setup": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "088547af337a06bca6d9702c2612dad3cb9609cb",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "relayAssetVersionId": "cmt6sm5qa0c9tad0kyo2nq9co",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "ec3a2e7996694b7d3e0c69641e02f317c8346d207e5485a075c4f6a5c36ea7b8",
+          "byteSize": 210
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "3954e306560e140a4024226c6a995f734e4c496d5768804dd689feef60a78660",
+          "byteSize": 1424
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "27652324e2fd8b688d8d06c5b2d9b735da90f00abe193f177f5fa8c8db7b8655",
+          "byteSize": 2271
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "f104b51fbee9e5b77126faf562256c432109756fa6f05ace322aff5ac51b19be",
+          "byteSize": 2093
+        }
+      ]
+    },
+    "negotiate-tactically": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "088547af337a06bca6d9702c2612dad3cb9609cb",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "relayAssetVersionId": "cmt6sm5g50c90ad0kl18hqg3z",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "197abf36ce4be1c00d8d2190b72984ab312955780b05da0f7383708a0aa77a42",
+          "byteSize": 229
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "240bf46eb43831f88ed9d00b426653f06a210a08974189e7e4131107ff4df821",
+          "byteSize": 1446
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "d0afb94317fba5fa050030fcba0e60c7eaefa9e4a333d44c0b21db4c08fa2717",
+          "byteSize": 2682
+        },
+        {
+          "path": "references/patterns.md",
+          "sha256": "e0b75de0716ca13eed236a9d68d58838043188504e981b226bd934916097dfcb",
+          "byteSize": 2371
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "caa2457306746b0e4af2b3e047bfacb983952e2447139266f5c7b2e14806af35",
+          "byteSize": 5431
+        }
+      ]
+    },
+    "analyze-cohort-retention": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": "Valid YAML folded description; procedural content preserved",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "fbc58088da73a3bc93dce30151e6a71eb04417d9f284cae2d77a260bced821e3",
+          "byteSize": 306
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "6b45bd40d12f3e3203b84054e73ade16138a44d6aadccebec70821dbd40680a9",
+          "byteSize": 5285
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/data-preparation.md",
+          "sha256": "7be89c7fef3f847b55d53af78d221526ebb2eccfe1d8bcd874a1a8aaa2a4bcb6",
+          "byteSize": 3885
+        },
+        {
+          "path": "references/interpreting-retention.md",
+          "sha256": "cb618a6cf797a630c4cd3dc8252e573d11edcf5b05df5809b749ab6463531331",
+          "byteSize": 5052
+        },
+        {
+          "path": "references/metric-definitions-and-edge-cases.md",
+          "sha256": "a5dd2f48c943dc998d25f864002ff8ee736d283cafeadd11a6a118b8750a7b67",
+          "byteSize": 7048
+        },
+        {
+          "path": "scripts/cohort_retention.py",
+          "sha256": "576bbbd004aaa37c0550af5d7ea66d0ae4d01b7fefaf5aa56c5a9fb9c6449abb",
+          "byteSize": 15039
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "9c018df6f9377b585c96a063b20b0a299c9c00fc43add28e3f9cb2b60a9ec941",
+          "byteSize": 12605
+        }
+      ]
+    },
+    "analyze-survey-results": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "fb4f6f222ef005e7ad47a93577268c523e1e8cb2f6bf0f0f54a1020b3052aa3b",
+          "byteSize": 295
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "d198cfb4443c7e091f0a50217f38a0ae82aacebcad3f2885433e22c66c837684",
+          "byteSize": 3525
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/cleaning-and-response.md",
+          "sha256": "ce08f1903bf215adb39fbb9384fde969f3110ac34d7db7709294e25a4bbc76ac",
+          "byteSize": 3473
+        },
+        {
+          "path": "references/likert-and-prepost.md",
+          "sha256": "b7af7b49ff24c0a276bedef9444c86b3a0553e4c31d97f48d24554dd8747055f",
+          "byteSize": 3775
+        },
+        {
+          "path": "references/open-ended-coding.md",
+          "sha256": "d01116934926ca5b2a2186cf4673c7d629ae2755938c5572b04e42b17a94360c",
+          "byteSize": 2808
+        },
+        {
+          "path": "scripts/survey_tabulate.py",
+          "sha256": "e061e61e9eccaf00ec54096be76fb9c7764640c8de7af43d1efae102292ad01d",
+          "byteSize": 20044
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "17050cabe83c440a0bd0a0c3c3c6825100606b1e9a951f33264cc8e2b6a624e3",
+          "byteSize": 13706
+        }
+      ]
+    },
+    "answer-security-questionnaire": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "5ede8ca2050a05cf86aab44db841dfc81c3e8a644a5b43bc4f7849e4065df371",
+          "byteSize": 305
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "9f3c098f0f12bdb348f801e677674cbf53afb43c468553e2896d98966f8775d9",
+          "byteSize": 4636
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/answer-library.md",
+          "sha256": "1c7db0606ae37a74d2f6acf63aca157db7aab8c47f2d0fb78c9fb533b36cb23e",
+          "byteSize": 5659
+        },
+        {
+          "path": "references/evidence-and-answer-standards.md",
+          "sha256": "7b7ef3e7a7b05311468c2617ad2f54ea3f5f0b9c0f1cb203241ac1e84fdf837b",
+          "byteSize": 5882
+        },
+        {
+          "path": "references/review-and-gap-handling.md",
+          "sha256": "ed08645bf12a72d29d15a80f2f43b5a4a48c26718d451883f7957be8b6b8bf03",
+          "byteSize": 3982
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "721b9c15db7e2a7ceb041a52bd115273709a803d3306085008fa075937d91979",
+          "byteSize": 14132
+        }
+      ]
+    },
+    "assess-agent-progress": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "5e2ac1321f3875b60dfc5c7d92d30c743e42a0427be705f10a13e9287daff8f5",
+          "byteSize": 242
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "faebd21bbfd3ea1f1f9aaf4886e14846f8c25fbd44020842b32eccda80e2f342",
+          "byteSize": 1477
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "70e377156fe20ab006d253e502e4e83a5e7e8aff562557f928009e86f1594fb4",
+          "byteSize": 2409
+        }
+      ]
+    },
+    "audit-saas-spend": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "d7b3f16a1c5b02d28ef279e7701072078df99593da8115a8bfbfe1ee464cd5c5",
+          "byteSize": 341
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "40f9975b5e55befb0edfc91431163244ddca31f343f5cf0669239060168b411f",
+          "byteSize": 2920
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/inventory-and-normalization.md",
+          "sha256": "e0d5d491a7b3d5edbfa5a12d03056e4acb548039cc0b0e68df0d2e0514c8740e",
+          "byteSize": 4822
+        },
+        {
+          "path": "references/renewals-risk-and-governance.md",
+          "sha256": "f9c7b24bec00cf579d02105a494d86dd40ab24d488ae8f1ea5d66191669a8eb1",
+          "byteSize": 4840
+        },
+        {
+          "path": "references/utilization-overlap-and-savings.md",
+          "sha256": "b9a6e14f71acbdb27c5c759eb0d504a756404f44a36944ae816905eef3aef241",
+          "byteSize": 5049
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "56e7a7ce99a8265727a4d9e9b3808018cbba7b987dc54ab3a610363d3a06112a",
+          "byteSize": 13669
+        }
+      ]
+    },
+    "build-cash-forecast": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": "Valid YAML folded description; procedural content preserved",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "3f98faa70af10024b289e1c0abe575302603432cf0132c61edbe7527f460de3b",
+          "byteSize": 339
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "b694ca515676b435aaef9b689d607335587941d7b47a454b625db5b4fbec26c8",
+          "byteSize": 5865
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/receipts-and-disbursements.md",
+          "sha256": "44e04afd963d87160c3a2c3c973c80708fb16d1629a240f937cc61a22a834de4",
+          "byteSize": 5654
+        },
+        {
+          "path": "references/scenarios-levers-and-variance.md",
+          "sha256": "16082aec621b2f61cc96041217a5b347e09a06d95275600e04d721b3de250979",
+          "byteSize": 5997
+        },
+        {
+          "path": "scripts/cash_forecast.py",
+          "sha256": "83be141980a20f4bc8d34d493d2bebea5a7dd9168694193ee76b6922c94bd143",
+          "byteSize": 12265
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "2c9ef0139f675ef5acb2699918c3d532d10ba65f6adbc5a6a67689e330a21577",
+          "byteSize": 13502
+        }
+      ]
+    },
+    "build-grant-budget": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "06603478379c03c4102e3129b9cf81ba76b7fe838cd0015286f362ac4a479041",
+          "byteSize": 304
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "0f90d152ac66b1376d933473b6b7f1a06491acbad3851c6d53cfffa3d57c374a",
+          "byteSize": 3367
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/cost-principles-and-indirect.md",
+          "sha256": "6988a60731372c637c93f4adc184bb26671394ceea8c6819973c64dfc49f0fac",
+          "byteSize": 8837
+        },
+        {
+          "path": "references/justification-and-reconciliation.md",
+          "sha256": "019c866b17e126f0229c2ec6ab23033d2b289118227bd9cc372823833220e9e1",
+          "byteSize": 4880
+        },
+        {
+          "path": "references/post-award-tracking.md",
+          "sha256": "41b025f8a81b9fa3901a35321371b94577a255e90a8265dd4ed162959c1b3a65",
+          "byteSize": 4112
+        },
+        {
+          "path": "scripts/grant_budget.py",
+          "sha256": "5d05a5fcff82958f4abeef8979e7cf7b8c551eef178f92d3b6293d4ca6387205",
+          "byteSize": 11422
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "c460aecd4edd59322fe9ea978c6447eaf39f264aef23adaa3ab392b90d50b7a7",
+          "byteSize": 16422
+        }
+      ]
+    },
+    "build-logic-model": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "a2cabf4a7ef559aae87737a5790a45de6ad2e78f92fccee043244bc3e1e87b4b",
+          "byteSize": 287
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "749453e5a2b10d9ee398d22030012d92fdf1e4e1ae27ba894d1de7f380404f0f",
+          "byteSize": 3263
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/contribution-and-claims.md",
+          "sha256": "8f773545b689ff89a3a59ff4582bf38b1389e4f84a85d147952534a45df995c0",
+          "byteSize": 3460
+        },
+        {
+          "path": "references/outcomes-and-indicators.md",
+          "sha256": "128810d9e6b3d040dc441b13a9bd162484932b60ca11659f51a10c5d8066370a",
+          "byteSize": 5204
+        },
+        {
+          "path": "references/theory-of-change-method.md",
+          "sha256": "8706568c91cb75b00578a1b98b056d1a5534aa96caaca6e4db351d2ae49344f5",
+          "byteSize": 5259
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "c84c432f68f8763fb95e06f5f024eeab170f61def23be235c0c12cd186529ade",
+          "byteSize": 15208
+        }
+      ]
+    },
+    "build-operating-budget": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "56cfa49340ac63a8f97323d5687b59112214d4aa651d4b3856aadd351b4cc701",
+          "byteSize": 301
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "064e712b7639c33e961575edef290bdf86ef60c5cb8cb461756103a5e96d25ea",
+          "byteSize": 3050
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/driver-based-model.md",
+          "sha256": "1ccec1f500faad61f1595f69d2afb53c0e4dc00fc8061365e2a82270ec12eb68",
+          "byteSize": 5331
+        },
+        {
+          "path": "references/governance-and-owner-template.md",
+          "sha256": "6ee108f7a18353f0cf026708ccdb34d506e4049108a029b6f30e1d080ca8f2a6",
+          "byteSize": 3680
+        },
+        {
+          "path": "references/reconciliation-scenarios-and-cash.md",
+          "sha256": "ed014451c50f25da6afd37630caf3e2222956562cbbbf55a5da9baa7e7adffec",
+          "byteSize": 4884
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "8dc75141b120214bca00b4f19cd4e346109b5b2164f23617eefec938dc3a9c26",
+          "byteSize": 14290
+        }
+      ]
+    },
+    "classify-and-route": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "fc4d77675248eb7ce3527348502b59567eb737dab6e6c292b3ec6b8af706fb42",
+          "byteSize": 245
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "532fc6fdcfb1565e6587dcb6c80c10737ad3bb3431b1c4bf4372a007d72a02f8",
+          "byteSize": 989
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "01eb9bbab14e12c3624b21e28cfbf619146ddee0e3e5577e49dfe67cc24576ba",
+          "byteSize": 2483
+        }
+      ]
+    },
+    "codebase-graph-evidence": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "f6edf0b88ef54e186dd262ed31e895cac90c4673c007b1d559e156568fa91034",
+          "byteSize": 483
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "bd0a219926df4c1872f3c7df33b33b64a41ee36e65a9aa0b4e5fd65fced357f0",
+          "byteSize": 3097
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "f4f43c8fec48171fb2a671987744417d6dd6c198978289c6cfaf90f1387d14da",
+          "byteSize": 1065
+        },
+        {
+          "path": "references/provenance.md",
+          "sha256": "25537fafd5da107f39b97ab32662a589a915b2f4d6e3794a071f2d91cda89096",
+          "byteSize": 2594
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "30a33dbe96f3aae20bd936d176e8d3e5147af176b5b87faf6ef2452b82ca0b42",
+          "byteSize": 3402
+        }
+      ]
+    },
+    "compose-skills": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": "Native-host portability and first-use instructions",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "f5d732e3752e5e2751970e5c17f1aef73c854455f478fbdd73d07d38122e99fd",
+          "byteSize": 235
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "8968d1ce9994a10039865fd13fafcc2bf950efd4593c3ea6a11e5d8843222d60",
+          "byteSize": 2736
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/composition-contract.md",
+          "sha256": "03f6e8511e9c94ad6104cd649e08b9d7657783370e875cce915b37e185752317",
+          "byteSize": 2979
+        },
+        {
+          "path": "references/composition-manifest-v2.schema.json",
+          "sha256": "94189d3160ecb26f61d705390b34fedb8f80052ea28b8bd0c8dabd5ab965d8bd",
+          "byteSize": 14162
+        },
+        {
+          "path": "references/composition.schema.json",
+          "sha256": "66f2be1eb79667453773edc3bb4f55e1adde529fe40f1ea0bbf88a6eeb27e9fd",
+          "byteSize": 4590
+        },
+        {
+          "path": "references/relay-publication.md",
+          "sha256": "bdc69997b707cd60e0ea9fd6600238283dd49793fb1288257c7c83099acce531",
+          "byteSize": 2244
+        },
+        {
+          "path": "scripts/compose_skill.py",
+          "sha256": "533db76bb2f16ca525ca8b7e09e1e6d22aae36e0d65100dc4c10a6651407e834",
+          "byteSize": 41610
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "87a15f8d85ec6e688be04e5ec0539ecf72659f8739904eb723ab1ebe506fe120",
+          "byteSize": 6665
+        }
+      ]
+    },
+    "create-marketing-screenshot-pack": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "23b0c6a6a220735fd742b3238187a0f0bded1c962fdc9fe994720c095e6dc199",
+          "byteSize": 294
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "7a09688225cff17d45dc1b93c1a1b693bcce48c404a8d0a653ec66a9db9ad2c2",
+          "byteSize": 2356
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/capture-playbook.md",
+          "sha256": "3917bf6a1fbb0221feb9057c8337d99e1cd0e8421038112927b4a082abd59102",
+          "byteSize": 4203
+        },
+        {
+          "path": "references/flow-selection.md",
+          "sha256": "b348c0173716fbf5d660f7aae55f0a2a685ff2dd988ab7abc2c8d1814ce5905d",
+          "byteSize": 3585
+        },
+        {
+          "path": "references/pack-contract.md",
+          "sha256": "81e7906b1b32a1e784e6b5afa6828302c45cf2711a0b5565c67469321e651914",
+          "byteSize": 5991
+        },
+        {
+          "path": "scripts/init_pack.py",
+          "sha256": "092b5916f583b8ce844b4b45dc49fc482f3597de9d08f0c41ef2e5f150472f07",
+          "byteSize": 3144
+        },
+        {
+          "path": "scripts/render_frame.py",
+          "sha256": "c64e0b32c4e1e4664ff49b320d22eea86ff4ef8a3ef8ee8cc343383a9bca807c",
+          "byteSize": 8748
+        },
+        {
+          "path": "scripts/requirements.txt",
+          "sha256": "b418caaff7e6da350fce4a6b227994f783e59c05ba915a268d953eced44c6348",
+          "byteSize": 137
+        },
+        {
+          "path": "scripts/validate_pack.py",
+          "sha256": "4bfabe2bf00fc4e8cbb09c7a81592d4979661b57af2943103d2cbfd526b408d2",
+          "byteSize": 13015
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "f9ae5bcb148a9218243c15acf1c4e9555aadb6972f989ebe4077ad5de9f67c98",
+          "byteSize": 8077
+        }
+      ]
+    },
+    "daily-meeting-prep": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": "Native-host portability and first-use instructions",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "77d651687737b697d68225ddeaf077e778bc93aacbcb8cd93012d9d9a1ba8edb",
+          "byteSize": 212
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "43a0ef91814e0a4a91f11879da732479a4ec1f2f605c3af0bdc2737c4d3b7027",
+          "byteSize": 3551
+        }
+      ]
+    },
+    "design-career-ladder": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "65f2f41f8a5fc7eedd8b5a451386ba179cef850b3e4edf10fb72fd91414f92cd",
+          "byteSize": 302
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "44ecc6fa9766460ec5787e16cdc3cea51da9ba81e00b0dab835f5175736be2b9",
+          "byteSize": 2501
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/calibration-mapping-and-promotion.md",
+          "sha256": "01c01422cf9a184e99b9875fce4973980d7286717ab4eaf553a7fa7f8d883028",
+          "byteSize": 4693
+        },
+        {
+          "path": "references/structure-and-dimensions.md",
+          "sha256": "ba59e8ce82595e8e37659907238167bf068b7b38acb9b6cc047950afc121aa83",
+          "byteSize": 5104
+        },
+        {
+          "path": "references/writing-level-expectations.md",
+          "sha256": "b00f93696c7024a6794bc3f11b465fce965bb579d7933e43664fab1789e7be57",
+          "byteSize": 5186
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "19a71b038b6e389051b036c895d6b18f235e3ba244b8dc52c8cadb49cf15b6e6",
+          "byteSize": 11794
+        }
+      ]
+    },
+    "design-comp-bands": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "a4c7cd26aa5ea2519a4afaacd0e0b5e710c6c84500afba60902b9f5b74afa161",
+          "byteSize": 298
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "1cf5aa14d2b1267a40fc9aba00f867378e1c1b6e2d01c44d3dd72812ecf074cf",
+          "byteSize": 2697
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/band-math.md",
+          "sha256": "b438a1fa08f77471346e96e79309d22072d03c44ec5e40a8b5481a55c20dfa0e",
+          "byteSize": 6154
+        },
+        {
+          "path": "references/job-architecture-and-market-pricing.md",
+          "sha256": "a1ac1dae298cced3164d288e53d71665467b7eaf1d61a16b747c3b3f7d5f77e0",
+          "byteSize": 5601
+        },
+        {
+          "path": "references/placement-transparency-and-equity.md",
+          "sha256": "a2b9c578bcedfb11097f9b05e9dd6a6935df01a3311dfbcc73d8f4acc36cfd6d",
+          "byteSize": 5575
+        },
+        {
+          "path": "scripts/comp_bands.py",
+          "sha256": "b5f88fcf02d728375c383a5fe842e90def351773c6760a843ce5d0abe1d85341",
+          "byteSize": 9298
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "ce1a6a9bbc022cf79b4929cad28137b93f8694c00d817ba03fc8f16f3c81c19d",
+          "byteSize": 13682
+        }
+      ]
+    },
+    "design-customer-health-score": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "441f86cffb5416edd2edbc3a5199dbd04fea2f0364c10f2c5c7ee41399894f2d",
+          "byteSize": 323
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "62f83b620dab5b9ad2cb1737b6a21cb34fef68f6f2cdb69086a171d2a4d55dca",
+          "byteSize": 3645
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/bands-playbooks-governance.md",
+          "sha256": "9e3cc1e621171ac040a38d3e42931dd6ee2f139095fce759f617cccef717d663",
+          "byteSize": 4744
+        },
+        {
+          "path": "references/outcome-and-signals.md",
+          "sha256": "833c537f00b50c1d190f2018fe8c18dca85de7340096165a570c38613049adea",
+          "byteSize": 5002
+        },
+        {
+          "path": "references/weighting-and-backtest.md",
+          "sha256": "66581e90ca7bd665810a0bef460ca5347a181207d145fa9e506585681cc55968",
+          "byteSize": 4303
+        },
+        {
+          "path": "scripts/health_backtest.py",
+          "sha256": "7969bf02d7d662392d98db50a857050615776aa9b146f1cc57f1312c93113aa2",
+          "byteSize": 6249
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "854353780a9c861e72e4abb9b8e04f3c4d756b87826b3cfa597f6eb845e23d3c",
+          "byteSize": 11892
+        }
+      ]
+    },
+    "design-program-evaluation": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": "Valid YAML folded description; procedural content preserved",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "ece92a66c611451859d5d17aa301bda9ad4828e1828cdbe1e0a4b754469d66d5",
+          "byteSize": 305
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "e073c1055477065b2069290ce111a1dfe5f790fd49a1f5fcebc5f901b24c9d8f",
+          "byteSize": 3205
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/consent-privacy-and-ethics.md",
+          "sha256": "ea54c8611795ced36bb4c395004eb276848f9dd40f08038f4dca3f91781ac85f",
+          "byteSize": 4152
+        },
+        {
+          "path": "references/designs-and-proportionality.md",
+          "sha256": "dff6d53f90f41776413e0b1383003009cfe87a2925a51c2c39db816e1ebbf47b",
+          "byteSize": 5192
+        },
+        {
+          "path": "references/measurement-and-instruments.md",
+          "sha256": "4df26a6fcfada7a9ebe8a8fec364b8403065f5aa231cfe4d707048e9be6322e2",
+          "byteSize": 4560
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "94f980fe2d1a62dce576896d1d366b7b09a7df510144da89eaaced29bcb6e057",
+          "byteSize": 15185
+        }
+      ]
+    },
+    "design-referral-program": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "5a3952ed1bd23258b307ead4afd15cc271c459189a7f0a54cf62f39ef974d5db",
+          "byteSize": 333
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "505dad710862c305c11e19a3be3d5cce62e5b39ee616467df8657eed8901304a",
+          "byteSize": 3123
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/fit-and-motivation.md",
+          "sha256": "62fb05fb391fb466c09668a9ad44243be52763b90b6cf1fddee47ecb36663147",
+          "byteSize": 4665
+        },
+        {
+          "path": "references/mechanics-tracking-launch.md",
+          "sha256": "a3f05f940677c6ee24158bf858f6053786ac8064a59fc4a46caee799cce65faa",
+          "byteSize": 6815
+        },
+        {
+          "path": "references/rewards-and-economics.md",
+          "sha256": "b96c5f9bc53932771c411c8ffd50f2977101a7f6411be282c379d3e3483511f1",
+          "byteSize": 7389
+        },
+        {
+          "path": "scripts/referral_economics.py",
+          "sha256": "b875c2b88744af276fb6bd26a5493e2f6864b739084184252c814f27a12b2686",
+          "byteSize": 7200
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "920c302a2783f978be36c1f7e05b2c9a29730ffcc02e78afab7d698555cbe0c3",
+          "byteSize": 12347
+        }
+      ]
+    },
+    "design-sales-compensation": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "8a3a08ca2b1bb93818e840413f8460abf482a26840b46b4ade57e1bac631a719",
+          "byteSize": 335
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "013fa9dcfa21b6e530aa5be3883dea68de81d338e72754a182e20ef6eceb2df5",
+          "byteSize": 3729
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/plan-architecture.md",
+          "sha256": "ceb1d29075c82026fc7a7674e5fd0a1f89c0e826226a8d90d1ab4dae00e759d2",
+          "byteSize": 6052
+        },
+        {
+          "path": "references/plan-document-and-governance.md",
+          "sha256": "4d3a63937afb3a50a86fff48dcb734d6f4706f28bdf9e48ec5fa291e5fd6bfb7",
+          "byteSize": 3953
+        },
+        {
+          "path": "references/rate-math-and-modeling.md",
+          "sha256": "50f899a2539a90d0bf7c839ea85d2a96fddf24c84b2daa1745bb471804da46e0",
+          "byteSize": 5348
+        },
+        {
+          "path": "scripts/payout_curve.py",
+          "sha256": "4c8c046d169f773ad15c1fe6add7b712a11488224f72da232dbd99f7202b3fcc",
+          "byteSize": 7231
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "6a9e8dc341995dcc0fc5b0b6a6e91f6304b4c01087c193b669508972f9cb931c",
+          "byteSize": 12662
+        }
+      ]
+    },
+    "design-structured-decisions": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "f1aebd535660ab15c3386de7ff8fb2bc6b2978b1ebe41a9184ebec8045a5c3d1",
+          "byteSize": 261
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "ccb35887038ed119f445651d5b3f89569ef6adeebafdbf14f499581aa14971f7",
+          "byteSize": 1055
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "48b0fa08a8e9002d398131e77f65c7d1be9efcfecfeae55b9729b6e3dedda0cb",
+          "byteSize": 2916
+        }
+      ]
+    },
+    "design-workshop-curriculum": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "c26ccc72350c956842f646d4a6d2c310fcd9ec1bb24c9ac41690f4bdb0538a69",
+          "byteSize": 313
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "4c9579e3041977b319ca6741ffc038888cad9f19443451bce273e5c0ec286447",
+          "byteSize": 3095
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/accessibility-and-adaptation.md",
+          "sha256": "766662bea16d452724f05e0aa083bd2345c77446379d86f85e573967b48a8ea7",
+          "byteSize": 3210
+        },
+        {
+          "path": "references/objectives-and-agenda.md",
+          "sha256": "267bae3d1c2073bf2478a31e7faf2822d26b5303fd4b53e162c240357267fd55",
+          "byteSize": 3748
+        },
+        {
+          "path": "references/safe-facilitation.md",
+          "sha256": "04dbf4bcf85fb878ff37f3efeb0ed62cd86fa0798ebd1e23c9b83d6a0a45590e",
+          "byteSize": 5486
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "0c48d84bfa0dc029c3febbe3bc5dea6362e20cd0d11d16b7ac37953d2b4ff96c",
+          "byteSize": 14397
+        }
+      ]
+    },
+    "develop-icp-and-uvp": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "08786d32989f48b601e5c2425757e930f381ac8c02a772def2dadd3460f3a822",
+          "byteSize": 259
+        },
+        {
+          "path": "assets/icp-uvp-workbook.md",
+          "sha256": "904f5c69f4a87e4870bbabbc10be87d944d79d0940f87de0cb8b8570026e1e23",
+          "byteSize": 3618
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "a13cf2c1472241f659f29ff7a2212586e5d4bbf19cf3df9714c491efe87ad38d",
+          "byteSize": 4003
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/deliverable-standard.md",
+          "sha256": "22a2925cfa08ca7bb3a92534860196e7dbff913add80038417d6b108d47c5bee",
+          "byteSize": 5235
+        },
+        {
+          "path": "references/evidence-and-research.md",
+          "sha256": "577464d7f309c92d3a16cf56affcb8a269b745f534b5af04d49c48f0c747bee2",
+          "byteSize": 7384
+        },
+        {
+          "path": "references/handoff-and-unattended-runs.md",
+          "sha256": "0f7a6b90ee6a9e47babec62414f6fa8f138eee041dcd18bcf7466fe5e28949b8",
+          "byteSize": 3514
+        },
+        {
+          "path": "references/scoring-and-selection.md",
+          "sha256": "64a014603cb13c33510d7591d1abae346984d158c138efa022ec688e6c5f48d6",
+          "byteSize": 6076
+        },
+        {
+          "path": "references/scoring-example.json",
+          "sha256": "0d4a3745f092ebea3584f5ed761b99b3102bac7c96fafaea90cd85e9da6f3a3e",
+          "byteSize": 2172
+        },
+        {
+          "path": "references/uvp-and-messaging.md",
+          "sha256": "a457dd02797ee20fdf10f332e363e256a8700b879cd2624cdc715d15cf21381c",
+          "byteSize": 6204
+        },
+        {
+          "path": "scripts/score_segments.py",
+          "sha256": "da0cf24dd0d214c4ef8b8c851c35e2e897df8e9c6c95fdc46cddfbc0f2e5143d",
+          "byteSize": 10557
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "150581b474bdd698022f10f350acc120f3a4c6076e2a13b242074fbde598cf34",
+          "byteSize": 11375
+        }
+      ]
+    },
+    "develop-marketing-strategy": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "1eb769c782cc858adbe47a4f7bf01e8ecc96197a775094ff7172026db055b941",
+          "byteSize": 298
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "5cc922174e13614c76e8e28bdd40696c0b29b6c2f8038fd53d5ac821764db62a",
+          "byteSize": 2517
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/channel-decision-model.md",
+          "sha256": "eb4ef18a2be1201ca9177c0ce740c89bd80d704aaf86449990a640a4f3202b0f",
+          "byteSize": 8810
+        },
+        {
+          "path": "references/deliverable-standard.md",
+          "sha256": "5bff27b63e93c06febbf6ba466c10cd234a1a4c0849d1cdb5fae4200f57c9c80",
+          "byteSize": 5882
+        },
+        {
+          "path": "references/input-and-research.md",
+          "sha256": "3fb6116d04cea8cf0dbd15a9e514f9fe0bd7bd5bef2524fd42fce54e4cb2f354",
+          "byteSize": 5142
+        },
+        {
+          "path": "scripts/score_channels.py",
+          "sha256": "1748720226498687a9d9de6e1e178d72a0e0aca4db4c3767691db1db2dd7166b",
+          "byteSize": 9710
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "ce2fddf53698d604d1ecbc87d41c5b9333050400b2ffc47937fa928fc4787e27",
+          "byteSize": 11418
+        }
+      ]
+    },
+    "diagnose-conversion-funnel": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "9816f688146b7f10759872a0c81f479443e5bfc3c82e7279201b1150b4593e7d",
+          "byteSize": 305
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "d0e0aee0b22151506da8630a99df976ccf92dd73fe31b3c44875a8ee36bf8436",
+          "byteSize": 4356
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/funnel-measurement.md",
+          "sha256": "9f96aeac5704a3f3af5f0ce24a403deb21adc8acd94c8e7a55edc5d901331369",
+          "byteSize": 8566
+        },
+        {
+          "path": "references/funnel-patterns.md",
+          "sha256": "6c364dddba1719615e3f8e6f47791f1f959d1f02e913bdbb2608e366803440fc",
+          "byteSize": 4700
+        },
+        {
+          "path": "references/leak-prioritization.md",
+          "sha256": "bb6973f8f88180925ab70f7f9d5135c9cc2c66074b9f32e064df64d963655b52",
+          "byteSize": 7825
+        },
+        {
+          "path": "scripts/funnel_table.py",
+          "sha256": "b47b86105d6ca619c326597a2d6bc8203db997406ed69ad27a24796d4457aa8d",
+          "byteSize": 7991
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "c17f3bf1bf7e64595dff208be752cfc3887bde30dbb71505f49cbb779d238e03",
+          "byteSize": 13393
+        }
+      ]
+    },
+    "explore-visual-directions": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "3dcdbcb4d475432c00fbe6f0caa01deb4bc5fea6b0d3ea8d5c74009af8148fc1",
+          "byteSize": 283
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "c17e8e3998457fd807df1bd664e22437180af0d7c386e97df7b4fe66b4d966a7",
+          "byteSize": 3365
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/preview-and-evidence.md",
+          "sha256": "daa0f735a1b488012c5f0daf0d97164fe8c94dacfa0c2431ccbbaeeba28e5ee4",
+          "byteSize": 2732
+        },
+        {
+          "path": "references/style-translation.md",
+          "sha256": "1d578e9c3aedefc5f4fc91744a343055250e410e3cc3aaedfd54f797cdc54437",
+          "byteSize": 4430
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "4ecfb7f6cb6ffb9a4c0d74843feb38d462bc501a3624145f47e89ce5356fb84c",
+          "byteSize": 5416
+        }
+      ]
+    },
+    "get-started-with-relay": {
+      "sourceRepo": "jjr-technical-services/relay-agent-skills",
+      "sourceCommit": null,
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": "Native-host portability and first-use instructions",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "014c5bd94a5ed64bd15c9aa6330a50d170af79ddc390160c2c2df42437497236",
+          "byteSize": 220
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c0bb5766f8f92553903195beacfa42fb5ecdc04ed482090bc0e8464167e671cd",
+          "byteSize": 1069
+        },
+        {
+          "path": "references/workflows.md",
+          "sha256": "cedc984ced1df0f7bc6332e822160bf98ee33c857374de33c829ccffdc5678e9",
+          "byteSize": 45306
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "7be72cb5c43673ba76485102d51f178fee3ed15c2adbd2f1881a02a42a7c545a",
+          "byteSize": 2245
+        }
+      ],
+      "sourceKind": "release-authored"
+    },
+    "gitnexus-impact-analysis": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "0db4a43e13c4c34901afe905f4b6abb44b20dd4b24c5f78045dca083448014e2",
+          "byteSize": 479
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "fedd8c8668c26031d098f8f8225fc3f107c9c3625797e9c02d75b7fed141436b",
+          "byteSize": 2383
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/provenance.md",
+          "sha256": "85cd50ef3217685459f68b47976611c8b651dac928dcbdaaee5bd26a712051db",
+          "byteSize": 977
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "265d4478117bdf2f57985403777d8eb8f450181906cc8134896b6d6311cd043a",
+          "byteSize": 2869
+        }
+      ]
+    },
+    "gitnexus-review": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "e1a3f09cc7ac4d3e5cf464d1b4d005f37d9ba5ba230d6aa6f467c32d326faa05",
+          "byteSize": 458
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "7f21a374e08a18d11304ada2328ffbaa0cfb87eff3e5d16a9aee3661f2a31c1e",
+          "byteSize": 2343
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/provenance.md",
+          "sha256": "85cd50ef3217685459f68b47976611c8b651dac928dcbdaaee5bd26a712051db",
+          "byteSize": 977
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "592cd0b2c0c606305482f92b2ded38a83c2fdcc0e3fab3e0eb29d3b6ab3ce5ee",
+          "byteSize": 3057
+        }
+      ]
+    },
+    "landing-page-design": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "dda43250dc8d7692919c7d19c8c0aec2b333a1d7b26797f954e2911f3c4edd77",
+          "byteSize": 307
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "c56105ed084d9a6be0d5e27b9f1c4e4789a896fe4da9b7ed6398223a1af64e75",
+          "byteSize": 2705
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/product-screenshot-merchandising.md",
+          "sha256": "b636e8543cea677c2fcab7e914689ccde1b5740ea3584c4c996909e2db1b99ba",
+          "byteSize": 7624
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "6243f9f56908e81930a13bb37cf2423626bae47869f0b6133385d5501a142bff",
+          "byteSize": 13054
+        }
+      ]
+    },
+    "make-promo-video": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "c49997761fee233ead0ec7b683b703a16070ba9c182e8c3cf954e2de1e0a498c",
+          "byteSize": 343
+        },
+        {
+          "path": "assets/promo.example.json",
+          "sha256": "1355ac702a0ffd17b61113400060df15ee519baa54ca37e8ab8e04845cbf2746",
+          "byteSize": 1053
+        },
+        {
+          "path": "assets/script.example.json",
+          "sha256": "aff8e7d32eef260c721fdcfa65051d9cd4de2553c297db74e755e0668bca2515",
+          "byteSize": 845
+        },
+        {
+          "path": "assets/storyboard.example.json",
+          "sha256": "ec50bedb0e535d067403475772904b781581020254daaab2e82e72cbf899b02c",
+          "byteSize": 1094
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "449ece63089bb2df76af2bd6ed067be7d4f475253d4cc9d8c5739717697865c0",
+          "byteSize": 2753
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/audio.md",
+          "sha256": "9635169b4a1ba71d79acedbdb41c9702b0d5ad25e882a8426ce0cbcbb675124b",
+          "byteSize": 2888
+        },
+        {
+          "path": "references/auth.md",
+          "sha256": "7de2237a97515a8cd069091c9988a63e46f8ebd09f0237322ebd9a977b994dd8",
+          "byteSize": 2343
+        },
+        {
+          "path": "references/brief-and-script.md",
+          "sha256": "1a31dca1b7f7635db91cac46c839ea6e8fa37999f259878474ea7a06a7783f95",
+          "byteSize": 4042
+        },
+        {
+          "path": "references/capture.md",
+          "sha256": "16435d25f6babdf38dd634d39b80e5d92448b00ffd0b06692f40f24fd7a693d6",
+          "byteSize": 2492
+        },
+        {
+          "path": "references/generation.md",
+          "sha256": "e0f30795c3971e871b29045f80104fa3af74dd3935deb61b6f0959eae80d7ee8",
+          "byteSize": 2367
+        },
+        {
+          "path": "references/render-and-qa.md",
+          "sha256": "807bd479e880f7241af4a65061967c0eff4d7134ff9978158cd9cf6d56485a18",
+          "byteSize": 2981
+        },
+        {
+          "path": "references/style.md",
+          "sha256": "6e79a51b0a8b1042a973ca141a991966dbaaae19570be5d01eb232e8485d10c2",
+          "byteSize": 3605
+        },
+        {
+          "path": "scripts/audition.mjs",
+          "sha256": "b9811b69fa46c5623b928d19468f7a085447b43f0039b0a86c10e85aaf9a5de8",
+          "byteSize": 5688
+        },
+        {
+          "path": "scripts/auth.mjs",
+          "sha256": "c8c03002c94bb59a7d1f437b4ff10e8f9efe6bcd6b6b92c292557c9016683944",
+          "byteSize": 1999
+        },
+        {
+          "path": "scripts/beats.mjs",
+          "sha256": "13e035816931bce2ffa43232dd5433e98e518874503060903edf8aa84ba7d4cf",
+          "byteSize": 2785
+        },
+        {
+          "path": "scripts/broll.mjs",
+          "sha256": "d5e148fdd139050a6dbb32e0b9888944e96014d02bacceb7678fe77c7c2a516f",
+          "byteSize": 9542
+        },
+        {
+          "path": "scripts/capture.mjs",
+          "sha256": "fad5645e38d8b4345f025d31ef6bfe99a397d1ec83523450aef9ff82a3eb4067",
+          "byteSize": 11690
+        },
+        {
+          "path": "scripts/classify.mjs",
+          "sha256": "87aea68dc97229748f649b62a1ef616d67d6af0dfadadd2ff676adb18d71395b",
+          "byteSize": 6364
+        },
+        {
+          "path": "scripts/compositor.html",
+          "sha256": "31a8db06171ecd365bbda5dda4cade71eda782e898d2bf3218f31d29ea737fe4",
+          "byteSize": 31681
+        },
+        {
+          "path": "scripts/discover.mjs",
+          "sha256": "f5db17dd8ddd0b5f340187af883616b7c02b36f35061a542d4ac0a4895d8c0e0",
+          "byteSize": 6475
+        },
+        {
+          "path": "scripts/draft.mjs",
+          "sha256": "a4e4ed21a9bf7bd4ea28154919dc100eca361bdc6f5ebc1963a8641d356f4681",
+          "byteSize": 16061
+        },
+        {
+          "path": "scripts/fonts.mjs",
+          "sha256": "b43425f6de869b0e6e81e7cd1fc40f12e2428b7094a949f2f979cdf3d6d36265",
+          "byteSize": 2373
+        },
+        {
+          "path": "scripts/lib.mjs",
+          "sha256": "6f46650443298b858bef4d2bc3120f13e4b5e3a574535b13678bf0607e083b2c",
+          "byteSize": 11168
+        },
+        {
+          "path": "scripts/login.mjs",
+          "sha256": "d2853651a39cac6fd2b59ed5e6d267ba985f4c9bb12b8895ead6ace421a2aef1",
+          "byteSize": 6259
+        },
+        {
+          "path": "scripts/make.mjs",
+          "sha256": "5282028de4342aa4e4833416e2a7434e6142654842af1933db3f39a4bbfd3866",
+          "byteSize": 3974
+        },
+        {
+          "path": "scripts/mix.mjs",
+          "sha256": "a371fba0f85504cdda3a7573d311477094056ab0aae52e1034b6097d52d3e6ef",
+          "byteSize": 6511
+        },
+        {
+          "path": "scripts/music.mjs",
+          "sha256": "6affa61070064c2adb67738bc083536992850ad1d0e12111524267df13432d27",
+          "byteSize": 3573
+        },
+        {
+          "path": "scripts/preview.mjs",
+          "sha256": "5a2b7f099090a3cb0efc4ef3b54793e1df2b01d5363f65ceea43fede9d170021",
+          "byteSize": 16808
+        },
+        {
+          "path": "scripts/qa.mjs",
+          "sha256": "161afc4dd9a3bfa1a27ad69e1f4319f68877eed18cb62e1c2777e38260aa5f92",
+          "byteSize": 9966
+        },
+        {
+          "path": "scripts/render.mjs",
+          "sha256": "e22f0b5332e22a945aa63aecc67d228c3af560e3ea095fe69fa08d5b7733f327",
+          "byteSize": 8948
+        },
+        {
+          "path": "scripts/rules.mjs",
+          "sha256": "3d82d9f42a5357f5c8ef9c3e2e6418cb998b1d1f3babdf8e98012a710e2d230f",
+          "byteSize": 4261
+        },
+        {
+          "path": "scripts/synth.mjs",
+          "sha256": "6178227b1db9818d67e92a8be26b5f51c18ef9926c2c011e50f9e3c93c0879be",
+          "byteSize": 4025
+        },
+        {
+          "path": "scripts/timeline.mjs",
+          "sha256": "727c1057b4fb6c28884b4a5c518b767e38575f06d47fad322f6eccb746f5e378",
+          "byteSize": 14649
+        },
+        {
+          "path": "scripts/tts.mjs",
+          "sha256": "aff2a9229430e635caeaee5e693d9d80691e26b12e36a7875b4b0afa4945d1ad",
+          "byteSize": 3345
+        },
+        {
+          "path": "scripts/voice.mjs",
+          "sha256": "9c12a7d0276eb2ce3643d24330f481682c8c5b351a2e7e82f5d6e19eda79a6f0",
+          "byteSize": 5610
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "e029d92dc3a7216446fb2654da09efbca15481eae0dcd63cd1722be9a5a2b44c",
+          "byteSize": 10600
+        }
+      ]
+    },
+    "map-business-process": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "f6d9f944df412ddc0d04d74ff595e1edb40810c3eb6bba2495dd001f23572d22",
+          "byteSize": 298
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "b5358593be11d776a8d23386f4b63a4927fb1fc3569955a210c7e3958c1c12d2",
+          "byteSize": 2688
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/future-state-and-implementation.md",
+          "sha256": "c8733109e9f0f950cf9bdc9405abd500c0d07cc4998d80f5dcbcbd01727bf6ec",
+          "byteSize": 4793
+        },
+        {
+          "path": "references/sipoc-and-current-state.md",
+          "sha256": "d7e67ec774ba81735d2f9e4251926a5be73650f5600f5f8cc78676a536295a34",
+          "byteSize": 4326
+        },
+        {
+          "path": "references/waste-and-root-cause.md",
+          "sha256": "0acaa1114930c15edb08451006b0c72519d50a4b078e0a62f2eb7a87819da39c",
+          "byteSize": 6079
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "9ca89a9bb2674e53e7d9b43353a6599ddfdfc5ead9a252863b58b41849958f01",
+          "byteSize": 11148
+        }
+      ]
+    },
+    "map-site-for-redesign": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "9e7be32a67dcdfef043852e798ba8503f1d95a95cf3956482e6cdbbc5975140b",
+          "byteSize": 317
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "5842ce9c4f128351be3a4d22a6c5654711655eb453c573974315ab3139b70c9a",
+          "byteSize": 3952
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/adapters.md",
+          "sha256": "52812c7d9a28e0730f6441c0330f9982aaa8244471558490594929fe58c41d74",
+          "byteSize": 5199
+        },
+        {
+          "path": "references/capture-playbook.md",
+          "sha256": "bc7a4755904741c325d4875dd98a32d14d09b2c74756d8c98d6f14d80d5fc873",
+          "byteSize": 8767
+        },
+        {
+          "path": "references/design-tool-packaging.md",
+          "sha256": "5dbdff9ae6bd32a9f1eb23c45d79fd32f58a3897c963e037a30ad22dea4988aa",
+          "byteSize": 8162
+        },
+        {
+          "path": "references/isolated-environment.md",
+          "sha256": "32275dc67d23c77044666aa3f8b9e0055ccd0616ea94fe7deaa71eacdb4db98f",
+          "byteSize": 5666
+        },
+        {
+          "path": "references/page-spec-template.md",
+          "sha256": "a2846f2613eb8226b076e01718daf737393bdeca8fa69f6bccbfc826c56f860a",
+          "byteSize": 4032
+        },
+        {
+          "path": "references/route-discovery.md",
+          "sha256": "a8b1d75497752580d4e65dd040a821920ed9ca67ebfa3320f8ac4b278d37f533",
+          "byteSize": 3638
+        },
+        {
+          "path": "scripts/adapters/relay.mjs",
+          "sha256": "76a5a30001a0fb7b8dbfb9e860c7b7c03f1bf666fcef6e89ecc8dd46c5a4e781",
+          "byteSize": 5939
+        },
+        {
+          "path": "scripts/adapters/template.mjs",
+          "sha256": "9586ef0320cb70b04b17bc3caf9d04012007ba723df99a299ff7e1db26a463f0",
+          "byteSize": 2446
+        },
+        {
+          "path": "scripts/adapters/ui-login.mjs",
+          "sha256": "291c2daa1291c23106b1625b246be085d6667f73e9c204873943983c1d94fb81",
+          "byteSize": 2605
+        },
+        {
+          "path": "scripts/baseline.mjs",
+          "sha256": "cc406f7ed3c6e777e9984713c3eb5c3669f57f903ef9d00486451178e6b47a61",
+          "byteSize": 5132
+        },
+        {
+          "path": "scripts/build-pack.mjs",
+          "sha256": "62ba443e1f3a4f5f386f21555e94feace90d766c6e2860f814a2bdd782176fd4",
+          "byteSize": 21353
+        },
+        {
+          "path": "scripts/capture-area.template.mjs",
+          "sha256": "1373acf66428a982f625eccdd763017d1c436bc37dfa21c5277949cfe0c51897",
+          "byteSize": 6736
+        },
+        {
+          "path": "scripts/contact-sheet.mjs",
+          "sha256": "df107c556b01e727f9ee8ad23fe735cb1f243aae8a9bc1802d5a4a5c803209a3",
+          "byteSize": 4238
+        },
+        {
+          "path": "scripts/crawl-links.mjs",
+          "sha256": "1626509eaa3c78a10c0f66f00ddf9ce86596aa902ea8650cb251ded49443baaf",
+          "byteSize": 3254
+        },
+        {
+          "path": "scripts/discover-routes.mjs",
+          "sha256": "7f22f27a5db95739bf739826419d9930a10bfd1850e8dc47070da783397a6af2",
+          "byteSize": 6967
+        },
+        {
+          "path": "scripts/find-orphans.mjs",
+          "sha256": "35264fb576b7942a643feabfbf470d2cef71cc860ff423b1e3280eeb567d425a",
+          "byteSize": 6285
+        },
+        {
+          "path": "scripts/lib.mjs",
+          "sha256": "64cba75304dcc040739c0e44df716b45f25152a22126b5ae986d200c063bdad6",
+          "byteSize": 19815
+        },
+        {
+          "path": "scripts/make-personas.mjs",
+          "sha256": "4e7893587cdafcd5b5eaa308a7cdf97ff8d783b4c60a91f5a1217e978afc43fe",
+          "byteSize": 3483
+        },
+        {
+          "path": "scripts/make-upload-copy.mjs",
+          "sha256": "6d02ee7a906fb00498d9ef0a5d9eb8b4a95fcbe59d6bfc7c953e80c7a384c362",
+          "byteSize": 2892
+        },
+        {
+          "path": "scripts/pack.config.example.json",
+          "sha256": "ee2152eaef4e8e685826a83f5dacd37f1e22c8797840f95d075e746bbf2f93c2",
+          "byteSize": 2295
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "8322604aa326358620a36e0b37f76429169647b2f5b7bc869b64361424c5ef63",
+          "byteSize": 12142
+        }
+      ]
+    },
+    "measure-marketing-incrementality": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "d9f84fab293993e32df04c3d4bdfd613b3e49f771681132c8e7ea6660367bce4",
+          "byteSize": 340
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "b3a5110344df56ab2ee48be6d2a2ee35a66739ccfd03a770f6e39c12aaad4203",
+          "byteSize": 4099
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/attribution-models.md",
+          "sha256": "db7dbc25edcecf19eb0d5353a44a40e73b861902b111b7af0c7600cc0cac6fae",
+          "byteSize": 5525
+        },
+        {
+          "path": "references/mmm-and-self-reported.md",
+          "sha256": "8089bebfe5de1b271e12d6080d88cf8d16892e8ac017a41d76f72703c145cba9",
+          "byteSize": 5794
+        },
+        {
+          "path": "references/test-designs.md",
+          "sha256": "6e10c5e8e0de5211dfad1a9ffbb0746658da1590aa26cf3c7adc20b93a254eb6",
+          "byteSize": 8909
+        },
+        {
+          "path": "scripts/incrementality_calc.py",
+          "sha256": "60abf099891201be0f262c057c529f1eed79c8656f010fa3c7ad52f454bc9ed9",
+          "byteSize": 6432
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "b14bd1ce412a856b588e6e10cc30375bc2110690be019d15a0aa1783aac90c43",
+          "byteSize": 13751
+        }
+      ]
+    },
+    "model-unit-economics": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "d790f5ac1b0927bbb09a7778dd37a5d316c9c6e70594d22e4cb3919b3ffdc4be",
+          "byteSize": 305
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "ade58332a5af1dc2adf7659806f87caa77e781419d0c2a45b42eea40abe9f907",
+          "byteSize": 4283
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/margin-and-cac.md",
+          "sha256": "e3d263b70657911067592b8179fdf533e84880e89690bcfb61d644817fc244b1",
+          "byteSize": 5524
+        },
+        {
+          "path": "references/payback-ltv-and-ratios.md",
+          "sha256": "ca1765e006b1091aac168d7aa2950badd2dc665ef5f85b499718779dd6c7271a",
+          "byteSize": 5147
+        },
+        {
+          "path": "references/sensitivity-and-segments.md",
+          "sha256": "c850c9b69c5e3e1bc3e28d43ff46b6b6e26fcb71a87ef46f65ad59f083a2f91a",
+          "byteSize": 3771
+        },
+        {
+          "path": "scripts/unit_econ_sensitivity.py",
+          "sha256": "bc005f20105f7f8abaa3ea29c9b7ba381d84c604ab8678f6d5fc00a4fb238484",
+          "byteSize": 7583
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "1efd1266df38e42323a25dbeb49094e86fe0292dfca63dc16570a111dd5bcb54",
+          "byteSize": 13849
+        }
+      ]
+    },
+    "plan-corporate-partnership": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "8dd22944de63167aa7b747821af3f5ee1646d0c63fd684eebe4ffb2313205af0",
+          "byteSize": 363
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "78a7e031a8d1883a9475614aea96ff9455455f22a4e2ffe8ae5a399205e0dbb5",
+          "byteSize": 3610
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/agreement-activation-renewal.md",
+          "sha256": "e6e8aebc3867227e64a9b253b58afc606857508bc8e6297f4affc12b7bdfb756",
+          "byteSize": 4655
+        },
+        {
+          "path": "references/benefits-tax-and-registration.md",
+          "sha256": "6b783b58b54fa25a46a06bf7e70410b2a393ff515a5f42c783803f7503dab2f0",
+          "byteSize": 6154
+        },
+        {
+          "path": "references/prospecting-and-value-exchange.md",
+          "sha256": "5ee3a53ec8b00e32978b03ee89ae9228596cb35a4e8dead75be5c91123bba5fd",
+          "byteSize": 4798
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "e87b37cf0bf02646038e4cf008ed2b5f5632277d96d95b180d21281d7f6031c2",
+          "byteSize": 15985
+        }
+      ]
+    },
+    "plan-donor-stewardship": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "6beb1451e1823313efe79ad30e2792aa3c2e741ee3edb6bb03a7b3aa38053664",
+          "byteSize": 366
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "202fc05ed7da5e31d3c55296195eca00196239d21fd25edf86a2cf6fc1bf20ae",
+          "byteSize": 3776
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/acknowledgment-and-restrictions.md",
+          "sha256": "0feefa3830daa30a9fd7c0027675f442055c227c2b4002c25a2319e29c97300e",
+          "byteSize": 6806
+        },
+        {
+          "path": "references/metrics-and-crm-hygiene.md",
+          "sha256": "f6bb868b5bf60e6f42bcc2175e3c156701d1e550fc2287dbe601ec648cab221d",
+          "byteSize": 4921
+        },
+        {
+          "path": "references/segmentation-and-portfolios.md",
+          "sha256": "d75dc02c757fb154e0a6b7d5274b2b2a64df8da9ce9ed648c27280106c0ca3e9",
+          "byteSize": 6714
+        },
+        {
+          "path": "scripts/rfm_score.py",
+          "sha256": "4f41679188cb85777fc6f60c07c05dc714936fe4eb1c46a67054223547cc3f19",
+          "byteSize": 10270
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "797dfacddb7b840bdce320bd8570e99241cebf90a32fc171a04e799b21e8d14a",
+          "byteSize": 17383
+        }
+      ]
+    },
+    "plan-fundraising-campaign": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "383c67a93b3b7d8ab7ca2ae158578b7725a3b87eded6a33a7dd96ee5789dcc55",
+          "byteSize": 359
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "db7985bf602f2124d3d45324a19848bfbdbc9293f552ad8293a4a4ab94b65a75",
+          "byteSize": 3877
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/channels-matching-and-ethics.md",
+          "sha256": "faca5ab827e0cd898db69d227b60bbf5b7611bcc18fe31ae2fde6c2af22b64bf",
+          "byteSize": 5794
+        },
+        {
+          "path": "references/goal-and-segments.md",
+          "sha256": "7168a2778e6a6b49160532151f424a946388405af87b5c43b2d64dc04cce8c71",
+          "byteSize": 4378
+        },
+        {
+          "path": "references/processing-tracking-and-review.md",
+          "sha256": "406e806b0c155fea6416e97b7990ea534e909662a850e6df560709f2cc2eda73",
+          "byteSize": 3848
+        },
+        {
+          "path": "scripts/campaign_goal.py",
+          "sha256": "a9151b0e4a4a4b00b7deec666fe7dc4fb1fa92e27932e1116d6cc459df10531f",
+          "byteSize": 5178
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "1479c25392d06b271bd509afc83381d1364f5b99d4707c603b1a2af7fabd2191",
+          "byteSize": 16186
+        }
+      ]
+    },
+    "plan-marketing-budget": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "52f3a5b2d9c5b07384fe9816d27b40631fffda457f6b760076f40addd72ee8e8",
+          "byteSize": 320
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "6647c962ef5cd46e56511c3a2df03a693989cd28c73a3e5e0f36f449763bacbe",
+          "byteSize": 4046
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/budget-methods.md",
+          "sha256": "2cd888e023bab396a7fc42b500d55ccd0de2267cf7f7299055311221a5db80f3",
+          "byteSize": 5316
+        },
+        {
+          "path": "references/marginal-allocation.md",
+          "sha256": "17652628b1534b6664a8cb222d77d6bc63a0731c34c9d905b66e98546d0f7d9f",
+          "byteSize": 4685
+        },
+        {
+          "path": "references/scenarios-and-tracking.md",
+          "sha256": "f9cdab3d1812606f0d6b6a2117a1588bf0cf30715e91a660276783e16305c97c",
+          "byteSize": 5118
+        },
+        {
+          "path": "scripts/budget_calc.py",
+          "sha256": "ad155ee65fbd9e0d3d7e832a8f2dd2a124c58e09034933d7df3b94039b776e27",
+          "byteSize": 9666
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "36a4ed6fc89d416fcc576e687d37ae540bca069979826fe3c2836f0a255d1c8d",
+          "byteSize": 12727
+        }
+      ]
+    },
+    "plan-new-hire-onboarding": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "2995b8b008c01318bbba6560b64120d9633de57d04ad962df8f4d23b692655cd",
+          "byteSize": 286
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "77a0359c6259ba169ca6ffec2a1a80a3996ef978877d1efed1da2d4eff80a4a2",
+          "byteSize": 2653
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/phases-and-cadence.md",
+          "sha256": "e88adc97ed7dd264fc1912855e349582197a7834956391d0c93c840af8d6598b",
+          "byteSize": 4856
+        },
+        {
+          "path": "references/program-template-and-measures.md",
+          "sha256": "c19870bfb7618883938a580d323f7c86b9bdeafe757a2e1c55d4f3126de7bf56",
+          "byteSize": 4709
+        },
+        {
+          "path": "references/role-outcomes-and-contribution.md",
+          "sha256": "a16b9ccce92fa3943036c9eaf8d904f51c0c1fd8f7f009c0e3976cca2f3c5143",
+          "byteSize": 4780
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "2a66fa2a94c083b0fc084f93aa93c9760672d1ef5e5c703faf7ddc1707f9a60d",
+          "byteSize": 11438
+        }
+      ]
+    },
+    "plan-sales-territories": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "4b5261e33bc63b3d2f50e05bfe99691f49a4fbe66011bc2b199c49b7a3ce21b8",
+          "byteSize": 338
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "8fdf0a6cfbc6f9edff4172451cde0b4c51de25f7a0e3479e6aaaf8fd3c3bf625",
+          "byteSize": 3974
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/balancing-and-transition.md",
+          "sha256": "79d35c681a320ab5dd4b94916742ced956e5aa79b08d73fc9a9f4453ed013ac0",
+          "byteSize": 5138
+        },
+        {
+          "path": "references/capacity-and-quota.md",
+          "sha256": "d9f4db203de5c9fe81af185c4b6602c9f374b66bd199da3dd442bdbb20557cec",
+          "byteSize": 5814
+        },
+        {
+          "path": "references/segmentation-and-potential.md",
+          "sha256": "c9d6d4a8898065cc233d89bd031b63027b73fa406cccd33f1de3734aded16b06",
+          "byteSize": 5588
+        },
+        {
+          "path": "scripts/territory_balance.py",
+          "sha256": "69d8707bde23a5f8ca856d0455e59498ddfe906e60ffc9cd428d2ca10c4ba3c7",
+          "byteSize": 4826
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "555002a2792ccaf186e8cee589bee42ed334a835aff3c3cb05192f86f68d8402",
+          "byteSize": 13133
+        }
+      ]
+    },
+    "plan-support-staffing": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "fd8387b7f53f82877a4c79a86e1a1bddcce99d71455bc5ace56369b135973024",
+          "byteSize": 323
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "d4382a939fe6dbf0d1334df05fc8ed129ed4e8747878348d78415082468bac81",
+          "byteSize": 3302
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/deferred-work-scheduling-and-sensitivity.md",
+          "sha256": "b4bc27f11a519e00542dc5ccf16399f0966f3390b27b0006040071d8ec5cbbee",
+          "byteSize": 5505
+        },
+        {
+          "path": "references/erlang-c-real-time.md",
+          "sha256": "835f629abdf69b5efd0654b5dae9dfe74324cfdf5612bd26a0328e027de43cd0",
+          "byteSize": 5931
+        },
+        {
+          "path": "references/forecasting-volume.md",
+          "sha256": "2212ab2ad3a7ff2e5cbb157ed45fbc319af9baa5db8e0c25c54ee2cb0d5181c6",
+          "byteSize": 4686
+        },
+        {
+          "path": "scripts/erlang_c.py",
+          "sha256": "6a6991bbb0f619ec938773534d43fc6373084e8735b090743fe35d90271790e2",
+          "byteSize": 8365
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "9fd76b8b72cd8e13ec751a95a2f4eedf9d87ae4b2630a40777e5e46602b1bbfe",
+          "byteSize": 14521
+        }
+      ]
+    },
+    "prepare-board-meeting": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "7923797d330c49679d2e619300722e85f98b83c43f7e8bef2746dbadc519c4a1",
+          "byteSize": 374
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "fdd74a1d93422260fa653a255611f93d60b9d613d9870fcfe2e788bc20e8dcd7",
+          "byteSize": 3843
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/agenda-dashboard-and-preread.md",
+          "sha256": "ccd4107a3aa9472d9b9cae14a59ab6c841b8009dd72f9da335cfcff8e335392c",
+          "byteSize": 4398
+        },
+        {
+          "path": "references/board-calendar-and-governance.md",
+          "sha256": "49468649bc19e07a404e07c9f6f33d3d63ac3a1f68f6e56a903447a8e1457989",
+          "byteSize": 5448
+        },
+        {
+          "path": "references/resolutions-minutes-and-followup.md",
+          "sha256": "a0346f01966ee543b08a18f6377332f8819cf1a34e889b2f366751ac09669c4e",
+          "byteSize": 3603
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "6b6d23fa2fd79ba39038ddf6718d31c866f45ba9633a224dad9de7d3e471c70d",
+          "byteSize": 16151
+        }
+      ]
+    },
+    "prove-regression-tests": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "2ffb7e3bf596423d3f410422ebaf667e9e77204f13ab1f7ad1272c6523214dd5",
+          "byteSize": 284
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "bdda8300c4919270c7416f638d768fe17290ae091d822705fa0473a3db8dea1a",
+          "byteSize": 1567
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "607e4bacd26eef9b0e0fe3c221c32ea2d6d661bc943ad517b3c12cf2369e323d",
+          "byteSize": 1145
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "aa0a89e56d862149154b8bfe5e6a3847be1175541b07bf5ebbdd326bcc705738",
+          "byteSize": 3109
+        }
+      ]
+    },
+    "report-communications-performance": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "923068278872234044d3ed0251be15b1374affc9890cf975d4e31f3044404748",
+          "byteSize": 382
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "1ce3152ee7100e36304a9048afc5c7171af7c95c4fd147e811c7e27439273af8",
+          "byteSize": 3386
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/metric-definitions.md",
+          "sha256": "61b7c2416abb96f9fda692d7ee38df63079f8a472e9eb636ab20d19d45c76f20",
+          "byteSize": 4137
+        },
+        {
+          "path": "references/summary-layout.md",
+          "sha256": "731d2017f55df648152d1ee4fcb980849e95a2943d117679388635a9d3654f7f",
+          "byteSize": 2363
+        },
+        {
+          "path": "references/trends-and-attribution.md",
+          "sha256": "62ac9f317ab4ed434e22c9d1014284c53c562be4cab58b166ef8dd3a2a023719",
+          "byteSize": 3685
+        },
+        {
+          "path": "scripts/comms_metrics.py",
+          "sha256": "a40c9005c99766427152d2d64da3b5240b28d95fd2395c084304bdc322d940ee",
+          "byteSize": 7875
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "6e82edc0cfa94f6d14884dc7708d0c85bf50694c23ff263f3c24389a2e95f333",
+          "byteSize": 9613
+        }
+      ]
+    },
+    "repurpose-content": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "a138a01b468467300de6880eae4e05ad07162559d808f9b0d360649267f66f95",
+          "byteSize": 335
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "ee5ca1d82d2471cbe507c578a77937b6c8f6914e0ab1da70d61c3b766243ffc6",
+          "byteSize": 3852
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/channel-formats.md",
+          "sha256": "5def413bf934be1ea752c710ad73c36c2e81200b5c1d7658623e3e90a31d6a7d",
+          "byteSize": 3846
+        },
+        {
+          "path": "references/claim-fidelity.md",
+          "sha256": "a9df0fa1e6af0e1b17409628d241cf9ec5b138f5384083238e5385a4a17840a1",
+          "byteSize": 4783
+        },
+        {
+          "path": "references/reuse-classification.md",
+          "sha256": "646dcb4efe98ef875c4f56b992fc4c0d6ad88b5869ea649084b5b6aa858e4041",
+          "byteSize": 4456
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "66720d26a26534db70add7a755ea60113e7c506399ca7e2e86f7f64a4fa0570e",
+          "byteSize": 10041
+        }
+      ]
+    },
+    "research-competitive-positioning": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "fbb4813ee6e38a4901e8e404afed093135c9e9e4bab75847739551e23341be26",
+          "byteSize": 312
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "eeeefd59656d9d1a495d74c286f86b0c01666394e4b8bf206dfbd9318752b027",
+          "byteSize": 2685
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/deliverable-and-handoff.md",
+          "sha256": "233b4b94ce2cff8491c111cae0f8e83e89ff7163de993200565201964fa60d35",
+          "byteSize": 5900
+        },
+        {
+          "path": "references/research-method.md",
+          "sha256": "d2510f19240331e6b78d58f2fd3683ed3266001856a497482607e08cf8d3658c",
+          "byteSize": 6205
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "0bbc97c38e7c8490b2b10bc581c9719a3e34a9132942a65f24f849a4705b00ee",
+          "byteSize": 10600
+        }
+      ]
+    },
+    "research-grant-prospects": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "895b15f1cae36e0cc5bc04444678e4dc6fcc5cf528d9aef55e451f1a100c1e57",
+          "byteSize": 317
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "2edc5de4301223ad014748218f4a49fce6df8945f01f3547dafd324b5685ff8d",
+          "byteSize": 3412
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/fit-scoring-rubric.md",
+          "sha256": "069ffbfa53a97767c1a13f2137debd819c1842b1413108fdaa8f60db4739ddb8",
+          "byteSize": 4869
+        },
+        {
+          "path": "references/pipeline-and-cultivation.md",
+          "sha256": "cc1adf29a2ce2e03e070dd9f220fde457f19ee6ead8ab21fc09ad1f74ee94af5",
+          "byteSize": 3512
+        },
+        {
+          "path": "references/sources-and-990pf.md",
+          "sha256": "022b627c96e44523d25903d9ad887b85b90a8362e1d3f2ef90f404e38a7b55ae",
+          "byteSize": 6573
+        },
+        {
+          "path": "scripts/score_prospects.py",
+          "sha256": "f06c726262e284cdd1f7815d83f8f72ee373f51ebf1acd33d0dd054d672a1357",
+          "byteSize": 7849
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "bb5207f223bed97533c1cd33ff30bbf94dbb447ad09e23f61c2bedb5a005183d",
+          "byteSize": 13720
+        }
+      ]
+    },
+    "review-sales-forecast": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "46675f88ff93e8edd7326ea8362596729c04844e7f906d9cd8c37e0421c7507f",
+          "byteSize": 335
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "23181bb899d87c7e65aa5ad7ec74fb13711be9ce47d8b288bb670b1448aaf490",
+          "byteSize": 5852
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/categories-and-deal-inspection.md",
+          "sha256": "204824f5ef777a26f98f4a30eaa06621ba235720461e101b58b0b6d177bf400a",
+          "byteSize": 5776
+        },
+        {
+          "path": "references/forecast-methods.md",
+          "sha256": "4066a424467cda080bd8f0d2ec92b51a239138d9d9d1a10f98cd5e31851426eb",
+          "byteSize": 4771
+        },
+        {
+          "path": "references/pipeline-health-and-narrative.md",
+          "sha256": "6c6c8157cdfa52e4f347588e4e8a85c615118ff034e110a68e64f256d0cb6bad",
+          "byteSize": 3898
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "01aeac8b4e0bf1801e061b494e75c6996ddf89f0daff664e21435d4838993366",
+          "byteSize": 12472
+        }
+      ]
+    },
+    "route-analytics-domains": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "c5960630d410c8efddf5f66f0ed5d9ab8990829593743bce4127f94992909016",
+          "byteSize": 249
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "9bbd40eebf955f7b8b3997a1c419468a661786c346e70d6948f4e960eee605f6",
+          "byteSize": 1439
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "fa8d4b8dfc9c69207e437b4e6fea69b34a5e8ffdc675f8f547b2c2b191b3120f",
+          "byteSize": 2358
+        }
+      ]
+    },
+    "run-month-end-close": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": "Valid YAML folded description; procedural content preserved",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "497b115d3bbdf05aa180473459667b78e2762eeb4e0f2412a1c298e9ea53b18f",
+          "byteSize": 314
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "754e1a92e115c49a3f465b5615a897677d645774d37922858ebe8831e6aa91d8",
+          "byteSize": 4519
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/close-calendar-and-cutoff.md",
+          "sha256": "99a45f60679d80c70372b5fd7e4b0aa4404e91cf084884975fb9d8f110a59939",
+          "byteSize": 5332
+        },
+        {
+          "path": "references/close-checklist-and-reconciliations.md",
+          "sha256": "445d213a0469c56f5d0829578ca8416bf342f22103625dd012e8078921e02e33",
+          "byteSize": 7327
+        },
+        {
+          "path": "references/close-speed-improvement.md",
+          "sha256": "1dae38eefa0033e082a67bf1ce06c1e5daaa3954aefa3e6121f9883ed1be2cd7",
+          "byteSize": 3984
+        },
+        {
+          "path": "references/journal-entries-and-flux.md",
+          "sha256": "90a1886dc2a956366b9ca193794475d87a6001bf5e0ec310af6093e5eb980a91",
+          "byteSize": 5780
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "3a223759317095a5b0bbe338efe49ff33e36cdcb2b487be0e04880b4e37f3aff",
+          "byteSize": 13235
+        }
+      ]
+    },
+    "steel-design": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "fd83a21261f7a412bcb1d1c67d2fccf752ce0a228c3033d2fcac79bbeeb72d61",
+          "byteSize": 297
+        },
+        {
+          "path": "assets/BulkActionBar.tsx",
+          "sha256": "11c125bd217d43bde6eb36f665708a6f0728ab50619e851040f220e4d9375c01",
+          "byteSize": 3856
+        },
+        {
+          "path": "assets/CommandPalette.tsx",
+          "sha256": "47e5a1aa8c9059dfc00eab98712cf74e92abefcde3f1794bc69fc9ef4c7f4530",
+          "byteSize": 8953
+        },
+        {
+          "path": "assets/ConfirmDialog.tsx",
+          "sha256": "3878901abd06434f7a6766e41a0de4bc108b25847ccc5b90c26c6aa78de0f299",
+          "byteSize": 5677
+        },
+        {
+          "path": "assets/DataTable.tsx",
+          "sha256": "58ea3c5448adb512eefea8e3b4097010f17789897d9db030e08e7fac5923f40f",
+          "byteSize": 15770
+        },
+        {
+          "path": "assets/DetailPanel.tsx",
+          "sha256": "1ea5b3abdb584b547ee9e17fcf9f2ec993141b9b79b98a50862b7953bc9117c2",
+          "byteSize": 5906
+        },
+        {
+          "path": "assets/EmptyState.tsx",
+          "sha256": "15bc09eeeae058f3abd4b55d21b9c96ad9bf16a1e6a4993a16b798cb81ae6d87",
+          "byteSize": 4603
+        },
+        {
+          "path": "assets/FilterChipBar.tsx",
+          "sha256": "e77d440ffa4e99946d173760500b9d09bd6ed3778b7f3133e5def7e028c30da6",
+          "byteSize": 4578
+        },
+        {
+          "path": "assets/FormField.tsx",
+          "sha256": "44088a4c9d50fec840ed86b7e4ab63a838ddfa9fd0bbf740df4138b408026ab0",
+          "byteSize": 6195
+        },
+        {
+          "path": "assets/foundation.css",
+          "sha256": "4a03122e1c55e7319d072439a92401f129216b789d6cf6ac07b9f85dbea421a2",
+          "byteSize": 14923
+        },
+        {
+          "path": "assets/MultiStepFlow.tsx",
+          "sha256": "bb8623a824515b5cc68ccc3cb581b3a37501b0fa775d5172ce0cc863c0520c1a",
+          "byteSize": 8344
+        },
+        {
+          "path": "assets/SkeletonRow.tsx",
+          "sha256": "1d371077b2af7dfc472c2f81283b7978f903977b50e2cbf87fd457f32707f13a",
+          "byteSize": 2758
+        },
+        {
+          "path": "assets/Toolbar.tsx",
+          "sha256": "2868ac728d5bb06e03a8f16eb2c2448a693fcb4592e66e414b9228bfdb9c0c05",
+          "byteSize": 7261
+        },
+        {
+          "path": "assets/UndoToast.tsx",
+          "sha256": "8ce831e2c80f83aee14a3b78e16fdbb8bf5aa13f3e810ebde066a894b66f3fcc",
+          "byteSize": 4429
+        },
+        {
+          "path": "assets/utils.ts",
+          "sha256": "88acb6b46cd69df80f13874c6bead4e0d08ba138e8375f7c3c44cd43b2705bb6",
+          "byteSize": 1747
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "cbed7d81d7bbdab1da99fff460478807fb5794264f87b578920d3e091da8f9be",
+          "byteSize": 5536
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/accessibility.md",
+          "sha256": "7d4b11c94bf86d5939dd3bac5b339db814f6d7daf3dc9f37316d4471d0ed2a7d",
+          "byteSize": 10338
+        },
+        {
+          "path": "references/anti-patterns.md",
+          "sha256": "99ddf5f49dcb844099c0c215fa4c1c8ad67c478aad803fae09fd3fe5ef74a2bc",
+          "byteSize": 13805
+        },
+        {
+          "path": "references/data-tables.md",
+          "sha256": "c4051c4bdce72d2202361fbe1dfd096782fc036e0bcd638a26246a09ea96ff50",
+          "byteSize": 15650
+        },
+        {
+          "path": "references/filters-and-search.md",
+          "sha256": "2b4524d54d6145298540dba4e5d8d317b64d6ee66929e451878ebc0fe3426da5",
+          "byteSize": 8375
+        },
+        {
+          "path": "references/flows.md",
+          "sha256": "40533fd9844a22c4c09faac42d6f5fb89bb8d5e032d7fc04369da29af4daaef5",
+          "byteSize": 12620
+        },
+        {
+          "path": "references/foundations.md",
+          "sha256": "ddfd73f450e73360c9c01339fd589c9d661ba6fc0e7e622419241d8b92295983",
+          "byteSize": 15983
+        },
+        {
+          "path": "references/layouts.md",
+          "sha256": "e9b53e4797287a6b3f00187819e4e4fc7896dc1985eb59938fdffdd79e128efc",
+          "byteSize": 11176
+        },
+        {
+          "path": "references/motion.md",
+          "sha256": "76c086eea6b4b9f768edda025d9d7617e8e26e6987bce3c52f7965a4121e7695",
+          "byteSize": 10697
+        },
+        {
+          "path": "references/templates.md",
+          "sha256": "fa7efc9ba64e41589f07cc4f7525f4c93d64695f3d6bbe5ec898d48e69e7c29b",
+          "byteSize": 14726
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "5857d982a250d715663eb9eca05f09b843e5e7d294ee234d840bf9734c8d85b3",
+          "byteSize": 13406
+        }
+      ]
+    },
+    "verify-design-claims": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "93939bd1533495de34e86893f561734a5f267843b06a03af8350cc6509be1ab7",
+          "byteSize": 269
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "629321871ca13f50e974b1f11657ba474660cb205e451d8c20a9d7304c56d947",
+          "byteSize": 1633
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "b0357ac03f748c244d33a98fca15b55b49a7b3251bf2c26e7725a2085b274a3f",
+          "byteSize": 1116
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "19895ca13a6c078dcdc49db3c78c37e204e965cce323c187c98c31cd9c27172b",
+          "byteSize": 2615
+        }
+      ]
+    },
+    "verify-source-claims": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "24136136d2e4f43612f21b39e326040df049bcf02848927cab799693036afd8c",
+          "byteSize": 241
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "8d895d9955e9bdd8f0888ba936fe2d90c13d7725161e325d020f587a42c005b4",
+          "byteSize": 1411
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "1237eba21c4b6cd221d90138d89f877d5e816f7a2b52067752b1752941f5add7",
+          "byteSize": 2515
+        }
+      ]
+    },
+    "write-funder-report": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "b450b491fd7b5f8bcaefdf5445944abd93b91ed573460b866301b705bcf4a6df",
+          "byteSize": 337
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "e3044ba9fb40fa61dda60d80ad884548d78ff542351e7f2780dabf2699afc43f",
+          "byteSize": 3831
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/budget-narrative-and-variance.md",
+          "sha256": "d8befc7f2cdc856e787131f5142b9d9aadc7000af2a4f3be8ed038ff94bc1818",
+          "byteSize": 2872
+        },
+        {
+          "path": "references/requirements-and-outcomes.md",
+          "sha256": "66ac7988456ca7de28fa93997545619a41a48b17e564eb67f74f75c2f71f30f7",
+          "byteSize": 4274
+        },
+        {
+          "path": "references/stories-tone-and-stewardship.md",
+          "sha256": "210a38017efc957f69ddc7c7018e070723812e956d85aa81829e006506e0d3f5",
+          "byteSize": 3374
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "7d9d816a289142bb8eed352ea9ed0deff95f5511576e9ad492c30eec847ffcba",
+          "byteSize": 15032
+        }
+      ]
+    },
+    "write-grant-proposal": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "bef22aeccd5518f20431cfc8e735a29e0588201422ba17a9e5073dd4144e3999",
+          "byteSize": 322
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "370b0788b4542f511ae2f3e28bc58524e1a92854397fbbe21c1cc645cba0a524",
+          "byteSize": 3883
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/boilerplate-and-review.md",
+          "sha256": "a1c5935beeb0163cf2ffb5d97352b3b4c564909b92fe31a01cf37a9ccf15cb19",
+          "byteSize": 3579
+        },
+        {
+          "path": "references/rfp-compliance-matrix.md",
+          "sha256": "32b88a1bd09c235f46b9b24a8d2ad4ad417ce627a09531628ee71e662fbcdf1f",
+          "byteSize": 4087
+        },
+        {
+          "path": "references/section-writing-guide.md",
+          "sha256": "8d557904eab1617d8f28de7bbb903e330bcea38c4c37f9e4cdd4015554463a71",
+          "byteSize": 5300
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "1f2a1c938b2c0ae4e7f44a3935f8df82c39ae0c312f60a4858543ee5b3cb84ec",
+          "byteSize": 15040
+        }
+      ]
+    },
+    "write-impact-story": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "72e6ec7512f4c50144de446419d155a4498f6c1b6bc5b20c512cd8eec4ea013d",
+          "byteSize": 319
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "214bb0b07de9a7ac204f4dd461347fc173709e0ebb3a81d0d1438a995e086bd1",
+          "byteSize": 3500
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/consent-and-privacy.md",
+          "sha256": "09ef216c65291ea95b6861219dbee5ec402c93ff7f82eaa82e9a2d7b987ced0e",
+          "byteSize": 4433
+        },
+        {
+          "path": "references/story-craft.md",
+          "sha256": "ff8d3d7149830456b6710aacc5b3119576489cdeb2a9b32bb11ca4c29d0e4852",
+          "byteSize": 4028
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "a70ab358c91b28360789c78b32860fcff06f05de59764b3f28837b5dbc061cde",
+          "byteSize": 9580
+        }
+      ]
+    },
+    "write-in-my-voice": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "20f003d9d17ad64c3c6565f868fd0655d832d34cb10aa994b48f5e6bc1d7516b",
+          "byteSize": 272
+        },
+        {
+          "path": "assets/profile-template.md",
+          "sha256": "822875130c7435a709d19f1e67e811dfd7b1c5c5c1831853444122aab923b3d4",
+          "byteSize": 3991
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "5007be69c98123795e46738b19a0c8c399b0c4f4226388ebbe149f08a0b54f5f",
+          "byteSize": 4755
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/authenticity.md",
+          "sha256": "4f44ab98bea81f98d7cef6084b8d80b95f0db29cda3d55bd14e12e96cafa7e23",
+          "byteSize": 5179
+        },
+        {
+          "path": "references/drafting.md",
+          "sha256": "a06d3d9e763b03b25eb614a6a7ed193658a195115ac6fb8a88d8f2a15a73cb71",
+          "byteSize": 6301
+        },
+        {
+          "path": "references/elicitation.md",
+          "sha256": "4a72fbf48914b69c8fb15f993fc4e527f069982ba9086c8c73d5609492966bd2",
+          "byteSize": 5524
+        },
+        {
+          "path": "references/harvesting.md",
+          "sha256": "f6c04ff2c4bb70e756e6aed799dc4de068d11b853abdabcd6ce157d4ee3c2465",
+          "byteSize": 10916
+        },
+        {
+          "path": "references/voice-analysis.md",
+          "sha256": "83f8a2fae97752f561be2c8d582a178be93ef752ec249448729a2a0e8d07575c",
+          "byteSize": 7541
+        },
+        {
+          "path": "scripts/stylometrics.py",
+          "sha256": "17b3a0cb6754a33e670c07c712735f2733c0449171f24669e13f696356a47c03",
+          "byteSize": 12161
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "7c9dd39fda508083971beb30c459919fbaf4f4e15c89788caf067bfbd61b55f3",
+          "byteSize": 11787
+        }
+      ]
+    },
+    "write-safe-mental-health-content": {
+      "sourceRepo": "rose-digital/relay",
+      "sourceCommit": "cb53104f5cb45bb4674fef4fb9c177664f4608e2",
+      "license": "MIT",
+      "reviewStatus": "static_reviewed_not_behaviorally_qualified",
+      "adaptations": null,
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "9e690862438ecf9dac095553c3f5d2049b7e0013ce7e006a4fa6f33e3a1edcd3",
+          "byteSize": 352
+        },
+        {
+          "path": "evals/manifest.json",
+          "sha256": "a0b26d4ffdc50c13140276f9d68fc2d4ec28a33dad4a1bd1772569df3e54a871",
+          "byteSize": 3598
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1d7cf93ad4a291d63a0c7a00a4f7c5f63cbc9c8de8d7c6ee78acd273be9efc38",
+          "byteSize": 1083
+        },
+        {
+          "path": "references/crisis-resources-and-moderation.md",
+          "sha256": "bf511cc994e60ca2fe21b31f638f841fa415990ddba99a2989e87c7872c35313",
+          "byteSize": 4372
+        },
+        {
+          "path": "references/language-guide.md",
+          "sha256": "23206d6b22dfa2ce3a38228d0d6a05b75423e997929bc870a05232f5fe35710a",
+          "byteSize": 2844
+        },
+        {
+          "path": "references/safe-messaging-checklist.md",
+          "sha256": "89df32d9158dc5c69ae6089b86ddfdfb1ece8b086c34e99c10474eede6866ea0",
+          "byteSize": 4292
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "45b5d6891beebef591b743a0207ea701490b5d69981e086e155d680c179403ae",
+          "byteSize": 10159
+        }
+      ]
+    }
+  }
+}

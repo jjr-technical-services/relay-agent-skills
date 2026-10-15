@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "find-foundations-for-program",
+        "query": "Find foundations that could fund our youth mentoring program in two counties and rank them by fit."
+      },
+      {
+        "id": "read-990pf-grant-list",
+        "query": "Read this family foundation's 990-PF grant list and tell me whether we should approach them and for how much."
+      },
+      {
+        "id": "quarterly-prospect-pipeline",
+        "query": "Clean up our grant prospect list and decide which funders to approach this quarter, with next actions and owners."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "write-full-proposal",
+        "query": "Write the full grant proposal for the foundation that invited us, following their application questions."
+      },
+      {
+        "id": "draft-loi-only",
+        "query": "Draft a two-page letter of inquiry to this foundation introducing our program and our ask."
+      },
+      {
+        "id": "major-donor-segmentation",
+        "query": "Segment our individual donors by recency, frequency and gift size and pick major gift prospects."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "corporate-and-community-funders",
+        "query": "Which corporate foundations and community foundations near us give general operating support to groups our size? Build a scored list with sources."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "loi-plan-with-closed-funder",
+      "task": "Today is 2026-09-01. A hypothetical after-school literacy nonprofit in a mid-sized city needs 120,000 a year for two years of general operating support; its annual budget is 900,000. A volunteer compiled these notes. Funder A, a family foundation: its 990-PF for tax year 2022 lists 35 grants with a median of 15,000, mostly to literacy groups in our county; in the application section of that return the line reads 'Contributions only to preselected charitable organizations'. Funder B: its website says it funds early childhood education statewide; its 2025 annual report lists grants of 50,000 to 150,000; letters of inquiry are accepted year round. Funder C: a corporate foundation that a board member says 'loves us'; no documents yet. Funder D: a community foundation whose website says it funds only organizations in a neighbouring county. Rank these, pick the top three, and give me a plan to send letters of inquiry to all three next month.",
+      "baselineFailure": "The baseline ranks Funder A first because of its local literacy grants and schedules a letter to it, treats a tax-year-2022 return as current, counts the board member's remark as a relationship, keeps Funder D in the top three or omits why it is out, and presents funder facts without a source and date for each.",
+      "runs": 1,
+      "assertions": [
+        { "id": "fact-ledger-heading", "kind": "text_contains", "value": "Fact ledger" },
+        { "id": "access-label", "kind": "text_contains", "value": "Invitation only" },
+        { "id": "stale-label", "kind": "text_contains", "value": "re-verify" },
+        { "id": "relationship-path-heading", "kind": "text_contains", "value": "Relationship path" },
+        { "id": "evidence-coverage", "kind": "text_contains", "value": "coverage" },
+        { "id": "no-award-promise", "kind": "text_not_contains", "value": "guaranteed" }
+      ]
+    }
+  ]
+}

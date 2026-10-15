@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "monthly-comms-report",
+        "query": "Build our monthly communications report from the newsletter, Instagram, and LinkedIn exports for the executive director."
+      },
+      {
+        "id": "email-open-rate-jump",
+        "query": "Our email open rate jumped this month. Put it in a performance report with the right metric definitions and caveats."
+      },
+      {
+        "id": "board-channel-results",
+        "query": "Summarize quarterly channel results and what content worked for the board, including donations and registrations from social media."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "weekly-team-status",
+        "query": "Write this week's status update for the marketing team: what shipped, what is blocked, and what is next."
+      },
+      {
+        "id": "prove-channel-causes-gifts",
+        "query": "Design a holdout test to prove whether our Facebook ads actually cause new donations."
+      },
+      {
+        "id": "donate-page-drop-off",
+        "query": "Find where visitors drop off between landing on the donate page and completing a gift."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "newsletter-social-metrics-review",
+        "query": "Review last month's newsletter and social media metrics, compare them with the month before, and recommend what to do next month."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "inflated-opens-and-mixed-engagement",
+      "task": "Build our September communications report for the executive director and board chair. Hypothetical data. Newsletter: September 12,000 delivered, 5,400 unique opens, 240 unique clicks; August 11,600 delivered, 2,900 unique opens, 232 unique clicks. Instagram: September reach 30,000, impressions 75,000, engagements 1,500; August reach 37,500, impressions 60,000, engagements 1,500. The donation platform credits the newsletter as last click for 12 gifts totaling $1,800 in September and 6 gifts totaling $900 in August. Our marketing lead wants the report to say the new subject lines were a big win for opens, that Instagram engagement went up, and that the newsletter doubled giving. Keep it short enough for a busy reader.",
+      "baselineFailure": "A generic answer computes the open rate jump and reports it as a large relative gain credited to the subject lines, picks one engagement-rate denominator without noticing the trend reverses on the other, and repeats the doubling claim from last-click data on a tiny base, without a definitions table, attribution caveats, or a one-page summary for leaders.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "has-definitions-table",
+          "kind": "text_contains",
+          "value": "Metric definitions"
+        },
+        {
+          "id": "names-denominator",
+          "kind": "text_contains",
+          "value": "Denominator"
+        },
+        {
+          "id": "opens-directional",
+          "kind": "text_contains",
+          "value": "directional only"
+        },
+        {
+          "id": "has-attribution-caveats",
+          "kind": "text_contains",
+          "value": "Attribution caveats"
+        },
+        {
+          "id": "has-leadership-summary",
+          "kind": "text_contains",
+          "value": "Leadership summary"
+        }
+      ]
+    }
+  ]
+}

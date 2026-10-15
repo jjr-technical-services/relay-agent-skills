@@ -1,0 +1,328 @@
+/* ============================================================================
+   steel — app token foundation (Tailwind v4)
+   ----------------------------------------------------------------------------
+   One file. Six knobs: spacing unit, band heights, control tiers, app type
+   scale, one --radius, one motion config.
+
+   Import this from the APP surface only. Marketing surfaces get their own
+   token file with a fluid clamp() scale. Never merge the two into one :root —
+   see references/foundations.md § Two scales.
+
+   CRITICAL: every element-level style in this file lives inside `@layer base`.
+   Unlayered CSS beats layered CSS regardless of specificity, so an unlayered
+   `h2 { font-size: … }` silently outranks every `text-*` utility you write.
+   See references/anti-patterns.md § 1.
+   ============================================================================ */
+
+@import "tailwindcss";
+
+:root {
+  /* ── 1. spacing: ONE 4px unit, a CLOSED set of gaps ───────────────────────
+     Permitted gaps only. If a spacing value is not in this list it is a bug,
+     not a decision. 2px exists only for optical icon nudges. */
+  --u: 4px;              /* the unit */
+  --gap-0: 0px;
+  --gap-px: 2px;         /* optical only: icon vs text baseline nudge */
+  --gap-1: 4px;          /* icon ↔ label inside a control */
+  --gap-1x: 6px;         /* the one half-step: dense 28px control internals */
+  --gap-2: 8px;          /* control ↔ control in a toolbar group */
+  --gap-3: 12px;         /* group ↔ group in a toolbar; form field rows */
+  --gap-4: 16px;         /* band padding-inline; card padding; column padding */
+  --gap-6: 24px;         /* section ↔ section inside a panel */
+  --gap-8: 32px;         /* page gutter on desktop */
+  --gap-12: 48px;        /* the largest gap an app surface may use */
+
+  /* ── 2. band heights: every horizontal band is declared, never incidental ─ */
+  --band-nav: 48px;      /* global top bar */
+  --band-toolbar: 40px;  /* page toolbar (the ONE band that carries title +
+                            count + view + search + primary action) */
+  --band-filters: 36px;  /* filter chip bar — rendered only when filters exist */
+  --band-tabs: 36px;
+  --band-thead: 36px;    /* table header row */
+  --band-row: 40px;      /* table row: default tier */
+  --band-row-dense: 32px;
+  --band-row-comfy: 48px;
+  --band-row-two-line: 56px;
+  --band-bulk: 48px;     /* bulk action bar */
+  --band-footer: 44px;   /* pagination */
+
+  /* ── 3. control tiers: three desktop sizes, one touch promotion ─────────── */
+  --ctl-sm: 28px;        /* dense toolbar icon buttons, chips, inline row actions */
+  --ctl-md: 32px;        /* DEFAULT: buttons, inputs, selects in app chrome */
+  --ctl-lg: 40px;        /* primary action in a dialog/form; search in empty state */
+  --ctl-touch: 44px;     /* promoted below --bp-touch (see media query below) */
+  --ctl-pad-sm: 8px;     /* inline padding */
+  --ctl-pad-md: 10px;
+  --ctl-pad-lg: 14px;
+  --hit-min: 24px;       /* WCAG 2.2 SC 2.5.8 AA floor for any pointer target */
+
+  /* ── 4. app type scale: FIXED px, 8 steps, never clamp() ──────────────────
+     line-height is integer px so every control height stays on the 4px grid.
+     tracking follows Inter's dynamic-metrics curve
+     (-0.0223 + 0.185·e^(-0.1745·size)), which crosses zero at ≈12.3px. */
+  --text-micro: 11.5px;   --lh-micro: 16px;  --tr-micro:  0.003em;
+  --text-mini:  12px;     --lh-mini:  16px;  --tr-mini:   0em;
+  --text-sm:    13px;     --lh-sm:    18px;  --tr-sm:    -0.003em;
+  --text-ui:    14px;     --lh-ui:    20px;  --tr-ui:    -0.006em;
+  --text-lg:    16px;     --lh-lg:    24px;  --tr-lg:    -0.011em;
+  --text-title: 18px;     --lh-title: 24px;  --tr-title: -0.014em;
+  --text-head:  20px;     --lh-head:  28px;  --tr-head:  -0.017em;
+  --text-display: 24px;   --lh-display: 32px; --tr-display: -0.020em;
+
+  /* reading copy — the ONLY place a 1.5–1.6 line-height belongs */
+  --lh-prose: 1.55;
+  --measure-prose: 68ch;   /* help text, empty-state body, docs panels */
+  --measure-form: 640px;   /* single-column form / settings measure */
+
+  /* ── 5. ONE radius knob ──────────────────────────────────────────────────── */
+  --radius: 6px;
+
+  /* ── 6. ONE motion config ────────────────────────────────────────────────── */
+  --dur: 140ms;                                 /* every state change */
+  --dur-enter: 180ms;                           /* panels / dialogs entering */
+  --ease: cubic-bezier(0.2, 0, 0, 1);           /* the only curve */
+  --motion: var(--dur) var(--ease);
+
+  /* ── colors: semantic roles only. measured ratios in the comments ───────── */
+  --bg: #ffffff;
+  --bg-subtle: #f7f7f8;
+  --surface: #ffffff;
+  --surface-hover: #f2f2f4;
+  --row-hover: #f2f2f4;
+  --row-selected: #eef2ff;
+  --border: #e5e5e7;            /* decorative dividers — no contrast floor */
+  --border-strong: #d1d1d6;
+  --border-control: #8a8a93;    /* 3.42:1 on --bg — REQUIRED by SC 1.4.11 for
+                                   any control whose boundary identifies it */
+  --text: #18181b;              /* 17.7:1 on --bg */
+  --text-muted: #4b5563;        /* 7.6:1 on --bg, 6.8:1 on --row-hover */
+  --text-subtle: #6b7280;       /* 4.83:1 on --bg, 4.52:1 on --bg-subtle */
+  --accent: #2563eb;            /* 5.17:1 vs white both ways */
+  --accent-fg: #ffffff;
+  --accent-subtle: #eef2ff;
+  --danger: #dc2626;            /* 4.83:1 vs white both ways */
+  --danger-fg: #ffffff;
+  --warn: #b45309;
+  --success: #15803d;
+  --focus: #2563eb;
+}
+
+:root[data-theme="dark"],
+:root:not([data-theme="light"]) {
+  /* keep this block token-only; never put a new property here that has no
+     light-mode counterpart, or the theme becomes non-reversible */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a0a0b;
+    --bg-subtle: #121214;
+    --surface: #121214;
+    --surface-hover: #1a1a1e;
+    --row-hover: #1a1a1e;
+    --row-selected: #16213a;
+    --border: #26262b;
+    --border-strong: #35353c;
+    --border-control: #6e6e78;   /* 3.92:1 on --bg */
+    --text: #f4f4f5;             /* 18.0:1 */
+    --text-muted: #a1a1aa;       /* 7.7:1 on --bg, 6.8:1 on --row-hover */
+    --text-subtle: #8b8b95;      /* 5.9:1 on --bg, 5.1:1 on --row-hover */
+    --accent: #3b82f6;
+    --accent-fg: #0a0a0b;        /* 5.38:1 */
+    --accent-subtle: #16213a;
+    --danger: #f87171;           /* 7.2:1 as text on --bg */
+    --danger-fg: #0a0a0b;
+    --warn: #fbbf24;
+    --success: #4ade80;
+    --focus: #60a5fa;            /* 7.8:1 on --bg, 7.4:1 on --surface */
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a0a0b;            --bg-subtle: #121214;
+  --surface: #121214;       --surface-hover: #1a1a1e;
+  --row-hover: #1a1a1e;     --row-selected: #16213a;
+  --border: #26262b;        --border-strong: #35353c;
+  --border-control: #6e6e78;
+  --text: #f4f4f5;          --text-muted: #a1a1aa;   --text-subtle: #8b8b95;
+  --accent: #3b82f6;        --accent-fg: #0a0a0b;    --accent-subtle: #16213a;
+  --danger: #f87171;        --danger-fg: #0a0a0b;
+  --warn: #fbbf24;          --success: #4ade80;      --focus: #60a5fa;
+}
+
+/* touch promotion — one breakpoint, one rule. Below this width every control
+   tier collapses upward so the shared layout satisfies a 44px finger. */
+@media (pointer: coarse), (max-width: 767px) {
+  :root {
+    --ctl-sm: 40px;
+    --ctl-md: 44px;
+    --ctl-lg: 48px;
+    --band-row: 56px;
+    --band-row-dense: 48px;
+    --text-sm: 14px;  --lh-sm: 20px;
+    --text-ui: 16px;  --lh-ui: 24px;   /* ≥16px: below it iOS zooms on focus */
+  }
+}
+
+/* ── expose to Tailwind ─────────────────────────────────────────────────────
+   After this block the tokens are ordinary utilities: `text-ui`, `h-ctl-md`,
+   `gap-3`, `bg-surface`, `text-muted`, `rounded`, `size-ctl-sm`, `transition-app`. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-row-hover: var(--row-hover);
+  --color-row-selected: var(--row-selected);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-border-control: var(--border-control);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-subtle: var(--text-subtle);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-danger: var(--danger);
+  --color-danger-fg: var(--danger-fg);
+  --color-warn: var(--warn);
+  --color-success: var(--success);
+  --color-focus: var(--focus);
+
+  --text-micro: var(--text-micro);     --text-micro--line-height: var(--lh-micro);
+  --text-mini: var(--text-mini);       --text-mini--line-height: var(--lh-mini);
+  --text-sm: var(--text-sm);           --text-sm--line-height: var(--lh-sm);
+  --text-ui: var(--text-ui);           --text-ui--line-height: var(--lh-ui);
+  --text-lg: var(--text-lg);           --text-lg--line-height: var(--lh-lg);
+  --text-title: var(--text-title);     --text-title--line-height: var(--lh-title);
+  --text-head: var(--text-head);       --text-head--line-height: var(--lh-head);
+  --text-display: var(--text-display); --text-display--line-height: var(--lh-display);
+
+  --tracking-micro: var(--tr-micro);
+  --tracking-sm: var(--tr-sm);
+  --tracking-ui: var(--tr-ui);
+  --tracking-title: var(--tr-title);
+  --tracking-head: var(--tr-head);
+  --tracking-display: var(--tr-display);
+
+  --spacing-1x: var(--gap-1x);
+
+  --height-ctl-sm: var(--ctl-sm);
+  --height-ctl-md: var(--ctl-md);
+  --height-ctl-lg: var(--ctl-lg);
+  /* square variants, so `size-ctl-sm` works on icon buttons — `size-*` reads the
+     --size-* namespace, not --height-* */
+  --size-ctl-sm: var(--ctl-sm);
+  --size-ctl-md: var(--ctl-md);
+  --size-ctl-lg: var(--ctl-lg);
+  --height-band-nav: var(--band-nav);
+  --height-band-toolbar: var(--band-toolbar);
+  --height-band-filters: var(--band-filters);
+  --height-band-tabs: var(--band-tabs);
+  --height-band-thead: var(--band-thead);
+  --height-band-row: var(--band-row);
+  --height-band-bulk: var(--band-bulk);
+  --height-band-footer: var(--band-footer);
+
+  --radius: var(--radius);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+
+  --font-sans: "Inter var", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ease-app: var(--ease);
+  --animate-shimmer: shimmer 1.4s ease-in-out infinite;
+}
+
+/* ── element defaults — INSIDE @layer base so utilities still win ─────────── */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    /* tabular figures everywhere by default; proportional is the exception,
+       not the rule, in a product surface full of aligned columns */
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "cv05" 1; /* Inter: lowercase l with tail, legibility */
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-size: var(--text-ui);
+    line-height: var(--lh-ui);
+    letter-spacing: var(--tr-ui);
+  }
+  /* App headings are CHROME, not editorial type. They default small and tight;
+     a component that wants bigger says so with a utility. */
+  h1 { font-size: var(--text-head);  line-height: var(--lh-head);  letter-spacing: var(--tr-head);  font-weight: 600; margin: 0; }
+  h2 { font-size: var(--text-title); line-height: var(--lh-title); letter-spacing: var(--tr-title); font-weight: 600; margin: 0; }
+  h3 { font-size: var(--text-ui);    line-height: var(--lh-ui);    letter-spacing: var(--tr-ui);    font-weight: 600; margin: 0; }
+  h4, h5, h6 { font-size: var(--text-sm); line-height: var(--lh-sm); font-weight: 600; margin: 0; }
+  p  { margin: 0; }
+  table { border-collapse: separate; border-spacing: 0; }
+  th { text-align: left; font-weight: 500; }
+  /* one focus treatment, everywhere. :focus-visible, never :focus. */
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+  [data-theme] ::selection { background: var(--accent-subtle); }
+}
+
+@layer utilities {
+  /* THE transition. One utility carries the whole motion config, so a component
+     can never pick its own duration or curve — and there is exactly one place to
+     change the app's feel. Use this instead of `transition-colors duration-… ease-…`.
+     (Tailwind has no --duration-* theme namespace, so a token-driven duration
+     utility is not expressible as a theme key; this is the durable form.) */
+  .transition-app {
+    transition-property: color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter;
+    transition-duration: var(--dur);
+    transition-timing-function: var(--ease);
+  }
+  /* For panels, dialogs and toasts entering — the only slower tier. */
+  .transition-app-enter {
+    transition-property: opacity, transform;
+    transition-duration: var(--dur-enter);
+    transition-timing-function: var(--ease);
+  }
+
+  /* prose is the exception: the ONLY place line-height 1.5+ is correct */
+  .prose-ui {
+    font-size: var(--text-ui);
+    line-height: var(--lh-prose);
+    letter-spacing: 0;
+    max-width: var(--measure-prose);
+    color: var(--text-muted);
+  }
+  /* explicit opt-out for identifiers that must not be tabular (names, hashes) */
+  .pnum { font-variant-numeric: proportional-nums; }
+  .tnum { font-variant-numeric: tabular-nums lining-nums; }
+  /* the sticky-header companion: keeps a focused row out from under the
+     header. WCAG 2.2 SC 2.4.11 Focus Not Obscured (Minimum), Level AA. */
+  .scroll-clear-header {
+    scroll-margin-top: calc(var(--band-nav) + var(--band-toolbar) + var(--band-thead));
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.45; }
+}
+
+/* Reduced motion removes TRAVEL, never FEEDBACK. Duration → 0 so every state
+   change still happens, instantly. Do not delete the transition entirely: a
+   removed transition often takes the hover/press colour change with it. */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0.01ms; --dur-enter: 0.01ms; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

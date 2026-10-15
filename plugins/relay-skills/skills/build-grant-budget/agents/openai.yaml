@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Build Grant Budget"
+  short_description: "Relay: Grant budgets, indirect cost checks and justifications"
+  default_prompt: "Use $build-grant-budget to build this grant budget, check the indirect rate against the funder's cap, and write the line-by-line justification."

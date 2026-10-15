@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "rebalance-territories-new-year",
+        "query": "We are carving territories for next fiscal year. Here is our account list with owners and potential; rebalance the territories and tell me which accounts should move."
+      },
+      {
+        "id": "capacity-versus-bookings-target",
+        "query": "Finance wants 13M in new bookings. Build a sales capacity model with ramp and attrition and tell me how to set quotas so they reconcile with the target."
+      },
+      {
+        "id": "fair-books-check",
+        "query": "Our reps complain their books are unfair. Check territory balance on potential, workload and account count and suggest fixes."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "commission-rate-design",
+        "query": "Design the commission rates, accelerators and pay mix for our account executives for next year."
+      },
+      {
+        "id": "weekly-forecast-call",
+        "query": "Run this week's forecast call: go through commit and best case deals and tell me what we will land this quarter."
+      },
+      {
+        "id": "single-account-plan",
+        "query": "Write an account plan for our biggest customer with stakeholders, expansion opportunities and next steps."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "quota-allocation-with-holdover",
+        "query": "Allocate next year's quota across eight territories using potential and history, and write holdover rules for the accounts that change owner."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "capacity-gap-and-quota",
+      "task": "A hypothetical software company has a finance target of 20M in new bookings next year. It has 12 fully ramped account executives, plans 6 hires starting in month 1, and has historically lost about a quarter of its reps each year. Ramped reps have historically delivered about 1.2M each. Ramp is unknown. Build the capacity model, show the gap to target, propose how to set the quota pool and per-rep quota, and check quota against an OTE of 240,000.",
+      "baselineFailure": "The baseline divides the target by headcount to get quota, ignores ramp and attrition, hides the capacity gap inside quota, and presents a benchmark ramp or quota-to-OTE multiple as fact.",
+      "runs": 1,
+      "assertions": [
+        { "id": "uses-ramped-rep-equivalents", "kind": "text_contains", "value": "RRE" },
+        { "id": "accounts-for-attrition", "kind": "text_contains", "value": "attrition" },
+        { "id": "shows-gap", "kind": "text_contains", "value": "Gap" },
+        { "id": "states-over-assignment", "kind": "text_contains", "value": "over-assignment" },
+        { "id": "checks-quota-to-ote", "kind": "text_contains", "value": "Quota-to-OTE" },
+        { "id": "labels-assumptions", "kind": "text_contains", "value": "Assumed" }
+      ]
+    },
+    {
+      "id": "rebalance-with-transition",
+      "task": "Four hypothetical territories hold account potential of 3.0M, 2.2M, 1.8M and 1.0M. The fourth rep is new. Two accounts in the first territory have late-stage deals closing next month. Recommend a rebalance, report balance statistics, allocate quota, and write the transition rules for moved accounts.",
+      "baselineFailure": "The baseline moves the largest customer accounts to equalise totals, reports no spread statistic, ignores workload, and moves late-stage deals without holdover rules.",
+      "runs": 1,
+      "assertions": [
+        { "id": "reports-cv", "kind": "text_contains", "value": "CV" },
+        { "id": "checks-workload", "kind": "text_contains", "value": "workload" },
+        { "id": "applies-holdover", "kind": "text_contains", "value": "holdover" },
+        { "id": "includes-transition-plan", "kind": "text_contains", "value": "Transition plan" },
+        { "id": "no-industry-average-claim", "kind": "text_not_contains", "value": "industry average" }
+      ]
+    }
+  ]
+}

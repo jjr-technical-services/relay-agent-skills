@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Design Customer Health Score"
+  short_description: "Relay: Design and backtest a customer health score"
+  default_prompt: "Use $design-customer-health-score to define the churn outcome, choose and weight health signals, backtest them against past renewals, and set bands with playbooks."

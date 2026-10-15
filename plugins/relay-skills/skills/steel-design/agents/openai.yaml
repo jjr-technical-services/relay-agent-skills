@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: App Surface Designer"
+  short_description: "Relay: Design enterprise app surfaces, tables and flows"
+  default_prompt: "Use $steel-design to structure this application surface — count its chrome bands, set the table and control sizing, and cover every state."

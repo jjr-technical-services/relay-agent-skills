@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Write in My Voice"
+  short_description: "Relay: Build a consented writing-style profile and drafts"
+  default_prompt: "Use $write-in-my-voice to build a writing-style profile from sources I authorize, then prepare drafts for my review."

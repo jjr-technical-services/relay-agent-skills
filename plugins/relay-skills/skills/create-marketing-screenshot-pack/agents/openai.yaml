@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Marketing Screenshot Pack"
+  short_description: "Relay: Build narrative-ready product screenshot packs"
+  default_prompt: "Use $create-marketing-screenshot-pack to identify the strongest product flows and build a responsive, narrative-ready screenshot pack."

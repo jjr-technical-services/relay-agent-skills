@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "is-retargeting-incremental",
+        "query": "Our retargeting shows a 9x ROAS in the ad platform but revenue did not move when we doubled spend. How do we measure whether it is actually incremental?"
+      },
+      {
+        "id": "design-geo-lift-test",
+        "query": "Design a geo-lift test for our TV and radio spend and tell me how many markets and weeks we need."
+      },
+      {
+        "id": "which-attribution-model",
+        "query": "Should we switch from last-touch to data-driven attribution, and how do we reconcile it with our how did you hear about us survey?"
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "pricing-page-ab-test",
+        "query": "Set up an A/B test comparing two versions of our pricing page headline."
+      },
+      {
+        "id": "annual-budget-allocation",
+        "query": "Build next year's marketing budget by quarter with base, cut, and growth scenarios."
+      },
+      {
+        "id": "signup-funnel-leak",
+        "query": "Find where visitors drop off between signup and activation in our product funnel."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "channel-measurement-plan",
+        "query": "Write a measurement plan for each of our five marketing channels with a holdout or other test, power, duration, and pre-registered decision rules."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "retargeting-holdout-analysis",
+      "task": "Hypothetical results from a one-month retargeting test: a random 10% holdout. Treatment 900,000 people with 19,800 conversions; holdout 100,000 people with 2,000 conversions. Spend was $90,000. The ad platform attributed 6,000 conversions. The CMO wants to know if retargeting works and what its true cost per acquisition is. Analyze the test, compare with platform attribution, and recommend a decision rule for next quarter.",
+      "baselineFailure": "The baseline reports the platform's cost per attributed conversion as the true cost, ignores the holdout interval, or states a lift without the test math.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "computes-incremental-conversions",
+          "kind": "text_contains",
+          "value": "incremental conversions"
+        },
+        {
+          "id": "reports-icpa",
+          "kind": "text_contains",
+          "value": "iCPA"
+        },
+        {
+          "id": "reports-interval",
+          "kind": "text_contains",
+          "value": "interval"
+        },
+        {
+          "id": "incrementality-factor",
+          "kind": "text_contains",
+          "value": "incrementality factor"
+        },
+        {
+          "id": "decision-rule",
+          "kind": "text_contains",
+          "value": "decision rule"
+        },
+        {
+          "id": "no-industry-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    },
+    {
+      "id": "untestable-podcast-channel",
+      "task": "A company spends a hypothetical $20,000 a month on podcast sponsorships. The podcasts get almost no tracked clicks, but 15% of signup form respondents say they heard about the company on a podcast (response rate 40%). Leadership wants to know the podcast channel's lift. Explain what can and cannot be concluded now, and design the measurement approach.",
+      "baselineFailure": "The baseline scales the 15% self-reported share to all signups and declares a lift or ROAS figure without a test.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "mentions-response-rate",
+          "kind": "text_contains",
+          "value": "response rate"
+        },
+        {
+          "id": "cannot-conclude-lift",
+          "kind": "text_contains",
+          "value": "cannot"
+        },
+        {
+          "id": "measurement-plan",
+          "kind": "text_contains",
+          "value": "Measurement plan"
+        },
+        {
+          "id": "power-calc",
+          "kind": "text_contains",
+          "value": "power"
+        }
+      ]
+    }
+  ]
+}

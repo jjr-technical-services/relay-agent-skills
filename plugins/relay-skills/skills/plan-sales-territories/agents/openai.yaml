@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Plan Sales Territories"
+  short_description: "Relay: Balance territories and reconcile quota to capacity"
+  default_prompt: "Use $plan-sales-territories to segment our accounts, model ramped rep capacity against the bookings target, balance the territories, and allocate quotas with a transition plan."

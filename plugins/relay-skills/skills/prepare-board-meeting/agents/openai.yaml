@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Prepare Board Meeting"
+  short_description: "Relay: Board packets that end in clear decisions"
+  default_prompt: "Use $prepare-board-meeting to build this quarter's board agenda with a consent agenda, the decisions requested with options, a conflict check, a board dashboard with definitions, draft resolutions and the follow-up tracker."

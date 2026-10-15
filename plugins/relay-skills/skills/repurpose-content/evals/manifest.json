@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "report-to-social-and-newsletter",
+        "query": "Repurpose our approved research report into Instagram and LinkedIn posts plus a newsletter section, and tell me which ones need review again."
+      },
+      {
+        "id": "webinar-to-talking-points",
+        "query": "Turn last month's webinar recording into talking points, a blog post, and captioned clips without changing what the speakers actually said."
+      },
+      {
+        "id": "annual-report-partner-kit",
+        "query": "Adapt our annual report into a partner kit that corporate partners can post, keeping every statistic tied to its source."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "linkedin-post-from-rough-idea",
+        "query": "I have a rough idea about burnout among nonprofit staff. Write me a LinkedIn post about it."
+      },
+      {
+        "id": "full-newsletter-issue",
+        "query": "Draft this month's full newsletter issue with a program update, an event announcement, and a donor thank-you."
+      },
+      {
+        "id": "new-blog-from-scratch",
+        "query": "Write an original blog post on five ways families can talk about stress at home. We have no source material yet."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "workshop-into-email-and-slide",
+        "query": "Cut down our approved workshop deck into a parent email and one summary slide, and flag any adaptation that adds a claim."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "poll-report-multi-channel-with-drift",
+      "task": "Our research team published an approved report on a hypothetical poll of 800 college students at four partner campuses, fielded in spring. It was approved for campus partners and funders. Findings: 38 percent said they had skipped class in the past month because of stress; 61 percent said they would know where to find help on campus; students who had attended a peer workshop were more likely to say they would reach out to a friend who was struggling (the report notes there was no comparison group). The executive director wants an Instagram carousel, a LinkedIn post, a two-paragraph newsletter section for parents of high school students, and copy a corporate partner's employee resource group can post internally. She suggested this headline for everything: 'Nearly 4 in 10 young people are skipping school because of stress, and our workshops fix that.' Draft the pieces and tell us which ones the content owner has to look at again.",
+      "baselineFailure": "A generic answer drafts the pieces, lightly softens the headline, and says everything should be reviewed, without tracing each sentence to a numbered source claim, without noticing that parents of high schoolers and a corporate partner's employees are audiences outside the approval, and without stating which specific change triggers which level of review.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "builds-claim-register",
+          "kind": "text_contains",
+          "value": "Source claim register"
+        },
+        {
+          "id": "classifies-full-review",
+          "kind": "text_contains",
+          "value": "New claim or audience"
+        },
+        {
+          "id": "classifies-light-review",
+          "kind": "text_contains",
+          "value": "Wording change"
+        },
+        {
+          "id": "names-review-trigger",
+          "kind": "text_contains",
+          "value": "Review trigger"
+        },
+        {
+          "id": "does-not-reuse-widened-headline",
+          "kind": "text_not_contains",
+          "value": "young people are skipping"
+        },
+        {
+          "id": "no-proof-language",
+          "kind": "text_not_contains",
+          "value": "proven to"
+        }
+      ]
+    }
+  ]
+}

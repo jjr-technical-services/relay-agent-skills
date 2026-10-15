@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "competitive-landscape",
+        "query": "Research our competitive landscape and show where we can credibly differentiate."
+      },
+      {
+        "id": "positioning-comparison",
+        "query": "Compare how our main competitors position themselves, what they claim, and which channels they use."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "single-company-profile",
+        "query": "Write a short company profile of one vendor for a sales email."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "market-entry-alternatives",
+        "query": "Before we enter this market, map the alternatives buyers already use, including doing nothing, and what that means for our positioning."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "landscape-and-whitespace",
+      "task": "A small agency-operations software company wants to know which alternatives its buyers weigh and where it could stand apart. Research the landscape from the public web and give a decision-ready view for its next positioning decision.",
+      "baselineFailure": "The baseline lists well-known vendors by fame, omits substitutes and the status quo, treats visible ads as proof that a channel works, and offers differentiation ideas without evidence labels or access dates.",
+      "runs": 1,
+      "assertions": [
+        { "id": "status-quo", "kind": "text_contains", "value": "status quo" },
+        { "id": "whitespace", "kind": "text_contains", "value": "whitespace" },
+        { "id": "performance-unknowns", "kind": "text_contains", "value": "unknown" },
+        { "id": "access-dates", "kind": "text_contains", "value": "accessed" }
+      ]
+    },
+    {
+      "id": "unattended-downstream-reuse",
+      "task": "A launch workflow runs this research with nobody available to answer questions. An earlier study of the same market exists in the team's library. Produce the research so the next workflow stage can consume it directly.",
+      "baselineFailure": "The baseline stops to ask framing questions, repeats the earlier study from scratch without citing it, hides guessed inputs, and returns prose or YAML that the next stage cannot validate.",
+      "runs": 1,
+      "assertions": [
+        { "id": "handoff-block", "kind": "text_contains", "value": "competitive_research_handoff" },
+        { "id": "schema-id", "kind": "text_contains", "value": "relay.gtm.competitive_research.v1" },
+        { "id": "prior-study", "kind": "text_contains", "value": "reused_study" },
+        { "id": "assumptions", "kind": "text_contains", "value": "assumptions" }
+      ]
+    }
+  ]
+}

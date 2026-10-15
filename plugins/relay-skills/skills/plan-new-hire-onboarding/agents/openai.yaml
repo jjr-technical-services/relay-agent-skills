@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: New Hire Onboarding"
+  short_description: "Relay: Plan role-specific onboarding and 30/60/90 goals"
+  default_prompt: "Use $plan-new-hire-onboarding to build a pre-start, first-week, and 30/60/90 plan for this new hire, plus the manager's checklist."

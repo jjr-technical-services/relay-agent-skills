@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://relay.builtbyrose.co/schemas/relay.skill_composition.v1.json",
+  "title": "Relay skill composition request",
+  "type": "object",
+  "required": ["schemaVersion", "name", "slug", "description", "mode", "visibility", "stages"],
+  "properties": {
+    "schemaVersion": { "const": "relay.skill_composition.v1" },
+    "name": { "type": "string", "minLength": 1 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 64 },
+    "description": { "type": "string", "minLength": 1, "maxLength": 1024 },
+    "mode": { "enum": ["recipe", "outcome"] },
+    "visibility": { "enum": ["personal", "organization", "public"] },
+    "license": { "type": "string" },
+    "audience": { "type": "string" },
+    "implicitInvocation": { "type": "boolean", "default": true },
+    "stages": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/stage" } },
+    "resources": {
+      "type": "object",
+      "properties": {
+        "agents": { "type": "array", "items": { "$ref": "#/$defs/agent" } },
+        "workflows": { "type": "array", "items": { "$ref": "#/$defs/workflow" } }
+      },
+      "additionalProperties": false
+    },
+    "lineage": { "$ref": "#/$defs/lineage" },
+    "evaluation": { "type": "object" }
+  },
+  "$defs": {
+    "stringArray": { "type": "array", "items": { "type": "string" } },
+    "skill": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "path": { "type": "string" },
+        "sourceType": { "enum": ["bundled", "system", "local", "relay"] },
+        "assetId": { "type": "string" },
+        "assetVersionId": { "type": "string" },
+        "packageDigest": { "type": "string" },
+        "routerResolvedFrom": { "type": "string" },
+        "trust": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "stage": {
+      "type": "object",
+      "required": ["id", "label", "purpose", "skill", "inputs", "output", "acceptanceCriteria", "preserve"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "label": { "type": "string", "minLength": 1 },
+        "purpose": { "type": "string", "minLength": 1 },
+        "skill": { "$ref": "#/$defs/skill" },
+        "inputs": { "$ref": "#/$defs/stringArray" },
+        "output": {
+          "type": "object",
+          "required": ["name", "type", "description"],
+          "properties": {
+            "name": { "type": "string" },
+            "type": { "type": "string" },
+            "description": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "acceptanceCriteria": { "$ref": "#/$defs/stringArray" },
+        "preserve": { "$ref": "#/$defs/stringArray" },
+        "dependsOn": { "$ref": "#/$defs/stringArray" },
+        "condition": { "type": "string" },
+        "gate": { "type": "object" },
+        "failurePolicy": { "type": "object" },
+        "authority": { "type": "object" },
+        "agentId": { "type": "string" },
+        "workflowId": { "type": "string" },
+        "durable": { "type": "boolean" },
+        "scheduled": { "type": "boolean" },
+        "parallel": { "type": "boolean" },
+        "externalEffects": { "$ref": "#/$defs/stringArray" }
+      },
+      "additionalProperties": true
+    },
+    "agent": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "skills": { "$ref": "#/$defs/stringArray" },
+        "workflows": { "$ref": "#/$defs/stringArray" }
+      },
+      "additionalProperties": true
+    },
+    "workflow": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "skills": { "$ref": "#/$defs/stringArray" },
+        "agents": { "$ref": "#/$defs/stringArray" },
+        "workflows": { "$ref": "#/$defs/stringArray" },
+        "assetId": { "type": "string" },
+        "assetVersionId": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "lineage": {
+      "type": "object",
+      "properties": {
+        "action": { "enum": ["create", "revision", "fork"] },
+        "assetId": { "type": "string" },
+        "assetVersionId": { "type": "string" },
+        "parentAssetId": { "type": "string" },
+        "sourceVersionId": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "build-close-calendar-and-checklist",
+        "query": "We close the books on business day 12 and it keeps slipping. Build a month-end close calendar with owners and a close checklist for our three-person finance team."
+      },
+      {
+        "id": "flux-and-reconciliations",
+        "query": "Set up balance-sheet account reconciliations and a flux analysis with our thresholds of 25,000 and 10% before we lock March."
+      },
+      {
+        "id": "shorten-close",
+        "query": "How do we shorten our close from BD+10 to BD+6? Tell us what to move pre-close and what to automate."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "explain-one-budget-variance",
+        "query": "Marketing spend came in 18% over budget last quarter. Write a short explanation of the variance for the board."
+      },
+      {
+        "id": "thirteen-week-cash",
+        "query": "Build a 13-week cash flow forecast so we can see if we breach the minimum cash covenant in May."
+      },
+      {
+        "id": "revenue-standard-opinion",
+        "query": "Is this multi-year licence with bundled implementation services one performance obligation or two under ASC 606? Give us the accounting conclusion."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "journal-entry-review-standard",
+        "query": "Write our journal entry support and review standard and a sign-off and lock procedure for the monthly close."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "saas-company-close-setup",
+      "task": "A hypothetical single-entity subscription software company with 60 employees, a controller, and two accountants closes on BD+11. It uses a GL, a billing system, and an outsourced payroll provider, and has deferred revenue, prepaid software, and a small fixed asset base. The owner wants a close calendar, the core checklist, a balance-sheet reconciliation template, a flux method using thresholds of 20,000 and 10%, and a plan to reach BD+7. No revenue policy document was supplied.",
+      "baselineFailure": "The baseline produces a generic checklist without business-day sequencing, owners, reviewer separation, a deferred revenue roll-forward, or a flux explanation standard, and silently invents a revenue policy or materiality level.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "uses-business-days",
+          "kind": "text_contains",
+          "value": "BD+"
+        },
+        {
+          "id": "has-deferred-revenue-roll-forward",
+          "kind": "text_contains",
+          "value": "roll-forward"
+        },
+        {
+          "id": "has-reconciliation",
+          "kind": "text_contains",
+          "value": "reconciliation"
+        },
+        {
+          "id": "has-flux",
+          "kind": "text_contains",
+          "value": "flux"
+        },
+        {
+          "id": "names-reviewer",
+          "kind": "text_contains",
+          "value": "reviewer"
+        },
+        {
+          "id": "routes-policy-gap-to-controller",
+          "kind": "text_contains",
+          "value": "controller"
+        }
+      ]
+    },
+    {
+      "id": "flux-review-of-supplied-lines",
+      "task": "Using hypothetical figures, review this flux with thresholds of 10,000 and 10% applied as a both-tests rule: software expense 50,000 prior month and 62,000 current; rent 100,000 and 108,000; travel 2,000 and 5,000; payroll 400,000 and 460,000 with headcount unchanged. Say which lines need explanations, what evidence to request, and what an acceptable explanation must contain.",
+      "baselineFailure": "The baseline miscalculates percentages, applies the threshold inconsistently, and accepts explanations such as timing or higher activity without cause, quantification, and evidence.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "flags-payroll",
+          "kind": "text_contains",
+          "value": "payroll"
+        },
+        {
+          "id": "requires-evidence",
+          "kind": "text_contains",
+          "value": "evidence"
+        },
+        {
+          "id": "states-threshold",
+          "kind": "text_contains",
+          "value": "threshold"
+        },
+        {
+          "id": "computes-software-change",
+          "kind": "text_contains",
+          "value": "24"
+        },
+        {
+          "id": "no-fabricated-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    }
+  ]
+}

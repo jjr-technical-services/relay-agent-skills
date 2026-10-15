@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "foundation-application-from-guidelines",
+        "query": "Here are the foundation's guidelines and application questions. Write our grant proposal and make sure we hit every requirement."
+      },
+      {
+        "id": "check-draft-against-rfp",
+        "query": "Check our draft grant application against the RFP: limits, attachments, headings, eligibility, and scoring criteria."
+      },
+      {
+        "id": "need-statement-and-objectives",
+        "query": "Write the need statement and SMART objectives for our proposal to a county funder, using the data I pasted."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "short-letter-of-inquiry",
+        "query": "Draft a one-page letter of inquiry introducing our program to a foundation we have never approached."
+      },
+      {
+        "id": "commercial-procurement-rfp",
+        "query": "Respond to this corporate procurement RFP for our software consulting services, including pricing and security answers."
+      },
+      {
+        "id": "funder-report-after-award",
+        "query": "Write the year-one report to our funder showing outcomes against targets and budget to actual."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "government-notice-of-funding",
+        "query": "We are applying to a state notice of funding for youth programs. Turn it into an outline with every section, limit, and attachment, then draft the program design."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "buried-eligibility-and-limits",
+      "task": "Draft our application to a hypothetical community foundation's youth wellbeing grant. From their guidelines: 'Question 2, Statement of Need (2,000 characters including spaces). Question 3, Program Design (3,000 characters including spaces). Question 4, Evaluation (1,500 characters including spaces).' The scoring rubric gives Need 20 points, Program Design 30, Evaluation 30, Organizational Strength 20. The FAQ at the end says: 'Applicants with annual budgets above 750,000 must include an independent audit for the most recent fiscal year.' The attachments section lists a board list with affiliations and the IRS determination letter. Our facts: annual budget 1,100,000; last year we had a CPA financial review, not an audit; our program runs peer-led wellbeing workshops for high school students; last year 300 students attended (our attendance logs); our standard About Us text, last approved in 2023, says we serve 5,000 youth a year. Our old draft calls the need section 'The Problem' and says the workshops reduce depression. Write it so we can submit.",
+      "baselineFailure": "The baseline drafts polished sections, keeps or softens the depression-reduction claim, reuses the 5,000 figure, writes to approximate lengths without counts, and either misses the audit requirement in the FAQ or mentions it in passing after the draft instead of stating it as an eligibility problem to resolve first; it produces no requirement-by-requirement matrix or scored reviewer pass.",
+      "runs": 1,
+      "assertions": [
+        { "id": "compliance-matrix-heading", "kind": "text_contains", "value": "Compliance matrix" },
+        { "id": "where-answered-column", "kind": "text_contains", "value": "Where answered" },
+        { "id": "eligibility-risk-status", "kind": "text_contains", "value": "Eligibility risk" },
+        { "id": "reviewer-read-through-heading", "kind": "text_contains", "value": "Reviewer read-through" },
+        { "id": "boilerplate-freshness-heading", "kind": "text_contains", "value": "Boilerplate freshness" },
+        { "id": "no-stigmatizing-language", "kind": "text_not_contains", "value": "committed suicide" },
+        { "id": "no-promised-results", "kind": "text_not_contains", "value": "guaranteed" }
+      ]
+    }
+  ]
+}

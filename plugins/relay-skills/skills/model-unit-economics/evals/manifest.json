@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "cac-payback-by-channel",
+        "query": "Calculate our CAC and CAC payback by channel from this marketing spend and new customer data."
+      },
+      {
+        "id": "ltv-to-cac-board-review",
+        "query": "Prepare our LTV, LTV to CAC ratio and contribution margin for the board, and tell me whether our customer acquisition is profitable."
+      },
+      {
+        "id": "transactional-order-economics",
+        "query": "Work out contribution margin per order and how many repeat orders it takes to recover acquisition cost for our ecommerce store."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "market-size-estimate",
+        "query": "Estimate the TAM, SAM and SOM for project management software for construction firms in North America."
+      },
+      {
+        "id": "pricing-tiers-design",
+        "query": "Design good, better, best pricing tiers and packaging for our new analytics product."
+      },
+      {
+        "id": "explain-budget-variance",
+        "query": "Explain why marketing spend came in 18% over budget last quarter."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "segment-payback-sensitivity",
+        "query": "Show how payback period and LTV change if churn doubles or CAC rises 20% for our small business segment."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "subscription-unit-economics-model",
+      "task": "A hypothetical subscription software company has 4 months of history. ARPA is 500 per month. Reported gross margin is 80%, but customer support and onboarding salaries are booked in operating expense. Paid media last quarter was 300,000 and sales and marketing salaries were 300,000; the company won 100 new customers, 40 of them organic. Observed monthly churn is 1% so far. The CEO wants to tell investors LTV is 40,000 and LTV:CAC is above 6. Build the unit economics, correct what needs correcting, and state what can and cannot be concluded.",
+      "baselineFailure": "The baseline accepts the reported gross margin, uses paid-only blended CAC, repeats the 40,000 LTV from 1% churn over 4 months of data, and endorses the ratio against an invented industry benchmark.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "shows-fully-loaded-cac",
+          "kind": "text_contains",
+          "value": "fully loaded"
+        },
+        {
+          "id": "computes-payback",
+          "kind": "text_contains",
+          "value": "payback"
+        },
+        {
+          "id": "flags-churn-fragility",
+          "kind": "text_contains",
+          "value": "churn"
+        },
+        {
+          "id": "prefers-cohort-evidence",
+          "kind": "text_contains",
+          "value": "cohort"
+        },
+        {
+          "id": "labels-assumptions",
+          "kind": "text_contains",
+          "value": "assum"
+        },
+        {
+          "id": "no-industry-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    },
+    {
+      "id": "channel-breakdown-hides-loser",
+      "task": "Hypothetical data: paid search spent 100,000 and won 50 customers; paid social spent 150,000 and won 25 customers; ARPA is 400 per month and gross margin 75%. Management sees a blended payback and wants to double paid social. Compare channels, compute payback for each, and give a sensitivity view before recommending.",
+      "baselineFailure": "The baseline reports only a blended figure and approves doubling paid social without channel payback, marginal CAC, or sensitivity.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "channel-level",
+          "kind": "text_contains",
+          "value": "channel"
+        },
+        {
+          "id": "search-payback-value",
+          "kind": "text_contains",
+          "value": "6.7"
+        },
+        {
+          "id": "social-cac-value",
+          "kind": "text_contains",
+          "value": "6,000"
+        },
+        {
+          "id": "marginal-cac",
+          "kind": "text_contains",
+          "value": "marginal"
+        },
+        {
+          "id": "sensitivity-shown",
+          "kind": "text_contains",
+          "value": "ensitivity"
+        }
+      ]
+    }
+  ]
+}

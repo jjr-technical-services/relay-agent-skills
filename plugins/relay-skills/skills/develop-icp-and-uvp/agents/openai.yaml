@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Develop ICP and UVP"
+  short_description: "Relay: Define ideal customers and differentiated value"
+  default_prompt: "Use $develop-icp-and-uvp to build an evidence-backed ICP and unique value proposition for this offering."

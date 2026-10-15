@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "engineer-30-60-90",
+        "query": "A backend engineer starts on Monday. Build their onboarding plan with a first week schedule and 30/60/90 outcomes."
+      },
+      {
+        "id": "team-onboarding-template",
+        "query": "Create a reusable onboarding template for our support team with a buddy program and a manager checklist."
+      },
+      {
+        "id": "new-hire-checklist",
+        "query": "What should I have ready before my new account executive's start date, and how do I measure time to productivity?"
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "write-job-posting",
+        "query": "Write the job description for the backend engineer role we are hiring."
+      },
+      {
+        "id": "interview-kit",
+        "query": "Build a structured interview kit with scoring rubrics for our account executive candidates."
+      },
+      {
+        "id": "app-user-onboarding",
+        "query": "Design the first-run onboarding flow and empty states for new users of our mobile app."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "remote-analyst-first-90-days",
+        "query": "Our first remote financial analyst joins next month. Plan day one, stakeholder introductions, a learning plan, and check-ins for the first 90 days."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "csm-onboarding-plan",
+      "task": "Hypothetical facts: a mid-level customer success manager starts in two weeks, working remotely. They will take over a book of accounts from a departing colleague who leaves one month after the start date. The team uses a CRM, a support ticketing tool, and a shared forecast sheet. The manager has weekly one-to-ones with the team. Build the onboarding plan.",
+      "baselineFailure": "The baseline gives a generic checklist (meet the team, read the handbook) with vague 30/60/90 goals that could apply to any role, no first contribution, no access lead times, and no success measures.",
+      "runs": 1,
+      "assertions": [
+        { "id": "has-pre-start", "kind": "text_contains", "value": "Pre-start" },
+        { "id": "has-30-60-90", "kind": "text_contains", "value": "90" },
+        { "id": "first-contribution", "kind": "text_contains", "value": "first meaningful contribution" },
+        { "id": "buddy", "kind": "text_contains", "value": "buddy" },
+        { "id": "time-to-productivity", "kind": "text_contains", "value": "time to productivity" },
+        { "id": "no-generic-handbook-goal", "kind": "text_not_contains", "value": "Read the employee handbook" }
+      ]
+    }
+  ]
+}

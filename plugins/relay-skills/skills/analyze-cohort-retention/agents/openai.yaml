@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Cohort Retention Analysis"
+  short_description: "Relay: Build logo, GRR and NRR cohort retention triangles"
+  default_prompt: "Use $analyze-cohort-retention to build logo, gross and net revenue retention triangles from our customer CSV and tell us what the curves show."

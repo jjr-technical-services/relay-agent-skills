@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Design Sales Compensation"
+  short_description: "Relay: Design sales comp plans and model payouts"
+  default_prompt: "Use $design-sales-compensation to set pay mix, measures, commission rates and accelerators for our sales roles, and model payouts and cost of sales at 50 to 150 percent attainment."

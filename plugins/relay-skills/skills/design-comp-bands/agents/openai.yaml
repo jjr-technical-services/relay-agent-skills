@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Salary Band Designer"
+  short_description: "Relay: Build pay ranges and place employees in them"
+  default_prompt: "Use $design-comp-bands to build salary bands from our job levels and market data, then show compa-ratios and the cost to bring people to minimum."

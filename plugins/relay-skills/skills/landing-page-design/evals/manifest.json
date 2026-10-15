@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "landing-page",
+        "query": "Design and build a landing page for our product that converts trial signups."
+      },
+      {
+        "id": "campaign-page",
+        "query": "Create a focused campaign page for our webinar with copy and a React implementation."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "full-website-ia",
+        "query": "Plan the information architecture for our whole company website with twenty pages."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "product-page-from-screens",
+        "query": "We have a folder of product screenshots and a positioning doc. Turn them into a product page that gets demo requests."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "evidence-grounded-page",
+      "task": "Build a landing page for a young software product that has no customers yet. You are given a screenshot pack whose manifest marks three captures as selected and two as not selected, and a claim register in which 'doubles your pipeline' is forbidden and 'saves hours each week' is unverified.",
+      "baselineFailure": "The baseline invents testimonials and logos, uses the forbidden claim, places unselected captures, and guesses image sizes.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "forbidden-claim-absent",
+          "kind": "text_not_contains",
+          "value": "doubles your pipeline"
+        },
+        {
+          "id": "unverified-flagged",
+          "kind": "text_contains",
+          "value": "unverified"
+        },
+        {
+          "id": "proof-placeholder",
+          "kind": "text_contains",
+          "value": "placeholder"
+        },
+        {
+          "id": "content-map",
+          "kind": "text_contains",
+          "value": "landing-page-content-map.md"
+        }
+      ]
+    },
+    {
+      "id": "unattended-page",
+      "task": "A launch workflow runs this skill with nobody available to answer questions. It supplies an ICP handoff and a marketing strategy handoff but no pricing. Plan the page and its content map.",
+      "baselineFailure": "The baseline stops to ask for pricing or invents prices, and does not record which inputs it guessed.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "content-map",
+          "kind": "text_contains",
+          "value": "landing-page-content-map.md"
+        },
+        {
+          "id": "assumption",
+          "kind": "text_contains",
+          "value": "assumption"
+        },
+        {
+          "id": "no-invented-price",
+          "kind": "text_not_contains",
+          "value": "per month"
+        }
+      ]
+    }
+  ]
+}

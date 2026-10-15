@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "donor-stewardship-plan-from-gift-history",
+        "query": "Using our gift history export, build a donor stewardship plan for next fiscal year with segments, portfolios and a stewardship calendar."
+      },
+      {
+        "id": "rfm-segmentation-and-retention",
+        "query": "Score our donors with RFM, tell me our donor retention and upgrade rates, and plan how to win back our LYBUNT and lapsed donors."
+      },
+      {
+        "id": "acknowledgment-standards-review",
+        "query": "Set acknowledgment standards for our gifts: how fast we thank, who signs, and what the gift receipt must say for the $250 and quid pro quo rules."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "single-thank-you-letter",
+        "query": "Write a warm thank-you letter to Pat for their $100 gift to our family workshops."
+      },
+      {
+        "id": "single-gift-receipt",
+        "query": "Draft the gift acknowledgment receipt email for a $500 online donation made yesterday."
+      },
+      {
+        "id": "year-end-campaign-plan",
+        "query": "Plan our year-end giving campaign with a goal, email cadence and matching gift."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "moves-management-portfolio-review",
+        "query": "Our two gift officers have no idea who they should be seeing. Set up moves management stages and size their donor portfolios."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "stewardship-plan-with-gift-conditions",
+      "task": "You support the development director of a small hypothetical nonprofit. Facts: in the fiscal year before last, 400 people gave; 180 of those same people gave again in the most recent fiscal year, when 520 people gave in total. The executive director personally signs every acknowledgment and letters currently go out about three weeks after the gift. At the spring gala, donor D-104 paid $300 for a seat; the organization values the dinner at $120 per seat. Donor D-221 gave $10,000 designated only for the family newsletter and has asked that their name never appear anywhere public. The board wants to print a full honor roll of every donor in the annual report. There are two gift officers with about 400 hours each per year for donor visits. Build next year's stewardship plan.",
+      "baselineFailure": "A generic answer gives a sensible stewardship calendar and thank-you advice but does not compute retention with its numerator and denominator, does not keep a register of gift conditions, treats the gala seat as an ordinary gift without the quid pro quo disclosure, and lets the anonymous restricted donor slip onto the honor roll.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "has-gift-exceptions-register",
+          "kind": "text_contains",
+          "value": "Gift exceptions register"
+        },
+        {
+          "id": "has-metric-definitions",
+          "kind": "text_contains",
+          "value": "Metric definitions"
+        },
+        {
+          "id": "labels-anonymity-control",
+          "kind": "text_contains",
+          "value": "Do not list publicly"
+        },
+        {
+          "id": "states-good-faith-estimate",
+          "kind": "text_contains",
+          "value": "good-faith estimate"
+        },
+        {
+          "id": "computes-retention",
+          "kind": "text_contains",
+          "value": "45%"
+        },
+        {
+          "id": "no-outside-benchmark",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        },
+        {
+          "id": "no-full-deductibility-claim",
+          "kind": "text_not_contains",
+          "value": "fully tax-deductible"
+        }
+      ]
+    }
+  ]
+}

@@ -24,16 +24,14 @@ test('top-level help flags print usage', () => {
   }
 });
 
-test('verify validates all four bundled skills against the production lock', () => {
+test('verify validates the complete native library against locked files', () => {
   const result = run(['verify', '--json']);
   assert.equal(result.status, 0, result.stderr);
   const report = JSON.parse(result.stdout);
-  assert.deepEqual(report.map((entry) => entry.name), [
-    'relay-skill-router',
-    'kpi-tree',
-    'ab-test-setup',
-    'negotiate-tactically',
-  ]);
+  assert.equal(report.length, 63);
+  for (const name of ['relay-skill-router', 'kpi-tree', 'ab-test-setup', 'negotiate-tactically', 'steel-design', 'write-grant-proposal', 'get-started-with-relay']) {
+    assert.ok(report.some((entry) => entry.name === name), `${name} must be included`);
+  }
   assert.equal(report.every((entry) => /^sha256:[a-f0-9]{64}$/.test(entry.digest)), true);
 });
 
@@ -89,4 +87,19 @@ test('explicit OAuth setup requests refresh-token access on both hosts', async (
   assert.deepEqual(codexManifest.mcpServers.relay_skills.scopes, scopes);
   const manifest = JSON.parse(await readFile(path.join(root, 'plugins/relay-skills/.claude-mcp.json'), 'utf8'));
   assert.deepEqual(Object.values(manifest.mcpServers)[0].oauth.scopes.split(' '), scopes);
+});
+
+test('expanded native installation preserves design references without a Relay connection', async (t) => {
+  const project = await mkdtemp(path.join(tmpdir(), 'relay-native-library-'));
+  t.after(() => rm(project, { recursive: true, force: true }));
+  const result = run(['install', 'steel-design', 'get-started-with-relay', '--scope', 'project', '--host', 'both', '--project-dir', project, '--json']);
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(JSON.parse(result.stdout).length, 4);
+  for (const hostRoot of ['.agents/skills', '.claude/skills']) {
+    const guide = await readFile(path.join(project, hostRoot, 'get-started-with-relay/references/workflows.md'), 'utf8');
+    assert.match(guide, /research-competitive-positioning/);
+    assert.match(guide, /write-grant-proposal/);
+    const design = await readFile(path.join(project, hostRoot, 'steel-design/SKILL.md'), 'utf8');
+    assert.match(design, /name: steel-design/);
+  }
 });

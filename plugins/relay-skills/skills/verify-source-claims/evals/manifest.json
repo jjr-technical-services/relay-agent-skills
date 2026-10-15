@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [{ "id": "verify-report", "query": "Verify the claims in this report against the cited source passages." }],
+    "nearMiss": [{ "id": "draft-report", "query": "Write a new report about this topic without sources." }],
+    "holdout": [{ "id": "changed-denominator", "query": "Check whether this percentage claim matches the source's denominator and date." }]
+  },
+  "scenarios": [
+    {
+      "id": "no-source",
+      "task": "Verify a claim that revenue rose 18%. The requester supplied no source or citation.",
+      "baselineFailure": "The baseline accepts a plausible number as verified and invents a citation.",
+      "runs": 1,
+      "assertions": [
+        { "id": "source-needed", "kind": "text_contains", "value": "source" },
+        { "id": "needs-review", "kind": "text_contains", "value": "needs_review" }
+      ]
+    },
+    {
+      "id": "wrong-period",
+      "task": "Source v2 says 18% growth in Q1 2025. Claim says 18% growth for all of 2025. Screen it, retaining source version v2.",
+      "baselineFailure": "The baseline treats matching percentages as sufficient and misses the period mismatch.",
+      "runs": 1,
+      "assertions": [
+        { "id": "period-mismatch", "kind": "text_contains", "value": "needs_review" },
+        { "id": "version", "kind": "text_contains", "value": "v2" }
+      ]
+    }
+  ]
+}

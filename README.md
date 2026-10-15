@@ -1,10 +1,21 @@
-# Relay Agent Skills
+# Relay Skills
 
-Four portable Agent Skills for Codex and Claude Code, plus an OAuth-protected Relay MCP connection for the broader governed catalog.
+63 practical workflows for research, strategy, product design, marketing, sales, analytics, finance, fundraising, operations, engineering, and QA. Use the included skills immediately; connect a Relay account when you need authorized workspace assets and governed remote routing.
 
-Relay is operated by JJR Technical Services LLC. The tooling in this repository is MIT-licensed; each bundled skill carries its own license file.
+## Get started
 
-## Install from the marketplace
+Ask: **“Help me choose a Relay workflow and get started.”** Or bring a specific task:
+
+- Research competitors and produce an evidence-based positioning comparison.
+- Build a KPI tree, plan an experiment, or diagnose a conversion funnel.
+- Design a product surface or build a conversion-focused landing page.
+- Plan a fundraising campaign, draft a grant proposal, or prepare a funder report.
+- Model unit economics, build a cash forecast, or review a sales forecast.
+- Prepare a negotiation, a board meeting, or a new-hire onboarding plan.
+
+The included `get-started-with-relay` skill routes to the appropriate workflow. Some workflows use research, coding, browser, or connected-data tools; availability depends on your host. When tools are unavailable, the workflow can work from supplied inputs where appropriate and states its limits.
+
+## Install
 
 Codex:
 
@@ -20,74 +31,39 @@ Claude Code:
 /plugin install relay-skills@relay
 ```
 
-`relay-skills` v0.2.1 bundles all four public workflows and connects to `https://relay.builtbyrose.co/mcp`. The host discovers Relay's OAuth metadata, opens sign-in and consent, and requests only `relay.skills.read`, `relay.skills.route`, and `relay.skills.activate`. Do not paste or commit a bearer token.
+Start a fresh session after installation. New installations should use `relay-skills`; the separate product and growth plugins retain their frozen compatibility workflows.
 
-`relay-product-skills` and `relay-growth-skills` remain available at frozen v0.1.0 for one compatibility release. New installations should use only `relay-skills`; the compatibility marketplace entries are scheduled for removal after v0.2.x.
+## Standalone workflows
 
-## Install standalone skills
-
-Run from the repository or, after npm publication, through `npx relay-agent-skills`:
+From a repository checkout, use `node bin/relay-agent-skills.mjs`. After npm publication, the same commands are available through `npx relay-agent-skills`:
 
 ```sh
 npx relay-agent-skills list
 npx relay-agent-skills verify
-npx relay-agent-skills install kpi-tree --host both --scope user
-npx relay-agent-skills install ab-test-setup --host codex --scope project
-npx relay-agent-skills install negotiate-tactically --host claude --scope project
+npx relay-agent-skills install steel-design --host both --scope user
+npx relay-agent-skills install write-grant-proposal --host codex --scope project
 ```
 
-User installs target `~/.agents/skills` for Codex and `~/.claude/skills` for Claude Code. Project installs target `.agents/skills` and `.claude/skills` under the selected project root. Existing skill directories are preserved unless `--force` is explicit.
+User installs target `~/.agents/skills` for Codex and `~/.claude/skills` for Claude Code. Project installs target `.agents/skills` and `.claude/skills`. Existing directories are preserved unless `--force` is explicit.
 
-## Bundled canaries
+## Optional Relay connection
 
-- `relay-skill-router`: matches and activates governed, immutable Relay skill versions through MCP.
-- `kpi-tree`: turns strategic goals into causal metrics and an instrumentation plan.
-- `ab-test-setup`: produces a decision-ready controlled-experiment brief.
-- `negotiate-tactically`: prepares ethical negotiation strategy, calls, and messages.
+The bundled MCP endpoint is `https://relay.builtbyrose.co/mcp`. Complete OAuth consent when you want authorized workspace catalog matching, activation, or exact package-file retrieval. Its scopes are `offline_access`, `relay.skills.read`, `relay.skills.route`, and `relay.skills.activate`. Never paste or commit a bearer token.
 
-The five Relay voice-agent skills and `daily-meeting-prep` are intentionally absent from the public package. Authorized organizations retrieve their governed exact versions through Relay MCP. `silk-design` remains an independent public distribution.
+Native bundled workflows and governed remote asset versions have independent version histories. `library-lock.json` pins every native file. `relay-lock.json` retains the original four promoted remote versions; live verification checks their immutable archives, qualification identities, and OAuth contract. A native package review does not create a remote behavioral qualification or advance a public catalog pointer.
 
-## Version lock and release verification
-
-`relay-lock.json` is generated from production Relay discovery and records each asset ID, asset-version ID, archive digest, source commit, license, qualification ID, evaluation-suite digest, and per-file hash. Run:
+## Validation
 
 ```sh
-npm run sync:relay
+npm ci
 npm run verify:release
 npm run verify:live
 npm run validate:hosts -- --release
+npm test
+npm run pack:dry-run
 claude plugin validate . --strict
 ```
 
-The checked-in production lock pins the exact four behaviorally qualified and promoted Relay versions. Manual file changes fail `npm run verify`; changes in production discovery fail `npm run verify:live`.
+The complete workflow index ships in `plugins/relay-skills/skills/get-started-with-relay/references/workflows.md`. Each included skill retains its MIT license and supporting resources. The native lock records source commits and portability adaptations. Organization-private content and skills without redistribution evidence are excluded from the public bundle.
 
-## Direct MCP setup
-
-Claude Code:
-
-```sh
-claude mcp add --transport http relay-skills https://relay.builtbyrose.co/mcp
-```
-
-Codex `config.toml`:
-
-```toml
-[mcp_servers.relay-skills]
-url = "https://relay.builtbyrose.co/mcp"
-auth = "oauth"
-oauth_resource = "https://relay.builtbyrose.co/mcp"
-scopes = ["offline_access", "relay.skills.read", "relay.skills.route", "relay.skills.activate"]
-```
-
-Explicit OAuth scope lists must include `offline_access` so Relay can issue a refresh token. Existing grants without it need one fresh authorization after updating the configuration.
-
-Claude's plugin uses HTTP transport with `oauth.scopes` encoded as the required single space-separated scope string in `plugins/relay-skills/.claude-mcp.json`.
-
-## Trust and support
-
-- Privacy: https://relay.builtbyrose.co/privacy
-- Terms: https://relay.builtbyrose.co/terms
-- Security: https://relay.builtbyrose.co/security
-- Support: https://relay.builtbyrose.co/support
-
-Public packages are promoted from Relay only after license, strict-format, immutable-version, static-security, exact-provenance, and behavioral-qualification gates pass. Publishing a newer Relay version does not advance the public pin. Organization and private skills remain accessible only through authenticated, scope-checked Relay tools.
+Relay is operated by JJR Technical Services LLC. [Privacy](https://relay.builtbyrose.co/privacy) · [Terms](https://relay.builtbyrose.co/terms) · [Security](https://relay.builtbyrose.co/security) · [Support](https://relay.builtbyrose.co/support).

@@ -1,7 +1,7 @@
 {
   "name": "relay-skills",
-  "version": "0.2.1",
-  "description": "Four native Relay workflows plus OAuth-protected access to the governed skill catalog.",
+  "version": "0.3.0",
+  "description": "63 practical Relay workflows for research, strategy, design, analytics, fundraising, operations, and delivery.",
   "author": {
     "name": "Rose Digital",
     "url": "https://builtbyrose.co"
@@ -23,28 +23,35 @@
   "apps": "./.app.json",
   "interface": {
     "displayName": "Relay Skills",
-    "shortDescription": "Governed skills from Relay",
-    "longDescription": "Use four bundled, version-locked Relay workflows natively and connect through OAuth to match, activate, and read authorized governed skills.",
+    "shortDescription": "Workflows for real work",
+    "longDescription": "Use 63 bundled workflows to research competitors, build KPI trees, plan campaigns, design product surfaces, prepare negotiations, write grant proposals, analyze performance, and run practical business processes. Start with the included skills; connect Relay when you need authorized workspace assets and governed remote routing.",
     "developerName": "Rose Digital",
-    "category": "Developer Tools",
+    "category": "Productivity",
     "capabilities": [
-      "Route governed skills",
-      "Build KPI trees",
-      "Design A/B tests",
-      "Plan negotiations"
+      "Research and strategy",
+      "Product and design",
+      "Marketing and sales",
+      "Nonprofit fundraising",
+      "Analytics and operations",
+      "Engineering and quality"
     ],
     "websiteURL": "https://relay.builtbyrose.co",
     "privacyPolicyURL": "https://relay.builtbyrose.co/privacy",
     "termsOfServiceURL": "https://relay.builtbyrose.co/terms",
     "defaultPrompt": [
-      "Find the best Relay workflow for this task.",
-      "Turn this goal into a measurable KPI tree.",
-      "Help me prepare this negotiation."
+      "Help me choose a Relay workflow and get started.",
+      "Research my competitors and draft a positioning comparison.",
+      "Turn this goal into a practical plan and measurement model."
     ],
     "brandColor": "#020617",
     "composerIcon": "./assets/relay-mark.svg",
     "logo": "./assets/relay-mark.svg",
     "logoDark": "./assets/relay-mark-white.svg",
     "supportURL": "https://relay.builtbyrose.co/support"
+  },
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/get-started-with-relay/SKILL.md"
+    }
   }
 }

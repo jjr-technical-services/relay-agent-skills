@@ -1,8 +1,8 @@
 {
   "name": "relay-skills",
   "displayName": "Relay Skills",
-  "version": "0.2.1",
-  "description": "Four native Relay workflows plus OAuth-protected governed catalog access.",
+  "version": "0.3.0",
+  "description": "63 practical Relay workflows for research, strategy, design, analytics, fundraising, operations, and delivery.",
   "author": {
     "name": "Rose Digital",
     "url": "https://builtbyrose.co"

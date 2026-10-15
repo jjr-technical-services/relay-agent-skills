@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "how-much-to-spend",
+        "query": "How much should we spend on marketing next year to hit a $5M new revenue target, and how should we split it across channels?"
+      },
+      {
+        "id": "budget-cut-plan",
+        "query": "Finance wants to cut our marketing budget by 20% next quarter. What should we cut first and what happens to pipeline?"
+      },
+      {
+        "id": "leads-needed-for-target",
+        "query": "Back-solve how many leads and opportunities we need by quarter from our revenue target and CRM conversion rates."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "one-page-campaign-plan",
+        "query": "Write a one-page campaign plan for our spring product launch with goals, audience, message, and channels."
+      },
+      {
+        "id": "company-operating-budget",
+        "query": "Build the full company operating budget for next year including engineering, G&A, and sales headcount."
+      },
+      {
+        "id": "prove-channel-incrementality",
+        "query": "Design a holdout test to prove whether our paid social ads cause incremental sales."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "reallocate-on-marginal-cac",
+        "query": "Our paid search CAC looks cheapest on average. Should we move more budget there, and how do we phase spend by quarter with a test reserve?"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "target-to-budget-with-cut",
+      "task": "Hypothetical inputs: new revenue target $1,200,000; average deal $20,000; opportunity-to-win rate 25%; lead-to-opportunity rate 10%; cost per lead $100; fixed marketing costs (people and tools) $360,000; 90-day sales cycle. Build the marketing budget, show the back-solve, and show what a 20% cut to the total does to programs and pipeline. The CEO also asks whether marketing should simply be a fixed percentage of revenue.",
+      "baselineFailure": "The baseline quotes a typical percent-of-revenue benchmark as fact, spreads the budget evenly by quarter, and applies a 20% cut proportionally to every line including fixed costs.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "shows-deals",
+          "kind": "text_contains",
+          "value": "60 deals"
+        },
+        {
+          "id": "shows-leads",
+          "kind": "text_contains",
+          "value": "2,400"
+        },
+        {
+          "id": "separates-fixed",
+          "kind": "text_contains",
+          "value": "fixed"
+        },
+        {
+          "id": "percent-heuristic-labeled",
+          "kind": "text_contains",
+          "value": "heuristic"
+        },
+        {
+          "id": "scenarios-section",
+          "kind": "text_contains",
+          "value": "Scenarios"
+        },
+        {
+          "id": "no-benchmark-claim",
+          "kind": "text_not_contains",
+          "value": "industry average"
+        }
+      ]
+    },
+    {
+      "id": "average-vs-marginal-allocation",
+      "task": "Hypothetical spend history. Channel A: $10,000 bought 50 customers, $20,000 bought 80, $30,000 bought 95. Channel B: $10,000 bought 30, $20,000 bought 55, $30,000 bought 75. The team plans to put $30,000 in A and $10,000 in B because A has the lower average CAC. Recommend how to allocate $40,000 and explain why.",
+      "baselineFailure": "The baseline agrees with allocating by average CAC and does not compute the cost of the next customer in each channel.",
+      "runs": 1,
+      "assertions": [
+        {
+          "id": "uses-marginal-cac",
+          "kind": "text_contains",
+          "value": "marginal"
+        },
+        {
+          "id": "finds-135",
+          "kind": "text_contains",
+          "value": "135"
+        },
+        {
+          "id": "compares-125",
+          "kind": "text_contains",
+          "value": "125"
+        },
+        {
+          "id": "names-diminishing-returns",
+          "kind": "text_contains",
+          "value": "diminishing returns"
+        }
+      ]
+    }
+  ]
+}

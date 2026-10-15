@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "shared-symbol-impact",
+        "query": "What could break if I change this shared authorization helper?"
+      },
+      {
+        "id": "local-diff-impact",
+        "query": "Map the blast radius of my current changes before I commit them."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "simple-known-edit",
+        "query": "Change the label in this isolated button component."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "negative-dependency-proof",
+        "query": "Prove whether this module has any production dependents before we remove it."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "revision-bound-impact-report",
+      "task": "Assess a proposed change to a shared repository symbol. Bind the GitNexus graph to the repository and revision, inspect upstream impact, verify important relationships against exact source, and return risk, coverage gaps, uncertainty, and a validation plan.",
+      "baselineFailure": "The baseline may list text matches without graph freshness, exact-source verification, test effects, or residual uncertainty.",
+      "runs": 1,
+      "assertions": [
+        { "id": "revision", "kind": "text_contains", "value": "revision" },
+        { "id": "freshness", "kind": "text_contains", "value": "freshness" },
+        { "id": "source", "kind": "text_contains", "value": "exact source" },
+        { "id": "coverage", "kind": "text_contains", "value": "coverage" },
+        { "id": "uncertainty", "kind": "text_contains", "value": "uncertainty" },
+        { "id": "validation", "kind": "text_contains", "value": "validation plan" }
+      ]
+    },
+    {
+      "id": "empty-result-is-not-proof",
+      "task": "Investigate whether a module has no dependents. Treat an empty graph result as inconclusive, check exact imports and runtime wiring, and identify graph limitations before reaching a conclusion.",
+      "baselineFailure": "The baseline may equate an empty static result with proof that removal is safe.",
+      "runs": 1,
+      "assertions": [
+        { "id": "negative-check", "kind": "text_contains", "value": "exact source" },
+        { "id": "runtime", "kind": "text_contains", "value": "runtime" },
+        { "id": "limitations", "kind": "text_contains", "value": "limitations" }
+      ]
+    }
+  ]
+}

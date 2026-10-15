@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "relay.skill_eval_suite.v1",
+  "triggers": {
+    "positive": [
+      {
+        "id": "foundation-grant-budget-and-narrative",
+        "query": "Build the grant budget and budget justification for our foundation proposal, including staff effort, fringe, and indirect."
+      },
+      {
+        "id": "indirect-rate-vs-funder-cap",
+        "query": "Can we charge the federal de minimis indirect rate on this grant, and does it break the funder's overhead cap?"
+      },
+      {
+        "id": "allocate-shared-costs-across-grants",
+        "query": "Help me allocate our rent and a shared program manager across three grants with a basis the funders will accept."
+      }
+    ],
+    "nearMiss": [
+      {
+        "id": "organization-annual-budget",
+        "query": "Build next fiscal year's operating budget for the whole organization by department, with a headcount plan and runway."
+      },
+      {
+        "id": "general-variance-commentary",
+        "query": "Explain why our overall operating expenses ran 8% over budget last quarter for the board finance committee."
+      },
+      {
+        "id": "proposal-narrative-only",
+        "query": "Write the need statement and program design sections of our grant proposal from these guidelines."
+      }
+    ],
+    "holdout": [
+      {
+        "id": "multi-year-budget-with-match",
+        "query": "We need a three-year grant budget with a one-to-one match requirement, part cash and part in-kind donated space. Lay it out and justify each line."
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "stipends-rent-and-cap-trap",
+      "task": "A hypothetical youth program is applying to a private foundation. The guidelines say, in the budget section: 'Administrative costs may not exceed 5 percent of the total grant request.' The organization has no negotiated rate and the finance lead wants to add 15 percent overhead on all direct costs, which she says is the federal rule. Proposed direct lines: program coordinator 60,000 salary at 50 percent effort for 12 months; fringe at 20 percent; workshop materials 4,000; youth advisory board stipends 12 members at 500 each; a share of office rent, where annual rent is 48,000 for 2,000 square feet and the program uses 500 square feet; and a laptop cart costing 12,000. Build the budget, calculate overhead correctly, and write the justification for the reviewer.",
+      "baselineFailure": "The baseline applies 15 percent to every direct cost including stipends, rent and the laptop cart, treats the 5 percent limit as 5 percent of direct costs rather than of the total request, does not show the allocation basis for rent, and never states that the request is over the funder's limit or how to fix it.",
+      "runs": 1,
+      "assertions": [
+        { "id": "indirect-check-heading", "kind": "text_contains", "value": "Indirect cost check" },
+        { "id": "cap-result-label", "kind": "text_contains", "value": "Exceeds cap" },
+        { "id": "allocation-basis-heading", "kind": "text_contains", "value": "Allocation basis" },
+        { "id": "names-participant-support", "kind": "text_contains", "value": "participant support" },
+        { "id": "uses-modified-base", "kind": "text_contains", "value": "MTDC" },
+        { "id": "no-invented-benchmark", "kind": "text_not_contains", "value": "industry average" }
+      ]
+    }
+  ]
+}

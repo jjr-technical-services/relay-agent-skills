@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Plan Donor Stewardship"
+  short_description: "Relay: Segment, steward and retain donors from giving data"
+  default_prompt: "Use $plan-donor-stewardship to score our donors by RFM, compute retention and upgrade rates from our gift history, and build the stewardship calendar, acknowledgment standard and gift exceptions register."

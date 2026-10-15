@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Write Funder Report"
+  short_description: "Relay: Candid grant reports against every requirement"
+  default_prompt: "Use $write-funder-report to extract every reporting requirement from this grant agreement and draft the report with outcomes vs targets, budget variances, and a stewardship follow-up."

@@ -1,0 +1,3 @@
+# render_frame.py always needs Pillow. validate_pack.py needs it only for
+# non-PNG images; it reads PNG dimensions natively.
+Pillow>=10

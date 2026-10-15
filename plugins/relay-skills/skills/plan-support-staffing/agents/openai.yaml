@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay: Plan Support Staffing"
+  short_description: "Relay: Size support teams with Erlang C and workload"
+  default_prompt: "Use $plan-support-staffing to forecast our contact volume, size phone, chat and ticket queues against our service-level targets, and turn the result into FTE and hires."

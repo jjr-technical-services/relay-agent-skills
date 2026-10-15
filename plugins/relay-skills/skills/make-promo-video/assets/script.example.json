@@ -1,0 +1,17 @@
+{
+  "schema": "relay.promo_script.v1",
+  "product": "Northwind",
+  "type": "explainer",
+  "targetSeconds": 30,
+  "audience": "Replace with the one primary audience",
+  "message": "Replace with the one message the video must leave behind",
+  "claims": [
+    { "id": "C1", "text": "What the product does, in its own words", "evidence": { "url": "https://example.com/", "quote": "Exact words copied from the page", "label": "Observed", "observedAt": "2026-09-25" } }
+  ],
+  "lines": [
+    { "id": "L1", "vo": "A short hook that names the problem.", "claimIds": [] },
+    { "id": "L2", "vo": "What the product does, backed by claim C1.", "claimIds": ["C1"] },
+    { "id": "L3", "vo": "Try it free at example dot com.", "caption": "Try it free at example.com", "claimIds": [] }
+  ],
+  "cta": { "text": "Start free", "url": "https://example.com/" }
+}
