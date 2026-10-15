@@ -4,7 +4,7 @@
       "type": "http",
       "url": "https://relay.builtbyrose.co/mcp",
       "oauth": {
-        "scopes": "relay.skills.read relay.skills.route relay.skills.activate"
+        "scopes": "offline_access relay.skills.read relay.skills.route relay.skills.activate"
       }
     }
   }

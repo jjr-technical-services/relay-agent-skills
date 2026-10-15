@@ -75,3 +75,16 @@ test('installer refuses replacement unless force is explicit', async (t) => {
   assert.match(duplicate.stderr, /already exists/);
   assert.equal(run(['install', 'ab-test-setup', '--scope', 'project', '--host', 'codex', '--project-dir', project, '--force']).status, 0);
 });
+
+
+test('explicit OAuth setup requests refresh-token access on both hosts', async () => {
+  const codex = run(['mcp', '--host', 'codex']);
+  assert.equal(codex.status, 0, codex.stderr);
+  assert.match(codex.stdout, /scopes = \["offline_access",/);
+  const claude = run(['mcp', '--host', 'claude']);
+  assert.equal(claude.status, 0, claude.stderr);
+  const scopes = JSON.parse(claude.stdout).mcpServers['relay-skills'].oauth.scopes.split(' ');
+  assert.deepEqual(scopes, ['offline_access', 'relay.skills.read', 'relay.skills.route', 'relay.skills.activate']);
+  const manifest = JSON.parse(await readFile(path.join(root, 'plugins/relay-skills/.claude-mcp.json'), 'utf8'));
+  assert.deepEqual(Object.values(manifest.mcpServers)[0].oauth.scopes.split(' '), scopes);
+});

@@ -6,7 +6,7 @@ import process from 'node:process';
 import { PUBLIC_SKILL_SLUGS, sha256, validateProductionLock } from '../lib/package-verification.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const scopes = ['relay.skills.read', 'relay.skills.route', 'relay.skills.activate'];
+const scopes = ['offline_access', 'relay.skills.read', 'relay.skills.route', 'relay.skills.activate'];
 
 async function json(relativePath) {
   return JSON.parse(await readFile(path.join(root, relativePath), 'utf8'));
@@ -36,6 +36,8 @@ async function main() {
   assert(JSON.stringify(catalog.skills.map((skill) => skill.name)) === JSON.stringify(PUBLIC_SKILL_SLUGS), 'Catalog must contain exactly the four public skills in lock order.');
   assert(catalog.skills.every((skill) => skill.plugin === 'relay-skills'), 'Every v0.2.x catalog skill must belong to relay-skills.');
 
+  assert(claudeManifest.privacyPolicyUrl === 'https://relay.builtbyrose.co/privacy', 'Claude directory privacy policy URL is required.');
+  assert(codexManifest.interface?.supportURL === 'https://relay.builtbyrose.co/support', 'OpenAI directory support URL is required.');
   assert(claudeManifest.icon === './assets/relay-icon.png', 'Claude directory icon must use the approved Relay image.');
   await access(path.join(root, 'plugins/relay-skills', claudeManifest.icon));
 
