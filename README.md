@@ -76,8 +76,10 @@ Codex `config.toml`:
 url = "https://relay.builtbyrose.co/mcp"
 auth = "oauth"
 oauth_resource = "https://relay.builtbyrose.co/mcp"
-scopes = ["relay.skills.read", "relay.skills.route", "relay.skills.activate"]
+scopes = ["offline_access", "relay.skills.read", "relay.skills.route", "relay.skills.activate"]
 ```
+
+Explicit OAuth scope lists must include `offline_access` so Relay can issue a refresh token. Existing grants without it need one fresh authorization after updating the configuration.
 
 Claude's plugin uses HTTP transport with `oauth.scopes` encoded as the required single space-separated scope string in `plugins/relay-skills/.claude-mcp.json`.
 

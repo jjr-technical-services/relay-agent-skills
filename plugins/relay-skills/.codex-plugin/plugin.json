@@ -9,7 +9,15 @@
   "homepage": "https://relay.builtbyrose.co",
   "repository": "https://github.com/jjr-technical-services/relay-agent-skills",
   "license": "MIT",
-  "keywords": ["relay", "agent-skills", "mcp", "governance", "product", "experimentation", "negotiation"],
+  "keywords": [
+    "relay",
+    "agent-skills",
+    "mcp",
+    "governance",
+    "product",
+    "experimentation",
+    "negotiation"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "apps": "./.app.json",
@@ -19,7 +27,12 @@
     "longDescription": "Use four bundled, version-locked Relay workflows natively and connect through OAuth to match, activate, and read authorized governed skills.",
     "developerName": "Rose Digital",
     "category": "Developer Tools",
-    "capabilities": ["Route governed skills", "Build KPI trees", "Design A/B tests", "Plan negotiations"],
+    "capabilities": [
+      "Route governed skills",
+      "Build KPI trees",
+      "Design A/B tests",
+      "Plan negotiations"
+    ],
     "websiteURL": "https://relay.builtbyrose.co",
     "privacyPolicyURL": "https://relay.builtbyrose.co/privacy",
     "termsOfServiceURL": "https://relay.builtbyrose.co/terms",
@@ -31,6 +44,7 @@
     "brandColor": "#020617",
     "composerIcon": "./assets/relay-mark.svg",
     "logo": "./assets/relay-mark.svg",
-    "logoDark": "./assets/relay-mark-white.svg"
+    "logoDark": "./assets/relay-mark-white.svg",
+    "supportURL": "https://relay.builtbyrose.co/support"
   }
 }

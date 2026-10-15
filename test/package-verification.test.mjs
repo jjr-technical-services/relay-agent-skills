@@ -62,6 +62,25 @@ function storedZip(name, content, { symlinkEntry = false } = {}) {
   return Buffer.concat([localRecord, centralRecord, end]);
 }
 
+function storedZipFiles(files) {
+  const locals = [], centrals = [];
+  let offset = 0;
+  for (const [name, content] of files) {
+    const single = storedZip(name, content);
+    const end = single.subarray(single.length - 22);
+    const centralOffset = end.readUInt32LE(16);
+    const local = single.subarray(0, centralOffset);
+    const central = Buffer.from(single.subarray(centralOffset, single.length - 22));
+    central.writeUInt32LE(offset, 42);
+    locals.push(local); centrals.push(central); offset += local.length;
+  }
+  const central = Buffer.concat(centrals), end = Buffer.alloc(22);
+  end.writeUInt32LE(0x06054b50, 0);
+  end.writeUInt16LE(files.size, 8); end.writeUInt16LE(files.size, 10);
+  end.writeUInt32LE(central.length, 12); end.writeUInt32LE(offset, 16);
+  return Buffer.concat([...locals, central, end]);
+}
+
 function productionLockEntry(overrides = {}) {
   return {
     assetId: 'asset_1',
@@ -143,13 +162,24 @@ test('production lock requires exact Relay provenance, qualification, license, a
 });
 
 test('live verification checks exact packages, OAuth metadata, OIDC rejection, and the MCP challenge', async () => {
-  const packageBytes = new Map(PUBLIC_SKILL_SLUGS.map((slug) => [slug, Buffer.from(`package:${slug}`)]));
+  const packageFiles = new Map(PUBLIC_SKILL_SLUGS.map((slug) => [slug, new Map([
+    [`${slug}/manifest.json`, Buffer.from(JSON.stringify({
+      slug, version: { id: `version_${slug}` },
+      source: { repo: 'rose-digital/relay', commit: productionLockEntry().sourceCommit }, license: 'MIT',
+    }))],
+    [`${slug}/SKILL.md`, Buffer.from(`Instructions for ${slug}`)],
+    [`${slug}/LICENSE`, Buffer.from('MIT license fixture')],
+  ])]));
+  const packageBytes = new Map([...packageFiles].map(([slug, files]) => [slug, storedZipFiles(files)]));
   const skills = Object.fromEntries(PUBLIC_SKILL_SLUGS.map((slug) => [slug, productionLockEntry({
     assetId: `asset_${slug}`,
     assetVersionId: `version_${slug}`,
     packageUrl: `https://relay.builtbyrose.co/packages/${slug}.zip`,
     packageDigest: `sha256:${sha256(packageBytes.get(slug))}`,
     qualificationId: `qualification_${slug}`,
+    files: [...packageFiles.get(slug)].map(([name, bytes]) => ({
+      path: name.slice(slug.length + 1), sha256: sha256(bytes), byteSize: bytes.length,
+    })),
   })]));
   const lock = {
     schemaVersion: 'relay.agent-skills.lock.v1',
@@ -206,6 +236,20 @@ test('live verification checks exact packages, OAuth metadata, OIDC rejection, a
   };
 
   assert.equal(await verifyLiveLock(lock, fetchImpl), true);
+  // Editing the mutable asset must not invalidate its unchanged frozen version.
+  discovery.skills[0].metadata.sourceCommit = 'f'.repeat(40);
+  discovery.skills[0].metadata.sourceRepo = 'updated/asset';
+  discovery.skills[0].metadata.license = 'Changed asset license';
+  assert.equal(await verifyLiveLock(lock, fetchImpl), true);
+  const wrongProvenance = structuredClone(lock);
+  wrongProvenance.skills['kpi-tree'].sourceCommit = 'e'.repeat(40);
+  await assert.rejects(verifyLiveLock(wrongProvenance, fetchImpl), /manifest provenance differs/);
+  const wrongFile = structuredClone(lock);
+  wrongFile.skills['kpi-tree'].files[0].sha256 = 'e'.repeat(64);
+  await assert.rejects(verifyLiveLock(wrongFile, fetchImpl), /live package manifest.json differs/);
+  const wrongVersion = structuredClone(lock);
+  wrongVersion.skills['kpi-tree'].assetVersionId = 'another_version';
+  await assert.rejects(verifyLiveLock(wrongVersion, fetchImpl), /live assetVersionId differs/);
 
   const driftedFetch = async (url) => {
     const value = String(url);

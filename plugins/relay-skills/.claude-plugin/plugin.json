@@ -3,12 +3,26 @@
   "displayName": "Relay Skills",
   "version": "0.2.1",
   "description": "Four native Relay workflows plus OAuth-protected governed catalog access.",
-  "author": { "name": "Rose Digital", "url": "https://builtbyrose.co" },
+  "author": {
+    "name": "Rose Digital",
+    "url": "https://builtbyrose.co"
+  },
   "homepage": "https://relay.builtbyrose.co",
   "repository": "https://github.com/jjr-technical-services/relay-agent-skills",
   "license": "MIT",
-  "keywords": ["relay", "agent-skills", "mcp", "product", "experimentation", "negotiation"],
+  "keywords": [
+    "relay",
+    "agent-skills",
+    "mcp",
+    "product",
+    "experimentation",
+    "negotiation"
+  ],
   "icon": "./assets/relay-icon.png",
   "skills": "./skills/",
-  "mcpServers": "./.claude-mcp.json"
+  "mcpServers": "./.claude-mcp.json",
+  "privacyPolicyUrl": "https://relay.builtbyrose.co/privacy",
+  "documentationUrl": "https://relay.builtbyrose.co",
+  "supportUrl": "https://relay.builtbyrose.co/support",
+  "termsOfServiceUrl": "https://relay.builtbyrose.co/terms"
 }
