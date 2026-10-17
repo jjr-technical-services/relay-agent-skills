@@ -5,14 +5,14 @@
     "url": "https://builtbyrose.co"
   },
   "description": "63 practical Relay workflows for research, strategy, design, analytics, fundraising, operations, and delivery.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "plugins": [
     {
       "name": "relay-skills",
       "displayName": "Relay Skills",
       "source": "./plugins/relay-skills",
       "description": "63 native workflows for research, strategy, design, marketing, fundraising, operations, and delivery, with an optional Relay connection.",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "author": {
         "name": "Rose Digital",
         "url": "https://builtbyrose.co"

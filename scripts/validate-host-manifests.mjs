@@ -6,7 +6,7 @@ import process from 'node:process';
 import { PUBLIC_SKILL_SLUGS, sha256, validateProductionLock } from '../lib/package-verification.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const scopes = ['offline_access', 'relay.skills.read', 'relay.skills.route', 'relay.skills.activate'];
+const scopes = ['offline_access', 'relay.skills.read', 'relay.skills.route', 'relay.skills.activate', 'relay.assets.read', 'relay.assets.write', 'relay.assets.publish', 'relay.agents.write', 'relay.runs.create', 'relay.runs.read', 'relay.runs.respond', 'relay.work_orders.create', 'relay.work_orders.read', 'relay.commissions.create', 'relay.commissions.read', 'relay.rooms.read', 'relay.rooms.write'];
 
 async function json(relativePath) {
   return JSON.parse(await readFile(path.join(root, relativePath), 'utf8'));

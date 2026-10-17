@@ -160,8 +160,8 @@ async function main() {
   }
   if (command === 'mcp') {
     const host = options.host || 'codex';
-    if (host === 'codex') return print('[mcp_servers.relay-skills]\nurl = "https://relay.builtbyrose.co/mcp"\nauth = "oauth"\noauth_resource = "https://relay.builtbyrose.co/mcp"\nscopes = ["offline_access", "relay.skills.read", "relay.skills.route", "relay.skills.activate"]', false);
-    if (host === 'claude') return print(JSON.stringify({ mcpServers: { 'relay-skills': { type: 'http', url: 'https://relay.builtbyrose.co/mcp', oauth: { scopes: 'offline_access relay.skills.read relay.skills.route relay.skills.activate' } } } }, null, 2), false);
+    if (host === 'codex') return print('[mcp_servers.relay-skills]\nurl = "https://relay.builtbyrose.co/mcp"\nauth = "oauth"\noauth_resource = "https://relay.builtbyrose.co/mcp"\nscopes = ["offline_access", "relay.skills.read", "relay.skills.route", "relay.skills.activate", "relay.assets.read", "relay.assets.write", "relay.assets.publish", "relay.agents.write", "relay.runs.create", "relay.runs.read", "relay.runs.respond", "relay.work_orders.create", "relay.work_orders.read", "relay.commissions.create", "relay.commissions.read", "relay.rooms.read", "relay.rooms.write"]', false);
+    if (host === 'claude') return print(JSON.stringify({ mcpServers: { 'relay-skills': { type: 'http', url: 'https://relay.builtbyrose.co/mcp', oauth: { scopes: 'offline_access relay.skills.read relay.skills.route relay.skills.activate relay.assets.read relay.assets.write relay.assets.publish relay.agents.write relay.runs.create relay.runs.read relay.runs.respond relay.work_orders.create relay.work_orders.read relay.commissions.create relay.commissions.read relay.rooms.read relay.rooms.write' } } } }, null, 2), false);
     throw new Error('--host must be codex or claude for the mcp command.');
   }
   throw new Error(`Unknown command: ${command}\n\n${usage()}`);
