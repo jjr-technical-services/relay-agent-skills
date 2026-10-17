@@ -50,4 +50,4 @@ jobs:
         run: claude plugin validate . --strict && npm run test:hosts
 
       - name: Publish with provenance
-        run: npm publish --access public --provenance
+        run: npm stage publish --access public --provenance
