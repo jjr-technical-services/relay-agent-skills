@@ -1,6 +1,6 @@
 {
   "schemaVersion": "relay.native-skills.lock.v1",
-  "pluginVersion": "0.3.1",
+  "pluginVersion": "0.3.2",
   "distributionStatus": "native_source_bundle",
   "skills": {
     "relay-skill-router": {

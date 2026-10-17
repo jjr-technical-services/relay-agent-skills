@@ -1,5 +1,7 @@
 # Release verification
 
+v0.3.2 has the same content as v0.3.1. v0.3.1 never reached npm; v0.3.2 is the first release published through staged npm publishing.
+
 The v0.3.1 authentication repair requests refresh access and the permissions used by Relay MCP tools consistently in both host manifests and CLI setup output. Existing connections may require one consent step to grant added permissions; package verification alone does not prove automatic refresh or authentication after a host restart.
 
 The v0.3.0 candidate expands Relay Skills from four native canaries to 63 practical workflows, including a first-use guide. It preserves the original remote version lock and the frozen v0.1.0 compatibility plugins.
